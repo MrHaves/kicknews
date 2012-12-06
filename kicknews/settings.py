@@ -1,4 +1,4 @@
-# Django settings for opennews project.
+# Django settings for kicknews project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -23,12 +23,15 @@ DATABASES = {
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
-# In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+# On Unix systems, a value of None will cause Django to use the same
+# timezone as the operating system.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'Europe/Paris'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'Fr-fr'
 
 SITE_ID = 1
 
@@ -78,7 +81,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '_yt60f2(bj#_+w7ipzsdm09zsjpwr%!6l2k^di^@dwi25dk5bt'
+SECRET_KEY = '%bd=b3l)gtjkko#)zwk=6v3$1^^^59&amp;=--s-lv@bu&amp;1z48^)7y'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -97,10 +100,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'opennews.urls'
+ROOT_URLCONF = 'kicknews.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'opennews.wsgi.application'
+WSGI_APPLICATION = 'kicknews.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -116,7 +119,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
+    'opennews',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
