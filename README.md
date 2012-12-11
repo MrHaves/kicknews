@@ -1,6 +1,6 @@
 open-news
 =========
-
+zertyuiop
 Project Name : Kick News  
 Main Application Name : Open News
 
