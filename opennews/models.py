@@ -39,5 +39,3 @@ class Media(models.Model):
 class Category(models.Model):
 	name = models.CharField(max_length=255);
 	memberId = models.ForeignKey(Member);
-
-
