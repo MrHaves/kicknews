@@ -19,28 +19,28 @@ class Member(db.Model):
 
 class Category(db.Model):
 	name = db.StringProperty()
-	memberId = db.ForeignKey(Member)
+	memberId = db.IntegerProperty()
 
 class Article(db.Model):
 	title = db.StringProperty()
-	text = db.Text
-	date = db.DateTimeField(auto_now_add=True)
-	published = bbool
+	text = db.TextProperty()
+	date = db.DateTimeProperty()
+	published = bool
 	validate = bool
-	quality = db.IntegerField()
+	quality = db.IntegerProperty()
 	tags = db.StringProperty()
-	memberId = db.ForeignKey(Member)
-	category = db.ForeignKey(Category)
+	memberId = db.IntegerProperty(Member)
+	category = db.IntegerProperty(Category)
 
 
 class Comment(db.Model):
-	text = db.CharField(max_length=255)
-	articleId = db.ForeignKey(Article)
-	memberId = db.ForeignKey(Member)
+	text = db.StringProperty()
+	articleId = db.IntegerProperty()
+	memberId = db.IntegerProperty()
 
 class Media(db.Model):
-	title = db.CharField(max_length=255)
-	url = db.URLField()
-	commentId = db.ForeignKey(Comment)
-	memberId = db.ForeignKey(Member)
+	title = db.StringProperty()
+	url = db.LinkProperty()
+	commentId = db.IntegerProperty()
+	memberId = db.IntegerProperty()
 	
