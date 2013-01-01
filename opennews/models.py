@@ -1,29 +1,40 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 # Create your models here.
 
 class Member(models.Model):
-	nickname = models.CharField(max_length=255);
-	email = models.EmailField(max_length=50);
-	password = models.CharField(max_length=30);
-	twitter = models.CharField(max_length=100);
-	facebook = models.CharField(max_length=255);
-	gplus = models.CharField(max_length=255);
-	preferedCategoryIDs = models.CharField(max_length=255);
-	autoShare = models.BooleanField();
-	geoloc = models.BooleanField();
-	pays = models.CharField(max_length=3);
-	ville = models.CharField(max_length=255);
+	user = models.OneToOneField(User)
+	twitter = models.CharField(max_length=100, blank=True)
+	facebook = models.CharField(max_length=255, blank=True)
+	gplus = models.CharField(max_length=255, blank=True)
+	preferedCategoryIDs = models.ManyToManyField("Category", null=True)
+	autoShare = models.BooleanField(default=False)
+	geoloc = models.BooleanField(default=False)
+	pays = models.CharField(max_length=3, blank=True)
+	ville = models.CharField(max_length=255, blank=True)
 
 	def __unicode__(self):
-		return self.nickname
+		return self.user.username
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Member.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
 
 class Category(models.Model):
 	name = models.CharField(max_length=255);
-	memberId = models.ForeignKey(Member);
-
+	memberId = models.ForeignKey(Member, blank=True, null=True, on_delete=models.SET_NULL);
 	def __unicode__(self):
 		return self.name
+
+class Tag(models.Model):
+	tag = models.CharField(max_length=30)
+
+	def __unicode__(self):
+		return self.tag
 
 class Article(models.Model):
 	title = models.CharField(max_length=255);
@@ -31,8 +42,8 @@ class Article(models.Model):
 	date = models.DateTimeField(auto_now_add=True);
 	published = models.BooleanField();
 	validate = models.BooleanField();
-	quality = models.IntegerField();
-	tags = models.CharField(max_length=255);
+	quality = models.IntegerField(null=True, blank=True);
+	tags = models.ManyToManyField("Tag", null=True, blank=True)
 	memberId = models.ForeignKey(Member);
 	category = models.ForeignKey(Category);
 

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{{pass}}
+	<form action="register" method="POST">
+		{{form.as_p}}
+		<p>
+			<input type="submit" value="Créer un compte">
+		</p>
+	</form>
+{% endblock content %} 
