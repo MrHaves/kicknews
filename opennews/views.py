@@ -26,3 +26,11 @@ def register(request):
 def lireArticle(request, IDarticle):
 	articles = Article.objects.filter(id=IDarticle)
 	return render_to_response("article.html", {'articles': articles})
+
+def listerArticle(request, categorie):
+	if categorie == "all":
+		articles = Article.objects.all()
+	else:
+		articles = Article.objects.filter(category=Category.objects.filter(name=categorie.lower()))
+
+	return render_to_response("liste.html", {'articles': articles})
