@@ -5,6 +5,7 @@ ROOT_PATH = os.path.dirname(__file__)
 # Django settings for kicknews project.
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+TASTYPIE_FULL_DEBUG = True
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -120,6 +121,7 @@ INSTALLED_APPS = (
 #    'django.contrib.sites',
     'django.contrib.admin',
     'opennews',
+    'tastypie',
 )
 
 # A sample logging configuration. The only tangible logging

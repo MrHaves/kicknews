@@ -1,7 +1,21 @@
 # -*- coding: utf-8 -*-
+from tastypie.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.template.defaultfilters import slugify
 # Create your models here.
+
+class Entry(models.Model):
+    def __unicode__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        # For automatic slug generation.
+        if not self.slug:
+            self.slug = slugify(self.title)[:50]
+
+        return super(Entry, self).save(*args, **kwargs)
 
 class Member(models.Model):
 	twitter = models.CharField(max_length=100, blank=True)
@@ -42,8 +56,6 @@ class Article(models.Model):
 
 	def __unicode__(self):
 		return self.title
-
-
 
 class Comment(models.Model):
 	text = models.CharField(max_length=255);
