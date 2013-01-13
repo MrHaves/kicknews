@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 
-from .views import home, register, lireArticle, listerArticle
+from .views import home, register, lireArticle, listerArticle, preferences
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', home),
    	url(r'^register$', register),
+    url(r'^preferences$', preferences),
    	url(r'^article/(\d{1})$', lireArticle),
    	url(r'^articles/(\w+)$', listerArticle),
    	url(r'^articles/$', listerArticle, {'categorie':"all"}),

@@ -1,27 +1,64 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
+# from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
-from forms import UserCreateForm
+from forms import UserCreateForm, UserPreferencesForm
+from django.contrib.auth import authenticate, login
 from opennews.models import *
 import datetime
 
 def home(request):
 	foo = datetime.datetime.now()
+	user = User.objects.all()
 	return render(request, "index.html", locals())
+
 
 def register(request):
 	if len(request.POST) > 0:
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')
+			user = form.save()
+			pwd = form.cleaned_data['password1']
+			s_user = authenticate(username=user.username, password=pwd)
+			if s_user is not None:
+				login(request, s_user)
+				return HttpResponseRedirect('preferences')
+			else:
+				return render_to_response("register.html", {'form': form})
 		else:
 			return render_to_response("register.html", {'form': form})
 	else:
 		form = UserCreateForm()
 		return render_to_response("register.html", {'form': form})
+
+
+
+@login_required
+def preferences(request):
+	if len(request.POST) > 0:
+		form = UserPreferencesForm(request.POST)
+		if form.is_valid():
+			form.save(request.user)
+			return HttpResponseRedirect('/')
+		else:
+			return render_to_response("preferences.html", {'form': form})
+	else:
+		try:
+			member = request.user.member
+		except Member.DoesNotExist:
+			member = None
+		
+		if member is not None:
+			form = UserPreferencesForm(instance=request.user.member)
+			return render_to_response("preferences.html", {'form': form})
+		else:
+			form = UserPreferencesForm()
+			return render_to_response("preferences.html", {'form': form})	
+
+
 
 def lireArticle(request, IDarticle):
 	articles = Article.objects.filter(id=IDarticle)

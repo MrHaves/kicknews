@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
-
+from opennews.models import Member
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -19,3 +20,26 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class UserPreferencesForm(ModelForm):
+    class Meta:
+        model = Member
+        exclude = ('user',)
+
+    def save(self, m_user, commit=True):
+        if m_user.member is not None:
+            member = m_user.member
+            member.twitter = self.cleaned_data['twitter']
+            member.facebook = self.cleaned_data['facebook']
+            member.gplus = self.cleaned_data['gplus']
+            member.geoloc = self.cleaned_data['geoloc']
+            member.pays = self.cleaned_data['pays']
+            member.ville = self.cleaned_data['ville']
+            member.autoShare = self.cleaned_data['autoShare']
+            member.preferedCategoryIDs = self.cleaned_data['preferedCategoryIDs']
+        else:            
+            member = super(UserPreferencesForm, self).save(commit=False)
+        if commit:
+            member.user = m_user
+            member.save()
+        return member

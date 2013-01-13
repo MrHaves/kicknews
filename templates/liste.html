@@ -2,7 +2,7 @@
 
 {% block content %}
 	{% for article in articles %}
-		<p>{{article.title}}</p>
+		<p><a href="/article/{{article.id}}">{{article.title}}</a></p>
 		{% empty %}
 			<p>Désolé, il n'y a pas d'articles</p>
 	{% endfor %}

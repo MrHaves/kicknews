@@ -9,6 +9,7 @@ admin.site.register(Article)
 admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Media)
+admin.site.register(Member)
 
 class MemberInline(admin.StackedInline):
     model = Member
