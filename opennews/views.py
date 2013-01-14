@@ -91,9 +91,10 @@ def lireArticle(request, IDarticle):
 	return render_to_response("article.html", {'articles': articles})
 
 def listerArticle(request, categorie):
+	categories = Category.objects.all()
 	if categorie == "all":
 		articles = Article.objects.all()
 	else:
-		articles = Article.objects.filter(category=Category.objects.filter(name=categorie.lower()))
+		articles = Article.objects.filter(category=Category.objects.filter(name=categorie))
 
-	return render_to_response("liste.html", {'articles': articles})
+	return render_to_response("liste.html", {'articles': articles, 'categories': categories})

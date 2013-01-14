@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br>
+	<a href="/articles/">All</a>
+	{% for cat in categories %}
+		| <a href="/articles/{{cat.name}}">{{cat.name}}</a>
+	{% endfor %}
+
+
 	{% for article in articles %}
 		<p><a href="/article/{{article.id}}">{{article.title}}</a></p>
 		{% empty %}
