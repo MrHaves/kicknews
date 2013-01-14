@@ -121,7 +121,6 @@ INSTALLED_APPS = (
 #    'django.contrib.sites',
     'django.contrib.admin',
     'opennews',
-    'tastypie',
 )
 
 # A sample logging configuration. The only tangible logging
