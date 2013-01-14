@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<form action="login" method="POST">
+{{get}}
+	{% if next != None %}
+		<form action="/login/?next={{next}}" method="POST">
+	{% else %}
+		<form action="/login/" method="POST">
+	{% endif %}
 		{{form.as_p}}
 		<p>
 			<input type="submit" value="Login">

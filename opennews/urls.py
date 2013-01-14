@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 from opennews.api import EntryResource
 
-from .views import home, register, lireArticle, listerArticle, preferences, loginUser
+from .views import home, register, lireArticle, listerArticle, preferences, loginUser, logoutUser
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -13,7 +13,9 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', home),
    	url(r'^register$', register),
-    url(r'^login$', loginUser),
+    #?next=/preferences
+    url(r'^login/$', loginUser),
+    url(r'^logout/$', logoutUser),
     url(r'^preferences$', preferences),
    	url(r'^article/(\d{1})$', lireArticle),
    	url(r'^articles/(\w+)$', listerArticle),

@@ -6,31 +6,40 @@ from django.shortcuts import render_to_response,render
 # from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
 from forms import UserCreateForm, UserPreferencesForm, loginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
 
 def home(request):
 	foo = datetime.datetime.now()
-	user = User.objects.all()
+	user = request.user
 	return render(request, "index.html", locals())
 
 
 def loginUser(request):
+	next = request.GET.get('next')
 	if len(request.POST) > 0:
 		form = loginForm(request.POST)
 		if form.is_valid():
 			s_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
 			if s_user is not None:
 				login(request, s_user)
-				return HttpResponseRedirect('/')
+				if next is not None:
+					return HttpResponseRedirect(next)
+				else:
+					return HttpResponseRedirect("/")
 			else:
-				return render_to_response("login.html", {'form': form})
+				return render_to_response("login.html", {'form': form, 'next':next})
 		else:
-			return render_to_response("login.html", {'form': form})
+			return render_to_response("login.html", {'form': form, 'next':next})
 	else:
 		form = loginForm()
-		return render_to_response("login.html", {'form': form})
+		return render_to_response("login.html", {'form': form, 'next':next})
+
+
+def logoutUser(request):
+	logout(request)
+	return HttpResponseRedirect('/')
 
 
 def register(request):
@@ -53,7 +62,7 @@ def register(request):
 
 
 
-@login_required
+@login_required(login_url='/login/')
 def preferences(request):
 	if len(request.POST) > 0:
 		form = UserPreferencesForm(request.POST)
