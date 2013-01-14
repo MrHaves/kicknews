@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
 # from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
-from forms import UserCreateForm, UserPreferencesForm
+from forms import UserCreateForm, UserPreferencesForm, loginForm
 from django.contrib.auth import authenticate, login
 from opennews.models import *
 import datetime
@@ -14,6 +14,23 @@ def home(request):
 	foo = datetime.datetime.now()
 	user = User.objects.all()
 	return render(request, "index.html", locals())
+
+
+def loginUser(request):
+	if len(request.POST) > 0:
+		form = loginForm(request.POST)
+		if form.is_valid():
+			s_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+			if s_user is not None:
+				login(request, s_user)
+				return HttpResponseRedirect('/')
+			else:
+				return render_to_response("login.html", {'form': form})
+		else:
+			return render_to_response("login.html", {'form': form})
+	else:
+		form = loginForm()
+		return render_to_response("login.html", {'form': form})
 
 
 def register(request):

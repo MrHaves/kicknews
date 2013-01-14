@@ -21,7 +21,7 @@ class Member(models.Model):
 	twitter = models.CharField(max_length=100, blank=True)
 	facebook = models.CharField(max_length=255, blank=True)
 	gplus = models.CharField(max_length=255, blank=True)
-	preferedCategoryIDs = models.ManyToManyField("Category", null=True)
+	preferedCategoryIDs = models.ManyToManyField("Category", blank=True)
 	autoShare = models.BooleanField(default=False)
 	geoloc = models.BooleanField(default=False)
 	pays = models.CharField(max_length=3, blank=True)
