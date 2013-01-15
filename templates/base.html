@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html public>
 <!--[if lt IE 7]> <html lang="en-us" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>    <html lang="en-us" class="lt-ie9 lt-ie8"> <![endif]-->
@@ -5,21 +6,38 @@
 <!--[if gt IE 8]><!--> <html lang="en-us"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <title></title>
-
+  <title>OpenNews</title>
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}">
+  <style type="text/css">
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
 </head>
 <body>
-	<a href="/">home</a> |
-	<a href="/articles">articles</a> |
-	<a href="/preferences">preferences</a> |
-	<a href="/logout">logout</a> |
-	<a href="/login">login</a> |
-	<a href="/register">register</a><br>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#">Project name</a>
+				<ul class="nav">
+					<li class="active"><a href="/">home</a></li>
+					<li><a href="/articles">articles</a></li>
+					<li><a href="/preferences">preferences</a></li>
+					<li><a href="/logout">logout</a></li>
+					<li><a href="/login">login</a></li>
+					<li><a href="/register">register</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
 	{% block content %}
 
 	{% endblock content %} 
-
+	</div>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

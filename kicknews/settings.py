@@ -2,6 +2,7 @@
 # Django settings for kicknews project.
 import os
 ROOT_PATH = os.path.dirname(__file__)
+PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 # Django settings for kicknews project.
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -64,20 +65,17 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'assets/'),
+)
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
+# ADMIN_MEDIA_PREFIX = '/static/admin/'
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -119,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
 #    'django.contrib.sites',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'opennews',
 )
