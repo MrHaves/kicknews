@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 
+{% block menu %}
+<li><a href="/">home</a></li>
+<li class="active"><a href="/articles">articles</a></li>
+<li><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li><a href="/register">register</a></li>
+{% endblock menu %}
+
 {% block content %}
 <br>
-	<a href="/articles/">All</a>
+	<ul class="nav nav-tabs">
+	  <li class="active">
+	    <a href="/articles/">All</a>
+	  </li>
+	
 	{% for cat in categories %}
-		| <a href="/articles/{{cat.name}}">{{cat.name}}</a>
+		<li><a href="/articles/{{cat.name}}">{{cat.name}}</a></li>
 	{% endfor %}
-
+	</ul>
 
 	{% for article in articles %}
 		<p><a href="/article/{{article.id}}">{{article.title}}</a></p>

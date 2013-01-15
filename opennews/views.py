@@ -17,6 +17,9 @@ def home(request):
 
 
 def loginUser(request):
+	if request.user.is_authenticated():
+		return HttpResponseRedirect("/")
+
 	next = request.GET.get('next')
 	if len(request.POST) > 0:
 		form = loginForm(request.POST)
@@ -97,4 +100,4 @@ def listerArticle(request, categorie):
 	else:
 		articles = Article.objects.filter(category=Category.objects.filter(name=categorie))
 
-	return render_to_response("liste.html", {'articles': articles, 'categories': categories})
+	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})

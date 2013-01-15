@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
+{% block menu %}
+<li><a href="/">home</a></li>
+<li class="active"><a href="/articles">articles</a></li>
+<li><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li><a href="/register">register</a></li>
+{% endblock menu %}
+
 {% block content %}
 	{% for article in articles %}
-		<p>{{article.title}}</p>
+		<h2>{{article.title}}</h2>
+		<p><a href="/articles/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}}</p>
+		<div class="well">{{article.text}}</div>
 		<p>{{article.memberId}}</p>
-		<p>{{article.category}}</p>
-		<p>{{article.date}}</p>
-		<p>{{article.text}}</p>
 		{% for tag in article.tags.all %}
-			{{tag}}
+			<span class="label label-info">{{tag}}</span>
 		{% endfor %}
 		{% empty %}
 			<p>Désolé, cet article n'existe pas</p>

@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block menu %}
+<li><a href="/">home</a></li>
+<li><a href="/articles">articles</a></li>
+<li><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li class="active"><a href="/register">register</a></li>
+{% endblock menu %}
+
 {% block content %}
 	<form action="register" method="POST">
 		{{form.as_p}}

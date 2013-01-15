@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 
+{% block menu %}
+<li><a href="/">home</a></li>
+<li><a href="/articles">articles</a></li>
+<li class="active"><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li><a href="/register">register</a></li>
+{% endblock menu %}
+
 {% block content %}
 	{{member}}
 	<form action="preferences" method="POST">
 		{{form.as_p}}
 		<p>
-			<input type="submit" value="Save">
+			<input class="btn btn-primary" type="submit" value="Save">
 		</p>
 	</form>
 {% endblock content %} 
