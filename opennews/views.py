@@ -94,10 +94,14 @@ def lireArticle(request, IDarticle):
 	return render_to_response("article.html", {'articles': articles})
 
 def listerArticle(request, categorie):
-	categories = Category.objects.all()
+	categoriesList = Category.objects.all()
+	categories = []
+	for cat in categoriesList:
+		categories.append(cat.name)
 	if categorie == "all":
 		articles = Article.objects.all()
 	else:
 		articles = Article.objects.filter(category=Category.objects.filter(name=categorie))
 
 	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})
+

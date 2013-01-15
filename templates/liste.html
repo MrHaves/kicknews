@@ -12,12 +12,22 @@
 {% block content %}
 <br>
 	<ul class="nav nav-tabs">
-	  <li class="active">
-	    <a href="/articles/">All</a>
-	  </li>
-	
+	 
+	{% if catActive not in categories %}
+		<li class="active">
+	    	<a href="/articles/">All</a>
+	  	</li>
+	{% else %}
+		<li>
+	    	<a href="/articles/">All</a>
+	  	</li>
+	{% endif %}
 	{% for cat in categories %}
-		<li><a href="/articles/{{cat.name}}">{{cat.name}}</a></li>
+		{% if catActive == cat %}
+			<li class="active"><a href="/articles/{{cat}}">{{cat}}</a></li>
+		{% else %}
+			<li><a href="/articles/{{cat}}">{{cat}}</a></li>
+		{% endif %}
 	{% endfor %}
 	</ul>
 
@@ -27,3 +37,7 @@
 			<p>Désolé, il n'y a pas d'articles</p>
 	{% endfor %}
 {% endblock content %} 
+
+{% block script %}
+
+{% endblock script %}
