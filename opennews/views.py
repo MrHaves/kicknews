@@ -11,12 +11,14 @@ from opennews.models import *
 import datetime
 
 def home(request):
+	"""The default view"""
 	foo = datetime.datetime.now()
 	user = request.user
 	return render(request, "index.html", locals())
 
 
 def loginUser(request):
+	"""The view for login user"""
 	if request.user.is_authenticated():
 		return HttpResponseRedirect("/")
 
@@ -41,11 +43,13 @@ def loginUser(request):
 
 
 def logoutUser(request):
+	"""The view for logout user"""
 	logout(request)
 	return HttpResponseRedirect('/')
 
 
 def register(request):
+	"""The views for register new user"""
 	if len(request.POST) > 0:
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
@@ -67,6 +71,7 @@ def register(request):
 
 @login_required(login_url='/login/')
 def preferences(request):
+	"""The view where logged user can modify their property"""
 	if len(request.POST) > 0:
 		form = UserPreferencesForm(request.POST)
 		if form.is_valid():
@@ -90,10 +95,12 @@ def preferences(request):
 
 
 def lireArticle(request, IDarticle):
+	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
 	return render_to_response("article.html", {'articles': articles})
 
 def listerArticle(request, categorie):
+	"""The view for listing the articles, depends on categorie"""
 	categoriesList = Category.objects.all()
 	categories = []
 	for cat in categoriesList:
