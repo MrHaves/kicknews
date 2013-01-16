@@ -5,14 +5,7 @@ from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
 from tastypie.authentication import BasicAuthentication
 from tastypie import fields
 from .models import Category, Article, Member
-import pickle
 
-class UserResource(ModelResource):
-	member = fields.ForeignKey(MemberResource, 'member')
-	class Meta:
-		queryset = User.objects.all()
-		excludes = ['password', 'id', 'is_active', 'is_staff', 'is_superuser']
-		resource_name = 'user'
 
 class MemberResource(ModelResource):
 	class Meta:
@@ -25,6 +18,13 @@ class MemberResource(ModelResource):
 			cats.append(cat.name)
 		bundle.data['preferedCategoryIDs'] = cats
 		return bundle
+
+class UserResource(ModelResource):
+	member = fields.ForeignKey(MemberResource, 'member')
+	class Meta:
+		queryset = User.objects.all()
+		excludes = ['password', 'id', 'is_active', 'is_staff', 'is_superuser']
+		resource_name = 'user'
 
  # class for handling authentication
 class MyAuthentication(BasicAuthentication):

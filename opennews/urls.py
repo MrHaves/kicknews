@@ -12,10 +12,7 @@ v1_api.register(MemberResource())
 v1_api.register(ArticleResource())
 v1_api.register(CategoryResource())
 v1_api.register(UserResource())
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
 
 urlpatterns = patterns('',
