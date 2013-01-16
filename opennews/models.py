@@ -1,35 +1,30 @@
 # -*- coding: utf-8 -*-
 from tastypie.utils.timezone import now
+from django.template.defaultfilters import slugify
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.template.defaultfilters import slugify
 # Create your models here.
 
-class Entry(models.Model):
-    def __unicode__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        # For automatic slug generation.
-        if not self.slug:
-            self.slug = slugify(self.title)[:50]
-
-        return super(Entry, self).save(*args, **kwargs)
-
 class Member(models.Model):
+	user = models.OneToOneField(User)
 	twitter = models.CharField(max_length=100, blank=True)
 	facebook = models.CharField(max_length=255, blank=True)
 	gplus = models.CharField(max_length=255, blank=True)
-	preferedCategoryIDs = models.ManyToManyField("Category", blank=True)
+	preferedCategoryIDs = models.ManyToManyField("Category", null=True)
 	autoShare = models.BooleanField(default=False)
 	geoloc = models.BooleanField(default=False)
 	pays = models.CharField(max_length=3, blank=True)
 	ville = models.CharField(max_length=255, blank=True)
-	user = models.OneToOneField(User)
-	
+
 	def __unicode__(self):
 		return self.user.username
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Member.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
 
 class Category(models.Model):
 	name = models.CharField(max_length=255);
@@ -57,6 +52,14 @@ class Article(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	# def save(self, *args, **kwargs):
+	# 	if not self.slug:
+	# 		self.slug = slugify(self.title)
+
+	# 		return super(Article, self).save(*args, **kwargs)
+
+
+
 class Comment(models.Model):
 	text = models.CharField(max_length=255);
 	articleId = models.ForeignKey(Article);
@@ -76,3 +79,6 @@ class Media(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+
+

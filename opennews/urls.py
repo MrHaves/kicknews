@@ -1,18 +1,23 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
-from opennews.api import EntryResource
-
-from .views import home, register, lireArticle, listerArticle, preferences, loginUser, logoutUser
+from .api import ArticleResource, UserResource
+from tastypie.api import Api
+from .views import home, register, lireArticle, listerArticle
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-entry_resource = EntryResource()
+v1_api = Api(api_name='v1')
+v1_api.register(UserResource())
+v1_api.register(ArticleResource())
+
+entry_resource = ArticleResource()
 
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', home),
    	url(r'^register$', register),
+
     #?next=/preferences
     url(r'^login/$', loginUser),
     url(r'^logout/$', logoutUser),
@@ -20,8 +25,8 @@ urlpatterns = patterns('',
    	url(r'^articles/(\d{1})$', lireArticle),
    	url(r'^categories/(\w+)$', listerArticle),
    	url(r'^categories/$', listerArticle, {'categorie':"all"}),
-    (r'^api/', include(entry_resource.urls)),
-    # urls.py
+    url(r'^api/', include(v1_api.urls)),
+
 
     # url(r'^kicknews/', include('kicknews.foo.urls')),
 
