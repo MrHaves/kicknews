@@ -2,7 +2,7 @@
 
 {% block menu %}
 <li><a href="/">home</a></li>
-<li class="active"><a href="/articles">articles</a></li>
+<li class="active"><a href="/categories">articles</a></li>
 <li><a href="/preferences">preferences</a></li>
 <li><a href="/logout">logout</a></li>
 <li><a href="/login">login</a></li>
@@ -12,7 +12,7 @@
 {% block content %}
 	{% for article in articles %}
 		<h2>{{article.title}}</h2>
-		<p><a href="/articles/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}}</p>
+		<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}}</p>
 		<div class="well">{{article.text}}</div>
 		<p>{{article.memberId}}</p>
 		{% for tag in article.tags.all %}

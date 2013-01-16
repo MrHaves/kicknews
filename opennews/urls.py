@@ -17,9 +17,9 @@ urlpatterns = patterns('',
     url(r'^login/$', loginUser),
     url(r'^logout/$', logoutUser),
     url(r'^preferences$', preferences),
-   	url(r'^article/(\d{1})$', lireArticle),
-   	url(r'^articles/(\w+)$', listerArticle),
-   	url(r'^articles/$', listerArticle, {'categorie':"all"}),
+   	url(r'^articles/(\d{1})$', lireArticle),
+   	url(r'^categories/(\w+)$', listerArticle),
+   	url(r'^categories/$', listerArticle, {'categorie':"all"}),
     (r'^api/', include(entry_resource.urls)),
     # urls.py
 

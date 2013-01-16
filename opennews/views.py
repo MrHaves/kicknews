@@ -108,7 +108,7 @@ def listerArticle(request, categorie):
 	if categorie == "all":
 		articles = Article.objects.all()
 	else:
-		articles = Article.objects.filter(category=Category.objects.filter(name=categorie))
+		articles = Article.objects.filter(category=Category.objects.filter(name=categorie.title()))
 
-	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})
+	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie.title()})
 

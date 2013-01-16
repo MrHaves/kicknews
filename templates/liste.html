@@ -2,7 +2,7 @@
 
 {% block menu %}
 <li><a href="/">home</a></li>
-<li class="active"><a href="/articles">articles</a></li>
+<li class="active"><a href="/categories">articles</a></li>
 <li><a href="/preferences">preferences</a></li>
 <li><a href="/logout">logout</a></li>
 <li><a href="/login">login</a></li>
@@ -15,24 +15,24 @@
 	 
 	{% if catActive not in categories %}
 		<li class="active">
-	    	<a href="/articles/">All</a>
+	    	<a href="/categories/">All</a>
 	  	</li>
 	{% else %}
 		<li>
-	    	<a href="/articles/">All</a>
+	    	<a href="/categories/">All</a>
 	  	</li>
 	{% endif %}
 	{% for cat in categories %}
 		{% if catActive == cat %}
-			<li class="active"><a href="/articles/{{cat}}">{{cat}}</a></li>
+			<li class="active"><a href="/categories/{{cat}}">{{cat}}</a></li>
 		{% else %}
-			<li><a href="/articles/{{cat}}">{{cat}}</a></li>
+			<li><a href="/categories/{{cat|lower}}">{{cat}}</a></li>
 		{% endif %}
 	{% endfor %}
 	</ul>
 
 	{% for article in articles %}
-		<p><a href="/article/{{article.id}}">{{article.title}}</a></p>
+		<p><a href="/articles/{{article.id}}">{{article.title}}</a></p>
 		{% empty %}
 			<p>Désolé, il n'y a pas d'articles</p>
 	{% endfor %}
