@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
-from .api import ArticleResource, UserResource
+from .api import ArticleResource, MemberResource
 from tastypie.api import Api
 from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences
 # Uncomment the next two lines to enable the admin:
@@ -8,7 +8,7 @@ from .views import home, register, lireArticle, listerArticle, loginUser, logout
 # admin.autodiscover()
 
 v1_api = Api(api_name='v1')
-v1_api.register(UserResource())
+v1_api.register(MemberResource())
 v1_api.register(ArticleResource())
 
 entry_resource = ArticleResource()
