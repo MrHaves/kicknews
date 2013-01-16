@@ -5,13 +5,13 @@ from tastypie.resources import ModelResource
 from tastypie import fields
 from .models import Category, Article
 
-class UserResource(ModelResource):
+class MemberResource(ModelResource):
 	class Meta:
-		queryset = Member.objects.all()
-		resource_name = 'user'
+		queryset = MemberResource.objects.all()
+		resource_name = 'member'
 
 class ArticleResource(ModelResource):
-	user = fields.ForeignKey(UserResource, 'user')
+	user = fields.ForeignKey(MemberResource, 'member')
 
 	class Meta:
 		queryset = Article.objects.order_by("category")
@@ -20,7 +20,7 @@ class ArticleResource(ModelResource):
 		
 
 class CategoryResource(ModelResource):
-	user = fields.ForeignKey(UserResource, 'user')
+	user = fields.ForeignKey(MemberResource, 'member')
 
 	class Meta:
 		queryset = Category.objects.all()
