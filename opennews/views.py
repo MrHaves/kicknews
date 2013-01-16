@@ -9,6 +9,7 @@ from forms import UserCreateForm, UserPreferencesForm, loginForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
+from tastypie.models import ApiKey
 
 def home(request):
 	"""The default view"""
@@ -71,6 +72,7 @@ def register(request):
 
 @login_required(login_url='/login/')
 def preferences(request):
+	api_key = ApiKey.objects.filter(user=request.user)
 	"""The view where logged user can modify their property"""
 	if len(request.POST) > 0:
 		form = UserPreferencesForm(request.POST)
@@ -78,7 +80,7 @@ def preferences(request):
 			form.save(request.user)
 			return HttpResponseRedirect('/')
 		else:
-			return render_to_response("preferences.html", {'form': form})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
 	else:
 		try:
 			member = request.user.member
@@ -87,7 +89,7 @@ def preferences(request):
 		
 		if member is not None:
 			form = UserPreferencesForm(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
 		else:
 			form = UserPreferencesForm()
 			return render_to_response("preferences.html", {'form': form})	

@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 # Create your models here.
 
+from tastypie.models import create_api_key
+models.signals.post_save.connect(create_api_key, sender=User)
+
+
 class Member(models.Model):
 	twitter = models.CharField(max_length=100, blank=True)
 	facebook = models.CharField(max_length=255, blank=True)

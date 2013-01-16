@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
+{% block style %}
+	{{block.super}}
+	input[type=text] {
+		height: 30px!important
+	}
+	input[type=checkbox] {
+		vertical-align: top!important
+	}
+
+	select[multiple=multiple] {
+		width: 150px;
+		text-align: center
+	}
+
+	.helptext {
+		font-size: 12px;
+	}
+{% endblock style %}
+
 {% block menu %}
 <li><a href="/">home</a></li>
 <li><a href="/categories">articles</a></li>
@@ -10,9 +29,15 @@
 {% endblock menu %}
 
 {% block content %}
-	{{member}}
-	<form action="preferences" method="POST">
-		{{form.as_p}}
+	<form class="form-inline" action="preferences" method="POST">
+		<div class="well">
+			<h3>User Informations</h3>
+			{{form.as_p}}
+		</div>
+		<div class="well">
+			<h3>Key for application identification</h3>
+			<p><label for="">Api Key : </label> <input type="text" style="width: 325px" value="{{api_key}}" disabled> </p>
+		</div>
 		<p>
 			<input class="btn btn-primary" type="submit" value="Save">
 		</p>
