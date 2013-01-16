@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 from .api import ArticleResource, UserResource
 from tastypie.api import Api
-from .views import home, register, lireArticle, listerArticle
+from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()

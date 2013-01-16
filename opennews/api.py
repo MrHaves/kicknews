@@ -7,7 +7,7 @@ from .models import Category, Article
 
 class UserResource(ModelResource):
 	class Meta:
-		queryset = User.objects.all()
+		queryset = Member.objects.all()
 		resource_name = 'user'
 
 class ArticleResource(ModelResource):

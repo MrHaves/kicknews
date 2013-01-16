@@ -7,25 +7,19 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Member(models.Model):
-	user = models.OneToOneField(User)
 	twitter = models.CharField(max_length=100, blank=True)
 	facebook = models.CharField(max_length=255, blank=True)
 	gplus = models.CharField(max_length=255, blank=True)
-	preferedCategoryIDs = models.ManyToManyField("Category", null=True)
+	preferedCategoryIDs = models.ManyToManyField("Category", blank=True)
 	autoShare = models.BooleanField(default=False)
 	geoloc = models.BooleanField(default=False)
 	pays = models.CharField(max_length=3, blank=True)
 	ville = models.CharField(max_length=255, blank=True)
-
+	user = models.OneToOneField(User)
+	
 	def __unicode__(self):
 		return self.user.username
-
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Member.objects.create(user=instance)
-
-post_save.connect(create_user_profile, sender=User)
-
+		
 class Category(models.Model):
 	name = models.CharField(max_length=255);
 	memberId = models.ForeignKey(Member, blank=True, null=True, on_delete=models.SET_NULL);
