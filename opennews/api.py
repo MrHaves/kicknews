@@ -7,6 +7,13 @@ from tastypie import fields
 from .models import Category, Article, Member
 import pickle
 
+class UserResource(ModelResource):
+	member = fields.ForeignKey(MemberResource, 'member')
+	class Meta:
+		queryset = User.objects.all()
+		excludes = ['password', 'id', 'is_active', 'is_staff', 'is_superuser']
+		resource_name = 'user'
+
 class MemberResource(ModelResource):
 	class Meta:
 		queryset = Member.objects.all()
@@ -62,9 +69,16 @@ class ArticleResource(ModelResource):
 		
 
 class CategoryResource(ModelResource):
+		excludes = ['published', 'validate', 'quality', 'memberId', 'id']
+		#fields = ['title', 'date', 'text', 'tags', 'category']
+		authorization = Authorization()
+		
+
+class CategoryResource(ModelResource):
+
 	class Meta:
 		queryset = Category.objects.all()
 		resource_name = 'category'
-		excludes = ['memberId']
-		fields = ['name']
+		excludes = ['id']
+		#fields = ['name']
 		authorization = Authorization()
