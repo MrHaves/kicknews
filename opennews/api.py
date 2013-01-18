@@ -50,8 +50,8 @@ class ArticleResource(ModelResource):
 		"""adding articles tags and category"""
 		bundle.data['category'] = bundle.obj.category.name
 		bundle.data['tags'] = []
-		for x in bundle.obj.tags.values('tag'):
-			bundle.data['tags'].append(x)
+		for x in bundle.obj.tags.all():
+			bundle.data['tags'].append(x.tag)
 		return bundle
 
 
