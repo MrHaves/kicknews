@@ -38,6 +38,19 @@ class UserResource(ModelResource):
 
 
 
+class ArticleResource(ModelResource):
+	class Meta:
+		queryset = Article.objects.all()
+		resource_name = 'articles'
+		include_resource_uri = False
+		authorization = Authorization()
+		
+	def dehydrate(self, bundle):
+		bundle.data['category'] = bundle.obj.category.name
+		return bundle
+
+
+
 
 class CategoryResource(ModelResource):
 	class Meta:
@@ -45,19 +58,17 @@ class CategoryResource(ModelResource):
 		resource_name = 'category'
 		fields = ['name']
 		include_resource_uri = False
-
-
-class ArticleResource(ModelResource):
-	class Meta:
-		queryset = Article.objects.all()
-		resource_name = 'articles'
-		include_resource_uri = False
-		authorization = Authorization()
-	
+		filtering  = {
+			'name': ALL_WITH_RELATIONS
+		}
 
 	def dehydrate(self, bundle):
-		bundle.data['category'] = bundle.obj.category.name.lower()
-		return bundle	
+		bundle.data['articles'] = []
+		for x in Article.objects.filter(category=bundle.obj, published=True).values('title', 'date', 'validate', 'quality', 'text', 'memberId'):
+			x['memberId'] = User.objects.filter(id=x['memberId'])[0]
+			bundle.data['articles'].append(x)
+		return bundle
+
 
 
 		
