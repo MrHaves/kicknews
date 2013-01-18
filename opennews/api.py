@@ -4,7 +4,7 @@ from tastypie.authorization import Authorization
 from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
 from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
-from .models import Category, Article, Member
+from .models import Category, Article, Member, Tag
 
 
 
@@ -17,6 +17,7 @@ class MemberResource(ModelResource):
 		allowed_methods = []
 	
 	def dehydrate(self, bundle):
+		"""Adding the user prefered catagories name"""
 		cats = []
 		for cat in bundle.obj.preferedCategoryIDs.all():
 			cats.append(cat.name)
@@ -25,7 +26,7 @@ class MemberResource(ModelResource):
 
 
 class UserResource(ModelResource):
-	member = fields.OneToOneField(MemberResource, 'member', full=True)
+	member = fields.OneToOneField(MemberResource, 'member', full=True) #Member is linked to only one user according to the model
 	class Meta:
 		authentication = ApiKeyAuthentication()
 		queryset = User.objects.all()
@@ -46,9 +47,20 @@ class ArticleResource(ModelResource):
 		authorization = Authorization()
 		
 	def dehydrate(self, bundle):
+		"""adding articles tags and category"""
 		bundle.data['category'] = bundle.obj.category.name
+		bundle.data['tags'] = []
+		for x in bundle.obj.tags.values('tag'):
+			bundle.data['tags'].append(x)
 		return bundle
 
+
+class TagResource(ModelResource):
+	class Meta:
+		queryset = Tag.objects.all()
+		resource_name = 'tags'
+		fields = ['tag']
+		include_resource_uri = False
 
 
 
@@ -63,12 +75,13 @@ class CategoryResource(ModelResource):
 		}
 
 	def dehydrate(self, bundle):
+		"""Adding categorie articles and tags of these articles"""
 		bundle.data['articles'] = []
-		for x in Article.objects.filter(category=bundle.obj, published=True).values('title', 'date', 'validate', 'quality', 'text', 'memberId'):
+		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
 			x['memberId'] = User.objects.filter(id=x['memberId'])[0]
+			x['tags'] = []
+			for t in Article.objects.filter(id=x['id'])[0].tags.all():
+				x['tags'].append(t)
 			bundle.data['articles'].append(x)
 		return bundle
 
-
-
-		
