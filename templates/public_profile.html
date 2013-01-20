@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{{block.super}}
+
+{% endblock style %}
+
+{% block menu %}
+<li class="active"><a href="/">home</a></li>
+<li><a href="/categories">articles</a></li>
+<li><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li><a href="/register">register</a></li>
+{% endblock menu %}
+
+{% block content %}
+	<div class="well">
+		<h2>User Informations : {{user.username}}</h2>
+		{% if user.member.twitter != "" %}
+			<p><strong>Twitter</strong> : {{user.member.twitter}}</p>
+		{% endif %}
+		{% if user.member.facebook != "" %}
+			<p><strong>Facebook</strong> : {{user.member.facebook}}</p>
+		{% endif %}
+		{% if user.member.gplus != "" %}
+			<p><strong>Google +</strong> : {{user.member.gplus}}</p>
+		{% endif %}
+		<p><strong>Prefered Categories : </strong>
+			{{user.member.preferedCategoryIDs.all|join:", "}}
+		</p>
+	</div>
+{% endblock content %} 

@@ -95,6 +95,11 @@ def preferences(request):
 			return render_to_response("preferences.html", {'form': form})	
 
 
+def get_profile(request, userId):
+	"""Show the public profile of a user. Get it by his id"""
+	user = User.objects.filter(id=userId)[0]
+	return render_to_response("public_profile.html", {'user': user})
+
 
 def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
