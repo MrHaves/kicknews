@@ -21,7 +21,7 @@
 		{% for tag in article.tags.all %}
 			<span class="label label-info">{{tag}}</span>
 		{% endfor %}
-		{% if article.coord != "" %}
+		{% if article.coord != "" and article.coord != "error" %}
 			coord: {{article.coord}}
 		{% endif %}
 		{% empty %}

@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 
+{% block style %}
+	{{block.super}}
+	input[type=text],input[type=password] {
+		height: 30px!important
+	}
+
+	label {
+		width: 125px;
+	}
+
+	#labelPassword2 {
+		width: auto;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.errorlist {
+
+	}
+
+	.errorlist li {
+		list-style: none;
+	}
+{% endblock style %}
+
 {% block menu %}
 <li><a href="/">home</a></li>
 <li><a href="/categories">articles</a></li>
@@ -10,10 +35,58 @@
 {% endblock menu %}
 
 {% block content %}
-	<form action="/register" method="POST">
-		{{form.as_p}}
-		<p>
-			<input type="submit" value="Créer un compte">
-		</p>
+	<form action="/register" method="POST" class="form-inline">{% csrf_token %}
+		<div class="well">
+			<h2>User Registration</h2><br>
+			{% if form.username.errors %}
+				<p class="control-group error"><label for="id_username">{{form.username.label}} :</label>{{form.username}} <span class="help-inline">
+					<span class="help-inline">
+					{% for x in form.username.errors %}
+						{{ x }}
+					{% endfor %}
+					</span>
+			{% else %}
+				<p class="control-group"><label for="id_username">{{form.username.label}} :</label>{{form.username}} <span class="help-inline">
+						{{ form.username.help_text }}
+					</span>
+			{% endif %}
+			</p>
+
+			{% if form.email.errors %}
+				<p class="control-group error"><label for="id_email">{{form.email.label}} :</label>{{form.email}} <span class="help-inline">
+					<span class="help-inline">
+					{% for x in form.email.errors %}
+						{{ x }}
+					{% endfor %}
+					</span>
+			{% else %}
+				<p class="control-group"><label for="id_email">{{form.email.label}} :</label>{{form.email}} <span class="help-inline">
+			{% endif %}
+			</p>
+			
+			{% if form.password1.errors %}
+			<p class="control-group error"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
+			<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}<span class="help-inline">
+					{% for x in form.password1.errors %}
+						{{ x }}
+					{% endfor %}
+					</span>
+			{% elif form.password2.errors %}
+			<p class="control-group error"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
+			<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}<span class="help-inline">
+					{% for x in form.password2.errors %}
+						{{ x }}
+					{% endfor %}
+					</span>
+			{% else %}
+			<p class="control-group"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
+			<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}
+			{% endif %}
+			</p>
+			<br>
+			<p>
+				<input class="btn btn-primary" type="submit" value="Créer un compte">
+			</p>
+		</div>
 	</form>
 {% endblock content %} 

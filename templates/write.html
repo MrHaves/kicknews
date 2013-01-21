@@ -109,6 +109,27 @@
 
 	function doGeoloc() {
 		console.log("TODO : geoloc");
+		if (navigator.geolocation)
+		  navigator.geolocation.getCurrentPosition(function(position)
+		  {
+		    $("#id_coord").attr('value',position.coords.latitude.toFixed(6) + "," + position.coords.longitude.toFixed(6));
+		  }, errorCallback);
+		else
+		  $("#id_coord").attr('value',"error");
+	}
+
+	function errorCallback(error){
+	  switch(error.code){
+	    case error.PERMISSION_DENIED:
+	      $("#id_coord").attr('value',"error");
+	      break;      
+	    case error.POSITION_UNAVAILABLE:
+	      $("#id_coord").attr('value',"error");
+	      break;
+	    case error.TIMEOUT:
+	      $("#id_coord").attr('value',"error");
+	      break;
+	    }
 	}
 </script>
 {% endblock script %}
