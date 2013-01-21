@@ -4,6 +4,7 @@ from django.template.defaultfilters import slugify
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from imperavi.widget import ImperaviWidget
 
 from tastypie.models import create_api_key
 models.signals.post_save.connect(create_api_key, sender=User)
@@ -25,7 +26,7 @@ class Member(models.Model):
 		
 class Category(models.Model):
 	name = models.CharField(max_length=255);
-	memberId = models.ForeignKey(Member, blank=True, null=True, on_delete=models.SET_NULL);
+	memberId = models.ForeignKey(Member, blank=True, null=True, on_delete=models.SET_NULL)
 	def __unicode__(self):
 		return self.name
 
@@ -36,15 +37,15 @@ class Tag(models.Model):
 		return self.tag
 
 class Article(models.Model):
-	title = models.CharField(max_length=255);
+	title = models.CharField(max_length=255)
 	text = models.TextField();
-	date = models.DateTimeField(auto_now_add=True);
-	published = models.BooleanField();
-	validate = models.BooleanField();
-	quality = models.IntegerField(null=True, blank=True);
+	date = models.DateTimeField(auto_now_add=True)
+	published = models.BooleanField()
+	validate = models.BooleanField()
+	quality = models.IntegerField(null=True, blank=True)
 	tags = models.ManyToManyField("Tag", null=True, blank=True)
-	memberId = models.ForeignKey(Member);
-	category = models.ForeignKey(Category);
+	memberId = models.ForeignKey(Member)
+	category = models.ForeignKey(Category)
 
 	def __unicode__(self):
 		return self.title
@@ -58,9 +59,9 @@ class Article(models.Model):
 
 
 class Comment(models.Model):
-	text = models.CharField(max_length=255);
-	articleId = models.ForeignKey(Article);
-	memberId = models.ForeignKey(Member);
+	text = models.CharField(max_length=255)
+	articleId = models.ForeignKey(Article)
+	memberId = models.ForeignKey(Member)
 
 	def __unicode__(self):
 		if len(self.text) > 20:
@@ -69,10 +70,10 @@ class Comment(models.Model):
 			return selft.text
 
 class Media(models.Model):
-	title = models.CharField(max_length=255);
-	url = models.URLField();
-	commentId = models.ForeignKey(Comment);
-	memberId = models.ForeignKey(Member);
+	title = models.CharField(max_length=255)
+	url = models.URLField()
+	commentId = models.ForeignKey(Comment)
+	memberId = models.ForeignKey(Member)
 
 	def __unicode__(self):
 		return self.title

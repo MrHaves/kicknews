@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 from .api import ArticleResource, MemberResource, CategoryResource, UserResource, TagResource
 from tastypie.api import Api
-from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences, get_profile
+from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences, get_profile, write_article
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^login/$', loginUser),
     url(r'^logout/$', logoutUser),
     url(r'^preferences$', preferences),
+    url(r'^write$', write_article),
     url(r'^profile/(\d+)$', get_profile),
    	url(r'^articles/(\d{1})$', lireArticle),
    	url(r'^categories/(\w+)$', listerArticle),

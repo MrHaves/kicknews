@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
-from opennews.models import Member
+from opennews.models import Member, Article
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -30,6 +30,11 @@ class UserCreateForm(UserCreationForm):
             member.user = user
             member.save()
         return user
+
+class ArticleForm(ModelForm):
+    class Meta:
+        model = Article
+        exclude = ('memberId',)
 
 class UserPreferencesForm(ModelForm):
     class Meta:

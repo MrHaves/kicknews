@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
 # from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
-from forms import UserCreateForm, UserPreferencesForm, loginForm
+from forms import UserCreateForm, UserPreferencesForm, loginForm, ArticleForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
@@ -105,6 +105,20 @@ def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
 	return render_to_response("article.html", {'articles': articles})
+
+@login_required(login_url='/login/')
+def write_article(request):
+	"""The view for writing an article"""
+	if len(request.POST) > 0:
+		form = ArticleForm(request.POST)
+		if form.is_valid():
+			article = form.save()
+		else:
+			return render_to_response("register.html", {'form': form})
+	else:
+		form = ArticleForm()
+		return render_to_response("register.html", {'form': form})
+
 
 def listerArticle(request, categorie):
 	"""The view for listing the articles, depends on categorie"""

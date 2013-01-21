@@ -2411,7 +2411,7 @@ var RLANG = {
 						
 						$.each(data, $.proxy(function(key, val)
 						{
-							var img = $('<img src="' + val.thumb + '" rel="' + val.image + '" />');
+							var img = $('<img class="img-polaroid" src="' + val.thumb + '" rel="' + val.image + '" />');
 							$('#redactor_image_box').append(img);
 							$(img).click($.proxy(this.imageSetThumb, this));
 							
@@ -2473,13 +2473,13 @@ var RLANG = {
 		},
 		imageSetThumb: function(e)
 		{
-			this._imageSet('<img alt="" src="' + $(e.target).attr('rel') + '" />', true);
+			this._imageSet('<img class="img-polaroid" alt="" src="' + $(e.target).attr('rel') + '" />', true);
 		},
 		imageUploadCallbackLink: function()
 		{
 			if ($('#redactor_file_link').val() !== '')
 			{
-				var data = '<img src="' + $('#redactor_file_link').val() + '" />';				
+				var data = '<img class="img-polaroid" src="' + $('#redactor_file_link').val() + '" />';				
 				this._imageSet(data, true);
 			}
 			else
@@ -2497,7 +2497,7 @@ var RLANG = {
 			if (link !== true)
 			{
 				data = $.parseJSON(json);		
-				html = '<p><img src="' + data.filelink + '" /></p>';
+				html = '<p><img class="img-polaroid" src="' + data.filelink + '" /></p>';
 			}
 			else
 			{
