@@ -40,7 +40,7 @@ class Article(models.Model):
 	title = models.CharField(max_length=255)
 	text = models.TextField();
 	date = models.DateTimeField(auto_now_add=True)
-	published = models.BooleanField()
+	published = models.BooleanField(default=True)
 	validate = models.BooleanField()
 	quality = models.IntegerField(null=True, blank=True)
 	tags = models.ManyToManyField("Tag", null=True, blank=True)

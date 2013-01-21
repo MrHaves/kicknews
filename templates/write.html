@@ -2,6 +2,7 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'js/wysihtml5/stylesheet.css' %}">
+<link href="{% static 'js/tags/select2.css' %}" rel="stylesheet"/>
 {% endblock head %}
 
 {% block style %}
@@ -22,8 +23,13 @@
 		vertical-align: top!important
 	}
 
+	label{
+		margin-right: 10px;
+	}
+
 	label[for="id_category"] {
 		margin-left: 20px;
+		margin-right: 0;
 	}
 {% endblock style %}
 
@@ -70,24 +76,35 @@
 {% block content %}
 	<form action="/write" method="POST" id="write_form" class="form-inline">
 		<div class="well">
-			<p><label for="id_title">{{form.title.label}}</label> : 
-			{{form.title}}
-			<label for="id_category">{{form.category.label}}</label> : 
+			<p><label for="id_title">{{form.title.label}} : </label>
+				{{form.title}}
+			<label for="id_category">{{form.category.label}} : </label>
 			{{form.category}}</p>
 
-			<p><label for="id_published">Publish Now ?</label> 
-			{{form.published}}</p>
+			<p>
+				<label>Tags : </label><input type="hidden" id="e1" style="width:300px" name="tags">
+			</p>
 		</div>
 
 
-		<label for="id_text">Article content</label> : 
+		<label for="id_text">Article content : </label> 
 		{{form.text}}<br><br>
 		{% if member.geoloc %}
 			<input id="id_coord" type="hidden" value="0,0" name="coordonnee">
 		{% endif %}
-		<p>
-			<input class="btn btn-primary" type="submit" value="Poster un article">
-		</p>
+		
+		<div class="well">
+			<p style="float: left; margin-right: 25px; margin-left: 25px;"><label for="id_published">Publish Now ?</label> 
+				{{form.published}}</p>
+		
+			<p style="float: left; margin-top: -4px">
+				<input class="btn btn-primary" type="submit" value="Poster un article">
+			</p>
+
+			<p style="float: left; margin-top: -4px; margin-left: 25px">
+				<button id="discard" class="btn btn-danger">Annulé</button>
+			</p>
+		</div>
 	</form>
 {% endblock content %} 
 
@@ -96,8 +113,21 @@
 <script src="{% static 'js/wysihtml5/advanced.js' %}"></script>
 <!-- Library -->
 <script src="{% static 'js/wysihtml5/wysihtml5-0.3.0.min.js' %}"></script>
+<script src="{% static 'js/tags/select2.js' %}"></script>
 <script>
 	$(document).ready(function() {
+		$("#discard").click(function() {
+			setTimeout("window.location.href = '/categories'" , 0 );
+		});
+
+		$("#e1").select2({
+			createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+            multiple: true,
+             tokenSeparators: [",", " "],
+            data: []
+		});
+
+
 		var editor = new wysihtml5.Editor("id_text", { // id of textarea element
 			toolbar:      "wysihtml5-toolbar", // id of toolbar element
 			parserRules:  wysihtml5ParserRules // defined in parser rules set 
