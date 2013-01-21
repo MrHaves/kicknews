@@ -82,6 +82,9 @@
 
 		<label for="id_text">Article content</label> : 
 		{{form.text}}<br><br>
+		{% if member.geoloc %}
+			<input id="id_coord" type="hidden" value="0,0" name="coordonnee">
+		{% endif %}
 		<p>
 			<input class="btn btn-primary" type="submit" value="Poster un article">
 		</p>
@@ -99,6 +102,13 @@
 			toolbar:      "wysihtml5-toolbar", // id of toolbar element
 			parserRules:  wysihtml5ParserRules // defined in parser rules set 
 		});
+
+		if(document.getElementById('id_coord'))
+			doGeoloc();
 	});
+
+	function doGeoloc() {
+		console.log("TODO : geoloc");
+	}
 </script>
 {% endblock script %}

@@ -109,16 +109,21 @@ def lireArticle(request, IDarticle):
 @login_required(login_url='/login/')
 def write_article(request):
 	"""The view for writing an article"""
+	member = Member.objects.filter(user=request.user)[0]
 	if len(request.POST) > 0:
 		form = ArticleForm(request.POST)
 		if form.is_valid():
-			article = form.save(m_user=request.user)
+			if member.geoloc is not False:
+				coordonnee = request.POST['coordonnee']
+				article = form.save(m_member=member, coord=coordonnee)
+			else:
+				article = form.save(m_member=member)
 			return HttpResponseRedirect('/categories')
 		else:
-			return render_to_response("write.html", {'form': form})
+			return render_to_response("write.html", {'form': form, 'member':member})
 	else:
 		form = ArticleForm()
-		return render_to_response("write.html", {'form': form})
+		return render_to_response("write.html", {'form': form, 'member':member})
 
 
 def listerArticle(request, categorie):

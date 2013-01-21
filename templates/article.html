@@ -21,6 +21,9 @@
 		{% for tag in article.tags.all %}
 			<span class="label label-info">{{tag}}</span>
 		{% endfor %}
+		{% if article.coord != "" %}
+			coord: {{article.coord}}
+		{% endif %}
 		{% empty %}
 			<p>Désolé, cet article n'existe pas</p>
 	{% endfor %}

@@ -36,9 +36,11 @@ class ArticleForm(ModelForm):
         model = Article
         exclude = ('memberId','quality', 'validate', 'tags')
 
-    def save(self, m_user, commit=True):
+    def save(self, m_member, coord=None, commit=True):
         article = super(ArticleForm, self).save(commit=False)
-        article.memberId = Member.objects.filter(user=m_user)[0]
+        article.memberId = m_member
+        if coord is not None:
+            article.coord = coord
         article.save()
 
 class UserPreferencesForm(ModelForm):

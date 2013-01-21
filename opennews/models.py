@@ -46,6 +46,7 @@ class Article(models.Model):
 	tags = models.ManyToManyField("Tag", null=True, blank=True)
 	memberId = models.ForeignKey(Member)
 	category = models.ForeignKey(Category)
+	coord = models.CharField(max_length=20, blank=True)
 
 	def __unicode__(self):
 		return self.title
