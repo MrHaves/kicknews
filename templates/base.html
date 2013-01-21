@@ -10,7 +10,9 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}">
-  
+  {% block head %}
+
+  {% endblock head %}
   <style type="text/css">
   	{% block style %}
       body {
@@ -26,7 +28,7 @@
     </style>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="#">Project name</a>

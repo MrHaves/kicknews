@@ -34,7 +34,12 @@ class UserCreateForm(UserCreationForm):
 class ArticleForm(ModelForm):
     class Meta:
         model = Article
-        exclude = ('memberId',)
+        exclude = ('memberId','quality', 'validate', 'tags')
+
+    def save(self, m_user, commit=True):
+        article = super(ArticleForm, self).save(commit=False)
+        article.memberId = Member.objects.filter(user=m_user)[0]
+        article.save()
 
 class UserPreferencesForm(ModelForm):
     class Meta:

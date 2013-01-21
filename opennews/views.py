@@ -112,12 +112,13 @@ def write_article(request):
 	if len(request.POST) > 0:
 		form = ArticleForm(request.POST)
 		if form.is_valid():
-			article = form.save()
+			article = form.save(m_user=request.user)
+			return HttpResponseRedirect('/categories')
 		else:
-			return render_to_response("register.html", {'form': form})
+			return render_to_response("write.html", {'form': form})
 	else:
 		form = ArticleForm()
-		return render_to_response("register.html", {'form': form})
+		return render_to_response("write.html", {'form': form})
 
 
 def listerArticle(request, categorie):
