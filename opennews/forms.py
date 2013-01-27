@@ -53,3 +53,6 @@ class UserPreferencesForm(ModelForm):
             member.user = m_user
             member.save()
         return member
+
+class searchForm(forms.Form):
+    searchWords = forms.CharField(required=True)

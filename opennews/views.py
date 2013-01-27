@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
 # from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
-from forms import UserCreateForm, UserPreferencesForm, loginForm
+from forms import UserCreateForm, UserPreferencesForm, loginForm, searchForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
@@ -112,3 +112,12 @@ def listerArticle(request, categorie):
 
 	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie.title()})
 
+def search(request):
+	"""The search view"""
+	if len(request.POST) > 0:
+		form = searchForm(request.POST)
+		if form.is_valid():
+			articles = Article.objects.filter(title__contains = form.cleaned_data['searchWords'])
+			return render_to_response("search.html", {'form': form, 'articles': articles})
+	form = searchForm()	
+	return render_to_response("search.html", {'form': form})

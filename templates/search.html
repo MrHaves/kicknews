@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{get}}
+	<form class="form-search" action="/search/" method="POST">
+		{{form.as_p}}
+		<p>
+			<input class="btn btn-primary" type="submit" value="search">
+		</p>
+	</form>
+	
+	{% for article in articles %}
+		<p><a href="/articles/{{article.id}}">{{article.title}}</a></p>
+		{% empty %}
+			<p>Désolé, il n'y a pas d'articles</p>
+	{% endfor %}
+	
+{% endblock content %}
