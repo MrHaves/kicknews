@@ -5,10 +5,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
 # from django.core.exceptions import DoesNotExist
 from django.contrib.auth.models import User
-from forms import UserCreateForm, UserPreferencesForm, loginForm, searchForm
+from forms import UserCreateForm, UserPreferencesForm, loginForm, ArticleForm, searchForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
+from tastypie.models import ApiKey
 
 def home(request):
 	"""The default view"""
@@ -71,6 +72,7 @@ def register(request):
 
 @login_required(login_url='/login/')
 def preferences(request):
+	api_key = ApiKey.objects.filter(user=request.user)
 	"""The view where logged user can modify their property"""
 	if len(request.POST) > 0:
 		form = UserPreferencesForm(request.POST)
@@ -78,7 +80,7 @@ def preferences(request):
 			form.save(request.user)
 			return HttpResponseRedirect('/')
 		else:
-			return render_to_response("preferences.html", {'form': form})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
 	else:
 		try:
 			member = request.user.member
@@ -87,17 +89,42 @@ def preferences(request):
 		
 		if member is not None:
 			form = UserPreferencesForm(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
 		else:
 			form = UserPreferencesForm()
 			return render_to_response("preferences.html", {'form': form})	
 
+
+def get_profile(request, userId):
+	"""Show the public profile of a user. Get it by his id"""
+	user = User.objects.filter(id=userId)[0]
+	return render_to_response("public_profile.html", {'user': user})
 
 
 def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
 	return render_to_response("article.html", {'articles': articles})
+
+@login_required(login_url='/login/')
+def write_article(request):
+	"""The view for writing an article"""
+	member = Member.objects.filter(user=request.user)[0]
+	if len(request.POST) > 0:
+		form = ArticleForm(request.POST)
+		if form.is_valid():
+			if member.geoloc is not False:
+				coordonnee = request.POST['coordonnee']
+				article = form.save(m_member=member, coord=coordonnee)
+			else:
+				article = form.save(m_member=member)
+			return HttpResponseRedirect('/categories')
+		else:
+			return render_to_response("write.html", {'form': form, 'member':member})
+	else:
+		form = ArticleForm()
+		return render_to_response("write.html", {'form': form, 'member':member})
+
 
 def listerArticle(request, categorie):
 	"""The view for listing the articles, depends on categorie"""

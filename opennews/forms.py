@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
-from opennews.models import Member
+from opennews.models import Member, Article
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -30,6 +30,18 @@ class UserCreateForm(UserCreationForm):
             member.user = user
             member.save()
         return user
+
+class ArticleForm(ModelForm):
+    class Meta:
+        model = Article
+        exclude = ('memberId','quality', 'validate', 'tags')
+
+    def save(self, m_member, coord=None, commit=True):
+        article = super(ArticleForm, self).save(commit=False)
+        article.memberId = m_member
+        if coord is not None:
+            article.coord = coord
+        article.save()
 
 class UserPreferencesForm(ModelForm):
     class Meta:

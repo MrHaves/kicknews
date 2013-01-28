@@ -3,9 +3,15 @@ from django.contrib import admin
 from opennews.models import *
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import *
+# Import imperavi rich editor
+from imperavi.admin import ImperaviAdmin
+
+
+class ArticleAdmin(ImperaviAdmin):
+    pass
 
 admin.site.register(Category)
-admin.site.register(Article)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Media)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
-from .api import ArticleResource, MemberResource
+from .api import ArticleResource, MemberResource, CategoryResource, UserResource, TagResource
 from tastypie.api import Api
-from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences, search
+from .views import home, register, lireArticle, listerArticle, loginUser, logoutUser, preferences, get_profile, write_article, search
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -10,8 +10,11 @@ from .views import home, register, lireArticle, listerArticle, loginUser, logout
 v1_api = Api(api_name='v1')
 v1_api.register(MemberResource())
 v1_api.register(ArticleResource())
+v1_api.register(CategoryResource())
+v1_api.register(UserResource())
+v1_api.register(TagResource())
 
-entry_resource = ArticleResource()
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -22,6 +25,8 @@ urlpatterns = patterns('',
     url(r'^login/$', loginUser),
     url(r'^logout/$', logoutUser),
     url(r'^preferences$', preferences),
+    url(r'^write$', write_article),
+    url(r'^profile/(\d+)$', get_profile),
    	url(r'^articles/(\d{1})$', lireArticle),
    	url(r'^categories/(\w+)$', listerArticle),
    	url(r'^categories/$', listerArticle, {'categorie':"all"}),

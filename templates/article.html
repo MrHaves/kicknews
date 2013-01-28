@@ -12,12 +12,18 @@
 {% block content %}
 	{% for article in articles %}
 		<h2>{{article.title}}</h2>
-		<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}}</p>
-		<div class="well">{{article.text}}</div>
-		<p>{{article.memberId}}</p>
+		<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}} par <a href="/profile/{{article.memberId.id}}">{{article.memberId}}</a></p>
+		<div class="well">
+			{% autoescape off %}
+				{{article.text}}
+			{% endautoescape %}
+		</div>
 		{% for tag in article.tags.all %}
 			<span class="label label-info">{{tag}}</span>
 		{% endfor %}
+		{% if article.coord != "" and article.coord != "error" %}
+			coord: {{article.coord}}
+		{% endif %}
 		{% empty %}
 			<p>Désolé, cet article n'existe pas</p>
 	{% endfor %}
