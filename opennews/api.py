@@ -45,6 +45,7 @@ class ArticleResource(ModelResource):
 		resource_name = 'articles'
 		include_resource_uri = False
 		authorization = Authorization()
+		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		
 	def dehydrate(self, bundle):
 		"""adding articles tags and category"""
