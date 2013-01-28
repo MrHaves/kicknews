@@ -9,6 +9,7 @@ from forms import UserCreateForm, UserPreferencesForm, loginForm, ArticleForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
 import datetime
+import mimetypes
 from tastypie.models import ApiKey
 
 def home(request):
@@ -104,14 +105,17 @@ def get_profile(request, userId):
 def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
-	return render_to_response("article.html", {'articles': articles})
+	article = articles[0]
+	mime = mimetypes.guess_type(article.media.url)[0]
+	mediaType = "vid"
+	return render_to_response("article.html", {'articles': articles, 'mediaType': mediaType, 'mime': mime})
 
 @login_required(login_url='/login/')
 def write_article(request):
 	"""The view for writing an article"""
 	member = Member.objects.filter(user=request.user)[0]
 	if len(request.POST) > 0:
-		form = ArticleForm(request.POST)
+		form = ArticleForm(request.POST, request.FILES)
 		if form.is_valid():
 			if member.geoloc is not False:
 				coordonnee = request.POST['coordonnee']

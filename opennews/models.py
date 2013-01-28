@@ -47,6 +47,7 @@ class Article(models.Model):
 	memberId = models.ForeignKey(Member)
 	category = models.ForeignKey(Category)
 	coord = models.CharField(max_length=20, blank=True)
+	media = models.FileField(upload_to="articles_media", blank=True)
 
 	def __unicode__(self):
 		return self.title
@@ -70,14 +71,14 @@ class Comment(models.Model):
 		else:
 			return selft.text
 
-class Media(models.Model):
-	title = models.CharField(max_length=255)
-	url = models.URLField()
-	commentId = models.ForeignKey(Comment)
-	memberId = models.ForeignKey(Member)
+# class Media(models.Model):
+# 	title = models.CharField(max_length=255)
+# 	url = models.URLField()
+# 	commentId = models.ForeignKey(Comment)
+# 	memberId = models.ForeignKey(Member)
 
-	def __unicode__(self):
-		return self.title
+# 	def __unicode__(self):
+# 		return self.title
 
 
 

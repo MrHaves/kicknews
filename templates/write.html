@@ -74,15 +74,19 @@
 {% endblock menu %}
 
 {% block content %}
-	<form action="/write" method="POST" id="write_form" class="form-inline">
+	<form enctype="multipart/form-data" action="/write" method="POST" id="write_form" class="form-inline">
 		<div class="well">
-			<p><label for="id_title">{{form.title.label}} : </label>
+			<p>
+				<label for="id_title">{{form.title.label}} : </label>
 				{{form.title}}
-			<label for="id_category">{{form.category.label}} : </label>
-			{{form.category}}</p>
+				<label for="id_category">{{form.category.label}} : </label>
+				{{form.category}}
+			</p>
 
 			<p>
 				<label>Tags : </label><input type="hidden" id="e1" style="width:300px" name="tags">
+				<label for="id_media">{{form.media.label}} : </label>
+				{{form.media}}
 			</p>
 		</div>
 
