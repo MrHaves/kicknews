@@ -106,7 +106,7 @@ def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
 	article = articles[0]
-	mime = mimetypes.guess_type(article.media.url)[0]
+	mime = "image/pg" #mimetypes.guess_type(article.media.url)[0]
 	mediaType = ""
 	return render_to_response("article.html", {'articles': articles, 'mediaType': mediaType, 'mime': mime})
 
