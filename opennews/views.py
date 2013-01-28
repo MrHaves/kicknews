@@ -107,7 +107,7 @@ def lireArticle(request, IDarticle):
 	articles = Article.objects.filter(id=IDarticle)
 	article = articles[0]
 	mime = mimetypes.guess_type(article.media.url)[0]
-	mediaType = "vid"
+	mediaType = ""
 	return render_to_response("article.html", {'articles': articles, 'mediaType': mediaType, 'mime': mime})
 
 @login_required(login_url='/login/')
