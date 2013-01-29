@@ -8,11 +8,16 @@ from django.contrib.auth.models import User
 from forms import UserCreateForm, UserPreferencesForm, loginForm, ArticleForm, searchForm
 from django.contrib.auth import authenticate, login, logout
 from opennews.models import *
+from itertools import chain
+from django.db.models import Q
 import datetime
+import mimetypes
 from tastypie.models import ApiKey
 
 def home(request):
 	"""The default view"""
+	tag = Tag.objects.get(tag="sciences").article_set.all()
+	#articles = Article.objects.filter(tag in tags)
 	foo = datetime.datetime.now()
 	user = request.user
 	return render(request, "index.html", locals())
@@ -104,14 +109,22 @@ def get_profile(request, userId):
 def lireArticle(request, IDarticle):
 	"""The view for reading an article"""
 	articles = Article.objects.filter(id=IDarticle)
-	return render_to_response("article.html", {'articles': articles})
+	article = articles[0]
+	tags = article.tags.all()
+	if article.media:
+		mime = mimetypes.guess_type(article.media.url)[0]
+		mediaType = mime[0:3]
+	else:
+		mime = False
+		mediaType = False
+	return render_to_response("article.html", {'articles': articles, 'mediaType': mediaType, 'mime': mime, 'tags': tags})
 
 @login_required(login_url='/login/')
 def write_article(request):
 	"""The view for writing an article"""
 	member = Member.objects.filter(user=request.user)[0]
 	if len(request.POST) > 0:
-		form = ArticleForm(request.POST)
+		form = ArticleForm(request.POST, request.FILES)
 		if form.is_valid():
 			if member.geoloc is not False:
 				coordonnee = request.POST['coordonnee']
@@ -139,12 +152,40 @@ def listerArticle(request, categorie):
 
 	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie.title()})
 
-def search(request):
+def search(request, words, categorie):
 	"""The search view"""
+	categoriesList = Category.objects.all()
+	categories = []
+	for cat in categoriesList:
+		categories.append(cat.name)
+
+	
 	if len(request.POST) > 0:
 		form = searchForm(request.POST)
 		if form.is_valid():
-			articles = Article.objects.filter(title__contains = form.cleaned_data['searchWords'])
-			return render_to_response("search.html", {'form': form, 'articles': articles})
-	form = searchForm()	
-	return render_to_response("search.html", {'form': form})
+			words = form.cleaned_data['searchWords'].split(' ')
+		else:	
+			return render_to_response("search.html", {'form': form, 'categories': categories, 'catActive': categorie.title()})
+	else:
+		form = searchForm()
+		words = words.split('_')
+
+	articles = []
+
+	if categorie == "all":
+		for word in words:
+			articles = list(chain(articles, Article.objects.filter(Q(title__contains = word) | Q(text__contains = word))))
+			tmp = Tag.objects.filter(tag = word )
+			if len(tmp) is not 0:
+				articles += tmp[0].article_set.all()
+
+	else:
+		for word in words:
+			articles = list(chain(articles, Article.objects.filter(Q(category=Category.objects.filter(name=categorie.title())) & (Q(title__contains = word) | Q(text__contains = word)) )))
+			tmp = Tag.objects.filter(tag = word)
+			if len(tmp) is not 0:
+				articles += tmp[0].article_set.all()
+			
+
+	return render_to_response("search.html", {'form': form, 'words': words, 'articles': list(set(articles)), 'categories': categories, 'catActive': categorie.title()})
+

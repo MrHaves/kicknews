@@ -1,18 +1,59 @@
 {% extends 'base.html' %}
+{% block style %}
+	{{block.super}}
+	.nav-tabs li.active a{
+		background: #f5f5f5;
+	}
+	.nav-tabs li.active:hover a{
+		background: #f5f5f5;
+	}
+
+	.divider {
+		width: 100%;
+		border-bottom: 1px solid #ddd;
+		margin-top: 25px;
+		margin-bottom: 20px;
+	}
+{% endblock style %}
 
 {% block content %}
-{{get}}
 	<form class="form-search" action="/search/" method="POST">
 		{{form.as_p}}
 		<p>
 			<input class="btn btn-primary" type="submit" value="search">
 		</p>
 	</form>
-	
+
+	<p>Recherche: {% for word in words %}
+		{{word}}
+	{% endfor %}</p>
+
+	<ul class="nav nav-tabs">
+	 
+	{% if catActive not in categories %}
+		<li class="active">
+	    	<a href="/search/{{words|join:'_'}}">All</a>
+	  	</li>
+	{% else %}
+		<li>
+	    	<a href="/search/{{words|join:'_'}}">All</a>
+	  	</li>
+	{% endif %}
+
+	{% for cat in categories %}
+		{% if catActive == cat %}
+			<li class="active"><a href="/search/{{words|join:'_'}}/{{cat}}">{{cat}}</a></li>
+		{% else %}
+			<li><a href="/search/{{words|join:'_'}}/{{cat|lower}}">{{cat}}</a></li>
+		{% endif %}
+	{% endfor %}
+
+	</ul>
+
 	{% for article in articles %}
 		<p><a href="/articles/{{article.id}}">{{article.title}}</a></p>
 		{% empty %}
 			<p>Désolé, il n'y a pas d'articles</p>
 	{% endfor %}
-	
+
 {% endblock content %}

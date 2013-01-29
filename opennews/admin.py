@@ -14,7 +14,6 @@ admin.site.register(Category)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)
-admin.site.register(Media)
 admin.site.register(Member)
 
 class MemberInline(admin.StackedInline):

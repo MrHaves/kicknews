@@ -30,7 +30,9 @@ urlpatterns = patterns('',
    	url(r'^articles/(\d{1})$', lireArticle),
    	url(r'^categories/(\w+)$', listerArticle),
    	url(r'^categories/$', listerArticle, {'categorie':"all"}),
-    url(r'^search/$', search),
+    url(r'^search/(\w+)/(\w+)$', search),
+    url(r'^search/(\w+)$', search, {'categorie':"all"}),
+    url(r'^search/$', search, {'words':"", 'categorie':"all"}),
     url(r'^api/', include(v1_api.urls)),
 
 

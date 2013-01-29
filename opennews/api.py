@@ -4,7 +4,7 @@ from tastypie.authorization import Authorization
 from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
 from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
-from .models import Category, Article, Member, Tag
+from .models import *
 
 
 
@@ -43,15 +43,17 @@ class ArticleResource(ModelResource):
 	class Meta:
 		queryset = Article.objects.all()
 		resource_name = 'articles'
+		fields = ["date", "title", "text"]
 		include_resource_uri = False
 		authorization = Authorization()
 		
 	def dehydrate(self, bundle):
 		"""adding articles tags and category"""
-		bundle.data['category'] = bundle.obj.category.name
-		bundle.data['tags'] = []
-		for x in bundle.obj.tags.all():
-			bundle.data['tags'].append(x.tag)
+		bundle.data['memberId'] = "test"
+		# bundle.data['category'] = bundle.obj.category.name
+		# bundle.data['tags'] = []
+		# for x in bundle.obj.tags.all():
+		# 	bundle.data['tags'].append(x.tag)
 		return bundle
 
 
@@ -78,7 +80,8 @@ class CategoryResource(ModelResource):
 		"""Adding categorie articles and tags of these articles"""
 		bundle.data['articles'] = []
 		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
-			x['memberId'] = User.objects.filter(id=x['memberId'])[0]
+			x['member'] = User.objects.filter(id=x['memberId'])[0]
+			x.pop("memberId")
 			x['tags'] = []
 			for t in Article.objects.filter(id=x['id'])[0].tags.all():
 				x['tags'].append(t)

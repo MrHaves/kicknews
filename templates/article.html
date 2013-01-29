@@ -14,6 +14,15 @@
 		<h2>{{article.title}}</h2>
 		<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}} par <a href="/profile/{{article.memberId.id}}">{{article.memberId}}</a></p>
 		<div class="well">
+				{% if article.media %}
+					{% if mediaType == "vid" %}
+						<video controls>
+							<source src="/media/{{article.media}}" type="{{mime}}">
+						</video>
+					{% else %}
+						<img src="/media/{{article.media}}" alt="">
+					{% endif %}
+				{% endif %}
 			{% autoescape off %}
 				{{article.text}}
 			{% endautoescape %}
@@ -21,6 +30,7 @@
 		{% for tag in article.tags.all %}
 			<span class="label label-info">{{tag}}</span>
 		{% endfor %}
+		{{tags}}
 		{% if article.coord != "" and article.coord != "error" %}
 			coord: {{article.coord}}
 		{% endif %}
