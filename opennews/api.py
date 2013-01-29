@@ -22,6 +22,7 @@ class MemberResource(ModelResource):
 		for cat in bundle.obj.preferedCategoryIDs.all():
 			cats.append(cat.name)
 		bundle.data['preferedCategoryIDs'] = cats
+		tst = 1
 		return bundle
 
 
