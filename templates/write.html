@@ -127,8 +127,9 @@
 		$("#e1").select2({
 			createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
             multiple: true,
-             tokenSeparators: [",", " "],
-            data: []
+            tokenSeparators: [",", " "],
+            data: [{id: 0, text: 'story'},{id: 1, text: 'bug'},{id: 2, text: 'task'}],
+            minimumInputLength: 3
 		});
 
 
