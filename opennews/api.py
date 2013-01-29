@@ -22,6 +22,7 @@ class MemberResource(ModelResource):
 		for cat in bundle.obj.preferedCategoryIDs.all():
 			cats.append(cat.name)
 		bundle.data['preferedCategoryIDs'] = cats
+		tst = 1
 		return bundle
 
 
@@ -46,6 +47,7 @@ class ArticleResource(ModelResource):
 		fields = ["date", "title", "text"]
 		include_resource_uri = False
 		authorization = Authorization()
+		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		
 	def dehydrate(self, bundle):
 		"""adding articles tags and category"""
