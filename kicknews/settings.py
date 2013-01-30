@@ -102,6 +102,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'opennews.middleware.XsSharing',
 )
 
 ROOT_PATH = os.path.dirname(__file__)

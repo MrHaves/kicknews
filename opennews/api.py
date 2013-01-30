@@ -8,6 +8,7 @@ from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
 from .models import *
 from tastypie.utils import trailing_slash
+from tastypie.models import ApiKey
 
 
 
@@ -59,11 +60,17 @@ class UserResource(ModelResource):
 		password = data.get('password', '')
 
 		user = authenticate(username=username, password=password)
+		member = Member.objects.get(user_id=user.id).__dict__
+		del member["_state"]
+		del member["user_id"]
+		api_key = ApiKey.objects.get(user=user).key
+		member["api_key"] = api_key
 		if user:
 			if user.is_active:
 				login(request, user)
 				return self.create_response(request, {
-					'success': True
+					'success': True,
+					'member': member,
 				})
 			else:
 				return self.create_response(request, {
