@@ -16,7 +16,6 @@ from tastypie.models import ApiKey
 
 def home(request):
 	"""The default view"""
-	tag = Tag.objects.get(tag="sciences").article_set.all()
 	#articles = Article.objects.filter(tag in tags)
 	foo = datetime.datetime.now()
 	user = request.user
@@ -57,7 +56,9 @@ def logoutUser(request):
 def register(request):
 	"""The views for register new user"""
 	if len(request.POST) > 0:
+		# Create a form for User registration
 		form = UserCreateForm(request.POST)
+		# Check if form is valid
 		if form.is_valid():
 			user = form.save()
 			pwd = form.cleaned_data['password1']
