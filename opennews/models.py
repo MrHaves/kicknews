@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
-from tastypie.utils.timezone import now
+# import django libs
 from django.template.defaultfilters import slugify
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from imperavi.widget import ImperaviWidget
 
+# improt tastypie tools
+from tastypie.utils.timezone import now
 from tastypie.models import create_api_key
+
+
+# Each time a user is create, create an api key
 models.signals.post_save.connect(create_api_key, sender=User)
+
 
 
 class Member(models.Model):
@@ -52,12 +57,6 @@ class Article(models.Model):
 	def __unicode__(self):
 		return self.title
 
-	# def save(self, *args, **kwargs):
-	# 	if not self.slug:
-	# 		self.slug = slugify(self.title)
-
-	# 		return super(Article, self).save(*args, **kwargs)
-
 
 
 class Comment(models.Model):
@@ -70,15 +69,5 @@ class Comment(models.Model):
 			return self.text[:19] + "..."
 		else:
 			return selft.text
-
-# class Media(models.Model):
-# 	title = models.CharField(max_length=255)
-# 	url = models.URLField()
-# 	commentId = models.ForeignKey(Comment)
-# 	memberId = models.ForeignKey(Member)
-
-# 	def __unicode__(self):
-# 		return self.title
-
 
 

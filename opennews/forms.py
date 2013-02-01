@@ -9,12 +9,12 @@ from django.forms import ModelForm
 from django.forms.widgets import PasswordInput
 
 
-class loginForm(forms.Form):
+class login_form(forms.Form):
     username = forms.CharField(required=True)
     password = forms.CharField(widget=forms.PasswordInput, required=True)
 
 
-class UserCreateForm(UserCreationForm):
+class user_create_form(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
@@ -31,7 +31,7 @@ class UserCreateForm(UserCreationForm):
             member.save()
         return user
 
-class ArticleForm(ModelForm):
+class article_form(ModelForm):
     class Meta:
         model = Article
         exclude = ('memberId','quality', 'validate', 'tags')
@@ -43,7 +43,7 @@ class ArticleForm(ModelForm):
             article.coord = coord
         article.save()
 
-class UserPreferencesForm(ModelForm):
+class user_preferences_form(ModelForm):
     class Meta:
         model = Member
         exclude = ('user',)
@@ -66,5 +66,5 @@ class UserPreferencesForm(ModelForm):
             member.save()
         return member
 
-class searchForm(forms.Form):
+class search_form(forms.Form):
     searchWords = forms.CharField(required=True)
