@@ -91,10 +91,13 @@ class UserResource(ModelResource):
 				if user.is_active:
 					login(request, user)
 			member = Member()
-            member.user = user
-            member.save()
+			member.user = user
+			member.save()
+			member = member.__dict__
 			del member["_state"]
 			del member["user_id"]
+			api_key = ApiKey.objects.get(user=user).key
+			member["api_key"] = api_key
 			return self.create_response(request, {
 				'success': True,
 				'member' : member
