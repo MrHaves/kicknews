@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.core.validators import email_re
 from tastypie.http import HttpUnauthorized, HttpForbidden
 from tastypie.authorization import Authorization
 from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
@@ -48,7 +50,48 @@ class UserResource(ModelResource):
 		return [
 			url(r"^(?P<resource_name>%s)/login%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('login'), name="api_login"),
 			url(r'^(?P<resource_name>%s)/logout%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('logout'), name='api_logout'),
+			url(r'^(?P<resource_name>%s)/register%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('register'), name='api_register'),
 		]
+
+	# register method for mobile registration
+	def register(self, request, **kwargs):
+		self.method_check(request, allowed=['post'])
+		
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+		
+		username = data.get('username', '')
+		email = data.get('email', '')
+		password1 = data.get('password1', '')
+		password2 = data.get('password2', '')
+
+		if email_re.match(email):
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'email not valid',
+			})
+		elif password1 != password2:
+			return self.create_response(request, {
+				'success': False,
+				'reason': "passwords don't match",
+			})
+		elif User.objects.get(username=username) is not None:
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'user already exist',
+			})
+		elif User.objects.get(email=email) is not None:
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'email already in use',
+			})
+		else:
+			user = User.objects.create_user(username,email,password1)
+			login(request, user)
+			return self.create_response(request, {
+				'success': True,
+				'member': member,
+			})
+
 
 	# login method witch check user authentification
 	def login(self, request, **kwargs):

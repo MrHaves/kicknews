@@ -2,8 +2,12 @@
 
 {% block style %}
 	{{block.super}}
-	input[type=text],input[type=password] {
-		height: 30px!important
+	.form-inline input[type=text],input[type=password] {
+		height: 30px;
+	}
+
+	.form-search input {
+		
 	}
 
 	label {
@@ -33,6 +37,7 @@
 <li><a href="/login">login</a></li>
 <li class="active"><a href="/register">register</a></li>
 {% endblock menu %}
+
 
 {% block content %}
 	<form action="/register" method="POST" class="form-inline">{% csrf_token %}
