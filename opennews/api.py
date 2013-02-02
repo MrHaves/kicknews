@@ -64,7 +64,7 @@ class UserResource(ModelResource):
 		password1 = data.get('password1', '')
 		password2 = data.get('password2', '')
 
-		if email_re.match(email):
+		if email_re.match(email) == False :
 			return self.create_response(request, {
 				'success': False,
 				'reason': 'email not valid',
