@@ -40,9 +40,9 @@ padding: 7px 9px;
 {% block content %}
 {{get}}
 	{% if next != None %}
-		<form class="form-signin" action="/login/?next={{next}}" method="POST">
+		<form class="form-signin" action="/login/?next={{next}}" method="POST">{% csrf_token %}
 	{% else %}
-		<form class="form-signin" action="/login/" method="POST">
+		<form class="form-signin" action="/login/" method="POST">{% csrf_token %}
 	{% endif %}
 		<h2 class="form-signin-heading">Please sign in</h2>
 		{{form.as_p}}

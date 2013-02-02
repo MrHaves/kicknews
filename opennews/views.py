@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response,render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.template import RequestContext
 
 # Import tools
 from itertools import chain
@@ -60,15 +61,15 @@ def login_user(request):
 					return HttpResponseRedirect("/")
 			else:
 				# If user does not exist, return to the login page & send the next params et the formular
-				return render_to_response("login.html", {'form': form, 'next':next})
+				return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
 		else:
 			# If form is not valid, return to the login page & send the next params et the formular
-			return render_to_response("login.html", {'form': form, 'next':next})
+			return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
 	else:
 		# If form is not send, it's the first visit.
 		# Make an empty login form and send it to login template
 		form = login_form()
-		return render_to_response("login.html", {'form': form, 'next':next})
+		return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
 
 
 def logout_user(request):
@@ -97,14 +98,14 @@ def register(request):
 				return HttpResponseRedirect('preferences')
 			else:
 				# if he does not exist, return to user registration page with form filled by the POST values
-				return render_to_response("register.html", {'form': form})
+				return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
 		else:
 			# if form is not valid, return to registration page
-			return render_to_response("register.html", {'form': form})
+			return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
 	else:
 		# if its you first visit, make an empty user registration form and send it
 		form = user_create_form()
-		return render_to_response("register.html", {'form': form})
+		return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
 
 
 
@@ -125,7 +126,7 @@ def preferences(request):
 			return HttpResponseRedirect('/')
 		else:
 			# If not, send the preference form with the api_key and the post datas
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key}, context_instance=RequestContext(request))
 	else:
 		# if the form is not send try to find the member from the logged user
 		try:
@@ -136,11 +137,11 @@ def preferences(request):
 		if member is not None:
 			# if member is not none, create preference form with user's datas
 			form = user_preferences_form(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key})
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key}, context_instance=RequestContext(request))
 		else:
 			# If member does not exist, send an empty form
 			form = user_preferences_form()
-			return render_to_response("preferences.html", {'form': form})	
+			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))	
 
 
 
@@ -191,11 +192,11 @@ def write_article(request):
 			return HttpResponseRedirect('/categories')
 		else:
 			# If it's not valid, send the form with POST datas
-			return render_to_response("write.html", {'form': form, 'member':member})
+			return render_to_response("write.html", {'form': form, 'member':member}, context_instance=RequestContext(request))
 	else:
 		# If it's not valid, send an empty form
 		form = article_form()
-		return render_to_response("write.html", {'form': form, 'member':member})
+		return render_to_response("write.html", {'form': form, 'member':member}, context_instance=RequestContext(request))
 
 
 
