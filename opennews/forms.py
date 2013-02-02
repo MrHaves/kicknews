@@ -22,7 +22,7 @@ class user_create_form(UserCreationForm):
         fields = ("username", "email", "password1", "password2")
 
     def save(self, commit=True):
-        user = super(UserCreateForm, self).save(commit=False)
+        user = super(user_create_form, self).save(commit=False)
         user.email = self.cleaned_data["email"]
         if commit:
             user.save()
@@ -37,7 +37,7 @@ class article_form(ModelForm):
         exclude = ('memberId','quality', 'validate', 'tags')
 
     def save(self, m_member, coord=None, commit=True):
-        article = super(ArticleForm, self).save(commit=False)
+        article = super(article_form, self).save(commit=False)
         article.memberId = m_member
         if coord is not None:
             article.coord = coord
