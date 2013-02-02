@@ -74,21 +74,29 @@ class UserResource(ModelResource):
 				'success': False,
 				'reason': "passwords don't match",
 			})
-		elif User.objects.get(username=username) is not None:
+		elif len(User.objects.filter(username=username)) != 0 :
 			return self.create_response(request, {
 				'success': False,
 				'reason': 'user already exist',
 			})
-		elif User.objects.get(email=email) is not None:
+		elif len(User.objects.filter(email=email)) != 0 :
 			return self.create_response(request, {
 				'success': False,
 				'reason': 'email already in use',
 			})
 		else:
 			user = User.objects.create_user(username, email, password1)
+			user = authenticate(username=username, password=password1)
+			if user:
+				if user.is_active:
+					login(request, user)
+			member = Member.objects.get(user_id=user.id)._dict_
+			del member["_state"]
+			del member["user_id"]
 			return self.create_response(request, {
 				'success': True,
-			})
+				'member' : member
+			})	
 
 
 	# login method witch check user authentification
