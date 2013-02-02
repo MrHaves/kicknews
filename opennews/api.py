@@ -90,7 +90,9 @@ class UserResource(ModelResource):
 			if user:
 				if user.is_active:
 					login(request, user)
-			member = Member.objects.get(user_id=user.id)._dict_
+			member = Member()
+            member.user = user
+            member.save()
 			del member["_state"]
 			del member["user_id"]
 			return self.create_response(request, {
