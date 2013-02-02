@@ -85,11 +85,9 @@ class UserResource(ModelResource):
 				'reason': 'email already in use',
 			})
 		else:
-			user = User.objects.create_user(username,email,password1)
-			login(request, user)
+			user = User.objects.create_user(username, email, password1)
 			return self.create_response(request, {
 				'success': True,
-				'member': member,
 			})
 
 
