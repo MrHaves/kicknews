@@ -218,7 +218,7 @@ class TagResource(ModelResource):
 class CategoryResource(ModelResource):
 	class Meta:
 		queryset = Category.objects.all() 	# Get all the categories
-		resource_name = 'categories'
+		resource_name = 'category'
 		fields = ['name'] 					# just keep the name
 		include_resource_uri = False 		# Remove the uri
 		filtering  = {
