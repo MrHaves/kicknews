@@ -24,6 +24,7 @@ class Member(models.Model):
 	geoloc = models.BooleanField(default=False)
 	pays = models.CharField(max_length=3, blank=True)
 	ville = models.CharField(max_length=255, blank=True)
+	maxArticle = models.IntegerField(default = 10)
 	user = models.OneToOneField(User)
 	
 	def __unicode__(self):
