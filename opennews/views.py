@@ -11,6 +11,7 @@ from django.template import RequestContext
 
 # Import tools
 from itertools import chain
+from haystack.query import SearchQuerySet
 import datetime
 import mimetypes
 
@@ -26,7 +27,6 @@ from models import *
 
 def home(request):
 	"""The default view"""
-	#articles = Article.objects.filter(tag in tags)
 	foo = datetime.datetime.now()
 	user = request.user
 	return render(request, "index.html", locals())
@@ -217,52 +217,41 @@ def list_article(request, categorie):
 	# Return the articles list, the categories list and the active categorie
 	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie.title()})
 
+# def search(request, words, categorie):
+# 	"""The search view"""
+# 	categoriesList = Category.objects.all()
+# 	categories = []
+# 	for cat in categoriesList:
+# 		categories.append(cat.name)
 
+	
+# 	if len(request.POST) > 0:
+# 		form = searchForm(request.POST)
+# 		if form.is_valid():
+# 			words = form.cleaned_data['searchWords'].split(' ')
+# 		else:	
+# 			return render_to_response("search.html", {'form': form, 'categories': categories, 'catActive': categorie.title()})
+# 	else:
+# 		form = searchForm()
+# 		words = words.split('_')
 
-def search(request, words, categorie):
-	"""The search view"""
-	# Get the category and put the name in a list
-	categoriesQuerySet = Category.objects.all()
-	categories = []
-	for cat in categoriesQuerySet:
-		categories.append(cat.name)
+# 	articles = []
 
-	# If form had been send
-	if len(request.POST) > 0:
-		# Make a search form with POST datas
-		form = search_form(request.POST)
-		if form.is_valid():
-			# If form is correctly filled, get the words and  
-			words = form.cleaned_data['searchWords'].split(' ')
-		else:	
-			return render_to_response("search.html", {'form': form, 'categories': categories, 'catActive': categorie.title()})
-	else:
-		# If is not, create an empty search form and split the view param "words"
-		form = search_form()
-		words = words.split('_')
+# 	if categorie == "all":
+# 		for word in words:
+# 			articles = list(chain(articles, Article.objects.filter(Q(title__contains = word) | Q(text__contains = word))))
+# 			tmp = Tag.objects.filter(tag = word )
+# 			if len(tmp) is not 0:
+# 				articles += tmp[0].article_set.all()
 
-	# Create an articles list
-	articles = []
-
-
-	if categorie == "all":
-		for word in words:
-			# Chains the query set of the search request for all category
-			articles = list(chain(articles, Article.objects.filter(Q(title__contains = word) | Q(text__contains = word))))
-			# Get the article related to a tag
-			tmp = Tag.objects.filter(tag = word )
-			if len(tmp) is not 0:
-				articles += tmp[0].article_set.all()
-
-	else:
-		for word in words:
-			# Chains the query set of the search request for th requested category
-			articles = list(chain(articles, Article.objects.filter(Q(category=Category.objects.filter(name=categorie.title())) & (Q(title__contains = word) | Q(text__contains = word)) )))
-			# Get the article related to a tag
-			tmp = Tag.objects.filter(tag = word)
-			if len(tmp) is not 0:
-				articles += tmp[0].article_set.all()
+# 	else:
+# 		for word in words:
+# 			articles = list(chain(articles, Article.objects.filter(Q(category=Category.objects.filter(name=categorie.title())) & (Q(title__contains = word) | Q(text__contains = word)) )))
+# 			tmp = Tag.objects.filter(tag = word)
+# 			if len(tmp) is not 0:
+# 				articles += tmp[0].article_set.all()
 			
-	# Return the article list
-	return render_to_response("search.html", {'form': form, 'words': words, 'articles': list(set(articles)), 'categories': categories, 'catActive': categorie.title()})
+
+# 	return render_to_response("search.html", {'form': form, 'words': words, 'articles': list(set(articles)), 'categories': categories, 'catActive': categorie.title()})
+
 

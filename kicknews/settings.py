@@ -118,12 +118,13 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
 #    'django.contrib.sites',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',   
     'django.contrib.admin',
     'opennews',
     'tastypie',
     'imperavi',
-    'sorl',
+   # 'sorl',
+    'haystack',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -159,3 +160,10 @@ PASSWORD_HASHERS = (
 )
 
 AUTH_PROFILE_MODULE = 'opennews.Member'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': 'kicknews.whoosh_index',
+    },
+}

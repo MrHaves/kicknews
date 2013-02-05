@@ -12,7 +12,7 @@ from django.conf import settings
 
 from forms import ImageForm, FileForm
 
-from sorl.thumbnail import get_thumbnail
+# from sorl.thumbnail import get_thumbnail
 
 
 UPLOAD_PATH = getattr(settings, 'IMPERAVI_UPLOAD_PATH', 'imperavi/')

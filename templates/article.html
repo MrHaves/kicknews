@@ -10,6 +10,7 @@
 {% endblock menu %}
 
 {% block content %}
+<<<<<<< Updated upstream
 	<h2>{{article.title}}</h2>
 	<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}} par <a href="/profile/{{article.memberId.id}}">{{article.memberId}}</a></p>
 	<div class="well">
@@ -21,6 +22,31 @@
 			{% else %}
 				<img src="/media/{{article.media}}" alt="">
 			{% endif %}
+=======
+	{% for article in articles %}
+		<h2>{{article.title}}</h2>
+		<p><a href="/categories/{{article.category}}">{{article.category}}</a>, publié le {{article.date.date}} à {{article.date.hour}}:{{article.date.minute}} par <a href="/profile/{{article.memberId.id}}">{{article.memberId}}</a></p>
+		<div class="well">
+				{% if article.media %}
+					{% if mediaType == "vid" %}
+						<video controls>
+							<source src="/media/{{article.media}}" type="{{mime}}">
+						</video>
+					{% else %}
+						<img src="/media/{{article.media}}" alt="">
+					{% endif %}
+				{% endif %}
+			{% autoescape off %}
+				{{article.text}}
+			{% endautoescape %}
+		</div>
+		{% for tag in article.tags.all %}
+			<span class="label label-info">{{tag}}</span>
+		{% endfor %}
+		
+		{% if article.coord != "" and article.coord != "error" %}
+			coord: {{article.coord}}
+>>>>>>> Stashed changes
 		{% endif %}
 		{% autoescape off %}
 			{{article.text}}

@@ -29,10 +29,9 @@ urlpatterns = patterns('',
    	url(r'^articles/(\d+)$', read_article),
    	url(r'^categories/(\w+)$', list_article),
    	url(r'^categories/$', list_article, {'categorie':"all"}),
-    url(r'^search/(\w+)/(\w+)$', search),
-    url(r'^search/(\w+)$', search, {'categorie':"all"}),
-    url(r'^search/$', search, {'words':"", 'categorie':"all"}),
-    
-    # api urls
+    # url(r'^search/(\w+)/(\w+)$', search),
+    # url(r'^search/(\w+)$', search, {'categorie':"all"}),
+    # url(r'^search/$', search, {'words':"", 'categorie':"all"}),
+    url(r'^search/', include('haystack.urls')),
     url(r'^api/', include(v1_api.urls)),
 )
