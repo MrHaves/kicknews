@@ -31,7 +31,8 @@ class Member(models.Model):
 		return self.user.username
 		
 class Category(models.Model):
-	name = models.CharField(max_length=255);
+	name = models.CharField(max_length=255)
+	url = models.CharField(max_length=255)
 	memberId = models.ForeignKey(Member, blank=True, null=True, on_delete=models.SET_NULL)
 	def __unicode__(self):
 		return self.name

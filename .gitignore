@@ -3,4 +3,5 @@
 *.pyc
 .DS_Store
 local_settings.py
+kicknews.sqlite
 *.sqlite

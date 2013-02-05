@@ -68,31 +68,40 @@
     <object pk="896e31c81935b4cae5fe7995d83a759a" model="sessions.session">
         <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
 ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
-VQ1fYXV0aF91c2VyX2lkcQRLAXUu
-</field>
+VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
         <field type="DateTimeField" name="expire_date">2013-02-17T16:47:57.469565</field>
     </object>
     <object pk="e8d5ce163b960e2ac2e9f5872a2c2e90" model="sessions.session">
         <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
 ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
+        <field type="DateTimeField" name="expire_date">2013-02-17T16:48:38.287995</field>
+    </object>
+    <object pk="61a327e1b29fb2556e1da4f1b776273b" model="sessions.session">
+        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
 VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 </field>
-        <field type="DateTimeField" name="expire_date">2013-02-17T16:48:38.287995</field>
+        <field type="DateTimeField" name="expire_date">2013-02-19T13:44:49.379701</field>
     </object>
     <object pk="1" model="opennews.category">
         <field type="CharField" name="name">économie</field>
+        <field type="CharField" name="url">economie</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
     <object pk="2" model="opennews.category">
         <field type="CharField" name="name">sciences</field>
+        <field type="CharField" name="url">sciences</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
     <object pk="3" model="opennews.category">
         <field type="CharField" name="name">divertissement</field>
+        <field type="CharField" name="url">divertissement</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
     <object pk="4" model="opennews.category">
         <field type="CharField" name="name">sport</field>
+        <field type="CharField" name="url">sport</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
     <object pk="1" model="opennews.article">
@@ -102,8 +111,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 &lt;p style="margin: 0px 0px 10px;"&gt;Tripler son chiffre d'affaires en cinq ans, sur fond de crise, cela vaut bien un théâtre, sans doute. En 2012, les ventes de vente-privee.com se sont envolées de 22&amp;nbsp;%, à 1,3&amp;nbsp;milliard d'euros, progressant davantage que le marché du e-commerce (+19&amp;nbsp;%). Pour fêter cette performance, le&amp;nbsp;PDG de vente-privee.com, ­&lt;a rel="nofollow" href="http://plus.lefigaro.fr/tag/Jacques-Antoine-Granjon" style="color: rgb(0, 136, 204);"&gt;Jacques-Antoine Granjon&lt;/a&gt;, s'est donc offert le théâtre de Paris.&amp;nbsp;&lt;a rel="nofollow" href="http://www.lefigaro.fr/mon-figaro/2013/01/24/10001-20130124ARTFIG00791-une-star-de-l-internet-s-offrele-theatre-de-paris.php" style="color: rgb(0, 136, 204);"&gt;Comme nous l'annoncions la semaine dernière sur lefigaro.fr&lt;/a&gt;, il a profité de l'annonce de ses résultats, sur scène, pour confirmer qu'il était devenu le premier actionnaire de la société d'exploitation de la ­salle. «L'objectif est d'en faire un endroit événementiel où, en plus des pièces, on pourra écouter de la musique», a-t-il détaillé. Déjà vendeur de billets et d'albums en ligne, il produira des spectacles après avoir déjà produit de la musique.&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px;"&gt;Cet investissement, de plusieurs millions d'euros, est stratégique à l'heure où, douze ans après sa création, vente-privee.com accélère sa diversification. Sur 6&amp;nbsp;100 ventes en ligne événementielles réalisées l'an passé en Europe, la moitié ont concerné le métier historique du site, c'est-à-dire le prêt-à-porter. L'autre moitié, des produits aussi divers que du&amp;nbsp;&lt;a rel="nofollow" href="http://www.lefigaro.fr/societes/2011/11/21/04015-20111121ARTFIG00676-vente-privee-vend-aussi-du-theatre-et-du-vin.php" style="color: rgb(0, 136, 204);"&gt;vin&lt;/a&gt;, des jouets, de l'électroménager, des voyages et places de spectacle…&lt;span rel="pastemarkerend" id="pastemarkerend95995"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-</field>
+&lt;/div&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:43:49.749018</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -116,8 +124,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
     </object>
     <object pk="2" model="opennews.article">
         <field type="CharField" name="title">Les fraudes aux allocations familiales ont dépassé les 100 millions</field>
-        <field type="TextField" name="text">
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les fraudes recensées par la Caisse nationale des allocations familiales (Cnaf) se sont élevées à 101,5 millions d'euros en 2011 pour 65 milliards de prestations versées aux allocataires, contre 90,15 millions en 2010, a annoncé mardi 29 janvier cet organisme de la Sécurité sociale.&lt;/p&gt;
+        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les fraudes recensées par la Caisse nationale des allocations familiales (Cnaf) se sont élevées à 101,5 millions d'euros en 2011 pour 65 milliards de prestations versées aux allocataires, contre 90,15 millions en 2010, a annoncé mardi 29 janvier cet organisme de la Sécurité sociale.&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le nombre de cas de fraudes s'est élevé à 15.011 (13.114 en 2010). Les plus fréquents concernent les minimas sociaux, 29% les prestations familiales et 23% les aides au logement, a-t-on précisé.&lt;/p&gt;
 
@@ -137,8 +144,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le recouvrement des prestations indues des Caf est de 80%. Les fraudes en 2011 ont été sanctionnées par 5.000 amendes pour un montant moyen de 600 euros.&lt;/p&gt;
 
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Quand le préjudice est supérieur à 12.000 euros, il y a dépôt de plainte, ce qui représente 16% des dossiers, avec dans 9 cas sur 10 un jugement favorable, a précisé Hervé Drouet.&lt;span rel="pastemarkerend" id="pastemarkerend62913"&gt;&lt;/span&gt;&lt;/p&gt;
-</field>
+&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Quand le préjudice est supérieur à 12.000 euros, il y a dépôt de plainte, ce qui représente 16% des dossiers, avec dans 9 cas sur 10 un jugement favorable, a précisé Hervé Drouet.&lt;span rel="pastemarkerend" id="pastemarkerend62913"&gt;&lt;/span&gt;&lt;/p&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:44:04.215254</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -175,8 +181,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le Crédoc note également que "des freins existent par rapport au public visé dans la mesure ou l'absence d'expérience et de diplôme ne correspond pas forcément à leurs exigences" et que l'"origine sociale des jeunes", si "elle ne soulève pas d'a priori négatif", "est tout de même associée à des difficultés comportementales et relationnelles".&lt;/p&gt;
 
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les emplois d'avenir, des contrats subventionnés pour les jeunes non qualifiés, montent lentement en charge depuis le coup d'envoi du 1er novembre: mi-janvier, près de 4.000 avaient été signés, sur un objectif de 150.000 d'ici 2014.Selon le ministère, "50% des emplois créés en emplois d'avenir l'ont été dans les structures et entreprises de l'économie sociale et solidaire".&lt;span rel="pastemarkerend" id="pastemarkerend68188"&gt;&lt;/span&gt;&lt;/p&gt;
-</field>
+&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les emplois d'avenir, des contrats subventionnés pour les jeunes non qualifiés, montent lentement en charge depuis le coup d'envoi du 1er novembre: mi-janvier, près de 4.000 avaient été signés, sur un objectif de 150.000 d'ici 2014.Selon le ministère, "50% des emplois créés en emplois d'avenir l'ont été dans les structures et entreprises de l'économie sociale et solidaire".&lt;span rel="pastemarkerend" id="pastemarkerend68188"&gt;&lt;/span&gt;&lt;/p&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:44:30.277685</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -216,8 +221,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Vers 07H00 GMT, la livre britannique baissait légèrement face à l'euro, à 85,62 pence pour un euro, comme face au billet vert, à 1,5750 dollar.&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;La devise helvétique reculait face à l'euro, à 1,2434 franc suisse pour un euro, et face au billet vert, à 0,9221 franc suisse pour un dollar.&lt;span rel="pastemarkerend" id="pastemarkerend7850"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-</field>
+&lt;/div&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:44:54.876960</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -242,8 +246,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Au total, 48 volontaires seront répartis en quatre groupes. Les patients des trois premiers groupes recevront trois injections sous cutanées à des doses différentes et à un mois d'intervalle. Un placebo sera injecté au quatrième groupe. Ni les patients ni les médecins ne savent à quel groupe est administré le placebo. «Nous gardons les patients deux heures après chaque vaccination pour les éventuels effets secondaires», indique Sophie Morange, médecin au centre d'investigation clinique de l'AP-HM.&lt;/p&gt;
 
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Après l'arrêt de la trithérapie des volontaires pendant deux mois et après s'être assuré que la charge virale reste indétectable pour un certain nombre de patients, la dose optimale de vaccin à administrer pourra être déterminée. En cas de succès, quarante autres patients seront traités avec la dose optimale du vaccin et quarante avec un placebo, pour démontrer l'efficacité du vaccin sur un nombre de patients significatif.&lt;span rel="pastemarkerend" id="pastemarkerend1378"&gt;&lt;/span&gt;&lt;/p&gt;
-</field>
+&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Après l'arrêt de la trithérapie des volontaires pendant deux mois et après s'être assuré que la charge virale reste indétectable pour un certain nombre de patients, la dose optimale de vaccin à administrer pourra être déterminée. En cas de succès, quarante autres patients seront traités avec la dose optimale du vaccin et quarante avec un placebo, pour démontrer l'efficacité du vaccin sur un nombre de patients significatif.&lt;span rel="pastemarkerend" id="pastemarkerend1378"&gt;&lt;/span&gt;&lt;/p&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:45:11.434076</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -256,8 +259,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
     </object>
     <object pk="7" model="opennews.article">
         <field type="CharField" name="title">GÉRARD LANVIN : PAPA POULE TOUCHANT DANS AMITIÉS SINCÈRES</field>
-        <field type="TextField" name="text">
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Si ces derniers temps,&amp;nbsp;&lt;strong&gt;Gérard Lanvin&lt;/strong&gt;&amp;nbsp;s'est fait remarquer pour ses clashs à tout va, l'acteur français sait toujours nous émouvoir au cinéma. Nous en aurons encore la preuve ce mercredi 30 janvier avec la sortie de son film&amp;nbsp;&lt;strong&gt;Amitiés sincères&lt;/strong&gt;. Il y incarne Walter, un papa poule un peu trop protecteur.&lt;/p&gt;
+        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Si ces derniers temps,&amp;nbsp;&lt;strong&gt;Gérard Lanvin&lt;/strong&gt;&amp;nbsp;s'est fait remarquer pour ses clashs à tout va, l'acteur français sait toujours nous émouvoir au cinéma. Nous en aurons encore la preuve ce mercredi 30 janvier avec la sortie de son film&amp;nbsp;&lt;strong&gt;Amitiés sincères&lt;/strong&gt;. Il y incarne Walter, un papa poule un peu trop protecteur.&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;S'il s'est improvisé serial-clasheur ces dernières semaines,&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/personnalite/gerard-lanvin_e747" style="color: rgb(0, 136, 204);"&gt;Gérard Lanvin&lt;/a&gt;&amp;nbsp;n'a en aucun cas perdu son talent ni même le respect que lui porte le public. Après avoir&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/gerard-lanvin-clashe-en-rafale-hollande-melenchon-et-torreton-prennent-cher/52314" style="color: rgb(0, 136, 204);"&gt;craché sur la classe politique&lt;/a&gt;puis&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/gerard-lanvin-j-emmerde-ces-connards-de-journalistes/52450" style="color: rgb(0, 136, 204);"&gt;sur les journalistes&lt;/a&gt;, l'acteur revient en salles dans&amp;nbsp;&lt;em&gt;Amitiés sincères&lt;/em&gt;.&lt;/p&gt;
 
@@ -267,8 +269,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;En salles ce mercredi 30 janvier,&amp;nbsp;&lt;em&gt;Amitiés sincères&lt;/em&gt;&amp;nbsp;a de quoi attirer en salles malgré les grosses sorties de la semaine que sont&amp;nbsp;&lt;em&gt;Lincoln&lt;/em&gt;&amp;nbsp;et&amp;nbsp;&lt;em&gt;Happiness Therapy&lt;/em&gt;, tous les deux&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/oscars-2013-lincoln-favori-intouchables-et-marion-cotillard-oublies/51780" style="color: rgb(0, 136, 204);"&gt;nommés aux Oscars&lt;/a&gt;. On aurait tort de se priver d'un bon film français, non ?&lt;/p&gt;
 
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Retrouvez la bande-annonce de Amitiés sincères dans notre diaporama.&lt;span rel="pastemarkerend" id="pastemarkerend872"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
-</field>
+&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Retrouvez la bande-annonce de Amitiés sincères dans notre diaporama.&lt;span rel="pastemarkerend" id="pastemarkerend872"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:45:27.270956</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -307,8 +308,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 &lt;p style="margin: 0px 0px 10px;"&gt;Un soutien léger, certes, mais d'autant plus appréciable que&amp;nbsp;&lt;b&gt;Robert Downey Jr.&lt;/b&gt;est un peu tout seul à défendre le film en public. Co-réalisé par&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Tom-Tykwer-100304" style="color: rgb(0, 136, 204);"&gt;Tom Tykwer&lt;/a&gt;&lt;/b&gt;&amp;nbsp;avec Lana et&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Andy-Wachowski-70316" style="color: rgb(0, 136, 204);"&gt;Andy Wachowski&lt;/a&gt;&lt;/b&gt;,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;devait venger le flop de&amp;nbsp;&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Speed-Racer-883700" style="color: rgb(0, 136, 204);"&gt;Speed Racer&lt;/a&gt;&lt;/i&gt;, la dernière réalisation des auteurs de&amp;nbsp;&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Matrix-270343" style="color: rgb(0, 136, 204);"&gt;Matrix&lt;/a&gt;&lt;/i&gt;&amp;nbsp;sortie en 2008. Pourtant, sorti aux États-Unis le 26 octobre dernier,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;a connu une carrière très décevante puisque les recettes mondiales du film ne s'élèvent qu'à 85 millions de dollars (dont seulement 27 aux USA) -alors que son budget (hors promotion) s'élèverait à 102 millions. Un flop pur et simple. Les critiques furent également assez perplexes face au film : le Time magazine allant même jusqu'à l'élire&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-elu-pire-film-de-l-annee-2012-3589286" style="color: rgb(0, 136, 204);"&gt;&lt;i&gt;"pire film de l'année 2012"&lt;/i&gt;&lt;/a&gt;&lt;/b&gt;. De fait,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;est un OVNI hyper ambitieux jusqu'au délire (&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-chef-d-oeuvre-ou-nanar-theorique-Verdict-a-chaud-3483836" style="color: rgb(0, 136, 204);"&gt;comme nous vous le soulignons à la vision du film en septembre dernier&lt;/a&gt;&lt;/b&gt;), adaptation fidèle du roman de&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/David-ROTHPAN-Mitchell-106047" style="color: rgb(0, 136, 204);"&gt;David Mitchell&lt;/a&gt;&lt;/b&gt;&amp;nbsp;qui déploie une intrigue immense et romanesque allant du XVIIIème siècle au futur le plus lointain. Avec&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Tom-Hanks-96035" style="color: rgb(0, 136, 204);"&gt;Tom Hanks&lt;/a&gt;&lt;/b&gt;&amp;nbsp;en cannibale du futur et&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Hugo-Weaving-98870" style="color: rgb(0, 136, 204);"&gt;Hugo Weaving&lt;/a&gt;&lt;/b&gt;&amp;nbsp;en Japonais. Ultime péripétie : la semaine dernière, on apprenait que&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-trop-sulfureux-Le-film-a-ete-censure-de-40-minutes-en-Chine-3645596" style="color: rgb(0, 136, 204);"&gt;40 minutes du film avaient été coupées par la censure chinoise&lt;/a&gt;&lt;/b&gt;...&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px;"&gt;(Sans faire de comparaison inappropriée,&amp;nbsp;&lt;b&gt;Robert Downey Jr.&amp;nbsp;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Robert-Downey-Jr-Pardonnez-a-Mel-Gibson-et-laissez-le-bosser-2959478" style="color: rgb(0, 136, 204);"&gt;avait défendu en octobre 2011&lt;/a&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Mel-Gibson-Michel-Papineschi-98818" style="color: rgb(0, 136, 204);"&gt;Mel Gibson&lt;/a&gt;&lt;/b&gt;, alors objet de toute la vindicte publique. Le fait que&lt;b&gt;John Toll&lt;/b&gt;&amp;nbsp;a remporté un Oscar pour la photo de Braveheart en 1995 n'a rien à voir avec cette histoire, mais on le souligne histoire que vous puissiez briller en société)&lt;span rel="pastemarkerend" id="pastemarkerend81674"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-</field>
+&lt;/div&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:45:54.725775</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -327,8 +327,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 &lt;div&gt;Repérée très jeune par Philippe Lucas qui l'hébergea un temps chez lui, à Melun, Manaudou explose au niveau international en 2004, à 17 ans. Et de quelle manière! Triple championne d'Europe à Madrid (400m, 100m dos et 4×100m 4 nages), elle enchaîne par le titre olympique du 400m à Athènes, devenant la première nageuse française sacrée championne olympique. La saga Manaudou est en marche et la jeune femme, compétitrice née («quand elle montait sur un plot de départ, elle savait pourquoi elle était là», rappelait Lucas avant les derniers championnats de France d'Angers), dévorera tout sur son passage jusqu'à son sommet, les Mondiaux de Melbourne en 2007, où elle décroche cinq médailles (or sur 200 et 400m, argent sur 800m et 100m dos et bronze sur 4×200m) et est désignée nageuse de la compétition, au même titre que Michael Phelps chez les hommes.&lt;/div&gt;
 &lt;div&gt;Elle ne le sait pas encore mais ce triomphe aux antipodes marquera la fin de sa suprématie. Devenue une véritable icône publicitaire, elle déserte plus souvent qu'à son tour la rubrique sportive pour les pages people ou business des magazines, allant jusqu'à amasser plus de trois millions d'euros par an grâce à de lucratifs contrats. «Elle a rendu ce sport populaire, ce qui a attiré le public, les médias, puis les sponsors», expliquait l'an dernier son agent Jean-François Salessy. Grisée tout autant qu'effrayée par le succès, elle ne s'appartient plus et vit mal le décalage entre sa vie hors des bassins et le régime stakhanoviste des séances d'entraînement de Philippe Lucas. En mai 2007, lassée, elle quitte son mentor pour rejoindre l'Italie, par amour pour Luca Marin, un nageur italien. «Pour fuir le travail», rétorque alors Lucas. Coup de tête pour un coup de cœur. L'idylle sentimentale et sportive tournera court, son club turinois la licenciant trois mois après son arrivée pour manque d'investissement. Après une période d'errance d'Ambérieu à Mulhouse et quelques histoires sentimentales scabreuses (des photos d'elles dénudées circuleront sur Internet fin 2007 et feront scandale), elle dispute les JO 2008 mais, sans surprise, se noie dans le Cube d'Eau pékinois (8e du 400m, 7e du 100m dos et 15e du 200m dos). Naufrage en mondovision dont elle ne se relèvera que bien plus tard. «J'ai dû mettre plus de six mois à l'oublier. J'étais comme au fond d'un trou noir», expliquait-elle cet été dans l'émission «Sept à huit» sur TF1. La flamme n'est plus là, l'envie de nager non plus.&amp;nbsp;&lt;/div&gt;
 &lt;div&gt;«Je n'avais plus envie de m'entraîner quand j'ai quitté Philippe en 2007. J'ai continué parce qu'il y avait la perspective des Jeux de Pékin. J'ai réalisé plus tard que c'était à ce moment-là que j'avais perdu le plaisir de nager», admet-elle alors. L'heure de la (première) retraite sonne en septembre 2009. L'heure d'une nouvelle vie aussi, au calme d'Auburn, aux États-Unis, où elle a rejoint son compagnon Frédérick Bousquet et où elle donne naissance à Manon, en avril 2010. Loin de l'agitation et de la pression médiatique française, la nouvelle maman se reconstruit et revit. «J'avais un tel dégoût de la natation et des sollicitations que je souhaitais pouvoir me balader sans être reconnue. Même si les gens n'étaient pas méchants, je devenais agressive. Cela m'a fait du bien de m'éloigner.» Tellement de bien qu'elle reprendra goût à la natation, d'abord pour se remettre en forme après sa grossesse puis plus sérieusement. En juin 2011, elle annonce son retour à la compétition avec un double objectif : «donner une autre image, être perçue comme quelqu'un de normal» et se qualifier pour les JO de Londres 2012.&lt;/div&gt;
-&lt;div&gt;Elle relève le challenge mais échoue en séries du 100 et 200m dos. Loin du drame et des larmes pékinoises, reléguée dans l'ombre des nouvelles stars de la natation française (Yannick Agnel, Camille Muffat et aussi son petit frère, Florent), elle ne le vit pas mal. Consciente, au fond d'elle, d'avoir une occasion en or de s'en aller par la grande porte à Chartres, dans une compétition plus en rapport avec son niveau actuel et, surtout, son niveau d'investissement à l'entraînement. Paradoxalement, elle confie ainsi avant ce rendez-vous s'être «entraînée plus dur que pour les JO». Preuve s'il en était besoin qu'elle savait déjà que ce serait sa dernière compétition et qu'elle n'entendait pas la rater. Elle l'aura même réussie avec un 22e titre et deux médailles internationales supplémentaires. Les 36e et 37e d'une carrière exceptionnelle. Le sentiment du devoir accompli, elle pouvait bien avoir le sourire au moment de s'en aller…&lt;span rel="pastemarkerend" id="pastemarkerend64641"&gt;&lt;/span&gt;&lt;/div&gt;
-</field>
+&lt;div&gt;Elle relève le challenge mais échoue en séries du 100 et 200m dos. Loin du drame et des larmes pékinoises, reléguée dans l'ombre des nouvelles stars de la natation française (Yannick Agnel, Camille Muffat et aussi son petit frère, Florent), elle ne le vit pas mal. Consciente, au fond d'elle, d'avoir une occasion en or de s'en aller par la grande porte à Chartres, dans une compétition plus en rapport avec son niveau actuel et, surtout, son niveau d'investissement à l'entraînement. Paradoxalement, elle confie ainsi avant ce rendez-vous s'être «entraînée plus dur que pour les JO». Preuve s'il en était besoin qu'elle savait déjà que ce serait sa dernière compétition et qu'elle n'entendait pas la rater. Elle l'aura même réussie avec un 22e titre et deux médailles internationales supplémentaires. Les 36e et 37e d'une carrière exceptionnelle. Le sentiment du devoir accompli, elle pouvait bien avoir le sourire au moment de s'en aller…&lt;span rel="pastemarkerend" id="pastemarkerend64641"&gt;&lt;/span&gt;&lt;/div&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:46:09.917303</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -341,8 +340,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
     </object>
     <object pk="11" model="opennews.article">
         <field type="CharField" name="title">Zlatan Ibrahimovic : "Zlataner, c'est dominer"</field>
-        <field type="TextField" name="text">
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;em&gt;L'attaquant suédois du&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/paris/" style="color: rgb(0, 136, 204);"&gt;Paris&lt;/a&gt;-Saint-Germain parle au Monde à l'occasion de la parution en France, mercredi 30 janvier, de l'autobiographie "Moi, Zlatan &amp;nbsp;Ibrahimovic" (JC Lattès).&lt;/em&gt;&lt;/p&gt;
+        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;em&gt;L'attaquant suédois du&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/paris/" style="color: rgb(0, 136, 204);"&gt;Paris&lt;/a&gt;-Saint-Germain parle au Monde à l'occasion de la parution en France, mercredi 30 janvier, de l'autobiographie "Moi, Zlatan &amp;nbsp;Ibrahimovic" (JC Lattès).&lt;/em&gt;&lt;/p&gt;
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Ce livre a été vendu à 700&amp;nbsp;000 exemplaires dans votre pays et a été nominé pour le prix August, l'équivalent du Goncourt en&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/suede/" style="color: rgb(0, 136, 204);"&gt;Suède&lt;/a&gt;. Vous attendiez-&lt;a rel="nofollow" href="http://www.lemonde.fr/vous/" style="color: rgb(0, 136, 204);"&gt;vous&lt;/a&gt;&amp;nbsp;à un tel succès ?&lt;/strong&gt;&lt;/p&gt;
 
@@ -361,8 +359,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 
 &lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Je suis à Paris car ici tout est enthousiasmant. Il peut se&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/passer" style="color: rgb(0, 136, 204);"&gt;passer&lt;/a&gt;&amp;nbsp;quelque chose de neuf chaque jour. Le projet est énorme. Je n'y participe pas depuis le début puisque je ne suis là que depuis six mois. J'ai une longue carrière derrière moi et beaucoup d'expérience. Partout où je vais, j'apprends, je gagne et j'ai la possibilité d'évoluer avec des joueurs fantastiques. C'est une nouvelle aventure pour moi. En six mois, j'ai évolué. J'apprends quelque chose de totalement nouveau sur le plan des relations humaines, que ce soit sur le terrain et en dehors. J'espère que je quitterai la France en ayant réalisé ce que j'ai fait dans tous les pays&amp;nbsp;où je suis passé :&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/donner" style="color: rgb(0, 136, 204);"&gt;donner&lt;/a&gt;&amp;nbsp;le meilleur de moi,&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/gagner" style="color: rgb(0, 136, 204);"&gt;gagner&lt;/a&gt;&amp;nbsp;et&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/rapporter" style="color: rgb(0, 136, 204);"&gt;rapporter&lt;/a&gt;&amp;nbsp;des trophées.&lt;/p&gt;
 
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;&lt;em&gt;L'intégralité de l'entretien avec Zlatan Ibrahimovic est à&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/lire" style="color: rgb(0, 136, 204);"&gt;lire&lt;/a&gt;&amp;nbsp;dans "Le Monde" daté jeudi 31 janvier.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-</field>
+&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;&lt;em&gt;L'intégralité de l'entretien avec Zlatan Ibrahimovic est à&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/lire" style="color: rgb(0, 136, 204);"&gt;lire&lt;/a&gt;&amp;nbsp;dans "Le Monde" daté jeudi 31 janvier.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</field>
         <field type="DateTimeField" name="date">2013-02-03T16:46:35.872488</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
@@ -577,7 +574,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="BooleanField" name="is_staff">True</field>
         <field type="BooleanField" name="is_active">True</field>
         <field type="BooleanField" name="is_superuser">True</field>
-        <field type="DateTimeField" name="last_login">2013-02-03T16:48:38.282339</field>
+        <field type="DateTimeField" name="last_login">2013-02-05T13:44:49.373184</field>
         <field type="DateTimeField" name="date_joined">2013-02-03T16:42:54.780862</field>
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>

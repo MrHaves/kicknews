@@ -14,6 +14,7 @@ from itertools import chain
 from haystack.query import SearchQuerySet
 import datetime
 import mimetypes
+from unicodedata import normalize
 
 # Import tastypie ApiKey
 from tastypie.models import ApiKey
@@ -206,16 +207,16 @@ def list_article(request, categorie):
 	categoriesQuerySet = Category.objects.all()
 	categories = []
 	for cat in categoriesQuerySet:
-		categories.append(cat.name)
+		categories.append(cat)
 	
 	# Filter articles by category name
 	if categorie == "all":
 		articles = Article.objects.all()
 	else:
-		articles = Article.objects.filter(category=Category.objects.filter(name=categorie.title())) # Here, .title() is to put the first letter in upperCase
+		articles = Article.objects.filter(category=Category.objects.filter(url=categorie)) # Here, .title() is to put the first letter in upperCase
 
 	# Return the articles list, the categories list and the active categorie
-	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie.title()})
+	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})
 
 # def search(request, words, categorie):
 # 	"""The search view"""

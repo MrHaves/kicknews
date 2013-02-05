@@ -40,10 +40,10 @@
 	  	</li>
 	{% endif %}
 	{% for cat in categories %}
-		{% if catActive == cat %}
-			<li class="active"><a href="/categories/{{cat}}">{{cat}}</a></li>
+		{% if catActive == cat.url %}
+			<li class="active"><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
 		{% else %}
-			<li><a href="/categories/{{cat|lower}}">{{cat}}</a></li>
+			<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
 		{% endif %}
 	{% endfor %}
 	</ul>
