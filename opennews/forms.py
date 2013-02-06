@@ -77,6 +77,7 @@ class user_preferences_form(ModelForm):
             member.ville = self.cleaned_data['ville']
             member.autoShare = self.cleaned_data['autoShare']
             member.preferedCategoryIDs = self.cleaned_data['preferedCategoryIDs']
+            member.maxArticle = self.cleaned_data['maxArticle']
         else:    
             # Else, create and empty member and save it without commit         
             member = super(user_preferences_form, self).save(commit=False)

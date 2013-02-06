@@ -17,6 +17,8 @@ import datetime
 import mimetypes
 from unicodedata import normalize
 
+from tastypie.models import ApiKey
+
 # Import openNews datas
 from forms import *
 from models import *
@@ -113,6 +115,12 @@ def register(request):
 @login_required(login_url='/login/') # You need to be logged for this page
 def preferences(request):
 	"""The view where logged user can modify their property"""
+	api_key = ApiKey.objects.filter(user=request.user)
+	if len(api_key) == 0:
+		api_key = ApiKey(user=request.user)
+		api_key.save()
+	else:
+		api_key = api_key[0]
 
 	# If form had been send
 	if len(request.POST) > 0:
@@ -125,7 +133,7 @@ def preferences(request):
 			return HttpResponseRedirect('/')
 		else:
 			# If not, send the preference form and the post datas
-			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
 	else:
 		# if the form is not send try to find the member from the logged user
 		try:
@@ -136,11 +144,11 @@ def preferences(request):
 		if member is not None:
 			# if member is not none, create preference form with user's datas
 			form = user_preferences_form(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
 		else:
 			# If member does not exist, send an empty form
 			form = user_preferences_form()
-			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))	
+			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))	
 
 
 
