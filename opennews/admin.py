@@ -3,6 +3,7 @@ from django.contrib import admin
 from opennews.models import *
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import *
+from django.contrib.sessions.models import Session
 # Import imperavi rich editor
 from imperavi.admin import ImperaviAdmin
 
@@ -15,6 +16,12 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Member)
+
+
+class SessionAdmin(admin.ModelAdmin): 
+    def _session_data(self, obj): 
+        return obj.get_decoded() 
+    list_display = ['session_key', '_session_data', 'expire_date']
 
 class MemberInline(admin.StackedInline):
     model = Member
@@ -40,6 +47,7 @@ class UserAdmin(UserAdmin):
 
 
 # Re-register UserAdmin
+admin.site.register(Session, SessionAdmin)
 admin.site.unregister(User)
 admin.site.unregister(Group)
 admin.site.register(User, UserAdmin)
