@@ -143,12 +143,23 @@ class UserResource(ModelResource):
 				member = Member.objects.get(user_id=user.id).__dict__
 				del member["_state"]
 				del member["user_id"]
+
 				# Add the ApiKey
 				api_key = ApiKey.objects.get(user=user).key
 				member["api_key"] = api_key
 
 				# Log the user
 				login(request, user)
+				api_key = ApiKey.objects.filter(user=user)
+				if len(api_key) == 0:
+					api_key = ApiKey(user=user)
+					api_key.save()
+				else:
+					api_key = api_key[0]
+
+				# Add the ApiKey
+				member["api_key"] = api_key.key
+
 				# Return success=True and the member object
 				return self.create_response(request, {
 					'success': True,
@@ -171,10 +182,15 @@ class UserResource(ModelResource):
 	def logout(self, request, **kwargs):
 		# Allows GET request
 		self.method_check(request, allowed=['get'])
-		# If user exist and is log, Logout
-		if request.user and request.user.is_authenticated():
-			logout(request)
-			return self.create_response(request, { 'success': True })
+		api_key = ApiKey.objects.filter(key=request.GET['api_key'])
+		if len(api_key) == 1:
+			user = api_key[0].user
+			# If user exist and is log, Logout
+			if user and user.is_authenticated():
+				api_key = ApiKey.objects.filter(user=user)[0]
+				api_key.delete()
+				logout(request)
+				return self.create_response(request, { 'success': True })
 		else:
 			# Else, return Unauthorized
 			return self.create_response(request, { 'success': False }, HttpUnauthorized)

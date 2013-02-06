@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#Import django libs
+# Import django libs
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response,render
@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
 from django.template import RequestContext
+from django.contrib.sessions.models import Session
 
 # Import tools
 from itertools import chain
@@ -16,19 +17,17 @@ import datetime
 import mimetypes
 from unicodedata import normalize
 
-# Import tastypie ApiKey
-from tastypie.models import ApiKey
-
-#import openNews datas
+# Import openNews datas
 from forms import *
 from models import *
 
 
-#Define your views here
+# Define your views here
 
 def home(request):
 	"""The default view"""
-	foo = datetime.datetime.now()
+	# sess = request.session['_auth_user_id']
+	foo = request.GET
 	user = request.user
 	return render(request, "index.html", locals())
 
@@ -54,6 +53,7 @@ def login_user(request):
 			if s_user is not None:
 				# If the user exist, log him
 				login(request, s_user)
+				request.session['user_id'] = s_user.id
 				if next is not None:
 					# If you come from a login required page, redirect to it
 					return HttpResponseRedirect(next)
@@ -113,9 +113,7 @@ def register(request):
 @login_required(login_url='/login/') # You need to be logged for this page
 def preferences(request):
 	"""The view where logged user can modify their property"""
-	# Get the user's api key
-	api_key = ApiKey.objects.filter(user=request.user)
-	
+
 	# If form had been send
 	if len(request.POST) > 0:
 		# make a user preference form with the POST values
@@ -126,8 +124,8 @@ def preferences(request):
 			form.save(request.user)
 			return HttpResponseRedirect('/')
 		else:
-			# If not, send the preference form with the api_key and the post datas
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key}, context_instance=RequestContext(request))
+			# If not, send the preference form and the post datas
+			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))
 	else:
 		# if the form is not send try to find the member from the logged user
 		try:
@@ -138,7 +136,7 @@ def preferences(request):
 		if member is not None:
 			# if member is not none, create preference form with user's datas
 			form = user_preferences_form(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key[0].key}, context_instance=RequestContext(request))
+			return render_to_response("preferences.html", {'form': form}, context_instance=RequestContext(request))
 		else:
 			# If member does not exist, send an empty form
 			form = user_preferences_form()
