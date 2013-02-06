@@ -114,7 +114,7 @@ class UserResource(ModelResource):
 			# Add his api_key
 			api_key = ApiKey.objects.get(user=user).key
 			member["api_key"] = api_key
-			
+
 			# Return success = True and the member object
 			return self.create_response(request, {
 				'success': True,
@@ -146,6 +146,7 @@ class UserResource(ModelResource):
 				# Add the ApiKey
 				api_key = ApiKey.objects.get(user=user).key
 				member["api_key"] = api_key
+
 				# Log the user
 				login(request, user)
 				# Return success=True and the member object
