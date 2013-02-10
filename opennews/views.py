@@ -185,8 +185,10 @@ def write_article(request):
 	# If form had been send
 	if len(request.POST) > 0:
 		# make a article form with the POST values
-		form = article_form(request.POST, request.FILES)
+		form = article_form(request.POST, request.FILES)		
 		if form.is_valid():
+			# save the tags
+			tags = request.POST['tagInput'].split(',')
 			# If the form is correctly filled, check the geoloc status of the author
 			if member.geoloc is not False:
 				# Get coord from POST (an hidden input from template, filled by js)
@@ -196,6 +198,11 @@ def write_article(request):
 			else:
 				# Save the article without the coord
 				article = form.save(m_member=member)
+			for tag in request.POST['tagInput'].split(','):
+				qs = Tag(tag=tag)
+				qs.save()
+				article.tags.add(qs)
+			article.save()
 			return HttpResponseRedirect('/categories')
 		else:
 			# If it's not valid, send the form with POST datas

@@ -8,7 +8,7 @@ from django.utils.dateformat import format
 # Import tastypie tools
 from tastypie.http import HttpUnauthorized, HttpForbidden
 from tastypie.authorization import Authorization
-from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
+from tastypie.resources import ModelResource, ALL_WITH_RELATIONS, ALL
 from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
 from tastypie.utils import trailing_slash
@@ -227,8 +227,22 @@ class TagResource(ModelResource):
 	class Meta:
 		queryset = Tag.objects.all() 	# Get all the tags
 		resource_name = 'tags'
-		fields = ['tag'] 				# Just keep the tag field
+		fields = ['tag', 'id'] 				# Just keep the tag field
 		include_resource_uri = False 	# Remove the uri data
+		filtering  = {
+			'q': ALL		# Filtre on the name. E.g : http://bottlenews.cc/api/v1/tag/?format=json&tag=sci
+		}
+
+	def build_filters(self, filters=None):
+		if filters is None:
+			filters = {}
+
+		orm_filters = super(TagResource, self).build_filters(filters)
+
+		if 'q' in filters:
+			orm_filters['tag__contains'] = filters['q']
+		return orm_filters 
+
 
 
 
