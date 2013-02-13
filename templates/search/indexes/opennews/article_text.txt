@@ -1,5 +1,5 @@
 {{ object.title }}
 {{ object.text }}
-{% for tag in object.tags.all %} 
-	{{ tag.tag }} 
+{% for tag in object.tags.all %}
+	{{ tag.tag }}
 {% endfor %}

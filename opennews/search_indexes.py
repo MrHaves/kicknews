@@ -1,6 +1,9 @@
-import datetime
+"""
+We begin by creating a sim indexes returning articles on Article (body, title, tags ...), Geolocation data, ...
+"""
+
 from haystack import indexes
-from opennews.models import Article, Tag, Category
+from opennews.models import Article
 
 class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
@@ -15,8 +18,7 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
         return self.get_model().objects.all()
 
     def prepare(self, object):
-		self.prepared_data = super(ArticleIndex, self).prepare(object)
-
-		self.prepared_data['tags'] = [tag.tag for tag in object.tags.all()]
-
-		return self.prepared_data
+        """  """
+        self.prepared_data = super(ArticleIndex, self).prepare(object)
+        self.prepared_data['tags'] = [tag.tag for tag in object.tags.all()]
+        return self.prepared_data
