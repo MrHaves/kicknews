@@ -143,11 +143,7 @@ class UserResource(ModelResource):
 				member = Member.objects.get(user_id=user.id).__dict__
 				del member["_state"]
 				del member["user_id"]
-
-				# Add the ApiKey
-				api_key = ApiKey.objects.get(user=user).key
-				member["api_key"] = api_key
-
+				
 				# Log the user
 				login(request, user)
 				api_key = ApiKey.objects.filter(user=user)
