@@ -35,41 +35,41 @@
 
 {% block menu %}
 
-<li class="dropdown">
-	<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown">
-	  Menu
-	  <b class="caret"></b>
-	</a>
-	<ul class="dropdown-menu">
-		<li><a href="/">home</a></li>
-		<li><a href="/categories">articles</a></li>
-		<li><a href="/preferences">preferences</a></li>
-		<li><a href="/logout">logout</a></li>
-		<li><a href="/login">login</a></li>
-		<li><a href="/register">register</a></li>
-	</ul>
-</li>
-<li>
-<div id="wysihtml5-toolbar" style="display: none;">
-  <ul class="commands">
-	  <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="createLink" title="Insert a link" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" href="javascript:;" unselectable="on"></li>
-	  <li data-wysihtml5-action="change_view" title="Show HTML" class="action" href="javascript:;" unselectable="on"></li>
-	</ul>
-	<div data-wysihtml5-dialog="createLink" style="display: none;">
-        <label>
-          Link:
-          <input data-wysihtml5-dialog-field="href" value="http://">
-        </label>
-        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-      </div>
-</div>
-</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown">
+		  Menu
+		  <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="/">home</a></li>
+			<li><a href="/categories">articles</a></li>
+			<li><a href="/preferences">preferences</a></li>
+			<li><a href="/logout">logout</a></li>
+			<li><a href="/login">login</a></li>
+			<li><a href="/register">register</a></li>
+		</ul>
+	</li>
+	<li>
+	<div id="wysihtml5-toolbar" style="display: none;">
+	  <ul class="commands">
+		  <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="createLink" title="Insert a link" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" href="javascript:;" unselectable="on"></li>
+		  <li data-wysihtml5-action="change_view" title="Show HTML" class="action" href="javascript:;" unselectable="on"></li>
+		</ul>
+		<div data-wysihtml5-dialog="createLink" style="display: none;">
+	        <label>
+	          Link:
+	          <input data-wysihtml5-dialog-field="href" value="http://">
+	        </label>
+	        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+	      </div>
+	</div>
+	</li>
 
 {% endblock menu %}
 
@@ -83,8 +83,8 @@
 				{{form.category}}
 			</p>
 
-			<p>
-				<label>Tags : </label><input type="hidden" id="e1" style="width:300px" name="tags">
+			<p id="tag_input">
+				<label>Tags : </label><input type="hidden" id="e1" style="width:300px" name="tagInput">
 				<label for="id_media">{{form.media.label}} : </label>
 				{{form.media}}
 			</p>
@@ -125,11 +125,35 @@
 		});
 
 		$("#e1").select2({
-			createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
             multiple: true,
             tokenSeparators: [",", " "],
-            data: [{id: 0, text: 'story'},{id: 1, text: 'bug'},{id: 2, text: 'task'}],
-            minimumInputLength: 3
+            minimumInputLength: 3,
+		    ajax: {
+				url: "/api/v1/tags/?format=json",
+				dataType: 'json',
+				quietMillis: 100,
+				data: function(term, page) {
+					return {
+						q:term
+					};
+				},
+				results: function(data, page ) {
+					return { results: data.objects }
+				}
+			},
+			createSearchChoice:function(term, data) { 
+				console.log(data); 
+				len = $(data).filter(function() { 
+					return this.tag.localeCompare(term)===0; 
+				}).length;
+				console.log(len); 
+				if (len===0) {
+					return {id:term, tag:term};
+				} 
+			},
+			formatResult: function(objects) { return "<div class='select2-result-label'>" + objects.tag + "</div>"; },
+			formatSelection: function(objects) { 
+				return "<input type='hidden' name='tags[]' value='" + objects.tag + "'>" + objects.tag; }
 		});
 
 
@@ -137,6 +161,7 @@
 			toolbar:      "wysihtml5-toolbar", // id of toolbar element
 			parserRules:  wysihtml5ParserRules // defined in parser rules set 
 		});
+
 
 		if(document.getElementById('id_coord'))
 			doGeoloc();
