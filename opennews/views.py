@@ -199,9 +199,13 @@ def write_article(request):
 				# Save the article without the coord
 				article = form.save(m_member=member)
 			for tag in request.POST['tagInput'].split(','):
-				qs = Tag(tag=tag)
-				qs.save()
-				article.tags.add(qs)
+				if tag.isdigit():
+					tagQuery = Tag.objects.get(id=tag)
+					article.tags.add(tagQuery)
+				else:
+					qs = Tag(tag=tag)
+					qs.save()
+					article.tags.add(qs)
 			article.save()
 			return HttpResponseRedirect('/categories')
 		else:
