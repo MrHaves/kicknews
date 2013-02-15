@@ -230,6 +230,7 @@ class TagResource(ModelResource):
 		}
 
 	def build_filters(self, filters=None):
+		# This is a personnal filter which permit to filter tags by letters in it. Eg : tag=ences => get "sciences"
 		if filters is None:
 			filters = {}
 

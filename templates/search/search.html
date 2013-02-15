@@ -4,18 +4,15 @@
     <h2>Search</h2>
 
     <form method="get" action=".">
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Search">
-                </td>
-            </tr>
-        </table>
+            {{ form.q }}
+            
+            <p>
+                <input type="submit" class="btn btn-primary" value="Search">
+            </p>
 
         {% if query %}
-            <h3>Results</h3>
+            <h3>Results for "{{query}}"</h3>
+
             {% for result in page.object_list %}
                 <p>
                     <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
