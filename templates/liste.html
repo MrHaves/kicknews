@@ -18,6 +18,95 @@
 {% endblock style %}
 
 {% block menu %}
+<<<<<<< HEAD
+<li><a href="/">home</a></li>
+<li class="active"><a href="/categories">articles</a></li>
+<li><a href="/preferences">preferences</a></li>
+<li><a href="/logout">logout</a></li>
+<li><a href="/login">login</a></li>
+<li><a href="/register">register</a></li>
+{% endblock menu %}
+
+{% block content %}
+<a class="btn" href="/write">Ecrire un article</a><br/>
+
+	<div class="mosaic-wrapper">
+	  
+	  {% for article in articles %}
+		  <div class="page random-page {{article.id}}">
+			<div class="row">
+				<div class="span8">
+					<h2>{{article.title}}</h2>
+					<div class="infos-article">
+						<p class="left"><i class="icon-calendar"></i>{{article.date.date}} à {{article.date.hour}}:{{article.date.minute}}</p>
+						<p class="left"><i class="icon-user"></i><a href="/profile/{{article.memberId.id}}">{{article.memberId}}</a></p>
+						<p class="left"><i class="icon-bookmark"></i><a href="/categories/{{article.category}}">{{article.category}}</a></p>
+						<div class="clear"></div>
+					</div>
+					<div class="text-article">
+						{% if article.media %}
+							{% if mediaType == "vid" %}
+								<video controls>
+									<source src="/media/{{article.media}}" type="{{mime}}">
+								</video>
+							{% else %}
+								<img src="/media/{{article.media}}" alt="">
+							{% endif %}
+						{% endif %}
+						{% autoescape off %}
+							{{article.text}}
+						{% endautoescape %}
+					</div>
+					{% for tag in article.tags.all %}
+						<i class="icon-tags"><span class="label label-info">{{tag}}</span>
+					{% endfor %}
+					{% if article.coord != "" and article.coord != "error" %}
+						coord: {{article.coord}}
+					{% endif %}
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+		    <div class="close-button">x</div>
+		    <div class="clear"></div>
+		  </div>
+	  {% endfor %}
+
+	  <div class="dashboard clearfix">
+	      <div class="col1 clearfix">
+	      	{% for article in articlesCol1 %}
+		        <div class="{% if forloop.counter0|divisibleby:'3' %}big{% else %}small{% endif %} todos-thumb frame" data-page="{{article.id}}">
+		          <p>{{article.title}}
+		            <span class="todos-thumb-span">{{article.date}}</span>
+		          </p>
+		        </div>
+	        {% endfor %}
+	      </div>
+
+	      <div class="col2 clearfix">
+	      	{% for article in articlesCol2 %}
+		        <div class="{% if forloop.counter|divisibleby:'3' %}big{% else %}small{% endif %} todos-thumb frame" data-page="{{article.id}}">
+		          <p>{{article.title}}
+		            <span class="todos-thumb-span">{{article.date}}</span>
+		          </p>
+		        </div>
+	        {% endfor %}
+	      </div>
+
+	      <div class="col3 clearfix">
+	      	{% for article in articlesCol3 %}
+		        <div class="{% if forloop.counter0|divisibleby:'3' %}big{% else %}small{% endif %} todos-thumb frame" data-page="{{article.id}}">
+		          <p>{{article.title}}
+		            <span class="todos-thumb-span">{{article.date}}</span>
+		          </p>
+		        </div>
+	        {% endfor %}
+	      </div>
+
+	  </div>
+	</div>
+
+	<ul class="nav nav-tabs">
 	{% if catActive %}
 		<li>
 	    	<a href="/categories/">All</a>
@@ -49,7 +138,7 @@
 	{% endif %}
 
 	<div class="divider"></div>
-	<a class="btn" href="/write">Ecrire un article</a>
+	
 
 {% endblock content %} 
 

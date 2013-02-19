@@ -1,0 +1,234 @@
+* { margin: 0; padding: 0; }
+body { 	background-color: #eee !important;}
+
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+
+/*-------------------------------*/
+/*----------- CONNECT -----------*/
+/*-------------------------------*/
+#connect {
+	background-color: #474747;
+    background-image: url("../img/noise.png");
+}
+
+#connect ul {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+#connect ul li {
+	list-style-type: none;
+    padding: 5px 7px 7px !important;
+	border-left: 1px solid #3f3f3f;
+	border-right: 1px solid #3f3f3f;
+}
+
+#connect ul li:hover {
+	background-color: #2fb1be;
+	color: #3f3f3f;
+}
+
+#connect ul li a {
+	display: block;
+	color: #fff;
+	font-size: 0.85em;
+}
+
+#connect ul li a:hover {
+	text-decoration: none;
+}
+
+/*-------------------------------*/
+/*----------- HEADER ------------*/
+/*-------------------------------*/
+#header {
+	margin: 35px 5px 0 60px;
+}
+
+#header h1 {
+	margin: 7px 0 0 7px;
+}
+
+#header h1 a {
+	color: #3f3f3f;
+	font-family: Capriola;
+    position: relative;
+    top: 7px;
+    left: 7px;
+}
+
+#header h1 a:hover {
+	text-decoration: none;
+}
+
+#header .baseline {
+	font-size: 0.9em;
+	margin: 0 0 0 16px;
+}
+
+#header form {
+    float: right;
+    margin: 40px 0 10px;
+}
+
+#header form input {
+	height: 30px;
+}
+
+/*-------------------------------*/
+/*------------ MENU -------------*/
+/*-------------------------------*/
+#main-nav .nav-bar {
+	margin-bottom: 0 !important;
+}
+
+#main-nav .navbar .navbar-inner { 
+	background: none;
+	border: none;
+	border-radius: none;
+	box-shadow: none;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills {
+	border-top: 4px solid #2fb1be;
+	width: 100%;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li {
+	padding: 10px 7px;
+	list-style-type: none;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li a {
+	color: #3f3f3f;
+	text-shadow: none;
+	text-transform: uppercase;
+	font-size: 0.87em;
+	padding: 0 7px;
+	font-weight: bold;
+	padding: 6px 10px;
+} 
+
+#main-nav .navbar .navbar-inner ul.nav-pills li a:hover {
+	color: #fff;
+	background-color: #2fb1be;
+	text-decoration: none;
+} 
+
+#main-nav .navbar .navbar-inner ul.nav-pills li.active a {
+	color: #fff;
+	background-color: #2fb1be;
+	text-decoration: none;
+} 
+
+/*-------------------------------*/
+/*----------- CONTENT -----------*/
+/*-------------------------------*/
+#content {
+	padding-left: 45px;
+}
+
+#content .text-article {
+	text-align: left;
+}
+
+#content .text-article h2 {
+	font-size: 1.1em;
+	line-height: 1.2em;
+	border-top:1px dotted #3f3f3f;
+	border-bottom:1px dotted #3f3f3f;
+	padding:15px 7px;
+	margin:7px 0 25px 0;
+}
+
+#content .text-article p {
+	font-size: 0.8em;
+	font-family: Arial;
+}
+
+#content .text-article a {
+	color: #ff9000 !important;
+}
+
+
+/*----------- Article -----------*/
+.infos-article p {
+	margin-right: 20px;
+}
+
+.infos-article i {
+	margin: 0 3px 0 0;
+}
+
+.openpage .row {
+	margin: 10px 0 0;
+}
+
+.openpage h2 {
+	text-align: left;
+	color: #3f3f3f;
+	font-size: 2.5em;
+}
+
+/*-------------------------------*/
+/*----------- FOOTER ------------*/
+/*-------------------------------*/
+.footer {
+	background-color: #474747;
+    background-image: url("../img/noise.png");
+    color: #fff;
+    padding:25px 0 45px 0;
+    margin:45px 0 0 0;
+}
+
+.footer h1 {
+	margin: 7px 0 0 7px;
+}
+
+.footer h1 a {
+	color: #fff;
+	font-family: Capriola;
+	font-size: 0.8em;
+    position: relative;
+    top: 7px;
+    left: 7px;
+}
+
+.footer h1 a:hover {
+	text-decoration: none;
+}
+
+.footer .baseline {
+	font-size: 0.7em;
+	margin: 0 0 0 16px;
+}
+
+.footer .left a img {
+    margin: 7px 0 0;
+    width: 4.5em;
+}
+
+.footer h5 {
+	font-size: 1.1em;
+	text-transform: uppercase;
+}
+
+.footer ul {
+	margin: 0;
+	padding: 0;
+}
+
+.footer ul li {
+	list-style-type: none;
+}
+
+.footer ul li a {
+	color: #fff;
+}
+
+.footer img.social-network {
+	margin-right:7px;
+}
