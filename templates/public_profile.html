@@ -6,12 +6,12 @@
 {% endblock style %}
 
 {% block menu %}
-<li class="active"><a href="/">home</a></li>
-<li><a href="/categories">articles</a></li>
-<li><a href="/preferences">preferences</a></li>
-<li><a href="/logout">logout</a></li>
-<li><a href="/login">login</a></li>
-<li><a href="/register">register</a></li>
+	<li>
+	   	<a href="/categories/">All</a>
+	</li>
+	{% for cat in categories %}
+		<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+	{% endfor %}
 {% endblock menu %}
 
 {% block content %}
