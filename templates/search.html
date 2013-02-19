@@ -16,6 +16,25 @@
 	}
 {% endblock style %}
 
+{% block menu %}
+	{% if catActive %}
+		<li>
+	    	<a href="/categories/">All</a>
+	  	</li>
+	{% else %}
+		<li class="active">
+	    	<a href="/categories/">All</a>
+	  	</li>
+	{% endif %}
+	{% for cat in categories %}
+		{% if catActive == cat.url %}
+			<li class="active"><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+		{% else %}
+			<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+		{% endif %}
+	{% endfor %}
+{% endblock menu %}
+
 {% block content %}
 	<form class="form-search" action="/search/" method="POST">
 		{{form.as_p}}

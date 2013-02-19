@@ -20,12 +20,22 @@
 {% endblock style %}
 
 {% block menu %}
-<li><a href="/">home</a></li>
-<li><a href="/categories">articles</a></li>
-<li class="active"><a href="/preferences">preferences</a></li>
-<li><a href="/logout">logout</a></li>
-<li><a href="/login">login</a></li>
-<li><a href="/register">register</a></li>
+	{% if catActive %}
+		<li>
+	    	<a href="/categories/">All</a>
+	  	</li>
+	{% else %}
+		<li class="active">
+	    	<a href="/categories/">All</a>
+	  	</li>
+	{% endif %}
+	{% for cat in categories %}
+		{% if catActive == cat.url %}
+			<li class="active"><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+		{% else %}
+			<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+		{% endif %}
+	{% endfor %}
 {% endblock menu %}
 
 {% block content %}
