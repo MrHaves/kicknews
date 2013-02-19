@@ -28,15 +28,23 @@ from models import *
 
 def home(request):
 	"""The default view"""
-	# sess = request.session['_auth_user_id']
-	foo = request.GET
-	user = request.user
-	categories = Category.objects.all()
-	return render(request, "index.html", locals())
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
+	return render(request, "index.html", {'categories': categories})
 
 
 def login_user(request):
 	"""The view for login user"""
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
 	# Already logged In ? => go Home
 	if request.user.is_authenticated():
 		return HttpResponseRedirect("/")
@@ -65,15 +73,15 @@ def login_user(request):
 					return HttpResponseRedirect("/")
 			else:
 				# If user does not exist, return to the login page & send the next params et the formular
-				return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
+				return render_to_response("login.html", {'categories': categories, 'form': form, 'next':next}, context_instance=RequestContext(request))
 		else:
 			# If form is not valid, return to the login page & send the next params et the formular
-			return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
+			return render_to_response("login.html", {'categories': categories, 'form': form, 'next':next}, context_instance=RequestContext(request))
 	else:
 		# If form is not send, it's the first visit.
 		# Make an empty login form and send it to login template
 		form = login_form()
-		return render_to_response("login.html", {'form': form, 'next':next}, context_instance=RequestContext(request))
+		return render_to_response("login.html", {'categories': categories, 'form': form, 'next':next}, context_instance=RequestContext(request))
 
 
 def logout_user(request):
@@ -84,6 +92,12 @@ def logout_user(request):
 
 def register(request):
 	"""The views for register new user"""
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
 	# If form had been send
 	if len(request.POST) > 0:
 		# make a user registration form with the POST values
@@ -102,20 +116,26 @@ def register(request):
 				return HttpResponseRedirect('preferences')
 			else:
 				# if he does not exist, return to user registration page with form filled by the POST values
-				return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
+				return render_to_response("register.html", {'categories': categories, 'form': form}, context_instance=RequestContext(request))
 		else:
 			# if form is not valid, return to registration page
-			return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
+			return render_to_response("register.html", {'categories': categories, 'form': form}, context_instance=RequestContext(request))
 	else:
 		# if its you first visit, make an empty user registration form and send it
 		form = user_create_form()
-		return render_to_response("register.html", {'form': form}, context_instance=RequestContext(request))
+		return render_to_response("register.html", {'categories': categories, 'form': form}, context_instance=RequestContext(request))
 
 
 
 @login_required(login_url='/login/') # You need to be logged for this page
 def preferences(request):
 	"""The view where logged user can modify their property"""
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
 	api_key = ApiKey.objects.filter(user=request.user)
 	if len(api_key) == 0:
 		api_key = ApiKey(user=request.user)
@@ -134,7 +154,7 @@ def preferences(request):
 			return HttpResponseRedirect('/')
 		else:
 			# If not, send the preference form and the post datas
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
+			return render_to_response("preferences.html", {'categories': categories, 'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
 	else:
 		# if the form is not send try to find the member from the logged user
 		try:
@@ -145,23 +165,35 @@ def preferences(request):
 		if member is not None:
 			# if member is not none, create preference form with user's datas
 			form = user_preferences_form(instance=request.user.member)
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
+			return render_to_response("preferences.html", {'categories': categories, 'form': form, 'api_key': api_key}, context_instance=RequestContext(request))
 		else:
 			# If member does not exist, send an empty form
 			form = user_preferences_form()
-			return render_to_response("preferences.html", {'form': form, 'api_key': api_key}, context_instance=RequestContext(request))	
+			return render_to_response("preferences.html", {'categories': categories, 'form': form, 'api_key': api_key}, context_instance=RequestContext(request))	
 
 
 
 def get_profile(request, userId):
 	"""Show the public profile of a user. Get it by his id"""
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
 	user = User.objects.filter(id=userId)[0]
-	return render_to_response("public_profile.html", {'user': user})
+	return render_to_response("public_profile.html", {'categories': categories, 'user': user})
 
 
 
 def read_article(request, IDarticle):
 	"""The view for reading an article"""
+	# Get the category and put the name in a list
+	categoriesQuerySet = Category.objects.all()
+	categories = []
+	for cat in categoriesQuerySet:
+		categories.append(cat)
+
 	# Get the article from the IDarticle params
 	article = Article.objects.get(id=IDarticle)
 	# Get the tags of the article
@@ -174,7 +206,7 @@ def read_article(request, IDarticle):
 		# If there is not, set False to mime et mediaType
 		mime = False
 		mediaType = False
-	return render_to_response("article.html", {'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags})
+	return render_to_response("article.html", {'categories': categories,'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags})
 
 
 @login_required(login_url='/login/') # You need to be logged for this page

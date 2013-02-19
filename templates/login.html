@@ -29,21 +29,11 @@
 {% endblock style %}
 
 {% block menu %}
-	{% if catActive %}
-		<li>
-	    	<a href="/categories/">All</a>
-	  	</li>
-	{% else %}
-		<li class="active">
-	    	<a href="/categories/">All</a>
-	  	</li>
-	{% endif %}
+	<li>
+    	<a href="/categories/">All</a>
+  	</li>
 	{% for cat in categories %}
-		{% if catActive == cat.url %}
-			<li class="active"><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
-		{% else %}
-			<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
-		{% endif %}
+		<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
 	{% endfor %}
 {% endblock menu %}
 
