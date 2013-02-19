@@ -227,7 +227,7 @@ def list_article(request, categorie):
 	for cat in categoriesQuerySet:
 		categories.append(cat)
 	
-	if not Category.objects.filter(url=categorie):
+	if not Category.objects.filter(url=categorie) and categorie != "all":
 		return render_to_response("liste.html", {'categories': categories, 'error': "Cette catégorie n'existe pas"})
 
 	# Filter articles by category name
