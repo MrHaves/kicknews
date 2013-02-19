@@ -232,8 +232,20 @@ def list_article(request, categorie):
 	else:
 		articles = Article.objects.filter(category=Category.objects.filter(url=categorie)) # Here, .title() is to put the first letter in upperCase
 
+	nbArticlePerCol = len(articles)/3
+	articlesCol1, articlesCol2, articlesCol3 = [], [], []
+	counter = 1
+	for article in articles:
+		if counter <= nbArticlePerCol+1:
+			articlesCol1.append(article)
+		elif (counter > nbArticlePerCol+1) & (counter <= 2*nbArticlePerCol+2):
+			articlesCol2.append(article)
+		else:
+			articlesCol3.append(article)
+		counter += 1
+		
 	# Return the articles list, the categories list and the active categorie
-	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})
+	return render_to_response("liste.html", {'articles': articles, 'nbArticlePerCol': nbArticlePerCol, 'articlesCol1': articlesCol1, 'articlesCol2': articlesCol2, 'articlesCol3': articlesCol3, 'categories': categories, 'catActive': categorie})
 
 # def search(request, words, categorie):
 # 	"""The search view"""
