@@ -31,6 +31,7 @@ def home(request):
 	# sess = request.session['_auth_user_id']
 	foo = request.GET
 	user = request.user
+	categories = Category.objects.all()
 	return render(request, "index.html", locals())
 
 
@@ -226,14 +227,19 @@ def list_article(request, categorie):
 	for cat in categoriesQuerySet:
 		categories.append(cat)
 	
+	if not Category.objects.filter(url=categorie):
+		return render_to_response("liste.html", {'categories': categories, 'error': "Cette catégorie n'existe pas"})
+
 	# Filter articles by category name
 	if categorie == "all":
 		articles = Article.objects.all()
+		catActive = False
 	else:
 		articles = Article.objects.filter(category=Category.objects.filter(url=categorie)) # Here, .title() is to put the first letter in upperCase
+		catActive = categorie
 
 	# Return the articles list, the categories list and the active categorie
-	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': categorie})
+	return render_to_response("liste.html", {'articles': articles, 'categories': categories, 'catActive': catActive})
 
 # def search(request, words, categorie):
 # 	"""The search view"""

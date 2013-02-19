@@ -18,24 +18,12 @@
 {% endblock style %}
 
 {% block menu %}
-<li><a href="/">home</a></li>
-<li class="active"><a href="/categories">articles</a></li>
-<li><a href="/preferences">preferences</a></li>
-<li><a href="/logout">logout</a></li>
-<li><a href="/login">login</a></li>
-<li><a href="/register">register</a></li>
-{% endblock menu %}
-
-{% block content %}
-<br>
-	<ul class="nav nav-tabs">
-	 
-	{% if catActive not in categories %}
-		<li class="active">
+	{% if catActive %}
+		<li>
 	    	<a href="/categories/">All</a>
 	  	</li>
 	{% else %}
-		<li>
+		<li class="active">
 	    	<a href="/categories/">All</a>
 	  	</li>
 	{% endif %}
@@ -46,13 +34,19 @@
 			<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
 		{% endif %}
 	{% endfor %}
-	</ul>
+{% endblock menu %}
 
-	{% for article in articles %}
-		<p><a href="/articles/{{article.id}}">{{article.title}}</a></p>
-		{% empty %}
-			<p>Désolé, il n'y a pas d'articles</p>
-	{% endfor %}
+{% block content %}
+<br>
+	{% if error %}
+		{{error}}
+	{% else %}
+		{% for article in articles %}
+			<p><a href="/articles/{{article.id}}">{{article.title}}</a></p>
+			{% empty %}
+				<p>Désolé, il n'y a pas d'articles</p>
+		{% endfor %}
+	{% endif %}
 
 	<div class="divider"></div>
 	<a class="btn" href="/write">Ecrire un article</a>
