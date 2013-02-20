@@ -17,6 +17,8 @@
 	}
 {% endblock style %}
 
+
+
 {% block menu %}
 	<li {% if catActive == 'all' %}class="active"{% endif %}>
 	<a href="/categories/">All</a>
@@ -57,7 +59,7 @@
 						{% endautoescape %}
 					</div>
 					{% for tag in article.tags.all %}
-						<i class="icon-tags"></i><span class="label label-info">{{tag}}</span>
+						<a class="label label-info" href="/search/?q={{tag}}"><i class="icon-tags"></i>{{tag}}</a>
 					{% endfor %}
 					{% if article.coord != "" and article.coord != "error" %}
 						coord: {{article.coord}}

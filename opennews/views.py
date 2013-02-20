@@ -283,7 +283,7 @@ def list_article(request, categorie):
 		counter += 1
 		
 	# Return the articles list, the categories list and the active categorie
-	return render_to_response("liste.html", {'articles': articles, 'articlesCol1': articlesCol1, 'articlesCol2': articlesCol2, 'articlesCol3': articlesCol3, 'categories': categories, 'catActive': categorie})
+	return render_to_response("liste.html", {'articles': articles, 'articlesCol1': articlesCol1, 'articlesCol2': articlesCol2, 'articlesCol3': articlesCol3, 'categories': categories, 'catActive': categorie}, context_instance=RequestContext(request))
 
 # def search(request, words, categorie):
 # 	"""The search view"""

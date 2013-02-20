@@ -152,6 +152,15 @@ body { 	background-color: #eee !important;}
 	color: #ff9000 !important;
 }
 
+#whyRegister li{
+	list-style: disc; 
+	color: #2fb1be;
+}
+
+#whyRegister li span{
+	color: #333;
+}
+
 
 /*----------- Article -----------*/
 .infos-article p {
