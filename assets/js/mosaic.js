@@ -39,6 +39,7 @@ function showDashBoard(){
       fadeDashBoard();
     })
   });
+
   $('.close-button').click(function(){
     $(this).parent().addClass('slidePageLeft')
           .one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {

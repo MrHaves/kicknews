@@ -133,20 +133,18 @@ body { 	background-color: #eee !important;}
 
 #content .text-article {
 	text-align: left;
+	font-size: 0.8em;
+	font-family: Arial;
 }
 
 #content .text-article h2 {
-	font-size: 1.1em;
+	font-size: 1.5em;
 	line-height: 1.2em;
 	border-top:1px dotted #3f3f3f;
 	border-bottom:1px dotted #3f3f3f;
 	padding:15px 7px;
 	margin:7px 0 25px 0;
-}
-
-#content .text-article p {
-	font-size: 0.8em;
-	font-family: Arial;
+	font-family:Lato;
 }
 
 #content .text-article a {
@@ -157,6 +155,12 @@ body { 	background-color: #eee !important;}
 /*----------- Article -----------*/
 .infos-article p {
 	margin-right: 20px;
+	font-size: 0.9em;
+	color: #ff9000 !important;
+}
+
+.infos-article a {
+	color: #ff9000 !important;
 }
 
 .infos-article i {
@@ -172,6 +176,93 @@ body { 	background-color: #eee !important;}
 	color: #3f3f3f;
 	font-size: 2.5em;
 }
+
+/*---------- Login --------------*/
+.form-signin {
+	max-width: 300px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    border-radius: 3px 3px 3px 3px;
+    color: #3F3F3F;
+    font-size: 0.8em;
+    height: 2.1em;
+    margin-bottom: 7px;
+    padding: 5px 9px !important;
+}
+
+.form-signin input[type="submit"] {
+    background-color: #2fb1be !important;
+    border: 0 none !important;
+    border-radius: 2px 2px 2px 2px !important;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal !important;
+    height: 2.1em !important;
+    margin: 7px 5px 0 0;
+    padding: 4px 15px;
+    text-shadow: none;
+}
+
+.form-signin input[type="submit"]:hover {
+	box-shadow: 0 2px 0 rgba(120, 200, 230, 0.5) inset;
+}
+
+/*----------- Register ----------*/
+.form-inline input[type=text],input[type=password] {
+	height: 30px;
+}
+
+.form-inline input[type="submit"] {
+    background-color: #2fb1be !important;
+    border: 0 none !important;
+    border-radius: 2px 2px 2px 2px !important;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal !important;
+    height: 2.1em !important;
+    margin: 7px 5px 0 0;
+    padding: 4px 15px;
+    text-shadow: none;
+}
+
+.form-inline input[type="submit"]:hover {
+	box-shadow: 0 2px 0 rgba(120, 200, 230, 0.5) inset;
+}
+
+.form-search input {
+	
+}
+
+label {
+	width: 125px;
+}
+
+#labelPassword2 {
+	width: auto;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.errorlist {
+
+}
+
+.errorlist li {
+	list-style: none;
+}
+
+
 
 /*-------------------------------*/
 /*----------- FOOTER ------------*/

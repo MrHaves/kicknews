@@ -10,8 +10,8 @@ from opennews.models import Member, Article
 
 
 class login_form(forms.Form):
-    username = forms.CharField(required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Nom d\'utilisateur'}), label="")
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}), required=True, label="")
 
 
 class user_create_form(UserCreationForm):
