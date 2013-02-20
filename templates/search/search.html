@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Search</h2>
+    <h2>Recherche</h2>
 
-    <form method="get" action=".">
-            {{ form.q }}
+    <form method="get" action="." class="form-search">
             
-            <p>
-                <input type="submit" class="btn btn-primary" value="Search">
-            </p>
+            
+            <div class="search-input">
+                {{ form.q }}
+                <input type="submit" value="Rechercher">
+                <div class="clear"></div>
+            </div>
+
 
         {% if query %}
-            <h3>Results for "{{query}}"</h3>
+            <h3>Résultas pour l'expression "{{query}}"</h3>
 
             {% for result in page.object_list %}
                 <p>
