@@ -11,6 +11,6 @@
 
 {% block content %}
 	<br>	
-	Date : {{foo}} =====>
+	Date : {{request.get_full_path}} =====><br>
 	current user : {{user}}<br>
 {% endblock content %} 

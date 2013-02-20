@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from haystack.forms import ModelSearchForm, FacetedSearchForm
 from haystack.query import EmptySearchQuerySet
-
+from opennews.models import Category
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20)
 
@@ -121,7 +121,11 @@ class SearchView(object):
 
         Must return a dictionary.
         """
-        return {}
+        categoriesQuerySet = Category.objects.all()
+        categories = []
+        for cat in categoriesQuerySet:
+            categories.append(cat)
+        return {'categories':categories}
 
     def create_response(self):
         """
@@ -140,8 +144,13 @@ class SearchView(object):
         if self.results and hasattr(self.results, 'query') and self.results.query.backend.include_spelling:
             context['suggestion'] = self.form.get_suggestion()
 
+        
         context.update(self.extra_context())
-        return render_to_response(self.template, context, context_instance=self.context_class(self.request))
+        categoriesQuerySet = Category.objects.all()
+        categories = []
+        for cat in categoriesQuerySet:
+            categories.append(cat)
+        return render_to_response(self.template, context,  context_instance=self.context_class(self.request))
 
 
 def search_view_factory(view_class=SearchView, *args, **kwargs):

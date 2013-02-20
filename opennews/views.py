@@ -34,7 +34,7 @@ def home(request):
 	for cat in categoriesQuerySet:
 		categories.append(cat)
 
-	return render(request, "index.html", {'categories': categories})
+	return render(request, "index.html", locals())
 
 
 def login_user(request):

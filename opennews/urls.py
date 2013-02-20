@@ -7,6 +7,9 @@ from tastypie.api import Api
 from api import *
 from views import *
 
+from haystack.views import SearchView  
+from haystack.query import SearchQuerySet 
+
 # add api resources
 v1_api = Api(api_name='v1')
 v1_api.register(MemberResource())
@@ -15,7 +18,7 @@ v1_api.register(CategoryResource())
 v1_api.register(UserResource())
 v1_api.register(TagResource())
 
-
+sqs = SearchQuerySet().order_by('-date') 
 
 urlpatterns = patterns('',
     # opennews urls
@@ -32,6 +35,13 @@ urlpatterns = patterns('',
     # url(r'^search/(\w+)/(\w+)$', search),
     # url(r'^search/(\w+)$', search, {'categorie':"all"}),
     # url(r'^search/$', search, {'words':"", 'categorie':"all"}),
-    url(r'^search/', include('haystack.urls')),
+    #url(r'^search/', include('haystack.urls')),
+    url(r'^search/',  
+                           SearchView(  
+                               load_all=False,  
+                               searchqueryset=sqs,  
+                               ),  
+                           name='haystack_search',  
+                           ),  
     url(r'^api/', include(v1_api.urls)),
 )
