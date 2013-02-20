@@ -95,6 +95,7 @@ body { 	background-color: #eee !important;}
 #main-nav .navbar .navbar-inner ul.nav-pills {
 	border-top: 4px solid #2fb1be;
 	width: 100%;
+	margin-top: 10px;
 }
 
 #main-nav .navbar .navbar-inner ul.nav-pills li {
@@ -206,10 +207,11 @@ body { 	background-color: #eee !important;}
     float: left;
     font-size: 14px;
     font-weight: normal !important;
-    height: 2.1em !important;
-    margin: 7px 5px 0 0;
-    padding: 4px 15px;
+    line-height: 1.9em !important;
+	margin: 7px 5px 0 0px;
+    padding: 1px 15px;
     text-shadow: none;
+    height: 1.9em;
 }
 
 .form-signin input[type="submit"]:hover {
@@ -222,7 +224,7 @@ body { 	background-color: #eee !important;}
 }
 
 .form-inline input[type="submit"] {
-    background-color: #2fb1be !important;
+  	background-color: #2fb1be !important;
     border: 0 none !important;
     border-radius: 2px 2px 2px 2px !important;
     color: #FFFFFF;
@@ -230,10 +232,11 @@ body { 	background-color: #eee !important;}
     float: left;
     font-size: 14px;
     font-weight: normal !important;
-    height: 2.1em !important;
-    margin: 7px 5px 0 0;
-    padding: 4px 15px;
+    line-height: 1.9em !important;
+	margin: 7px 5px 0 7px;
+    padding: 1px 15px;
     text-shadow: none;
+    height: 1.9em;
 }
 
 .form-inline input[type="submit"]:hover {
@@ -274,14 +277,19 @@ label {
     float: left;
     font-size: 14px;
     font-weight: normal !important;
-    height: 1.9em !important;
+    line-height: 1.9em !important;
 	margin: 7px 5px 0 7px;
-    padding: 4px 15px;
+    padding: 1px 15px;
     text-shadow: none;
+    height: 1.9em;
 }
 
 .form-search input[type="submit"]:hover {
 	box-shadow: 0 2px 0 rgba(120, 200, 230, 0.5) inset;
+}
+
+#searchForm-inline {
+	margin-top: 34px!important;
 }
 
 .form-search h3 {
@@ -290,6 +298,11 @@ label {
 
 .form-search a {
 	color: #ff9000;
+}
+
+.input-append .add-on, .input-prepend .add-on {
+	height: 30px;
+	padding: 7px 5px;
 }
 
 

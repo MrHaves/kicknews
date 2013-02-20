@@ -53,12 +53,14 @@
 				</div>
 			</div>
 			<div>
-				<form class="form-search" action="/search/" method="GET">	
+				{% block searchMenu %}
+				<form id="searchForm-inline" class="form-search" action="/search/" method="GET">	
 					<div class="input-prepend">
 						<span class="add-on"><i class="icon-search"></i></span>
-						<input type="text" id="q" id="prependedInput" name="q" class="input-large" placeholder="Search..." />
+						<input class="span2" type="text" id="q" id="prependedInput" name="q" class="input-large" placeholder="Search..." />
 					</div>
 				</form>
+				{% endblock searchMenu %}
 			</div>
 		</div>
 
