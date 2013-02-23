@@ -29,11 +29,19 @@ def home(request):
 	# Get the category and put the name in a list
 	categoriesQuerySet = Category.objects.all()
 	categories = []
+	user = request.user
 	for cat in categoriesQuerySet:
 		categories.append(cat)
 
 	return render(request, "index.html", locals())
 
+
+def comment(request):
+	article = Article.objects.get(id=request.POST.get('articleId'))
+	member = Member.objects.get(id=request.POST.get('memberId'))
+	comment = Comment(text=request.POST.get('commentText'), memberId=member,  articleId=article)
+	comment.save()
+	return render(request, "comment.html", locals())
 
 def login_user(request):
 	"""The view for login user"""
@@ -261,10 +269,26 @@ def list_article(request, categorie):
 		articles = Article.objects.filter(category=Category.objects.filter(url=categorie)) # Here, .title() is to put the first letter in upperCase
 		catActive = categorie
 
+	
+	# Get the size of each columns
 	nbArticlePerCol = len(articles)/3
+	# Init columns
 	articlesCol1, articlesCol2, articlesCol3 = [], [], []
+	
+	# Fill each columns with articles
 	counter = 1
+	# Get logged member
+	member = False
+	if request.user.is_authenticated():
+		qs = Member.objects.filter(user = request.user)
+		if qs:
+			member = qs[0]
+		
+
+
 	for article in articles:
+		# Add the comments relatives to the current article
+		article.comments = Comment.objects.filter(articleId=article.id)
 		if counter <= nbArticlePerCol+1:
 			articlesCol1.append(article)
 		elif (counter > nbArticlePerCol+1) & (counter <= 2*nbArticlePerCol+2):
@@ -274,7 +298,7 @@ def list_article(request, categorie):
 		counter += 1
 		
 	# Return the articles list, the categories list and the active categorie
-	return render_to_response("liste.html", {'articles': articles, 'articlesCol1': articlesCol1, 'articlesCol2': articlesCol2, 'articlesCol3': articlesCol3, 'categories': categories, 'catActive': categorie}, context_instance=RequestContext(request))
+	return render_to_response("liste.html", {'member': member, 'articles': articles, 'articlesCol1': articlesCol1, 'articlesCol2': articlesCol2, 'articlesCol3': articlesCol3, 'categories': categories, 'catActive': categorie}, context_instance=RequestContext(request))
 
 # def search(request, words, categorie):
 # 	"""The search view"""

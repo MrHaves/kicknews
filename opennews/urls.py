@@ -23,6 +23,8 @@ sqs = SearchQuerySet().order_by('-date')
 urlpatterns = patterns('',
     # opennews urls
     url(r'^$', list_article, {'categorie':"all"}),
+    url(r'^home$', home),
+    url(r'^comment$', comment),
    	url(r'^register$', register),
     url(r'^login/$', login_user),
     url(r'^logout/$', logout_user),

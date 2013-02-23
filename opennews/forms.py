@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms.widgets import PasswordInput
 # Import opennews models
-from opennews.models import Member, Article
+from opennews.models import Member, Article, Comment
 
 
 class login_form(forms.Form):
@@ -37,6 +37,13 @@ class user_create_form(UserCreationForm):
             member.user = user
             member.save()
         return user
+
+
+class comment_form(ModelForm):
+    class Meta:
+        # Use the comment model to create the formular but without memberId, articleId and date fields
+        model = Comment
+        exclude = ('memberId','articleId', 'date')
 
 
 

@@ -65,24 +65,25 @@
         <field type="CharField" name="app_label">auth</field>
         <field type="CharField" name="model">user</field>
     </object>
-    <object pk="896e31c81935b4cae5fe7995d83a759a" model="sessions.session">
-        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
-ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
-VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
-        <field type="DateTimeField" name="expire_date">2013-02-17T16:47:57.469565</field>
+    <object pk="29a8fa402447def96620ede901988fe2" model="sessions.session">
+        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
+AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
+b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==</field>
+        <field type="DateTimeField" name="expire_date">2013-03-09T16:27:42.186835</field>
     </object>
-    <object pk="e8d5ce163b960e2ac2e9f5872a2c2e90" model="sessions.session">
-        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
-ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
-VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
-        <field type="DateTimeField" name="expire_date">2013-02-17T16:48:38.287995</field>
+    <object pk="29cd1090c0178a38f27326cfd20e36b9" model="sessions.session">
+        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
+AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
+b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
+</field>
+        <field type="DateTimeField" name="expire_date">2013-03-09T17:55:41.822544</field>
     </object>
-    <object pk="61a327e1b29fb2556e1da4f1b776273b" model="sessions.session">
+    <object pk="3dd9b482c1fb543f4baf5171324e1c74" model="sessions.session">
         <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
 ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
 VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 </field>
-        <field type="DateTimeField" name="expire_date">2013-02-19T13:44:49.379701</field>
+        <field type="DateTimeField" name="expire_date">2013-03-09T18:50:44.083860</field>
     </object>
     <object pk="1" model="opennews.category">
         <field type="CharField" name="name">économie</field>
@@ -95,24 +96,73 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
     <object pk="3" model="opennews.category">
-        <field type="CharField" name="name">divertissement</field>
-        <field type="CharField" name="url">divertissement</field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
-    </object>
-    <object pk="4" model="opennews.category">
         <field type="CharField" name="name">sport</field>
         <field type="CharField" name="url">sport</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
     </object>
+    <object pk="4" model="opennews.category">
+        <field type="CharField" name="name">santé</field>
+        <field type="CharField" name="url">sante</field>
+        <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
+    </object>
+    <object pk="1" model="opennews.tag">
+        <field type="CharField" name="tag">justice</field>
+    </object>
+    <object pk="2" model="opennews.tag">
+        <field type="CharField" name="tag">fraude</field>
+    </object>
+    <object pk="3" model="opennews.tag">
+        <field type="CharField" name="tag">écologie</field>
+    </object>
+    <object pk="4" model="opennews.tag">
+        <field type="CharField" name="tag">football</field>
+    </object>
+    <object pk="5" model="opennews.tag">
+        <field type="CharField" name="tag">basketball</field>
+    </object>
+    <object pk="6" model="opennews.tag">
+        <field type="CharField" name="tag">handball</field>
+    </object>
+    <object pk="7" model="opennews.tag">
+        <field type="CharField" name="tag">nba</field>
+    </object>
+    <object pk="8" model="opennews.tag">
+        <field type="CharField" name="tag">allocation</field>
+    </object>
+    <object pk="9" model="opennews.tag">
+        <field type="CharField" name="tag">supermarché</field>
+    </object>
+    <object pk="10" model="opennews.tag">
+        <field type="CharField" name="tag">gaz</field>
+    </object>
+    <object pk="11" model="opennews.tag">
+        <field type="CharField" name="tag">gdf</field>
+    </object>
+    <object pk="12" model="opennews.tag">
+        <field type="CharField" name="tag">rugby</field>
+    </object>
+    <object pk="13" model="opennews.tag">
+        <field type="CharField" name="tag">Toulon</field>
+    </object>
+    <object pk="14" model="opennews.tag">
+        <field type="CharField" name="tag">préventive</field>
+    </object>
+    <object pk="15" model="opennews.tag">
+        <field type="CharField" name="tag">médecine</field>
+    </object>
+    <object pk="16" model="opennews.tag">
+        <field type="CharField" name="tag">archéologie</field>
+    </object>
+    <object pk="17" model="opennews.tag">
+        <field type="CharField" name="tag">Ramsès</field>
+    </object>
+    <object pk="18" model="opennews.tag">
+        <field type="CharField" name="tag">Egypte</field>
+    </object>
     <object pk="1" model="opennews.article">
-        <field type="CharField" name="title">Vente-privee.com compte 18 millions de membres</field>
-        <field type="TextField" name="text">&lt;h2 style="margin: 10px 0px; color: rgb(51, 51, 51);"&gt;Le leader du déstockage en ligne de grandes marques a vu ses ventes s'envoler de 22% en 2012, à 1,3 milliard d'euros. Le site enregistre chaque jour «2,5 fois la fréquentation des hypermarchés Carrefour de france réunis», se vante son PDG, Jacques-Antoine Granjon.&lt;/h2&gt;
-&lt;div style="color: rgb(51, 51, 51);"&gt;
-&lt;p style="margin: 0px 0px 10px;"&gt;Tripler son chiffre d'affaires en cinq ans, sur fond de crise, cela vaut bien un théâtre, sans doute. En 2012, les ventes de vente-privee.com se sont envolées de 22&amp;nbsp;%, à 1,3&amp;nbsp;milliard d'euros, progressant davantage que le marché du e-commerce (+19&amp;nbsp;%). Pour fêter cette performance, le&amp;nbsp;PDG de vente-privee.com, ­&lt;a rel="nofollow" href="http://plus.lefigaro.fr/tag/Jacques-Antoine-Granjon" style="color: rgb(0, 136, 204);"&gt;Jacques-Antoine Granjon&lt;/a&gt;, s'est donc offert le théâtre de Paris.&amp;nbsp;&lt;a rel="nofollow" href="http://www.lefigaro.fr/mon-figaro/2013/01/24/10001-20130124ARTFIG00791-une-star-de-l-internet-s-offrele-theatre-de-paris.php" style="color: rgb(0, 136, 204);"&gt;Comme nous l'annoncions la semaine dernière sur lefigaro.fr&lt;/a&gt;, il a profité de l'annonce de ses résultats, sur scène, pour confirmer qu'il était devenu le premier actionnaire de la société d'exploitation de la ­salle. «L'objectif est d'en faire un endroit événementiel où, en plus des pièces, on pourra écouter de la musique», a-t-il détaillé. Déjà vendeur de billets et d'albums en ligne, il produira des spectacles après avoir déjà produit de la musique.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px;"&gt;Cet investissement, de plusieurs millions d'euros, est stratégique à l'heure où, douze ans après sa création, vente-privee.com accélère sa diversification. Sur 6&amp;nbsp;100 ventes en ligne événementielles réalisées l'an passé en Europe, la moitié ont concerné le métier historique du site, c'est-à-dire le prêt-à-porter. L'autre moitié, des produits aussi divers que du&amp;nbsp;&lt;a rel="nofollow" href="http://www.lefigaro.fr/societes/2011/11/21/04015-20111121ARTFIG00676-vente-privee-vend-aussi-du-theatre-et-du-vin.php" style="color: rgb(0, 136, 204);"&gt;vin&lt;/a&gt;, des jouets, de l'électroménager, des voyages et places de spectacle…&lt;span rel="pastemarkerend" id="pastemarkerend95995"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:43:49.749018</field>
+        <field type="CharField" name="title">Les tarifs du gaz baisseront de 0,3 % en mars</field>
+        <field type="TextField" name="text">&lt;div&gt;Les tarifs du gaz de GDF Suez vont baisser de 0,3 % au 1er mars, a annoncé vendredi 22 février la Commission de régulation de l'énergie (CRE), après une première baisse d'un demi-point en février qui avait mis fin à deux ans de flambée. Cette baisse moyenne de 0,3 % dans le barème proposé par GDF Suez "est conforme à la formule tarifaire", indique la CRE dans un avis.&lt;/div&gt;&lt;div&gt;Ce léger recul découle de l'application des nouvelles règles d'évolution des tarifs réglementés du gaz, qui sont depuis cette année révisés tous les mois et non plus tous les trimestres. Une source proche du dossier avait indiqué la semaine dernière que le recul au 1er mars serait compris entre zéro et 0,5 %.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;b&gt;&lt;br&gt;NOUVEAU CALCUL&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;La nouvelle formule tarifaire incorpore désormais une plus forte part des prix du gaz sur le marché dit au comptant (ou "spot"), dans le calcul des coûts d'approvisionnement de GDF Suez, qui restent cependant majoritairement indexés sur les cours du pétrole. Ces prix spots évoluent globalement de manière plus favorable pour le consommateur que ceux du pétrole.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'application de ce nouveau système avait déjà conduit à une petite détente de 0,5 % des tarifs réglementés du gaz au 1er février. Ce recul reste très modeste par rapport à la flambée des prix du gaz qui n'avaient cessé d'augmenter depuis deux ans et se sont envolés au total de plus de 80 % depuis mi-2005. La formule légale est en principe le miroir exact des coûts d'approvisionnement de GDF Suez. L'ex-Gaz de France avait fin septembre une part de marché d'environ 86 % pour les particuliers et de 60 % sur le marché d'affaires.&lt;/div&gt;</field>
+        <field type="DateTimeField" name="date">2013-02-23T15:34:32.204062</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
         <field type="IntegerField" name="quality"><None></None></field>
@@ -120,134 +170,25 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
         <field type="CharField" name="coord"></field>
         <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
+        <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="10"></object><object pk="11"></object></field>
     </object>
     <object pk="2" model="opennews.article">
-        <field type="CharField" name="title">Les fraudes aux allocations familiales ont dépassé les 100 millions</field>
-        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les fraudes recensées par la Caisse nationale des allocations familiales (Cnaf) se sont élevées à 101,5 millions d'euros en 2011 pour 65 milliards de prestations versées aux allocataires, contre 90,15 millions en 2010, a annoncé mardi 29 janvier cet organisme de la Sécurité sociale.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le nombre de cas de fraudes s'est élevé à 15.011 (13.114 en 2010). Les plus fréquents concernent les minimas sociaux, 29% les prestations familiales et 23% les aides au logement, a-t-on précisé.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les deux prestations les plus concernées par les fraudes ont été le Revenu de Solidarité Active (RSA) et l'allocation de logement à caractère social (ALS).&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;La grande majorité des fraudes (67%) résultent de déclarations d'activité ou de ressources "non à jour", tandis que 27% sont des dissimulations de concubinage (pour toucher par exemple le RSA majoré destiné aux parents isolés) et 6% des escroqueries, faux et usages de faux documents.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Technique du datamining&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le montant des indus détectés, c'est-à-dire des prestations versées à des allocataires qui n'auraient pas dû les toucher, sans qu'il y ait eu pour autant de leur part intention de frauder, s'est élevé au total à 2,13 milliards d'euros.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Mais en 2012, la détection des fraudes donnera des résultats encore plus importants en raison de la mise en oeuvre de la technique du datamining (extraction d'informations à partir d'un gros volume de données), a indiqué à la presse Hervé Drouet, directeur général de la Cnaf.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;"Cette technique donne des résultats très nets (...) Dans plus de la moitié des cas, quand un contrôleur va faire un contrôle ciblé sur la base du datamining, il trouve quelque chose", a-t-il dit.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les chiffres de détection des fraudes 2012 ne sont pas encore consolidés, a précisé M. Drouet.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le recouvrement des prestations indues des Caf est de 80%. Les fraudes en 2011 ont été sanctionnées par 5.000 amendes pour un montant moyen de 600 euros.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Quand le préjudice est supérieur à 12.000 euros, il y a dépôt de plainte, ce qui représente 16% des dossiers, avec dans 9 cas sur 10 un jugement favorable, a précisé Hervé Drouet.&lt;span rel="pastemarkerend" id="pastemarkerend62913"&gt;&lt;/span&gt;&lt;/p&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:44:04.215254</field>
+        <field type="CharField" name="title">Tournoi des six nations : le physique des Bleus en question</field>
+        <field type="TextField" name="text">&lt;div&gt;Simon Shaw, seconde ligne anglais (66 sélections) et joueur de Toulon depuis 2011, a sonné la première charge du "Crunch" Angleterre-France dans le Times daté du mardi 19 février : "Les clubs français préfèrent acheter des rock stars plutôt que des spécialistes de la préparation physique. (...) A Toulon, malgré mes 39 ans, je suis un des joueurs les plus en forme du club." Le vénérable quotidien a décidé de se pencher sur le problème de la forme physique des Bleus quand l'arrière gallois Leigh Halfpenny, juste après la victoire des Diables rouges au Stade de France, s'est dit particulièrement étonné d'avoir croisé, sur le pré, des Français manquant de rythme, les mains sur les genoux après certaines séquences de jeu, l'air visiblement exsangues.&lt;/div&gt;&lt;div&gt;N'en déplaise au Times, le débat sur l'état de forme de l'équipe de France n'est pas nouveau. En pleine bourre lors de la tournée d'automne, placée en première partie de saison, les joueurs connaissent une récurrente baisse de régime lors du Tournoi des six nations. Philippe Saint-André, le sélectionneur, milite, aussi vainement que ses prédécesseurs pour l'instant, pour un réaménagement du calendrier et pour la possibilité de disposer de ses internationaux plus longtemps en leur imposant un temps de jeu moindre en club. Concilier la Fédération et la Ligue sur le dossier XV de France : une équation politique toujours aussi insoluble.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;LES BLEUS S'ENTRAÎNENT TROP&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'intérêt général du rugby français commanderait pourtant que l'on évite de trop tirer sur la corde du short tricolore juste avant un match international. Car si les joueurs ont paru sans ressort et fatigués face à l'Italie et au pays de Galles, c'est bien à cause d'une semaine surchargée en termes de travail physique et de la difficulté pour le préparateur tricolore de jongler entre les états de forme de chaque international et les desiderata, forcément impératifs et urgentissimes, du sélectionneur. Comme le rappelait Saint-André cette semaine : "Voilà notre problématique : travailler la touche, la mêlée, la défense, l'animation offensive.. Et nous n'avons les joueurs qu'une semaine. Vous croyez que l'on peut améliorer tout cela en seulement deux séances d'entraînement hebdomadaires ?"&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pour Pascal Valentini, préparateur physique du Racing-Métro, qui compte deux joueurs sélectionnés pour ce Tournoi, "la préparation physique, c'est de la programmation. Il faut parvenir à respecter un équilibre entre le rythme de travail programmé en club et celui prévu en équipe de France, qui n'est pas forcément le même. Si les deux programmations sont trop éloignées, il y a risque de déséquilibre énergétique et même physique." Or, les commentaires, "off the record", des internationaux pointent le temps, assez exorbitant, passé sur le terrain ballon en main. Trois entraînements avec opposition ont ainsi été programmés durant la semaine précédant le match en Italie. Un nombre très important dans un rugby moderne, qui sollicite beaucoup les corps. Sans compter les obligations médiatiques en tout genre. D'où un épuisement physique autant que psychologique observé lors des deux premiers défaites.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;UNE PRÉPARATION DIGNE DES ANNEES 90&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Le staff a d'ailleurs dû constater certaines erreurs, puisqu'il a rectifié le tir durant cette semaine en aménageant davantage de plages de récupération et même une séance de kart pour se changer les idées. Sébastien Bourdin, préparateur physique de Clermont (cinq joueurs auvergnats sont sélectionnés pour l'Angleterre), modère tout de même le propos : "Je ne trouve pas mes joueurs plus usés que la saison passée, mais il est difficile d'être objectif. Et les entraîneurs ont besoin d'avoir les joueurs sur le terrain, davantage qu'en club. En fait, il faut que chacun y mette du sien. J'échange beaucoup avec le préparateur physique du XV de France sur l'état de forme de mes joueurs. C'est une relation gagnant-gagnant."&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Plus globalement, c'est la qualité même de la préparation physique à la française que Simon Shaw cloue au pilori dans le Times. Dans le même article, son compatriote Kris Chesney, également joueur de Toulon, n'a pas peur de tomber dans la caricature : "En France, il y a des clubs qui s'entraînent comme Leicester (club anglais emblématique) dans les années 90." Ce qui fait rigoler Sébastien Bourdin : "Il n'a qu'à venir s'entraîner à Clermont ! Plus sérieusement, la préparation est une matière tellement complexe et individualisée qu'il est impossible de généraliser."&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pascal Valentini est plus offensif : "Simon Shaw a raison. Il reste des secteurs à travailler. Le top 14 a profité de l'apport des étrangers, qui ont eu une influence énorme en matière de rigueur, de professionnalisme, de récupération, de diététique. Mais je pense qu'on a vivoté là-dessus et qu'on n'a pas eu une réflexion globale sur ce qu'on devait améliorer. En gros, l'entraîneur français ne prend pas suffisamment en compte les sciences du sport et le préparateur physique. Il consulte les données physiologiques du joueur pour se donner bonne conscience, mais c'est insuffisant pour passer dans une autre dimension." En tout cas, Stuart Lancaster, le sélectionneur anglais, a dû lire le Times. Il espère faire craquer l'équipe de France dans les vingt dernières minutes de jeu, sur les bons conseils de Simon Shaw.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;</field>
+        <field type="DateTimeField" name="date">2013-02-23T15:36:26.216398</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
         <field type="IntegerField" name="quality"><None></None></field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
+        <field to="opennews.category" name="category" rel="ManyToOneRel">3</field>
         <field type="CharField" name="coord"></field>
         <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
+        <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="12"></object><object pk="13"></object></field>
     </object>
     <object pk="3" model="opennews.article">
-        <field type="CharField" name="title">Vers une ouverture stable à la Bourse de Paris, la Fed en ligne de mire</field>
-        <field type="TextField" name="text">&lt;span style="color: rgb(51, 51, 51);"&gt;La Bourse de Paris devrait ouvrir sans grand changement dans un marché qui attend les chiffres de l’emploi dans le secteur privé aux Etats-Unis, ainsi que la décision monétaire de la Fed. Vers 8h30, le contrat future février sur indice Cac 40 cède 1 point.&lt;br&gt;
-&lt;/span&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;La Bourse de Paris s’oriente vers une ouverture stable alors que le&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/cours.jsp?code=FR0003500008&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Cac 40&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;évolue sur des plus hauts de 18 mois. Le marché devrait se focaliser, ce soir, sur le communiqué de la&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/recherche/recherche.php?rech_infos=1&amp;amp;exec=1&amp;amp;texte=FED" style="color: rgb(0, 136, 204);"&gt;Fed&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;en quête d’indices sur une éventuelle modification des mesures de soutien à l’économie américaine au vu de récentes statistiques globalement favorables. Les investisseurs surveilleront également les créations d’emplois dans le secteur privé aux Etats-Unis, le consensus tablant sur 165.000 postes, après 215.000 en décembre. Toujours aux Etats-Unis,&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=US0970231058&amp;amp;place=XAMS&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Boeing&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;dévoilera ses comptes trimestriels avant l’ouverture de&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/cours.jsp?code=US2605661048&amp;amp;place=XNYS&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;Wall Street&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;. Qualcomm, ConocoPhillips et&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=US2855121099&amp;amp;place=XNAS&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Electronic Arts&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;feront de même après la clôture à New York. En Europe, l’Italie s’apprête à adjuger jusqu’à 6,5 milliards d’euros d’obligations à cinq et dix ans. Vers 8h30, le contrat future février sur indice&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/cours.jsp?code=FR0003500008&amp;amp;place=XPAR&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;Cac 40&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;cède 1 point à 3.787,5.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;Sur le front des statistiques, le marché surveillera, à 11h00, les indices de confiance du consommateur, du sentiment économique et du climat des affaires de janvier dans la&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/recherche/recherche.php?rech_infos=1&amp;amp;exec=1&amp;amp;texte=zone%20euro;color: rgb(0, 136, 204);"&gt;zone euro&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;. Deux indicateurs américains figurent au programme de l’après-midi&amp;nbsp;: l’enquête ADP Employer Services sur les créations d’emplois dans le secteur privé en janvier à 14h15 et la première estimation du PIB du quatrième trimestre à 14h30. La Fed annoncera à 20h15 sa décision en matière de politique monétaire.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;Du côté des valeurs,&amp;nbsp;&lt;/span&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000120578&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Sanofi&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;, sa filiale Genzyme et Isis Pharmaceuticals ont annoncé que les autorités sanitaires américaines ont approuvé la demande d’enregistrement du Kynamro pour le traitement d’une maladie génétique rare provoquant des taux de cholestérol LDL dangereusement élevés.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000131906&amp;amp;place=XPAR&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;Renault&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;. Les ventes d’automobiles ne progresseront pas en Europe au cours des trois à quatre prochaines années, a déclaré Carlos Ghosn, PDG de la marque française et de son allié Nissan, lors d’un congrès sur l’automobile à Bochum, en&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/recherche/recherche.php?rech_infos=1&amp;amp;exec=1&amp;amp;texte=Allemagne;color: rgb(0, 136, 204);"&gt;Allemagne&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;. Il table cependant sur une croissance du marché mondial grâce à l’augmentation de la demande aux Etats-Unis et en&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/recherche/recherche.php?rech_infos=1&amp;amp;exec=1&amp;amp;texte=Chine" style="color: rgb(0, 136, 204);"&gt;Chine&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000130577&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Publicis&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;détient 95,41% du capital de l’agence néerlandaise LBi. Lors de l’annonce de son offre, valorisant sa cible 416 millions d’euros, le groupe français avait fait part de son intention de retirer LBi de la cote d’Euronext Amsterdam.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0010259150&amp;amp;place=XPAR&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;Ipsen&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;a annoncé une croissance de 5,1% de son chiffre d’affaires 2012 à 1,219 milliard d’euros. Hors effets de change, l’activité progresse de 3,3%. Sur le seul quatrième trimestre, les ventes ont diminué de 0,3% à 294,9 millions.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000038606&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Manitou&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;a vu son chiffre d’affaires diminuer de 1% à 306,2 millions d’euros au quatrième trimestre en raison d’une chute de ses ventes en Europe du Sud qui représentent plus d’un tiers du total. Sur l’ensemble de 2012, l’activité a progressé de 12% à 1,265 milliard d’euros. Le groupe de manutention abaisse sa prévision de marge opérationnelle pour 2012 à 4%, contre 5% auparavant, à la suite de plusieurs alertes sur la qualité de certains composants-clés. Pour 2013, il confirme viser un chiffre d’affaires stable par rapport à 2012.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000038259&amp;amp;place=XPAR&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;Eurofins Scientific&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;a annoncé l’acquisition de Laboratorium ZeeuwsVlaanderen (LZV), spécialisé dans les services d’analyse pour le secteur agricole aux Pays-Bas. Le volet financier de l’opération n’a pas été dévoilé. LZV réalise un chiffre d’affaires annuel de plus de 10 millions d’euros, indique Eurofins dans son communiqué.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;Enfin,&amp;nbsp;&lt;/span&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000124711&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Unibail-Rodamco&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;publiera ses résultats 2012 après la clôture,&amp;nbsp;&lt;/span&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=NL0000226223&amp;amp;place=XPAR&amp;amp;codif=ISIN" style="color: rgb(0, 136, 204);"&gt;STMicroelectronics&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;se pliera à l’exercice à l’issue de la séance à New York.&amp;nbsp;&lt;/span&gt;&lt;b style="color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://bourse.lesechos.fr/bourse/synthese.jsp?code=FR0000039620&amp;amp;place=XPAR&amp;amp;codif=ISIN;color: rgb(0, 136, 204);"&gt;Mersen&lt;/a&gt;&lt;/b&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;présentera son chiffre d’affaires 2012.&lt;span rel="pastemarkerend" id="pastemarkerend78187"&gt;&lt;/span&gt;&lt;/span&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:44:17.491244</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="4" model="opennews.article">
-        <field type="CharField" name="title">Vers une ouverture stable à la Bourse de Paris, la Fed en ligne de mire</field>
-        <field type="TextField" name="text">&lt;h2 style="margin: 10px 0px; color: rgb(51, 51, 51);"&gt;Le secteur de l'économie sociale et solidaire pourrait créer quelque 114.000 emplois pour des jeunes peu ou pas qualifiés,s elon une étude du Crédoc. Ce potentiel est très concentré sur un faible nombre de métiers: aides à domiciles, aides ménagères et aides soignants.&lt;/h2&gt;
-&lt;span style="color: rgb(51, 51, 51);"&gt;Quelque 114.000 embauches annuelles de jeunes pas ou peu qualifiés, public cible du dispositif des&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://lexpansion.lexpress.fr/economie/les-emplois-d-avenir-definitivement-votes_345939.html;color: rgb(0, 136, 204);"&gt;emplois d'avenir&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;, pourraient être réalisées dans le secteur de l'économie sociale et solidaire, selon une étude du Crédoc publiée mardi.&lt;/span&gt;
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;"Ce potentiel est très concentré sur un faible nombre de métiers" (aides à domiciles, aides ménagères et aides soignants notamment) et "un tiers sur l'axe Paris-Lyon-Marseille", relève l'enquête réalisée à la demande du ministère délégué à l'Economie sociale et solidaire.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;"C'est un véritable choc de demande qui se prépare et qu'il faut anticiper: d'ici à 10 ans, les moins de 20 ans et les plus de 70 ans représenteront 26 millions de personnes susceptibles d'avoir recours aux services à la personne", a réagi le ministre en charge du dossier, Benoît Hamon, dans un communiqué.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;D'ici 2020, 600.000 départ à la retraites doivent par ailleurs avoir lieu dans le secteur qui représentait, en 2008, 10% de l'emploi salarié total. "Au vu des difficultés financières qui pèsent sur les capacités de développement de l'ESS et des besoins sociaux croissants auxquels il répond, le dispositif emplois d'avenir semble être particulièrement utile et bienvenu pour le secteur", même s'il reste "méconnu", estime le Centre de recherche pour l'étude et l'observation des conditions de vie.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le Crédoc note également que "des freins existent par rapport au public visé dans la mesure ou l'absence d'expérience et de diplôme ne correspond pas forcément à leurs exigences" et que l'"origine sociale des jeunes", si "elle ne soulève pas d'a priori négatif", "est tout de même associée à des difficultés comportementales et relationnelles".&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les emplois d'avenir, des contrats subventionnés pour les jeunes non qualifiés, montent lentement en charge depuis le coup d'envoi du 1er novembre: mi-janvier, près de 4.000 avaient été signés, sur un objectif de 150.000 d'ici 2014.Selon le ministère, "50% des emplois créés en emplois d'avenir l'ont été dans les structures et entreprises de l'économie sociale et solidaire".&lt;span rel="pastemarkerend" id="pastemarkerend68188"&gt;&lt;/span&gt;&lt;/p&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:44:30.277685</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="5" model="opennews.article">
-        <field type="CharField" name="title">L'euro, qui avait grimpé mardi au plus haut depuis décembre 2011, s'effritait mercredi sur un marché prudent avant la fin d'une réunion de la Réserve fédérale américaine (Fed), alors que le yen continuait à reculer.  Vers 07H00 GMT (08H00 à Paris), l'euro</field>
-        <field type="TextField" name="text">&lt;div&gt;
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;'euro, qui avait grimpé mardi au plus haut depuis décembre 2011, s'effritait mercredi sur un marché prudent avant la fin d'une réunion de la Réserve fédérale américaine (Fed), alors que le yen continuait à reculer.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Vers 07H00 GMT (08H00 à Paris), l'euro valait 1,3484 dollar contre 1,3493 dollar mardi vers 22H00 GMT, son niveau le plus élevé depuis le 2 décembre 2011.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;L'euro progressait en revanche face à la devise nippone, à 122,57 yens contre 122,42 yens mardi soir.&lt;/p&gt;
-&lt;div style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;&lt;/div&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le dollar gagnait aussi du terrain face à la monnaie japonaise, à 90,90 yens contre 90,72 yens la veille au soir.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;L'euro reste soutenu par le regain d'optimisme du marché au sujet de la zone euro, mais des prises de bénéfices pèsent sur la monnaie unique européenne après sa nouvelle progression de la veille, soulignaient les opérateurs.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le marché se montre prudent à quelques heures de l'issue de la réunion du Comité de politique monétaire de la Fed (FOMC), ajoutaient les cambistes.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les opérateurs surveilleront la décision de la banque centrale américaine sur le maintien de sa politique extrêmement accommodante, qui favorise les actifs jugés risqués, comme l'euro.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Les investisseurs attendaient également aux&amp;nbsp;&lt;a rel="nofollow" href="http://www.lepoint.fr/tags/etats-unis" style="color: rgb(0, 136, 204);"&gt;Etats-Unis&lt;/a&gt;&amp;nbsp;une salve d'indicateurs majeurs pour évaluer la vigueur de la première économie mondiale.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;La première estimation du produit intérieur brut (PIB) pour le quatrième trimestre 2012 et des chiffres de l'emploi dans le secteur privé en janvier, devaient être publiés ce mercredi, deux jours avant le rapport officiel mensuel sur l'emploi et le chômage aux Etats-Unis.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le yen de son côté continuait à reculer, victime toujours de l'assouplissement de la politique monétaire de la banque centrale japonaise.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le ministre des Finances japonais&amp;nbsp;&lt;a rel="nofollow" href="http://www.lepoint.fr/tags/taro-aso" style="color: rgb(0, 136, 204);"&gt;Taro Aso&lt;/a&gt;&amp;nbsp;a démenti à nouveau toute volonté des autorités nippones de manipuler leur monnaie afin de relancer leur économie, qualifiant la baisse du yen de simple "phase de correction" après sa forte hausse de l'an dernier.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Vers 07H00 GMT, la livre britannique baissait légèrement face à l'euro, à 85,62 pence pour un euro, comme face au billet vert, à 1,5750 dollar.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;La devise helvétique reculait face à l'euro, à 1,2434 franc suisse pour un euro, et face au billet vert, à 0,9221 franc suisse pour un dollar.&lt;span rel="pastemarkerend" id="pastemarkerend7850"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:44:54.876960</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="6" model="opennews.article">
-        <field type="CharField" name="title">Sida: Un vaccin va être testé à Marseille</field>
-        <field type="TextField" name="text">&lt;h2 style="margin: 10px 0px; color: rgb(51, 51, 51);"&gt;SANTE - Des essais vont être menés pendant un an sur 48 personnes séropositives volontaires...&lt;/h2&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;a rel="nofollow" href="http://www.20minutes.fr/article/1089495/vaccin-curatif-sida-teste-homme-a-marseille" style="color: rgb(0, 136, 204);"&gt;Des essais cliniques d'un&amp;nbsp;&lt;/a&gt;&lt;a rel="nofollow" href="http://www.20minutes.fr/thematique/vaccin" style="color: rgb(0, 136, 204);"&gt;vaccin&lt;/a&gt;&amp;nbsp;contre le sida vont être menés à partir de février et pendant un an à la Conception, à Marseille (5e), auprès de volontaires séropositifs*. L'Agence nationale de sécurité du médicament (ANSM) a donné son autorisation le 24 janvier à leur démarrage. «L'efficacité de ce vaccin a été démontrée dans des expériences in vitro et in vivo sur l'animal, en particulier des macaques», explique l'Assistance publique des hôpitaux de Marseille (APHM).&lt;/p&gt;
-&lt;h3 style="margin-top: 10px; margin-right: 0px; margin-left: 0px; color: rgb(51, 51, 51);"&gt;«Nous devons attendre la fin des essais»&lt;/h3&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Le vaccin doit faire produire au système immunitaire des anticorps capables de neutraliser la protéine «Tat», pour «transactivating». Elle joue le rôle de garde du corps des cellules infectées et empêche l'élimination de ces dernières. L'objectif est donc de démontrer que le vaccin peut permettre aux patients de ne pas suivre de trithérapie, le traitement médicamenteux pour les personnes infectées par le virus de l'immunodéficience humaine (VIH).&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;«Ce n'est pas la fin du sida, nous ne sommes pas là pour crier victoire, affirme Erwann Loret, le chercheur au CNRS qui a mis au point le vaccin. Nous devons attendre la fin des essais pour dire que nous avons une solution pour le début de la fin du sida.» La publication des résultats est prévue en juin 2015.&lt;/p&gt;
-&lt;h3 style="margin-top: 10px; margin-right: 0px; margin-left: 0px; color: rgb(51, 51, 51);"&gt;Un placebo utilisé&lt;/h3&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Au total, 48 volontaires seront répartis en quatre groupes. Les patients des trois premiers groupes recevront trois injections sous cutanées à des doses différentes et à un mois d'intervalle. Un placebo sera injecté au quatrième groupe. Ni les patients ni les médecins ne savent à quel groupe est administré le placebo. «Nous gardons les patients deux heures après chaque vaccination pour les éventuels effets secondaires», indique Sophie Morange, médecin au centre d'investigation clinique de l'AP-HM.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Après l'arrêt de la trithérapie des volontaires pendant deux mois et après s'être assuré que la charge virale reste indétectable pour un certain nombre de patients, la dose optimale de vaccin à administrer pourra être déterminée. En cas de succès, quarante autres patients seront traités avec la dose optimale du vaccin et quarante avec un placebo, pour démontrer l'efficacité du vaccin sur un nombre de patients significatif.&lt;span rel="pastemarkerend" id="pastemarkerend1378"&gt;&lt;/span&gt;&lt;/p&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:45:11.434076</field>
+        <field type="CharField" name="title">La médecine préventive doit créer ses propres règles</field>
+        <field type="TextField" name="text">&lt;div&gt;Entre 1990 et 2010, en France, la longévité a augmenté de 3,2 ans pour les femmes et de 4,5 ans pour les hommes, mais le gain significatif est celui de l'espérance de vie en bonne santé : 1,4 an pour les femmes et près du double, 2,7 ans, pour les hommes. Les hommes sont en retrait des femmes en termes de longévité (77,5 ans contre 84,3 ans), mais ils les talonnent en termes de durée de vie en bonne santé (65,5 ans contre 68,8 ans). Cela met en avant une nouvelle orientation des efforts de santé publique vers l'accroissement de la durée de vie en bonne santé, en complément de l'augmentation de la longévité, activité assignée à l'Assurance-maladie.&lt;/div&gt;&lt;div&gt;L'objectif majeur de la médecine a été, de tout temps, la guérison des malades. L'arsenal des moyens mis en jeu vise à établir un diagnostic positif, base d'une thérapeutique ciblée dont l'objectif est de garder les malades en vie et en bonne santé le plus longtemps possible. Cette démarche prouve son succès dans l'augmentation de la longévité. A cette médecine curative, il convient d'ajouter la médecine prédictive, qui doit assurer la recherche de pathologies en phase asymptomatique, permettre la prédiction de leur survenue, assurer leur prise en charge anticipée par des moyens spécifiques et ainsi obtenir un allongement de l'espérance de vie en bonne santé.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;UNE ENTITÉ AUX MILLE FACETTES&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Le bras armé de la médecine prédictive est le dépistage. Le plus efficace est le dépistage néonatal, qui obéit à des règles strictes : la maladie est grave, précoce, fréquente, accessible à un traitement et détectable par un test fiable. Hors de ce contexte, le dépistage est une entité aux mille facettes qui a suscité d'intenses controverses, particulièrement dans le cadre des affections cancéreuses. Le résultat le plus saillant de ce brouhaha médiatique a été l'émergence de la notion d'excès diagnostique. Ce "surdiagnostic" a été stigmatisé comme étant le meilleur moyen de rendre les gens malades dans le but de préserver leur santé.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Le diagnostic du cancer de la prostate est fondé sur le taux circulant du PSA, antigène spécifique de la prostate. En 2009, une étude européenne portant sur 182 000 hommes montre que, pour prévenir 1 décès, il faut dépister 1 410 hommes et traiter les 48 cancers détectés. Le dépistage est efficace, mais le bénéfice quasi nul. La même année, une étude américaine d'ampleur égale montre que la mortalité, très faible, est la même pour les patients dépistés ou pas. Efficaces dans le suivi de patients cancéreux, les dosages de PSA s'avèrent inopérants dans le dépistage.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Dans le cas du cancer du sein, l'incidence est, en Afrique, de 2 cas pour 10 000 ; elle est 5 fois plus forte aux Etats-Unis. Cette différence est attribuée au recours à une technologie très coûteuse, l'imagerie. Par ailleurs, les études génétiques ont permis de distinguer dix types de cancer du sein, chacun nécessitant un dépistage spécifique. De plus, la recherche systématique de ce cancer à l'autopsie montre une incidence de 7 % à 39 % chez des patientes décédées d'une tout autre cause.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;EXCÈS COÛTEUX&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Prises dans leur ensemble, les informations disponibles vont dans le sens d'un excès coûteux dans la démarche diagnostique et thérapeutique. La survie est améliorée, mais au prix d'une morbidité excessive. Le cancer de la thyroïde présente un risque de surdiagnostic bien connu, mais mal maîtrisé. La prévalence des cancers thyroïdiens nécessitant une prise en charge médicale et dits "d'expression clinique" avoisine 0,3 %, alors que la recherche systématique d'un cancer de la thyroïde affiche une prévalence qui peut atteindre 100 % selon la technique utilisée.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'incidence a augmenté de manière quasi exponentielle au cours des dernières années ; elle concerne les formes "précoces", de petite taille, jusque-là inaccessibles. Dans le même temps, la mortalité a diminué avec la même régularité. Cette évolution est due à l'utilisation de l'échographie et de la cytologie après ponction à l'aiguille fine. On ne peut parler d'excès de diagnostic, le cancer est bien présent. C'est la prise en charge thérapeutique qui est excessive, là où une simple surveillance suffirait.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'image traditionnelle du cancer, encore enseignée, est que le décès du patient est quasi inéluctable. Une telle vision est à l'origine des excès diagnostiques. Ceux-ci et leurs corollaires, les excès thérapeutiques, peuvent aussi rendre malade : si le but du dépistage est d'"allumer la cible", un dangereux cancer à éliminer, des traitements excessifs peuvent entraîner des "dommages collatéraux" portant tort au patient.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;EXCÈS DIAGNOSTIQUES&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Une solution est le développement d'outils spécifiques fiables de la phase asymptomatique des affections. Une première action est de reconsidérer les seuils de signification des marqueurs dont on dispose. L'exemple des excès diagnostiques dus à l'incertitude sur les valeurs seuils du PSA est suffisamment éloquent. Si le cancer du sein se décline en dix entités physiopathologiques distinctes, chacune doit bénéficier de marqueurs précoces de malignité permettant d'évoquer diagnostics et pronostics fiables.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'axe majeur est l'amélioration de la spécificité réelle des dosages biologiques, de la cytologie et de l'anatomopathologie. Il est impératif de s'assurer que la "cible" visée est bien celle que l'on croit. La Commission européenne a fait part de ses doutes par une proposition réglementaire, fin 2012, qui sera bientôt soumise au Parlement européen.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Il faut évaluer avec soin le coût humain tout autant que les coûts financiers. Dans le cas du cancer de la prostate, le dépistage est sévèrement mis en cause. Pour ce qui est du coût financier, il suffit de rappeler que le projet de financement de l'assurance-maladie soumis au Congrès des Etats-Unis par le président Obama mettait en avant le fait que ce projet pouvait diminuer les dépenses de centaines de milliards de dollars tout en assurant une meilleure santé à la population ; une des mesures proposées est l'arrêt du dépistage du cancer de la prostate.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Le diagnostic précoce est devenu une ambition courante. La précocité peut s'avérer un atout, mais trop de précocité peut être un danger, car elle expose trop de gens à risque faible à des traitements inutiles sinon dangereux. Autre point majeur, la médecine prédictive doit créer ses propres instruments et non se satisfaire de ceux utilisés par la médecine curative. La médecine prédictive peut jouer un rôle de premier plan dans l'évolution des pratiques médicales. Il restera à l'intégrer dans l'enseignement de la médecine de demain.&lt;/div&gt;</field>
+        <field type="DateTimeField" name="date">2013-02-23T15:37:22.632588</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
         <field type="IntegerField" name="quality"><None></None></field>
@@ -255,120 +196,20 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="opennews.category" name="category" rel="ManyToOneRel">2</field>
         <field type="CharField" name="coord"></field>
         <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
+        <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="14"></object><object pk="15"></object></field>
     </object>
-    <object pk="7" model="opennews.article">
-        <field type="CharField" name="title">GÉRARD LANVIN : PAPA POULE TOUCHANT DANS AMITIÉS SINCÈRES</field>
-        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Si ces derniers temps,&amp;nbsp;&lt;strong&gt;Gérard Lanvin&lt;/strong&gt;&amp;nbsp;s'est fait remarquer pour ses clashs à tout va, l'acteur français sait toujours nous émouvoir au cinéma. Nous en aurons encore la preuve ce mercredi 30 janvier avec la sortie de son film&amp;nbsp;&lt;strong&gt;Amitiés sincères&lt;/strong&gt;. Il y incarne Walter, un papa poule un peu trop protecteur.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;S'il s'est improvisé serial-clasheur ces dernières semaines,&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/personnalite/gerard-lanvin_e747" style="color: rgb(0, 136, 204);"&gt;Gérard Lanvin&lt;/a&gt;&amp;nbsp;n'a en aucun cas perdu son talent ni même le respect que lui porte le public. Après avoir&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/gerard-lanvin-clashe-en-rafale-hollande-melenchon-et-torreton-prennent-cher/52314" style="color: rgb(0, 136, 204);"&gt;craché sur la classe politique&lt;/a&gt;puis&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/gerard-lanvin-j-emmerde-ces-connards-de-journalistes/52450" style="color: rgb(0, 136, 204);"&gt;sur les journalistes&lt;/a&gt;, l'acteur revient en salles dans&amp;nbsp;&lt;em&gt;Amitiés sincères&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Il y incarne Walter, un homme très proche de ses deux meilleurs amis Paul (&lt;a rel="nofollow" href="http://www.adobuzz.com/personnalite/jean-hugues-anglade_e438651" style="color: rgb(0, 136, 204);"&gt;Jean-Hugues Anglade&lt;/a&gt;) et Jacques (Wladimir Yordanoff). Mais il est aussi très protecteur envers sa fille, Clémence (Ana Girardot) âgée de 20 ans.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Dans la vie, Walter n'a qu'une règle : dire la vérité, même si elle dérange. Mais ce qu'il ignore, c'est que Paul entretient une liaison avec sa fille. Forcément, dire la vérité s'annonce périlleux voire même dangeureux...&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;En salles ce mercredi 30 janvier,&amp;nbsp;&lt;em&gt;Amitiés sincères&lt;/em&gt;&amp;nbsp;a de quoi attirer en salles malgré les grosses sorties de la semaine que sont&amp;nbsp;&lt;em&gt;Lincoln&lt;/em&gt;&amp;nbsp;et&amp;nbsp;&lt;em&gt;Happiness Therapy&lt;/em&gt;, tous les deux&amp;nbsp;&lt;a rel="nofollow" href="http://www.adobuzz.com/news/oscars-2013-lincoln-favori-intouchables-et-marion-cotillard-oublies/51780" style="color: rgb(0, 136, 204);"&gt;nommés aux Oscars&lt;/a&gt;. On aurait tort de se priver d'un bon film français, non ?&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Retrouvez la bande-annonce de Amitiés sincères dans notre diaporama.&lt;span rel="pastemarkerend" id="pastemarkerend872"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:45:27.270956</field>
+    <object pk="4" model="opennews.article">
+        <field type="CharField" name="title">Plus de 3 000 ans après, la vérité sur la mort de Ramsès III</field>
+        <field type="TextField" name="text">&lt;div&gt;C'est un mystère vieux de plus de trois millénaires qui vient d'être résolu. Un mystère sous forme de véritable tragédie antique, une histoire de complot royal au pays des pharaons, qui se déroule en 1155 av. J.-C. Souverain depuis plus de trois décennies, Ramsès III vit la fin de son règne. Son successeur désigné, aussi nommé Ramsès, est un fils qu'il a eu avec sa première épouse. Cela n'est pas du goût de tous et une autre épouse, Tiy, monte une conspiration de harem pour que son fils Pentaouret accède au trône. Parmi la trentaine de conjurés, on trouve aussi des hauts fonctionnaires et des militaires. Comme le relate Nicolas Grimal dans son Histoire de l'Egypte ancienne (Fayard), "le plan était aussi simple que diabolique : les criminels avaient décidé d'agir lors de la célébration de la Fête de la Vallée à Medinet Habou en utilisant, entre autres procédés, l'envoûtement à l'aide de figurines magiques. Ils échouèrent et se retrouvèrent devant un tribunal composé de douze hauts fonctionnaires civils et militaires. La majeure partie des conspirateurs (dix-sept) fut exécutée. Sept furent autorisés à se suicider. Parmi eux, Pentaouret."&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Toute cette partie de l'histoire est connue grâce aux minutes des procès figurant sur des papyrus qui sont parvenus jusqu'à nous. Ce que, curieusement, l'on ignore, c'est le sort du principal intéressé, Ramsès III : les documents ne disent pas clairement ce qu'il est advenu du souverain si ce n'est que les procès se sont achevés après sa mort. Sous le nom de Ramsès IV, l'héritier désigné lui succède. Trois hypothèses sont avancées par les égyptologues : soit la tentative d'assassinat sur la personne de Ramsès III a réussi mais le reste du coup d'Etat a échoué, soit tout le complot a été déjoué et le pharaon a succombé à des causes naturelles, soit il est mort des blessures qui lui ont été infligées lors de la conspiration.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Le décès de Ramsès III constitue donc une sorte de cas non résolu mais, avec des méthodes dignes de la police scientifique, une équipe vient de mettre un terme au mystère dans une étude publiée lundi 17 décembre par le British Medical Journal. Emmenée par l'ancien secrétaire général du Conseil suprême des antiquités égyptiennes, Zahi Hawass, ainsi que par Albert Zink, spécialiste des momies et notamment de celle d'Ötzi, l'homme des glaces, cette équipe a fait passer un scanner à la momie de Ramsès III (photo ci-contre). Ils ont découvert que le souverain avait subi une très grave blessure à la gorge, juste sous le larynx. L'étude décrit, cachée sous d'épaisses bandelettes de lin, une ouverture de 7 centimètres de long, sans doute réalisée à l'aide d'une lame extrêmement coupante : l'entaille, très profonde, va jusqu'aux vertèbres cervicales. La lame a tranché tous les tissus de la face antérieure du cou, trachée, œsophage et tous les gros vaisseaux sanguins passant dans la région. Comme les embaumeurs n'incisaient jamais à cet endroit du corps, il ne peut s'agir d'une blessure post-mortem. Ramsès III a été proprement égorgé et sa mort &amp;nbsp;quasiment immédiate.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sur les images obtenues grâce au scanner, les chercheurs ont aussi eu la surprise de détecter un petit objet d'environ 15 millimètres de diamètre, inséré dans la blessure. Il semble, après reconstitution de cet objet, qu'il s'agisse d'une petite amulette, un œil d'Horus, semblable à celles que les embaumeurs laissaient dans les incisions qu'ils faisaient pour vider le corps de ses entrailles, le but étant en quelque sorte d'assurer la guérison de la plaie. Le dépôt de l'amulette ne dit pas que les embaumeurs ont effectué l'ouverture mais il marque leur volonté de "soigner" la blessure pour la vie du pharaon dans l'au-delà.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;La momie de Ramsès III n'est pas la seule qui figure dans cette étude. Les chercheurs se sont également intéressés à une momie aussi anonyme qu'étrange, celle de l'"homme E", qui se trouvait avec celle de Ramsès III et d'autres momies royales dans une cachette à l'abri des pilleurs de tombeaux. Il s'agit d'un homme jeune, âgé de 18 à 20 ans, ainsi que le montre l'étude de ses os. Son corps a subi un processus très inhabituel de momification. Le scanner a montré que ni son cerveau ni ses autres organes n'avaient été retirés : il n'y a pas eu d'embaumement. De plus, la momie a été recouverte d'une peau de chèvre, un matériau que l'on n'utilisait pas d'ordinaire puisqu'il était considéré, explique l'étude, comme "rituellement impur". Il semblerait donc qu'on ait voulu faire subir à ce cadavre une espèce de punition. Pour en savoir plus, les chercheurs ont réalisé une analyse génétique sur les deux momies afin de déterminer si elles avaient un lien familial, en comparant notamment leur chromosome Y. Résultat : les deux hommes étaient de la même lignée, probablement père et fils étant donné la différence d'âge. Et les auteurs de l'étude de suggérer que l'inconnu pourrait bien être... Pentaouret, qui aurait donc partagé sa dernière demeure avec ce père dont il avait tramé la mort.&lt;/div&gt;</field>
+        <field type="DateTimeField" name="date">2013-02-23T15:38:25.532383</field>
         <field type="BooleanField" name="published">True</field>
         <field type="BooleanField" name="validate">False</field>
         <field type="IntegerField" name="quality"><None></None></field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">3</field>
+        <field to="opennews.category" name="category" rel="ManyToOneRel">2</field>
         <field type="CharField" name="coord"></field>
         <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="8" model="opennews.article">
-        <field type="CharField" name="title">Spielberg et Lincoln, le choc des géants</field>
-        <field type="TextField" name="text">&lt;h2 style="margin: 10px 0px; color: rgb(51, 51, 51);"&gt;Le grand cinéaste livre un film éblouissant sur le président américain qui mit fin à l’esclavage dans les années 1860.&lt;/h2&gt;
-&lt;span style="color: rgb(51, 51, 51);"&gt;Il nous fait le coup à chaque fois. On voit venir son nouveau&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://actualites.leparisien.fr/film.html;color: rgb(0, 136, 204);"&gt;film&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;de loin, on est troublé parce qu’il a encore changé de genre cinématographique, on se demande comment&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://actualites.leparisien.fr/steven+spielberg.html" style="color: rgb(0, 136, 204);"&gt;Steven Spielberg&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;va pouvoir nous surprendre. Et l’on crie au chef-d’œuvre. Cette fois, il revient sur la fin de la vie de l’un&amp;nbsp;des plus célèbres hommes d’Etat américains.&amp;nbsp;« Lincoln » dresse, en deux heures trente chrono, le portrait d’un homme qui a démarré de très bas pour gravir les échelons jusqu’au niveau suprême, la présidence des Etats-Unis. Un monument. Comme Spielberg dans son art.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;strong style="color: rgb(51, 51, 51);"&gt;&lt;br&gt;
- Un cinéaste incontournable.&amp;nbsp;&lt;/strong&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;Les 28 longs-métrages du réalisateur ont pratiquement rapporté 3 Mds$ de recettes à ce jour. L’expression « blockbuster » a même été créée pour lui en 1975, quand « les Dents de la mer » a dépassé les 100 M$ de recettes, ce qui n’était jamais arrivé. Mais la force du&amp;nbsp;&lt;/span&gt;&lt;a rel="nofollow" href="http://actualites.leparisien.fr/cinema.html;color: rgb(0, 136, 204);"&gt;cinéma&lt;/a&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;&amp;nbsp;de Steven Spielberg ne peut être résumée à un bilan comptable. Depuis qu’il commencé, adolescent, à bricoler avec une caméra Super 8 dans le garage californien de ses parents, il s’est attaqué à tous les genres : le film d’aventures avec « Indiana Jones », la science-fiction avec « E.T. » et « Jurassic Park », la BD avec « Tintin », mais aussi le cauchemar historique du XXe siècle avec « la Liste de Schindler ». « E.T. téléphone maison » ou « Il faut sauver le soldat Ryan » sont même devenues des expressions courantes. « Au cours des vingt dernières années, Steven a accompli deux fois plus de travail que n’importe qui en une vie entière », selon Harrison Ford, l’un de ses acteurs fétiches.&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;strong style="color: rgb(51, 51, 51);"&gt;&lt;br&gt;
- Un producteur qui a du nez.&amp;nbsp;&lt;/strong&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;Derrière l’artiste, cherchez l’industriel. Steven Spielberg s’implique, à travers ses sociétés de production Amblin et DreamWorks, sur un nombre faramineux de séries télé, documentaires et longs-métrages. De « Gremlins » à « Transformers » en passant par « Shrek » ou « Men in Black », Spielberg est dans l’ombre. De même qu’il a lancé la série « Urgences » et produit pour le petit écran « Band of Brothers » ou « Disparition ». A Hollywood, ces sociétés ont collaboré avec Paramount ou Disney, lui-même a coproduit des films avec George Lucas, Peter Jackson ou Michael Bay. En 2010, DreamWorks affichait un chiffre d’affaires de 17, 3 Mds$!&lt;/span&gt;&lt;br style="color: rgb(51, 51, 51);"&gt;&lt;strong style="color: rgb(51, 51, 51);"&gt;&lt;br&gt;
- Un artiste engagé.&amp;nbsp;&lt;/strong&gt;&lt;span style="color: rgb(51, 51, 51);"&gt;On le dit lisse, alors que Steven Spielberg n’a jamais manqué l’occasion de prendre position. Aux Etats-Unis, il s’est élevé contre l’homophobie ou la guerre en Irak et a soutenu financièrement les campagnes présidentielles de Barack Obama. Mais son plus grand fait d’arme s’est déroulé sur le front de la mémoire : d’origine juive, Spielberg a lancé en 1994, dans la foulée de la sortie de « la Liste de Schindler », sa Shoah Foundation Institute for Visual History and Education. Un projet démesuré comme il les affectionne : cette organisation à but non lucratif a recueilli et numérisé dans 56 pays plus de 50 000 témoignages vidéo de survivants de la Shoah. Un titanesque archivage qui a permis à Spielberg d’aller au-delà de son statut d’empereur du cinéma américain.&lt;span rel="pastemarkerend" id="pastemarkerend63112"&gt;&lt;/span&gt;&lt;/span&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:45:39.064210</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">3</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="9" model="opennews.article">
-        <field type="CharField" name="title">Robert Downey Jr. soutient Cloud Atlas</field>
-        <field type="TextField" name="text">&lt;div style="color: rgb(51, 51, 51);"&gt;
-&lt;p style="margin: 0px 0px 10px;"&gt;&lt;b&gt;Pendant le tournage d'Iron Man 3, Robert Downey Jr. allait souvent au cinéma avec l'équipe du film, et il a été très impressionné par le film de science-fiction des Wachowski.&lt;/b&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div style="color: rgb(51, 51, 51);"&gt;
-&lt;p style="margin: 0px 0px 10px;"&gt;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Robert-Downey-Jr-102417" style="color: rgb(0, 136, 204);"&gt;Robert Downey Jr.&lt;/a&gt;&lt;/b&gt;&amp;nbsp;aime&amp;nbsp;&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Cloud-Atlas-2462392" style="color: rgb(0, 136, 204);"&gt;Cloud Atlas&lt;/a&gt;&lt;/i&gt;. Pendant le tournage d'&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Iron-Man-3-3D-1854572" style="color: rgb(0, 136, 204);"&gt;Iron Man 3&lt;/a&gt;&lt;/i&gt;, la production du film de super-héros Marvel se permettait en effet de réserver des salles entières de cinéma réservées à l'équipe du film, pour que les acteurs et techniciens puissent se détendre :&amp;nbsp;&lt;i&gt;"on avait un groupe régulier qui allait au Cineplex, on pouvait bloquer une salle pendant le week-end, et parfois on emmenait&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Olivia-Newton-John-394038" style="color: rgb(0, 136, 204);"&gt;John Toll&lt;/a&gt;&lt;/b&gt;&amp;nbsp;[NDLR : directeur de la photographie d'&lt;/i&gt;Iron Man 3&lt;i&gt;], parfois une tonne d'autres gens -parfois moins"&lt;/i&gt;, a déclaré l'acteur à Entertainment Weekly.&amp;nbsp;&lt;i&gt;"Un des films qu'on a vus était&amp;nbsp;&lt;/i&gt;Cloud Atlas&lt;i&gt;&amp;nbsp;des Wachowski. On a été impressionnés par la cohérence de la réalisation, et par tout ce que John avait filmé."&lt;/i&gt;&amp;nbsp;Car&amp;nbsp;&lt;b&gt;John Toll&lt;/b&gt;&amp;nbsp;a également signé la photo de&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;en collaboration avec Frank Griebe.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px;"&gt;Un soutien léger, certes, mais d'autant plus appréciable que&amp;nbsp;&lt;b&gt;Robert Downey Jr.&lt;/b&gt;est un peu tout seul à défendre le film en public. Co-réalisé par&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Tom-Tykwer-100304" style="color: rgb(0, 136, 204);"&gt;Tom Tykwer&lt;/a&gt;&lt;/b&gt;&amp;nbsp;avec Lana et&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Andy-Wachowski-70316" style="color: rgb(0, 136, 204);"&gt;Andy Wachowski&lt;/a&gt;&lt;/b&gt;,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;devait venger le flop de&amp;nbsp;&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Speed-Racer-883700" style="color: rgb(0, 136, 204);"&gt;Speed Racer&lt;/a&gt;&lt;/i&gt;, la dernière réalisation des auteurs de&amp;nbsp;&lt;i&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/film/Matrix-270343" style="color: rgb(0, 136, 204);"&gt;Matrix&lt;/a&gt;&lt;/i&gt;&amp;nbsp;sortie en 2008. Pourtant, sorti aux États-Unis le 26 octobre dernier,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;a connu une carrière très décevante puisque les recettes mondiales du film ne s'élèvent qu'à 85 millions de dollars (dont seulement 27 aux USA) -alors que son budget (hors promotion) s'élèverait à 102 millions. Un flop pur et simple. Les critiques furent également assez perplexes face au film : le Time magazine allant même jusqu'à l'élire&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-elu-pire-film-de-l-annee-2012-3589286" style="color: rgb(0, 136, 204);"&gt;&lt;i&gt;"pire film de l'année 2012"&lt;/i&gt;&lt;/a&gt;&lt;/b&gt;. De fait,&amp;nbsp;&lt;i&gt;Cloud Atlas&lt;/i&gt;&amp;nbsp;est un OVNI hyper ambitieux jusqu'au délire (&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-chef-d-oeuvre-ou-nanar-theorique-Verdict-a-chaud-3483836" style="color: rgb(0, 136, 204);"&gt;comme nous vous le soulignons à la vision du film en septembre dernier&lt;/a&gt;&lt;/b&gt;), adaptation fidèle du roman de&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/David-ROTHPAN-Mitchell-106047" style="color: rgb(0, 136, 204);"&gt;David Mitchell&lt;/a&gt;&lt;/b&gt;&amp;nbsp;qui déploie une intrigue immense et romanesque allant du XVIIIème siècle au futur le plus lointain. Avec&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Tom-Hanks-96035" style="color: rgb(0, 136, 204);"&gt;Tom Hanks&lt;/a&gt;&lt;/b&gt;&amp;nbsp;en cannibale du futur et&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Hugo-Weaving-98870" style="color: rgb(0, 136, 204);"&gt;Hugo Weaving&lt;/a&gt;&lt;/b&gt;&amp;nbsp;en Japonais. Ultime péripétie : la semaine dernière, on apprenait que&amp;nbsp;&lt;b&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Cloud-Atlas-trop-sulfureux-Le-film-a-ete-censure-de-40-minutes-en-Chine-3645596" style="color: rgb(0, 136, 204);"&gt;40 minutes du film avaient été coupées par la censure chinoise&lt;/a&gt;&lt;/b&gt;...&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px;"&gt;(Sans faire de comparaison inappropriée,&amp;nbsp;&lt;b&gt;Robert Downey Jr.&amp;nbsp;&lt;a rel="nofollow" href="http://www.premiere.fr/Cinema/News-Cinema/Robert-Downey-Jr-Pardonnez-a-Mel-Gibson-et-laissez-le-bosser-2959478" style="color: rgb(0, 136, 204);"&gt;avait défendu en octobre 2011&lt;/a&gt;&lt;a rel="nofollow" href="http://www.premiere.fr/Star/Mel-Gibson-Michel-Papineschi-98818" style="color: rgb(0, 136, 204);"&gt;Mel Gibson&lt;/a&gt;&lt;/b&gt;, alors objet de toute la vindicte publique. Le fait que&lt;b&gt;John Toll&lt;/b&gt;&amp;nbsp;a remporté un Oscar pour la photo de Braveheart en 1995 n'a rien à voir avec cette histoire, mais on le souligne histoire que vous puissiez briller en société)&lt;span rel="pastemarkerend" id="pastemarkerend81674"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:45:54.725775</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">3</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="10" model="opennews.article">
-        <field type="CharField" name="title">Manaudou, itinéraire d'une surdouée</field>
-        <field type="TextField" name="text">&lt;div&gt;Athlète exceptionnelle et jeune femme fragile, la plus grande nageuse française devrait annoncer sa retraite ce mercredi.&lt;/div&gt;
-&lt;div&gt;Laure Manaudou, radieuse, sur la plus haute marche du podium, tenant sa fille dans ses bras. Voilà la dernière image, saisie en novembre dernier à Chartres, que l'on gardera de la plus grande nageuse française de l'histoire. À 26 ans, et après mûre réflexion, Manaudou aurait décidé de quitter les bassins après avoir bouclé la boucle de son immense carrière en glanant un ultime titre européen, sur 50 m dos, lors des derniers championnats d'Europe. Quelle plus belle porte de sortie pouvait espérer celle qui avait raté ses premiers adieux aux bassins en 2009 ? Au lieu d'une fuite en catimini pour les États-Unis, elle s'est offert un bain de foule, devant le public français, qui a toujours eu les yeux de Chimène pour elle (elle figurait au 4e rang des sportifs français de légende dans un sondage Journal du dimanche-RMC-Sponsorise en décembre) malgré les errements d'une carrière loin d'avoir été un long fleuve tranquille, et des adieux en prime time sur Canal +, sur le plateau du Grand Journal de Michel Denisot dont elle est l'invitée ce mercredi (à partir de 19 h 05).&lt;/div&gt;
-&lt;div&gt;Dans les pages people&lt;/div&gt;
-&lt;div&gt;Repérée très jeune par Philippe Lucas qui l'hébergea un temps chez lui, à Melun, Manaudou explose au niveau international en 2004, à 17 ans. Et de quelle manière! Triple championne d'Europe à Madrid (400m, 100m dos et 4×100m 4 nages), elle enchaîne par le titre olympique du 400m à Athènes, devenant la première nageuse française sacrée championne olympique. La saga Manaudou est en marche et la jeune femme, compétitrice née («quand elle montait sur un plot de départ, elle savait pourquoi elle était là», rappelait Lucas avant les derniers championnats de France d'Angers), dévorera tout sur son passage jusqu'à son sommet, les Mondiaux de Melbourne en 2007, où elle décroche cinq médailles (or sur 200 et 400m, argent sur 800m et 100m dos et bronze sur 4×200m) et est désignée nageuse de la compétition, au même titre que Michael Phelps chez les hommes.&lt;/div&gt;
-&lt;div&gt;Elle ne le sait pas encore mais ce triomphe aux antipodes marquera la fin de sa suprématie. Devenue une véritable icône publicitaire, elle déserte plus souvent qu'à son tour la rubrique sportive pour les pages people ou business des magazines, allant jusqu'à amasser plus de trois millions d'euros par an grâce à de lucratifs contrats. «Elle a rendu ce sport populaire, ce qui a attiré le public, les médias, puis les sponsors», expliquait l'an dernier son agent Jean-François Salessy. Grisée tout autant qu'effrayée par le succès, elle ne s'appartient plus et vit mal le décalage entre sa vie hors des bassins et le régime stakhanoviste des séances d'entraînement de Philippe Lucas. En mai 2007, lassée, elle quitte son mentor pour rejoindre l'Italie, par amour pour Luca Marin, un nageur italien. «Pour fuir le travail», rétorque alors Lucas. Coup de tête pour un coup de cœur. L'idylle sentimentale et sportive tournera court, son club turinois la licenciant trois mois après son arrivée pour manque d'investissement. Après une période d'errance d'Ambérieu à Mulhouse et quelques histoires sentimentales scabreuses (des photos d'elles dénudées circuleront sur Internet fin 2007 et feront scandale), elle dispute les JO 2008 mais, sans surprise, se noie dans le Cube d'Eau pékinois (8e du 400m, 7e du 100m dos et 15e du 200m dos). Naufrage en mondovision dont elle ne se relèvera que bien plus tard. «J'ai dû mettre plus de six mois à l'oublier. J'étais comme au fond d'un trou noir», expliquait-elle cet été dans l'émission «Sept à huit» sur TF1. La flamme n'est plus là, l'envie de nager non plus.&amp;nbsp;&lt;/div&gt;
-&lt;div&gt;«Je n'avais plus envie de m'entraîner quand j'ai quitté Philippe en 2007. J'ai continué parce qu'il y avait la perspective des Jeux de Pékin. J'ai réalisé plus tard que c'était à ce moment-là que j'avais perdu le plaisir de nager», admet-elle alors. L'heure de la (première) retraite sonne en septembre 2009. L'heure d'une nouvelle vie aussi, au calme d'Auburn, aux États-Unis, où elle a rejoint son compagnon Frédérick Bousquet et où elle donne naissance à Manon, en avril 2010. Loin de l'agitation et de la pression médiatique française, la nouvelle maman se reconstruit et revit. «J'avais un tel dégoût de la natation et des sollicitations que je souhaitais pouvoir me balader sans être reconnue. Même si les gens n'étaient pas méchants, je devenais agressive. Cela m'a fait du bien de m'éloigner.» Tellement de bien qu'elle reprendra goût à la natation, d'abord pour se remettre en forme après sa grossesse puis plus sérieusement. En juin 2011, elle annonce son retour à la compétition avec un double objectif : «donner une autre image, être perçue comme quelqu'un de normal» et se qualifier pour les JO de Londres 2012.&lt;/div&gt;
-&lt;div&gt;Elle relève le challenge mais échoue en séries du 100 et 200m dos. Loin du drame et des larmes pékinoises, reléguée dans l'ombre des nouvelles stars de la natation française (Yannick Agnel, Camille Muffat et aussi son petit frère, Florent), elle ne le vit pas mal. Consciente, au fond d'elle, d'avoir une occasion en or de s'en aller par la grande porte à Chartres, dans une compétition plus en rapport avec son niveau actuel et, surtout, son niveau d'investissement à l'entraînement. Paradoxalement, elle confie ainsi avant ce rendez-vous s'être «entraînée plus dur que pour les JO». Preuve s'il en était besoin qu'elle savait déjà que ce serait sa dernière compétition et qu'elle n'entendait pas la rater. Elle l'aura même réussie avec un 22e titre et deux médailles internationales supplémentaires. Les 36e et 37e d'une carrière exceptionnelle. Le sentiment du devoir accompli, elle pouvait bien avoir le sourire au moment de s'en aller…&lt;span rel="pastemarkerend" id="pastemarkerend64641"&gt;&lt;/span&gt;&lt;/div&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:46:09.917303</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">4</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="11" model="opennews.article">
-        <field type="CharField" name="title">Zlatan Ibrahimovic : "Zlataner, c'est dominer"</field>
-        <field type="TextField" name="text">&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;em&gt;L'attaquant suédois du&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/paris/" style="color: rgb(0, 136, 204);"&gt;Paris&lt;/a&gt;-Saint-Germain parle au Monde à l'occasion de la parution en France, mercredi 30 janvier, de l'autobiographie "Moi, Zlatan &amp;nbsp;Ibrahimovic" (JC Lattès).&lt;/em&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Ce livre a été vendu à 700&amp;nbsp;000 exemplaires dans votre pays et a été nominé pour le prix August, l'équivalent du Goncourt en&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/suede/" style="color: rgb(0, 136, 204);"&gt;Suède&lt;/a&gt;. Vous attendiez-&lt;a rel="nofollow" href="http://www.lemonde.fr/vous/" style="color: rgb(0, 136, 204);"&gt;vous&lt;/a&gt;&amp;nbsp;à un tel succès ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Cela représente plus de 7 % de la&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/demographie/" style="color: rgb(0, 136, 204);"&gt;population&lt;/a&gt;&amp;nbsp;suédoise&amp;nbsp;! Je ne m'y attendais pas. Mais pour moi ce n'était pas l'important&amp;nbsp;: qu'une ou deux personnes aiment le livre me satisfait davantage que 700&amp;nbsp;000 ventes. David Lagercrantz, le co-auteur, est un journaliste et écrivain réputé en Suède... Il l'était... Je plaisante. La première fois que j'ai rencontré David chez Bonniers [l'éditeur suédois], je lui ai dit que je voulais que mon livre soit dix fois mieux que celui sur le roi [une biographie à scandale de Carl XVI Gustaf] et que j'avais besoin d'un écrivain qui ne fasse pas ce bouquin uniquement pour la gloire.&amp;nbsp;&lt;/p&gt;
-&lt;h2 style="margin: 10px 0px; color: rgb(51, 51, 51);"&gt;La seconde fois, j'ai vu qu'il venait d'un monde complètement différent du mien.&amp;nbsp;Je lui ai expliqué d'où je venais et que je voulais que cela soit écrit à ma façon. David devait se&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/mettre" style="color: rgb(0, 136, 204);"&gt;mettre&lt;/a&gt;&amp;nbsp;totalement à ma place pour écrire quand je lui parlais. Pendant un an, nous avons discuté trois ou quatre fois par semaine. Tout ce que j'ai raconté a eu lieu. Si j'ai oublié des choses, c'est que cela m'est sorti de l'esprit.&lt;/h2&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;&lt;a rel="nofollow" href="http://www.lemonde.fr/sujet/c3f6/zlatan-ibrahimovic.html" style="color: rgb(0, 136, 204);"&gt;Zlatan Ibrahimovic&lt;/a&gt;&amp;nbsp;est-il un personnage de roman ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Non, non. Je ne suis que moi-même. Depuis le premier jour, je suis Zlatan. Jusqu'au dernier, je ne changerai pas. Même si je signe de gros contrats ou marque beaucoup de buts, je reste moi-même. Mais j'ai travaillé pour&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/devenir" style="color: rgb(0, 136, 204);"&gt;devenir&lt;/a&gt;&amp;nbsp;ce que je suis. Cela n'a pas été facile même si cela a été assez rapide et que je m'en suis bien sorti. Tout le monde ne peut pas&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/devenir" style="color: rgb(0, 136, 204);"&gt;devenir&lt;/a&gt;&amp;nbsp;Zlatan ou un joueur de&amp;nbsp;&lt;a rel="nofollow" href="http://www.lemonde.fr/football/" style="color: rgb(0, 136, 204);"&gt;football&lt;/a&gt;professionnel mais chacun doit&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/croire" style="color: rgb(0, 136, 204);"&gt;croire&lt;/a&gt;&amp;nbsp;en ce qu'il veut devenir&amp;nbsp;: journaliste, joueur de hockey sur glace ou écrivain.... Même de là où je viens, il y a des possibilités de réussir. Pourtant, la mentalité suédoise ne va pas forcément avec.&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/devenir" style="color: rgb(0, 136, 204);"&gt;Devenir&lt;/a&gt;&amp;nbsp;un personnage incroyable, de renom, n'a pas d'importance.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Le verbe&amp;nbsp;&lt;em&gt;"zlataner"&lt;/em&gt;&amp;nbsp;est entré dans le vocabulaire français. Pourriez-vous&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/donner" style="color: rgb(0, 136, 204);"&gt;donner&lt;/a&gt;&amp;nbsp;votre définition de ce néologisme&amp;nbsp;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;J'ai entendu&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/parler" style="color: rgb(0, 136, 204);"&gt;parler&lt;/a&gt;&amp;nbsp;de ce verbe. Il est déjà dans le dictionnaire suédois. Je pense que zlataner signifie&amp;nbsp;&lt;em&gt;"dominer"&lt;/em&gt;. Dans un sens bénéfique et positif, je l'espère. C'est&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/faire" style="color: rgb(0, 136, 204);"&gt;faire&lt;/a&gt;&amp;nbsp;quelque chose d'acrobatique, de différent, d'impossible. Cela peut&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/englober" style="color: rgb(0, 136, 204);"&gt;englober&lt;/a&gt;&amp;nbsp;plusieurs mots et&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/auxiliaire/avoir" style="color: rgb(0, 136, 204);"&gt;avoir&lt;/a&gt;&amp;nbsp;beaucoup de synonymes.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;Quelles sont vos ambitions avec le Paris-Saint-Germain&amp;nbsp;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;Je suis à Paris car ici tout est enthousiasmant. Il peut se&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/passer" style="color: rgb(0, 136, 204);"&gt;passer&lt;/a&gt;&amp;nbsp;quelque chose de neuf chaque jour. Le projet est énorme. Je n'y participe pas depuis le début puisque je ne suis là que depuis six mois. J'ai une longue carrière derrière moi et beaucoup d'expérience. Partout où je vais, j'apprends, je gagne et j'ai la possibilité d'évoluer avec des joueurs fantastiques. C'est une nouvelle aventure pour moi. En six mois, j'ai évolué. J'apprends quelque chose de totalement nouveau sur le plan des relations humaines, que ce soit sur le terrain et en dehors. J'espère que je quitterai la France en ayant réalisé ce que j'ai fait dans tous les pays&amp;nbsp;où je suis passé :&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/donner" style="color: rgb(0, 136, 204);"&gt;donner&lt;/a&gt;&amp;nbsp;le meilleur de moi,&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/gagner" style="color: rgb(0, 136, 204);"&gt;gagner&lt;/a&gt;&amp;nbsp;et&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/premier-groupe/rapporter" style="color: rgb(0, 136, 204);"&gt;rapporter&lt;/a&gt;&amp;nbsp;des trophées.&lt;/p&gt;
-
-&lt;p style="margin: 0px 0px 10px; color: rgb(51, 51, 51);"&gt;&lt;strong&gt;&lt;em&gt;L'intégralité de l'entretien avec Zlatan Ibrahimovic est à&amp;nbsp;&lt;a rel="nofollow" href="http://conjugaison.lemonde.fr/conjugaison/troisieme-groupe/lire" style="color: rgb(0, 136, 204);"&gt;lire&lt;/a&gt;&amp;nbsp;dans "Le Monde" daté jeudi 31 janvier.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</field>
-        <field type="DateTimeField" name="date">2013-02-03T16:46:35.872488</field>
-        <field type="BooleanField" name="published">True</field>
-        <field type="BooleanField" name="validate">False</field>
-        <field type="IntegerField" name="quality"><None></None></field>
-        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
-        <field to="opennews.category" name="category" rel="ManyToOneRel">4</field>
-        <field type="CharField" name="coord"></field>
-        <field type="FileField" name="media"></field>
-        <field to="opennews.tag" name="tags" rel="ManyToManyRel"></field>
+        <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="16"></object><object pk="17"></object><object pk="18"></object></field>
     </object>
     <object pk="16" model="auth.permission">
         <field type="CharField" name="name">Can add log entry</field>
@@ -385,42 +226,42 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">6</field>
         <field type="CharField" name="codename">delete_logentry</field>
     </object>
-    <object pk="1" model="auth.permission">
+    <object pk="4" model="auth.permission">
         <field type="CharField" name="name">Can add group</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
         <field type="CharField" name="codename">add_group</field>
     </object>
-    <object pk="4" model="auth.permission">
+    <object pk="5" model="auth.permission">
         <field type="CharField" name="name">Can change group</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
         <field type="CharField" name="codename">change_group</field>
     </object>
-    <object pk="7" model="auth.permission">
+    <object pk="6" model="auth.permission">
         <field type="CharField" name="name">Can delete group</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
         <field type="CharField" name="codename">delete_group</field>
     </object>
-    <object pk="2" model="auth.permission">
+    <object pk="1" model="auth.permission">
         <field type="CharField" name="name">Can add permission</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
         <field type="CharField" name="codename">add_permission</field>
     </object>
-    <object pk="5" model="auth.permission">
+    <object pk="2" model="auth.permission">
         <field type="CharField" name="name">Can change permission</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
         <field type="CharField" name="codename">change_permission</field>
     </object>
-    <object pk="8" model="auth.permission">
+    <object pk="3" model="auth.permission">
         <field type="CharField" name="name">Can delete permission</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
         <field type="CharField" name="codename">delete_permission</field>
     </object>
-    <object pk="3" model="auth.permission">
+    <object pk="7" model="auth.permission">
         <field type="CharField" name="name">Can add user</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
         <field type="CharField" name="codename">add_user</field>
     </object>
-    <object pk="6" model="auth.permission">
+    <object pk="8" model="auth.permission">
         <field type="CharField" name="name">Can change user</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
         <field type="CharField" name="codename">change_user</field>
@@ -445,77 +286,77 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">4</field>
         <field type="CharField" name="codename">delete_contenttype</field>
     </object>
-    <object pk="19" model="auth.permission">
+    <object pk="28" model="auth.permission">
         <field type="CharField" name="name">Can add article</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
         <field type="CharField" name="codename">add_article</field>
     </object>
-    <object pk="24" model="auth.permission">
+    <object pk="29" model="auth.permission">
         <field type="CharField" name="name">Can change article</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
         <field type="CharField" name="codename">change_article</field>
     </object>
-    <object pk="29" model="auth.permission">
+    <object pk="30" model="auth.permission">
         <field type="CharField" name="name">Can delete article</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
         <field type="CharField" name="codename">delete_article</field>
     </object>
-    <object pk="20" model="auth.permission">
+    <object pk="22" model="auth.permission">
         <field type="CharField" name="name">Can add category</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
         <field type="CharField" name="codename">add_category</field>
     </object>
-    <object pk="25" model="auth.permission">
+    <object pk="23" model="auth.permission">
         <field type="CharField" name="name">Can change category</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
         <field type="CharField" name="codename">change_category</field>
     </object>
-    <object pk="30" model="auth.permission">
+    <object pk="24" model="auth.permission">
         <field type="CharField" name="name">Can delete category</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
         <field type="CharField" name="codename">delete_category</field>
     </object>
-    <object pk="21" model="auth.permission">
+    <object pk="31" model="auth.permission">
         <field type="CharField" name="name">Can add comment</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
         <field type="CharField" name="codename">add_comment</field>
     </object>
-    <object pk="26" model="auth.permission">
+    <object pk="32" model="auth.permission">
         <field type="CharField" name="name">Can change comment</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
         <field type="CharField" name="codename">change_comment</field>
     </object>
-    <object pk="31" model="auth.permission">
+    <object pk="33" model="auth.permission">
         <field type="CharField" name="name">Can delete comment</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
         <field type="CharField" name="codename">delete_comment</field>
     </object>
-    <object pk="22" model="auth.permission">
+    <object pk="19" model="auth.permission">
         <field type="CharField" name="name">Can add member</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
         <field type="CharField" name="codename">add_member</field>
     </object>
-    <object pk="27" model="auth.permission">
+    <object pk="20" model="auth.permission">
         <field type="CharField" name="name">Can change member</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
         <field type="CharField" name="codename">change_member</field>
     </object>
-    <object pk="32" model="auth.permission">
+    <object pk="21" model="auth.permission">
         <field type="CharField" name="name">Can delete member</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
         <field type="CharField" name="codename">delete_member</field>
     </object>
-    <object pk="23" model="auth.permission">
+    <object pk="25" model="auth.permission">
         <field type="CharField" name="name">Can add tag</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
         <field type="CharField" name="codename">add_tag</field>
     </object>
-    <object pk="28" model="auth.permission">
+    <object pk="26" model="auth.permission">
         <field type="CharField" name="name">Can change tag</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
         <field type="CharField" name="codename">change_tag</field>
     </object>
-    <object pk="33" model="auth.permission">
+    <object pk="27" model="auth.permission">
         <field type="CharField" name="name">Can delete tag</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
         <field type="CharField" name="codename">delete_tag</field>
@@ -540,22 +381,22 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
         <field type="CharField" name="codename">add_apiaccess</field>
     </object>
-    <object pk="36" model="auth.permission">
+    <object pk="35" model="auth.permission">
         <field type="CharField" name="name">Can change api access</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
         <field type="CharField" name="codename">change_apiaccess</field>
     </object>
-    <object pk="38" model="auth.permission">
+    <object pk="36" model="auth.permission">
         <field type="CharField" name="name">Can delete api access</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
         <field type="CharField" name="codename">delete_apiaccess</field>
     </object>
-    <object pk="35" model="auth.permission">
+    <object pk="37" model="auth.permission">
         <field type="CharField" name="name">Can add api key</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">13</field>
         <field type="CharField" name="codename">add_apikey</field>
     </object>
-    <object pk="37" model="auth.permission">
+    <object pk="38" model="auth.permission">
         <field type="CharField" name="name">Can change api key</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">13</field>
         <field type="CharField" name="codename">change_apikey</field>
@@ -570,89 +411,247 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="CharField" name="first_name"></field>
         <field type="CharField" name="last_name"></field>
         <field type="CharField" name="email">mrhaves@mhraves.com</field>
-        <field type="CharField" name="password">pbkdf2_sha256$10000$DhmFPjpNviz6$pjgh26nawAuA8LksGhpwB8Lhp0rZpyOlYAsl7ULqAy8=</field>
+        <field type="CharField" name="password">pbkdf2_sha256$10000$mC1zgvwWDikw$gq+Bnu8cVb58laALJbTO0pkrExbuc2JVX4UppTN3Tvc=</field>
         <field type="BooleanField" name="is_staff">True</field>
         <field type="BooleanField" name="is_active">True</field>
         <field type="BooleanField" name="is_superuser">True</field>
-        <field type="DateTimeField" name="last_login">2013-02-05T13:44:49.373184</field>
-        <field type="DateTimeField" name="date_joined">2013-02-03T16:42:54.780862</field>
+        <field type="DateTimeField" name="last_login">2013-02-23T18:50:44.078344</field>
+        <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
-    <object pk="16" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:46:35.874353</field>
+    <object pk="2" model="auth.user">
+        <field type="CharField" name="username">alex</field>
+        <field type="CharField" name="first_name"></field>
+        <field type="CharField" name="last_name"></field>
+        <field type="CharField" name="email"></field>
+        <field type="CharField" name="password">pbkdf2_sha256$10000$Zj8AfFzHH26B$ngUMadiXp/YmoGZppJNYWBYwohu3M6dwydG3HQO/3ek=</field>
+        <field type="BooleanField" name="is_staff">True</field>
+        <field type="BooleanField" name="is_active">True</field>
+        <field type="BooleanField" name="is_superuser">False</field>
+        <field type="DateTimeField" name="last_login">2013-02-23T18:49:23.256579</field>
+        <field type="DateTimeField" name="date_joined">2013-02-23T15:27:53.441664</field>
+        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
+        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
+    </object>
+    <object pk="27" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.352495</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">11</field>
-        <field type="CharField" name="object_repr">Zlatan Ibrahimovic : "Zlataner, c'est dominer"</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="26" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.349086</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">efzefefvff</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="25" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.345459</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">3</field>
+        <field type="CharField" name="object_repr">zefevdsgs</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="24" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.340587</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">4</field>
+        <field type="CharField" name="object_repr">dsvdfbfgbgb</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="23" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.337129</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">5</field>
+        <field type="CharField" name="object_repr">dfbfgntyn</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="22" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.332596</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">6</field>
+        <field type="CharField" name="object_repr">efkzneferg</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="21" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T18:51:17.855024</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">mrhaves</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="20" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T16:24:42.636615</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">alex</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
+        <field type="TextField" name="change_message">Modifié password.</field>
+    </object>
+    <object pk="19" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T16:24:12.321287</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">alex</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
+        <field type="TextField" name="change_message">Modifié password et is_staff.</field>
+    </object>
+    <object pk="18" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:57:13.133692</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
+        <field type="TextField" name="change_message">Modifié articleId.</field>
+    </object>
+    <object pk="17" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:50:12.235601</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
+        <field type="TextField" name="change_message">Modifié text.</field>
+    </object>
+    <object pk="16" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:49:34.822806</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="15" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:46:09.919100</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:32:22.378201</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">10</field>
-        <field type="CharField" name="object_repr">Manaudou, itinéraire d'une surdouée</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">alex</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="14" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:46:08.720928</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:36.457625</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">4</field>
-        <field type="CharField" name="object_repr">sport</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">9</field>
+        <field type="CharField" name="object_repr">supermarché</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="13" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:54.728650</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:27.889676</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">9</field>
-        <field type="CharField" name="object_repr">Robert Downey Jr. soutient Cloud Atlas</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">8</field>
+        <field type="CharField" name="object_repr">allocation</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="12" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:39.066129</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:19.457367</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">8</field>
-        <field type="CharField" name="object_repr">Spielberg et Lincoln, le choc des géants</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">7</field>
+        <field type="CharField" name="object_repr">nba</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="11" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:27.273059</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:17.318558</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">7</field>
-        <field type="CharField" name="object_repr">GÉRARD LANVIN : PAPA POULE TOUCHANT DANS AMITIÉS SINCÈRES</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">6</field>
+        <field type="CharField" name="object_repr">handball</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="10" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:25.525598</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:13.087800</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">3</field>
-        <field type="CharField" name="object_repr">divertissement</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">5</field>
+        <field type="CharField" name="object_repr">basketball</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="9" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:11.435921</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:09.840481</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">6</field>
-        <field type="CharField" name="object_repr">Sida: Un vaccin va être testé à Marseille</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">4</field>
+        <field type="CharField" name="object_repr">football</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="8" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:45:09.848971</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:29:00.097432</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">3</field>
+        <field type="CharField" name="object_repr">écologie</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="7" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:55.644037</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">fraude</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="6" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:50.277863</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">1</field>
+        <field type="CharField" name="object_repr">justice</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="5" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:37.177060</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
+        <field type="TextField" name="object_id">4</field>
+        <field type="CharField" name="object_repr">santé</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="4" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:32.073023</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
+        <field type="TextField" name="object_id">3</field>
+        <field type="CharField" name="object_repr">sport</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="3" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:23.681644</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
         <field type="TextField" name="object_id">2</field>
@@ -660,53 +659,8 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
-    <object pk="7" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:44:54.878859</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">5</field>
-        <field type="CharField" name="object_repr">L'euro, qui avait grimpé mardi au plus haut depuis décembre 2011, s'effritait mercredi sur un marché prudent avant la fin d'une réunion de la Réserve fédérale américaine (Fed), alors que le yen contin</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="6" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:44:30.279617</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">4</field>
-        <field type="CharField" name="object_repr">Vers une ouverture stable à la Bourse de Paris, la Fed en ligne de mire</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="5" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:44:17.493410</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">3</field>
-        <field type="CharField" name="object_repr">Vers une ouverture stable à la Bourse de Paris, la Fed en ligne de mire</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="4" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:44:04.217151</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">Les fraudes aux allocations familiales ont dépassé les 100 millions</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="3" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:43:49.751060</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">Vente-privee.com compte 18 millions de membres</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
     <object pk="2" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:43:46.259211</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:28:18.225598</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
         <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
         <field type="TextField" name="object_id">1</field>
@@ -715,29 +669,46 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="1" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-03T16:43:17.995017</field>
+        <field type="DateTimeField" name="action_time">2013-02-23T15:27:53.609788</field>
         <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">mrhaves</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
+        <field type="TextField" name="object_id">2</field>
+        <field type="CharField" name="object_repr">alex</field>
         <field type="PositiveSmallIntegerField" name="action_flag">1</field>
         <field type="TextField" name="change_message"></field>
     </object>
     <object pk="1" model="opennews.member">
-        <field type="CharField" name="twitter">mrhaves_twitter</field>
+        <field type="CharField" name="twitter"></field>
         <field type="CharField" name="facebook"></field>
         <field type="CharField" name="gplus"></field>
-        <field type="BooleanField" name="autoShare">True</field>
+        <field type="BooleanField" name="autoShare">False</field>
+        <field type="BooleanField" name="geoloc">False</field>
+        <field type="CharField" name="pays"></field>
+        <field type="CharField" name="ville"></field>
+        <field type="IntegerField" name="maxArticle">10</field>
+        <field to="auth.user" name="user" rel="OneToOneRel">2</field>
+        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
+    </object>
+    <object pk="2" model="opennews.member">
+        <field type="CharField" name="twitter"></field>
+        <field type="CharField" name="facebook"></field>
+        <field type="CharField" name="gplus"></field>
+        <field type="BooleanField" name="autoShare">False</field>
         <field type="BooleanField" name="geoloc">False</field>
         <field type="CharField" name="pays"></field>
         <field type="CharField" name="ville"></field>
         <field type="IntegerField" name="maxArticle">10</field>
         <field to="auth.user" name="user" rel="OneToOneRel">1</field>
-        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"><object pk="1"></object><object pk="3"></object></field>
+        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
     </object>
     <object pk="1" model="tastypie.apikey">
         <field to="auth.user" name="user" rel="OneToOneRel">1</field>
-        <field type="CharField" name="key">a871c2ff579964fc050af19d51b89714fc45a08e</field>
-        <field type="DateTimeField" name="created">2013-02-03T16:42:54.945799</field>
+        <field type="CharField" name="key">16a6a7bb2f281acf4705597b278d281fc27f978c</field>
+        <field type="DateTimeField" name="created">2013-02-23T15:25:50.279171</field>
+    </object>
+    <object pk="2" model="tastypie.apikey">
+        <field to="auth.user" name="user" rel="OneToOneRel">2</field>
+        <field type="CharField" name="key">6f87d628a0ff50a10e7b78011c8292619a1a7483</field>
+        <field type="DateTimeField" name="created">2013-02-23T15:27:53.607877</field>
     </object>
 </django-objects>

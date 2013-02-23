@@ -57,13 +57,40 @@
 						{% autoescape off %}
 							{{article.text}}
 						{% endautoescape %}
-					</div>
+					
+					<br><br>
 					{% for tag in article.tags.all %}
 						<a class="label label-info" href="/search/?q={{tag}}"><i class="icon-tags"></i>{{tag}}</a>
 					{% endfor %}
+					<br><br>
+					{% if member %}
+						<form class="form-comment" id="commentForm-{{article.id}}" action="" method="POST">
+							<p>Commentaire :</p>
+							<textarea name="commentText" cols="30" rows="10"></textarea> <br><br>
+							<input type="hidden" name="memberId" value="{{member.id}}">
+							<input type="hidden" name="articleId" value="{{article.id}}">
+							<p><input type="submit" class="commentArticleButton" id="commentButton-{{article.id}}" value="commenter"></p>
+						</form>
+					{% else %}
+						<p><a href="/login">Connectez vous pour commenter</a></p>
+					{% endif %}
+					<br><br>
+
+					<h3>Commentaires :</h3>
+					<div id="comments-{{article.id}}"></div>
+					{% for comment in article.comments %}
+						<a href="/profile/{{comment.memberId.id}}">{{comment.memberId}}</a>
+						<p>{{comment.text}}</p>
+						{% empty %}
+							<p>Il n'y a pas de commentaires pour le moment</p>
+					{% endfor %}
+				
+
 					{% if article.coord != "" and article.coord != "error" %}
 						coord: {{article.coord}}
 					{% endif %}
+
+					</div>
 				</div>
 				<div class="span4">
 				</div>
@@ -110,5 +137,32 @@
 {% endblock content %} 
 
 {% block script %}
+<script type="text/javascript">
+	$('.commentArticleButton').bind('click',function(e) {
+		e.preventDefault();
+		id = this.id;
+		id = id.split("-")[1];
+		formId = "commentForm-" + id;
 
+		console.log($("#formId"));
+
+
+		$.ajax({
+           type: "POST",
+           url: '/comment', 
+           data: $("#" + formId).serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               $("#" + formId).stop().fadeOut(500);
+               $("#comments-"+id).prepend(data);
+           },
+           error: function() {
+
+           }
+         });
+
+	});
+
+	
+</script>
 {% endblock script %}

@@ -60,9 +60,10 @@ class Article(models.Model):
         return "/articles/" + str(self.id)
 
 class Comment(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.TextField()
     articleId = models.ForeignKey(Article)
     memberId = models.ForeignKey(Member)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         if len(self.text) > 20:
