@@ -74,16 +74,28 @@ b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==</field>
     <object pk="29cd1090c0178a38f27326cfd20e36b9" model="sessions.session">
         <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
 AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
-b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
-</field>
+b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==</field>
         <field type="DateTimeField" name="expire_date">2013-03-09T17:55:41.822544</field>
     </object>
     <object pk="3dd9b482c1fb543f4baf5171324e1c74" model="sessions.session">
         <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
 ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
+        <field type="DateTimeField" name="expire_date">2013-03-09T18:50:44.083860</field>
+    </object>
+    <object pk="1148d0fb07954224c0b7eaf95eb37368" model="sessions.session">
+        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
 VQ1fYXV0aF91c2VyX2lkcQRLAXUu
 </field>
-        <field type="DateTimeField" name="expire_date">2013-03-09T18:50:44.083860</field>
+        <field type="DateTimeField" name="expire_date">2013-03-11T18:16:56.684471</field>
+    </object>
+    <object pk="cb15eef77bc7f111fccf212fa3052e2a" model="sessions.session">
+        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
+AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
+b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
+</field>
+        <field type="DateTimeField" name="expire_date">2013-03-13T09:34:46.384506</field>
     </object>
     <object pk="1" model="opennews.category">
         <field type="CharField" name="name">économie</field>
@@ -159,6 +171,12 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
     <object pk="18" model="opennews.tag">
         <field type="CharField" name="tag">Egypte</field>
     </object>
+    <object pk="20" model="opennews.tag">
+        <field type="CharField" name="tag">chômage</field>
+    </object>
+    <object pk="21" model="opennews.tag">
+        <field type="CharField" name="tag">Hollande</field>
+    </object>
     <object pk="1" model="opennews.article">
         <field type="CharField" name="title">Les tarifs du gaz baisseront de 0,3 % en mars</field>
         <field type="TextField" name="text">&lt;div&gt;Les tarifs du gaz de GDF Suez vont baisser de 0,3 % au 1er mars, a annoncé vendredi 22 février la Commission de régulation de l'énergie (CRE), après une première baisse d'un demi-point en février qui avait mis fin à deux ans de flambée. Cette baisse moyenne de 0,3 % dans le barème proposé par GDF Suez "est conforme à la formule tarifaire", indique la CRE dans un avis.&lt;/div&gt;&lt;div&gt;Ce léger recul découle de l'application des nouvelles règles d'évolution des tarifs réglementés du gaz, qui sont depuis cette année révisés tous les mois et non plus tous les trimestres. Une source proche du dossier avait indiqué la semaine dernière que le recul au 1er mars serait compris entre zéro et 0,5 %.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;b&gt;&lt;br&gt;NOUVEAU CALCUL&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;La nouvelle formule tarifaire incorpore désormais une plus forte part des prix du gaz sur le marché dit au comptant (ou "spot"), dans le calcul des coûts d'approvisionnement de GDF Suez, qui restent cependant majoritairement indexés sur les cours du pétrole. Ces prix spots évoluent globalement de manière plus favorable pour le consommateur que ceux du pétrole.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;L'application de ce nouveau système avait déjà conduit à une petite détente de 0,5 % des tarifs réglementés du gaz au 1er février. Ce recul reste très modeste par rapport à la flambée des prix du gaz qui n'avaient cessé d'augmenter depuis deux ans et se sont envolés au total de plus de 80 % depuis mi-2005. La formule légale est en principe le miroir exact des coûts d'approvisionnement de GDF Suez. L'ex-Gaz de France avait fin septembre une part de marché d'environ 86 % pour les particuliers et de 60 % sur le marché d'affaires.&lt;/div&gt;</field>
@@ -211,200 +229,24 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="FileField" name="media"></field>
         <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="16"></object><object pk="17"></object><object pk="18"></object></field>
     </object>
-    <object pk="16" model="auth.permission">
-        <field type="CharField" name="name">Can add log entry</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">6</field>
-        <field type="CharField" name="codename">add_logentry</field>
+    <object pk="5" model="opennews.article">
+        <field type="CharField" name="title">Chômage : Sapin estime «possible» d'inverser la courbe avant fin 2013</field>
+        <field type="TextField" name="text">Le ministre du Travail a revêtu mercredi matin son uniforme de pompier pour tenter d'éteindre l'&lt;a rel="nofollow" target="_blank" href="http://actualites.leparisien.fr/incendie.html"&gt;incendie&lt;/a&gt;,&amp;nbsp;au lendemain de&amp;nbsp;&lt;a rel="nofollow" target="_blank" href="http://www.leparisien.fr/economie/emploi/3-1-millions-de-sans-emploi-le-chomage-frole-le-record-de-1997-26-02-2013-2600583.php"&gt;la publication de nouveaux chiffres alarmants du chômage&lt;/a&gt;. Pugnace, incisif, parfois agacé,&amp;nbsp;Michel Sapin a martelé&amp;nbsp;&lt;a rel="nofollow" target="_blank" href="http://www.canalplus.fr/c-infos-documentaires/pid3353-c-la-matinale.html"&gt;sur Canal +&lt;/a&gt;&amp;nbsp;qu'inverser la courbe du&amp;nbsp;&lt;a rel="nofollow" target="_blank" href="http://actualites.leparisien.fr/chomage.html"&gt;chômage&lt;/a&gt;&amp;nbsp;avant la fin 2013 était toujours l'objectif du&amp;nbsp;&lt;a rel="nofollow" target="_blank" href="http://actualites.leparisien.fr/gouvernement.html"&gt;gouvernement&lt;/a&gt;.&amp;nbsp;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;Et ce, malgré les 44&amp;nbsp;000 nouveaux chômeurs&amp;nbsp;enregistrés en janvier, portant à 3,169 millions le nombre de demandeurs d'emploi, le pire niveau depuis 1997.&lt;br&gt;&lt;br&gt;«Quand nous disons que, d'ici la fin de l'année, il est possible, pas seulement souhaitable, c'est pas seulement un voeu, d'inverser la courbe du chômage, c'est parce que nous savons que les politiques porteront progressivement leur fruit.» Ces décisions politiques, ce sont les contrats d'avenir et les contrats de générations, mais aussi le&amp;nbsp;projet de loi sur&amp;nbsp;la sécurisation de l'emploi qui doit être prochainement adopté.&amp;nbsp;&lt;br&gt;&lt;br&gt;«Entre le moment où&amp;nbsp;on prend une décision et où elle a un effet, il&amp;nbsp;se passe&amp;nbsp;un certain temps. C'est le temps&amp;nbsp;de la désespérance sociale.&amp;nbsp;Chaque mois, on va compter des chômeurs de plus. Cela veut dire qu'on ne serait pas capable de lutter contre ? Non. Pour lutter contre le chômage, on agit dans la durée.»&lt;br&gt;&lt;br&gt;&lt;strong&gt;Il s'en est pris aux «commentateurs»&lt;br&gt;&lt;/strong&gt;&lt;br&gt;Technique éculée des responsables politiques sous le feu des critiques, le ministre s'en est&amp;nbsp;pris aux «commentateurs» qui&amp;nbsp;auraient mal interprété une phrase de François Hollande, ce week-end,&amp;nbsp;laissant penser qu'il avait abandonné&amp;nbsp;l'objectif du gouvernement&amp;nbsp;pour cette année.&amp;nbsp;«Si nous arrivons à accélérer la reprise, à anticiper la reprise, cet objectif&amp;nbsp;peut être atteint», avait déclaré le Président de la République.&amp;nbsp;&lt;br&gt;&lt;br&gt;«Je trouve extraordinaire cette capacité à interpréter les mots. Tout le monde dit,&amp;nbsp;&lt;em&gt;le Président a implicitement renoncé à inverser la courbe du chômage.&lt;/em&gt;&amp;nbsp;C'est du procès d'intention!», a rétorqué Michel Sapin.« La vérité, la volonté politique,du gouvernement, du Président,&amp;nbsp;c'est de ne pas rester les bras ballants, de ne&amp;nbsp;pas dire&amp;nbsp;à tous ces jeunes qui arrivent au chômage&amp;nbsp;&lt;em&gt;on n'y peut rien.&amp;nbsp;&lt;/em&gt;Le chômage sera vaincu en&amp;nbsp;France, tout au long de&amp;nbsp;l'année, car les décisions que nous prenons vont avoir, ont déjà des effets&lt;em&gt;.&amp;nbsp;&lt;/em&gt;Nous prenons, nous faisons, nous décidons les outils qui permettent d'inverser la courbe du chômage.»&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;strong&gt;«A priori», pas d'augmentation des impôts en 2014&lt;br&gt;&lt;br&gt;&lt;/strong&gt;Pour y arriver, le gouvernement va-t-il de voir mettre de nouveau à contribution les contribuables, sachant qu'il va manquer 6 milliards de recettes en 2014, comme l'a rappelé le ministre du Budget Jérôme Cahuzac lundi ? Interrogé sur le sujet, Michel Sapin&amp;nbsp;a assuré que&amp;nbsp;«la pression fiscale n'augmentera».&amp;nbsp;«La part des impôts dans la richesse nationale n'augmentera pas». Une manière de botter en touche, au cas&amp;nbsp;où de nouveaux impôts seraient décidés&amp;nbsp;pour compenser.&lt;br&gt;&amp;nbsp;&lt;br&gt;Au même moment,&amp;nbsp;&lt;a rel="nofollow" target="_blank" href="http://www.rtl.fr/actualites/info/economie/article/en-2014-les-efforts-porteront-sur-les-economies-assure-jerome-cahuzac-7758877527"&gt;sur RTL&lt;/a&gt;, Cahuzac a déclaré que&amp;nbsp;&amp;nbsp;le gouvernement «n'en est pas à envisager» des hausses d'impôts en 2014. «Nous aurons a priori le même montant de recettes à demander à nos concitoyens. Les efforts porteront d'abord sur les économies.»</field>
+        <field type="DateTimeField" name="date">2013-02-27T09:36:01.238069</field>
+        <field type="BooleanField" name="published">True</field>
+        <field type="BooleanField" name="validate">False</field>
+        <field type="IntegerField" name="quality"><None></None></field>
+        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
+        <field to="opennews.category" name="category" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="coord"></field>
+        <field type="FileField" name="media"></field>
+        <field to="opennews.tag" name="tags" rel="ManyToManyRel"><object pk="20"></object><object pk="21"></object></field>
     </object>
-    <object pk="17" model="auth.permission">
-        <field type="CharField" name="name">Can change log entry</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">6</field>
-        <field type="CharField" name="codename">change_logentry</field>
-    </object>
-    <object pk="18" model="auth.permission">
-        <field type="CharField" name="name">Can delete log entry</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">6</field>
-        <field type="CharField" name="codename">delete_logentry</field>
-    </object>
-    <object pk="4" model="auth.permission">
-        <field type="CharField" name="name">Can add group</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
-        <field type="CharField" name="codename">add_group</field>
-    </object>
-    <object pk="5" model="auth.permission">
-        <field type="CharField" name="name">Can change group</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
-        <field type="CharField" name="codename">change_group</field>
-    </object>
-    <object pk="6" model="auth.permission">
-        <field type="CharField" name="name">Can delete group</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">2</field>
-        <field type="CharField" name="codename">delete_group</field>
-    </object>
-    <object pk="1" model="auth.permission">
-        <field type="CharField" name="name">Can add permission</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="codename">add_permission</field>
-    </object>
-    <object pk="2" model="auth.permission">
-        <field type="CharField" name="name">Can change permission</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="codename">change_permission</field>
-    </object>
-    <object pk="3" model="auth.permission">
-        <field type="CharField" name="name">Can delete permission</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">1</field>
-        <field type="CharField" name="codename">delete_permission</field>
-    </object>
-    <object pk="7" model="auth.permission">
-        <field type="CharField" name="name">Can add user</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="CharField" name="codename">add_user</field>
-    </object>
-    <object pk="8" model="auth.permission">
-        <field type="CharField" name="name">Can change user</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="CharField" name="codename">change_user</field>
-    </object>
-    <object pk="9" model="auth.permission">
-        <field type="CharField" name="name">Can delete user</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="CharField" name="codename">delete_user</field>
-    </object>
-    <object pk="10" model="auth.permission">
-        <field type="CharField" name="name">Can add content type</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">4</field>
-        <field type="CharField" name="codename">add_contenttype</field>
-    </object>
-    <object pk="11" model="auth.permission">
-        <field type="CharField" name="name">Can change content type</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">4</field>
-        <field type="CharField" name="codename">change_contenttype</field>
-    </object>
-    <object pk="12" model="auth.permission">
-        <field type="CharField" name="name">Can delete content type</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">4</field>
-        <field type="CharField" name="codename">delete_contenttype</field>
-    </object>
-    <object pk="28" model="auth.permission">
-        <field type="CharField" name="name">Can add article</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="CharField" name="codename">add_article</field>
-    </object>
-    <object pk="29" model="auth.permission">
-        <field type="CharField" name="name">Can change article</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="CharField" name="codename">change_article</field>
-    </object>
-    <object pk="30" model="auth.permission">
-        <field type="CharField" name="name">Can delete article</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">10</field>
-        <field type="CharField" name="codename">delete_article</field>
-    </object>
-    <object pk="22" model="auth.permission">
-        <field type="CharField" name="name">Can add category</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="CharField" name="codename">add_category</field>
-    </object>
-    <object pk="23" model="auth.permission">
-        <field type="CharField" name="name">Can change category</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="CharField" name="codename">change_category</field>
-    </object>
-    <object pk="24" model="auth.permission">
-        <field type="CharField" name="name">Can delete category</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="CharField" name="codename">delete_category</field>
-    </object>
-    <object pk="31" model="auth.permission">
-        <field type="CharField" name="name">Can add comment</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="CharField" name="codename">add_comment</field>
-    </object>
-    <object pk="32" model="auth.permission">
-        <field type="CharField" name="name">Can change comment</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="CharField" name="codename">change_comment</field>
-    </object>
-    <object pk="33" model="auth.permission">
-        <field type="CharField" name="name">Can delete comment</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="CharField" name="codename">delete_comment</field>
-    </object>
-    <object pk="19" model="auth.permission">
-        <field type="CharField" name="name">Can add member</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="CharField" name="codename">add_member</field>
-    </object>
-    <object pk="20" model="auth.permission">
-        <field type="CharField" name="name">Can change member</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="CharField" name="codename">change_member</field>
-    </object>
-    <object pk="21" model="auth.permission">
-        <field type="CharField" name="name">Can delete member</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="CharField" name="codename">delete_member</field>
-    </object>
-    <object pk="25" model="auth.permission">
-        <field type="CharField" name="name">Can add tag</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="CharField" name="codename">add_tag</field>
-    </object>
-    <object pk="26" model="auth.permission">
-        <field type="CharField" name="name">Can change tag</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="CharField" name="codename">change_tag</field>
-    </object>
-    <object pk="27" model="auth.permission">
-        <field type="CharField" name="name">Can delete tag</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="CharField" name="codename">delete_tag</field>
-    </object>
-    <object pk="13" model="auth.permission">
-        <field type="CharField" name="name">Can add session</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">5</field>
-        <field type="CharField" name="codename">add_session</field>
-    </object>
-    <object pk="14" model="auth.permission">
-        <field type="CharField" name="name">Can change session</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">5</field>
-        <field type="CharField" name="codename">change_session</field>
-    </object>
-    <object pk="15" model="auth.permission">
-        <field type="CharField" name="name">Can delete session</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">5</field>
-        <field type="CharField" name="codename">delete_session</field>
-    </object>
-    <object pk="34" model="auth.permission">
-        <field type="CharField" name="name">Can add api access</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
-        <field type="CharField" name="codename">add_apiaccess</field>
-    </object>
-    <object pk="35" model="auth.permission">
-        <field type="CharField" name="name">Can change api access</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
-        <field type="CharField" name="codename">change_apiaccess</field>
-    </object>
-    <object pk="36" model="auth.permission">
-        <field type="CharField" name="name">Can delete api access</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">12</field>
-        <field type="CharField" name="codename">delete_apiaccess</field>
-    </object>
-    <object pk="37" model="auth.permission">
-        <field type="CharField" name="name">Can add api key</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">13</field>
-        <field type="CharField" name="codename">add_apikey</field>
-    </object>
-    <object pk="38" model="auth.permission">
-        <field type="CharField" name="name">Can change api key</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">13</field>
-        <field type="CharField" name="codename">change_apikey</field>
-    </object>
-    <object pk="39" model="auth.permission">
-        <field type="CharField" name="name">Can delete api key</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">13</field>
-        <field type="CharField" name="codename">delete_apikey</field>
+    <object pk="1" model="opennews.comment">
+        <field type="TextField" name="text">Waaaa quel trop bon article...</field>
+        <field to="opennews.article" name="articleId" rel="ManyToOneRel">1</field>
+        <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
+        <field type="DateTimeField" name="date">2013-02-27T09:46:00.745082</field>
     </object>
     <object pk="1" model="auth.user">
         <field type="CharField" name="username">mrhaves</field>
@@ -415,7 +257,7 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="BooleanField" name="is_staff">True</field>
         <field type="BooleanField" name="is_active">True</field>
         <field type="BooleanField" name="is_superuser">True</field>
-        <field type="DateTimeField" name="last_login">2013-02-23T18:50:44.078344</field>
+        <field type="DateTimeField" name="last_login">2013-02-25T18:16:56.631288</field>
         <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
@@ -429,10 +271,28 @@ VQ1fYXV0aF91c2VyX2lkcQRLAXUu
         <field type="BooleanField" name="is_staff">True</field>
         <field type="BooleanField" name="is_active">True</field>
         <field type="BooleanField" name="is_superuser">False</field>
-        <field type="DateTimeField" name="last_login">2013-02-23T18:49:23.256579</field>
+        <field type="DateTimeField" name="last_login">2013-02-27T09:34:46.346365</field>
         <field type="DateTimeField" name="date_joined">2013-02-23T15:27:53.441664</field>
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
+    </object>
+    <object pk="29" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-25T18:17:16.083683</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">19</field>
+        <field type="CharField" name="object_repr">test</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
+        <field type="TextField" name="change_message"></field>
+    </object>
+    <object pk="28" model="admin.logentry">
+        <field type="DateTimeField" name="action_time">2013-02-25T18:17:10.173920</field>
+        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
+        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
+        <field type="TextField" name="object_id">19</field>
+        <field type="CharField" name="object_repr">test</field>
+        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
+        <field type="TextField" name="change_message"></field>
     </object>
     <object pk="27" model="admin.logentry">
         <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.352495</field>
