@@ -6,3 +6,5 @@ local_settings.py
 kicknews.sqlite
 *.sqlite
 .idea
+*.seg
+*.toc
