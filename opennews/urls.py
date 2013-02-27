@@ -17,6 +17,7 @@ v1_api.register(ArticleResource())
 v1_api.register(CategoryResource())
 v1_api.register(UserResource())
 v1_api.register(TagResource())
+v1_api.register(CommentResource())
 
 sqs = SearchQuerySet().order_by('-date') 
 
