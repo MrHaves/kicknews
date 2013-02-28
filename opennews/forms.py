@@ -16,11 +16,15 @@ class login_form(forms.Form):
 
 class user_create_form(UserCreationForm):
     # Make the email field required
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}), label="")
 
     class Meta:
         # Use the user model to create the formular but only with username, email and passowrds fields
         model = User
+        username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Nom d\'utilisateur'}), label="")
+        password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}), required=True, label="")
+        password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirmation du mot de passe'}), required=True, label="")
+
         fields = ("username", "email", "password1", "password2")
 
     # Override the save method
