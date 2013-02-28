@@ -33,8 +33,11 @@
 	}
 {% endblock style %}
 
-{% block menu %}
+{% block logMenu %}
+	<li><a href="/login">Se connecter</a></li>
+{% endblock logMenu %}
 
+{% block menu %}
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown">
 		  Menu
@@ -106,7 +109,7 @@
 			</p>
 
 			<p style="float: left; margin-top: -4px; margin-left: 25px">
-				<button id="discard" class="btn btn-danger">Annulé</button>
+				<button id="discard" class="btn">Annulé</button>
 			</p>
 		</div>
 	</form>

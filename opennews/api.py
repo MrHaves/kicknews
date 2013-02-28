@@ -253,21 +253,28 @@ class CategoryResource(ModelResource):
 			'name': ALL_WITH_RELATIONS		# Filte on the name. E.g : http://bottlenews.cc/api/v1/categories/?format=json&name=sciences
 		}
 
-	def dehydrate(self, bundle):
-		"""Adding categorie articles and tags of these articles"""
-		bundle.data['articles'] = []
-		# Here we get all the value for each object we need
-		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
-			# Get the member
-			x['author'] = Member.objects.get(id=x['memberId'])
-			# Remove the memberId field
-			x.pop("memberId")
-			# Get the timestamp
-			x['date'] = format(x['date'], 'U')
-			# Add the tags
-			x['tags'] = []
-			for t in Article.objects.filter(id=x['id'])[0].tags.all():
-				x['tags'].append(t)
-			bundle.data['articles'].append(x)
-		return bundle
+
+class CommentResource(ModelResource):
+	class Meta:
+		queryset = Comment.objects.all() 	# Get all the categories
+		resource_name = 'comment'
+		include_resource_uri = False 		# Remove the uri
+
+	# def dehydrate(self, bundle):
+	# 	"""Adding categorie articles and tags of these articles"""
+	# 	bundle.data['articles'] = []
+	# 	# Here we get all the value for each object we need
+	# 	for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
+	# 		# Get the member
+	# 		x['author'] = Member.objects.get(id=x['memberId'])
+	# 		# Remove the memberId field
+	# 		x.pop("memberId")
+	# 		# Get the timestamp
+	# 		x['date'] = format(x['date'], 'U')
+	# 		# Add the tags
+	# 		x['tags'] = []
+	# 		for t in Article.objects.filter(id=x['id'])[0].tags.all():
+	# 			x['tags'].append(t)
+	# 		bundle.data['articles'].append(x)
+	# 	return bundle
 

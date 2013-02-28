@@ -2,6 +2,9 @@
 
 {% block style %}
 	{{block.super}}
+	form-vertical input[type='text']{
+		height: 30px!important;
+	}
 
 {% endblock style %}
 
@@ -18,65 +21,76 @@
 {% block content %}
 	<div class="row">
 		<div class="span5">
-			<p>Pourquoi s'inscrire ?</p>
-			<ul>
-				<li>avantage 1</li>
-				<li>avantage 1</li>
-				<li>avantage 1</li>
-				<li>avantage 1</li>
-				<li>avantage 1</li>
+			<h2>Pourquoi s'inscrire ?</h2>
+			<ul id="whyRegister">
+				<li><span>Participez à la vie d'un journal en laissant libre court à votre plume journalistique.</span></li>
+				<li><span>Aidez à la construction d'un libre et populaire.</span></li>
+				<li><span>Savoir ce qu'il se passe autour de vous et dans le monde.</span></li>
 			</ul>
 		</div>
 		<div class="span6">
-			<form action="/register" method="POST" class="form-inline">{% csrf_token %}
+			<form action="/register" method="POST" class="form-vertical">{% csrf_token %}
 				<h2>Créer un compte</h2><br>
 				{% if form.username.errors %}
-					<p class="control-group error"><label for="id_username">{{form.username.label}} :</label>{{form.username}} <span class="help-inline">
+					<p class="control-group error"><label for="id_username">{{form.username.label}} :</label>{{form.username}} 
 						<span class="help-inline">
 						{% for x in form.username.errors %}
 							{{ x }}
 						{% endfor %}
 						</span>
+					</p>
 				{% else %}
-					<p class="control-group"><label for="id_username">{{form.username.label}} :</label>{{form.username}} <span class="help-inline">
+					<p class="control-group"><label for="id_username">{{form.username.label}} :</label>{{form.username}} 
+						<!-- <span class="help-inline">
 							{{ form.username.help_text }}
-						</span>
+						</span> -->
+					</p>
 				{% endif %}
-				</p>
 
 				{% if form.email.errors %}
-					<p class="control-group error"><label for="id_email">{{form.email.label}} :</label>{{form.email}} <span class="help-inline">
+					<p class="control-group error"><label for="id_email">{{form.email.label}} :</label>{{form.email}} 
 						<span class="help-inline">
 						{% for x in form.email.errors %}
 							{{ x }}
 						{% endfor %}
 						</span>
+					</p>
 				{% else %}
-					<p class="control-group"><label for="id_email">{{form.email.label}} :</label>{{form.email}} <span class="help-inline">
+					<p class="control-group">
+						<label for="id_email">{{form.email.label}} :</label>{{form.email}} 
+					</p>
 				{% endif %}
-				</p>
 				
 				{% if form.password1.errors %}
-				<p class="control-group error"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
-				<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}<span class="help-inline">
+					<p class="control-group error"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}} 
+						<span class="help-inline">
 						{% for x in form.password1.errors %}
 							{{ x }}
 						{% endfor %}
 						</span>
-				{% elif form.password2.errors %}
-				<p class="control-group error"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
-				<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}<span class="help-inline">
+					</p>
+				{% else %}
+					<p class="control-group">
+						<label for="id_password1">{{form.password1.label}} :</label>{{form.password1}} 
+					</p>
+				{% endif %}
+
+				{% if form.password2.errors %}
+					<p class="control-group error"><label for="id_password1">{{form.password2.label}} :</label>{{form.password2}} 
+						<span class="help-inline">
 						{% for x in form.password2.errors %}
 							{{ x }}
 						{% endfor %}
 						</span>
+					</p>
 				{% else %}
-				<p class="control-group"><label for="id_password1">{{form.password1.label}} :</label>{{form.password1}}
-				<label for="id_password2" id="labelPassword2">Confirmation : </label>{{form.password2}}
+					<p class="control-group">
+						<label for="id_password2">{{form.password2.label}} :</label>{{form.password2}} 
+					</p>
 				{% endif %}
-				</p>
-				<br>
-				<p>
+				<br><br>
+
+				<p class="control-group">
 					<input type="submit" value="Créer un compte">
 				</p>
 			</form>

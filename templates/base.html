@@ -31,7 +31,9 @@
 	<div id="connect">
 		<div class="container">
 			<ul>
-				<li><a href="/login">Se connecter</a></li>
+				{% block logMenu %}
+					<li><a href="/login">Se connecter</a></li>
+				{% endblock logMenu %}
 			</ul>
 			<div class="clear"></div>
 		</div>
@@ -124,7 +126,7 @@
 	</div>
 
 
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/mosaic.js' %}"></script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>

@@ -3,3 +3,4 @@
 {% endfor %}
 {{ object.title }}
 {{ object.text }}
+{{ object.date }}

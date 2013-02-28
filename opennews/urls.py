@@ -17,12 +17,15 @@ v1_api.register(ArticleResource())
 v1_api.register(CategoryResource())
 v1_api.register(UserResource())
 v1_api.register(TagResource())
+v1_api.register(CommentResource())
 
 sqs = SearchQuerySet().order_by('-date') 
 
 urlpatterns = patterns('',
     # opennews urls
-    url(r'^$', home),
+    url(r'^$', list_article, {'categorie':"all"}),
+    url(r'^home$', home),
+    url(r'^comment$', comment),
    	url(r'^register$', register),
     url(r'^login/$', login_user),
     url(r'^logout/$', logout_user),
@@ -32,10 +35,6 @@ urlpatterns = patterns('',
    	url(r'^articles/(\d+)$', read_article),
    	url(r'^categories/(\w+)$', list_article),
    	url(r'^categories/$', list_article, {'categorie':"all"}),
-    # url(r'^search/(\w+)/(\w+)$', search),
-    # url(r'^search/(\w+)$', search, {'categorie':"all"}),
-    # url(r'^search/$', search, {'words':"", 'categorie':"all"}),
-    #url(r'^search/', include('haystack.urls')),
     url(r'^search/',  
                            SearchView(  
                                load_all=False,  
