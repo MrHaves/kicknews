@@ -12,6 +12,8 @@ class ArticleAdmin(ImperaviAdmin):
     pass
 
 admin.site.register(Category)
+admin.site.register(RssFeed)
+admin.site.register(FeedEntry)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)

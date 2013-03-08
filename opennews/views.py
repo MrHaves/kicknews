@@ -13,13 +13,17 @@ from django.contrib.sessions.models import Session
 # Import tools
 from itertools import chain
 from haystack.query import SearchQuerySet
-import datetime
+from datetime import datetime
 import mimetypes
 from unicodedata import normalize
+import feedparser
+from dateutil import parser
 
 # Import openNews datas
 from forms import *
 from models import *
+from tools import *
+
 
 
 # Define your views here
@@ -30,11 +34,50 @@ def home(request):
 	categoriesQuerySet = Category.objects.all()
 	categories = []
 	user = request.user
-	for cat in categoriesQuerySet:
-		categories.append(cat)
 
 	return render(request, "index.html", locals())
 
+
+def view_rss_feed(request, rssID):
+	# Get the rss by its ID
+	qs = RssFeed.objects.filter(id=rssID)
+	# If doesn't exist, or if too bad, return empty entries for error
+	if not qs or qs[0].accepted < 5:
+		return render(request, "viewrss.html", {'entries': None})
+	# if exist and accepted, get entries
+	else:
+		rss = qs[0]
+		entries = FeedEntry.objects.filter(rssfeed=rss)
+		# if entries doesn't exist, add all the entries
+		if not entries:
+			feed = feedparser.parse(rss.url)
+			entries = feed['entries']
+			for x in entries:
+				x['published'] = parser.parse(x['published']).replace(tzinfo=None)
+				entry = FeedEntry(rssfeed=rss, title=x['title'], date=x['published'], link=x['link'], summary=x['summary'])
+				entry.save()
+		# if entries already exist, check updated date of rss feed and add only news entries
+		else:
+			feed = feedparser.parse(rss.url)
+			entries = feed['entries']
+			for x in entries:
+				x['published'] = parser.parse(x['published']).replace(tzinfo=None)
+				if x['published'] > rss.updatedDate:
+					entry = FeedEntry(rssfeed=rss, title=x['title'], date=x['published'], link=x['link'], summary=x['summary'])
+					entry.save()
+			# Update the rss update date
+			rss.updatedDate = parser.parse(feed['feed']['updated']).replace(tzinfo=None)
+			rss.save()
+		return render(request, "viewrss.html", {'rss':rss, 'entries':entries})
+
+
+def add_rss_feed(request):
+	feed = feedparser.parse('feed://www.lequipe.fr/rss/actu_rss.xml')
+	qs = RssFeed.objects.filter(url=feed['href'])
+	if not qs:
+		rss = RssFeed(name=feed['feed']['title'], url=feed['href'], updatedDate=parser.parse(feed['feed']['updated']).replace(tzinfo=None), accepted=0)
+		rss.save()
+	return HttpResponseRedirect("/home")
 
 def comment(request):
 	article = Article.objects.get(id=request.POST.get('articleId'))

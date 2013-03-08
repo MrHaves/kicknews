@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+
+{% block menu %}
+	<li>
+    	<a href="/categories/">All</a>
+  	</li>
+	{% for cat in categories %}
+		<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+	{% endfor %}
+{% endblock menu %}
+
+{% block content %}
+	<br>	
+	{% if not entries %}
+		<p>Ce flux rss n'existe pas ou bien n'a pas encore été approuvé</p>
+	{% else %}
+		{% for d in entries %}
+			<div class="entry">
+				<a href="{{d.link}}" target="blank"><h4>{{d.title}}</h4></a>
+				<p>{{d.published.date}} à {{d.published.time|time:"H:i"}}</p>
+				<p class="summary">{% autoescape off %}
+					{{d.summary}}
+				{% endautoescape %}</p>
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endblock content %} 
+
+{% block script %}
+	<script type="text/javascript">
+		$(".entry div").remove();
+		$(".entry br").remove();
+	</script>
+{% endblock script %}

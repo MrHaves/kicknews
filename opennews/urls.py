@@ -25,6 +25,8 @@ urlpatterns = patterns('',
     # opennews urls
     url(r'^$', list_article, {'categorie':"all"}),
     url(r'^home$', home),
+    url(r'^addfeed$', add_rss_feed),
+    url(r'^viewsrss/(\d+)$', view_rss_feed),
     url(r'^comment$', comment),
    	url(r'^register$', register),
     url(r'^login/$', login_user),

@@ -27,11 +27,16 @@
 
         {% if query %}
             <h3>Résultas pour l'expression "{{query}}"</h3>
-
             {% for result in page.object_list %}
+                {% if result.model_name == "article" %}
                 <p>
                     <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a> -- {{result.object.date}}
                 </p>
+                {% elif result.model_name == "feedentry" %}
+                <p>
+                    <a href="{{ result.object.link }}" target="blank">{{ result.object.title }}</a> -- {{result.object.date}}
+                </p>
+                {% endif %}
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}

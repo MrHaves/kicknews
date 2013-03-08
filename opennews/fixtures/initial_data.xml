@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <django-objects version="1.0">
-    <object pk="12" model="contenttypes.contenttype">
+    <object pk="14" model="contenttypes.contenttype">
         <field type="CharField" name="name">api access</field>
         <field type="CharField" name="app_label">tastypie</field>
         <field type="CharField" name="model">apiaccess</field>
     </object>
-    <object pk="13" model="contenttypes.contenttype">
+    <object pk="15" model="contenttypes.contenttype">
         <field type="CharField" name="name">api key</field>
         <field type="CharField" name="app_label">tastypie</field>
         <field type="CharField" name="model">apikey</field>
     </object>
-    <object pk="10" model="contenttypes.contenttype">
+    <object pk="12" model="contenttypes.contenttype">
         <field type="CharField" name="name">article</field>
         <field type="CharField" name="app_label">opennews</field>
         <field type="CharField" name="model">article</field>
@@ -20,7 +20,7 @@
         <field type="CharField" name="app_label">opennews</field>
         <field type="CharField" name="model">category</field>
     </object>
-    <object pk="11" model="contenttypes.contenttype">
+    <object pk="13" model="contenttypes.contenttype">
         <field type="CharField" name="name">comment</field>
         <field type="CharField" name="app_label">opennews</field>
         <field type="CharField" name="model">comment</field>
@@ -29,6 +29,11 @@
         <field type="CharField" name="name">content type</field>
         <field type="CharField" name="app_label">contenttypes</field>
         <field type="CharField" name="model">contenttype</field>
+    </object>
+    <object pk="10" model="contenttypes.contenttype">
+        <field type="CharField" name="name">feed entry</field>
+        <field type="CharField" name="app_label">opennews</field>
+        <field type="CharField" name="model">feedentry</field>
     </object>
     <object pk="2" model="contenttypes.contenttype">
         <field type="CharField" name="name">group</field>
@@ -50,12 +55,17 @@
         <field type="CharField" name="app_label">auth</field>
         <field type="CharField" name="model">permission</field>
     </object>
+    <object pk="9" model="contenttypes.contenttype">
+        <field type="CharField" name="name">rss feed</field>
+        <field type="CharField" name="app_label">opennews</field>
+        <field type="CharField" name="model">rssfeed</field>
+    </object>
     <object pk="5" model="contenttypes.contenttype">
         <field type="CharField" name="name">session</field>
         <field type="CharField" name="app_label">sessions</field>
         <field type="CharField" name="model">session</field>
     </object>
-    <object pk="9" model="contenttypes.contenttype">
+    <object pk="11" model="contenttypes.contenttype">
         <field type="CharField" name="name">tag</field>
         <field type="CharField" name="app_label">opennews</field>
         <field type="CharField" name="model">tag</field>
@@ -65,37 +75,10 @@
         <field type="CharField" name="app_label">auth</field>
         <field type="CharField" name="model">user</field>
     </object>
-    <object pk="29a8fa402447def96620ede901988fe2" model="sessions.session">
-        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
-AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
-b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==</field>
-        <field type="DateTimeField" name="expire_date">2013-03-09T16:27:42.186835</field>
-    </object>
-    <object pk="29cd1090c0178a38f27326cfd20e36b9" model="sessions.session">
-        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
-AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
-b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==</field>
-        <field type="DateTimeField" name="expire_date">2013-03-09T17:55:41.822544</field>
-    </object>
-    <object pk="3dd9b482c1fb543f4baf5171324e1c74" model="sessions.session">
-        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
-ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
-VQ1fYXV0aF91c2VyX2lkcQRLAXUu</field>
-        <field type="DateTimeField" name="expire_date">2013-03-09T18:50:44.083860</field>
-    </object>
-    <object pk="1148d0fb07954224c0b7eaf95eb37368" model="sessions.session">
-        <field type="TextField" name="session_data">MWM5ZDkwODYwZGFjYmQ3MjM5ZTg1NThkNTFiZTFjNWRlMjMyODBmNDqAAn1xAShVEl9hdXRoX3Vz
-ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
-VQ1fYXV0aF91c2VyX2lkcQRLAXUu
+    <object pk="e07ad66de56ce650b535b1dd82b808b8" model="sessions.session">
+        <field type="TextField" name="session_data">Njg3MDA3ZjMwOWYwMGNmMzhkMTRmODdjNDRlYjEyM2I3MmZhODQxYjqAAn1xAS4=
 </field>
-        <field type="DateTimeField" name="expire_date">2013-03-11T18:16:56.684471</field>
-    </object>
-    <object pk="cb15eef77bc7f111fccf212fa3052e2a" model="sessions.session">
-        <field type="TextField" name="session_data">YmMwZWI1OGUwMjkyN2Y5ZmYzOTUzZGI4MDM4ZDY2YmYxMjcwZTYwYjqAAn1xAShVB3VzZXJfaWRx
-AksCVRJfYXV0aF91c2VyX2JhY2tlbmRxA1UpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5N
-b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
-</field>
-        <field type="DateTimeField" name="expire_date">2013-03-13T09:34:46.384506</field>
+        <field type="DateTimeField" name="expire_date">2013-03-20T15:41:53.960263</field>
     </object>
     <object pk="1" model="opennews.category">
         <field type="CharField" name="name">économie</field>
@@ -116,6 +99,177 @@ b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
         <field type="CharField" name="name">santé</field>
         <field type="CharField" name="url">sante</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel"><None></None></field>
+    </object>
+    <object pk="1" model="opennews.rssfeed">
+        <field type="CharField" name="name">LE FIGARO - Le Figaro – Web : l'actualité des réseaux</field>
+        <field type="CharField" name="url">http://www.lefigaro.fr/rss/figaro_web.xml</field>
+        <field type="DateTimeField" name="updatedDate">2011-02-17T09:48:00</field>
+        <field type="IntegerField" name="accepted">0</field>
+    </object>
+    <object pk="12" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Facebook : la Cnil tique sur la géolocalisation</field>
+        <field type="DateTimeField" name="date">2010-10-20T13:34:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/20/01022-20101020ARTFIG00419-la-cnil-se-mefie-de-la-geolocalisation-sur-facebook.php</field>
+        <field type="TextField" name="summary">L'autorité se méfie du service «Facebook Lieux», qui permet d'indiquer à ses amis où l'on se trouve.   » BLOG - Facebook va mettre les «ex» en veilleuse</field>
+    </object>
+    <object pk="1" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Le Canada visé par une cyberattaque chinoise</field>
+        <field type="DateTimeField" name="date">2011-02-17T09:45:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/international/2011/02/17/01003-20110217ARTFIG00401-le-canada-vise-par-une-cyberattaque-chinoise.php</field>
+        <field type="TextField" name="summary">Des hackers ont pénétré à partir de serveurs basés en Chine plusieurs systèmes informatiques du gouvernement d'Ottawa, obligeant celui-ci à couper certains de ses accès Internet. Pékin dément toute implication.   » Des groupes pétroliers piratés par des hackers de Chine</field>
+    </object>
+    <object pk="2" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Bulle spéculative sur les réseaux sociaux</field>
+        <field type="DateTimeField" name="date">2010-12-29T07:54:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/medias/2010/12/28/04002-20101228ARTFIG00542-bulle-speculative-sur-les-reseaux-sociaux.php</field>
+        <field type="TextField" name="summary">Les deux stars du Web, Facebook et Twitter, ne sont pas cotées. Mais les investisseurs se ruent sur le marché gris.&amp;#160; 
+ » Saxo Banque prédit le rachat de Facebook par Apple</field>
+    </object>
+    <object pk="3" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Twitter a pris  son envol en 2010</field>
+        <field type="DateTimeField" name="date">2010-12-26T22:07:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/medias/2010/12/26/04002-20101226ARTFIG00142-twitter-a-pris-son-envol-en-2010.php</field>
+        <field type="TextField" name="summary">44 % des utilisateurs du site l'ont rejoint entre janvier et août dernier. Avec ces nouveaux membres, ce sont aussi de nouveaux usages qui émergent.</field>
+    </object>
+    <object pk="4" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Tumblr, un «Twitter» multimédia,  lève 30 millions de dollars</field>
+        <field type="DateTimeField" name="date">2010-12-29T11:15:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/12/28/01022-20101228ARTFIG00572-tumblr-un-twitter-multimedia-leve-30millions-de-dollars.php</field>
+        <field type="TextField" name="summary">À son lancement en 2007, quelque 75 000 blogueurs ont adopté Tumblr. Il revendique désormais 11 millions de blogs et 55 millions de visiteurs uniques par mois.</field>
+    </object>
+    <object pk="5" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">L'Hadopi a mis en garde  100.000 internautes</field>
+        <field type="DateTimeField" name="date">2010-12-28T14:22:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/12/27/01022-20101227ARTFIG00430-l-hadopi-a-mis-en-garde-100000-internautes.php</field>
+        <field type="TextField" name="summary">Parmi eux, la Haute Autorité a déjà repéré des centaines de récidivistes.&amp;#160;  
+ » L'Hadopi veut devenir un think-tank du numérique   
+ » TÉMOIGNAGES - «J'étais mordu, je devais absolument voir cet épisode»</field>
+    </object>
+    <object pk="6" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">L'Hadopi veut devenir un think-tank du numérique</field>
+        <field type="DateTimeField" name="date">2010-12-27T21:30:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/12/27/01022-20101227ARTFIG00441-l-hadopi-veut-devenir-un-think-tank-du-numerique.php</field>
+        <field type="TextField" name="summary">Pour réconcilier l'Hadopi avec le monde de l'Internet, Éric Walter, son secrétaire général, s'apprête à lancer les «labs».</field>
+    </object>
+    <object pk="7" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Les USA divisés sur les règles du trafic Internet</field>
+        <field type="DateTimeField" name="date">2010-12-24T09:28:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/12/23/01022-20101223ARTFIG00648-les-regles-du-trafic-internet-divisent-washington.php</field>
+        <field type="TextField" name="summary">Le régulateur américain des télécoms s'oppose au transport de données à plusieurs vitesses mais autorise les opérateurs à moduler leurs tarifs.</field>
+    </object>
+    <object pk="8" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Les opérateurs européens vont devoir dépenser 8 milliards par an</field>
+        <field type="DateTimeField" name="date">2010-12-24T09:05:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/12/23/01022-20101223ARTFIG00645-les-operateurs-europeens-vont-devoir-depenser-8milliards-par-an.php</field>
+        <field type="TextField" name="summary">Dans les cinq ans à venir, le trafic fixe va augmenter d'un tiers chaque année et le trafic mobile va doubler. Les opérateurs ne pourront, seuls, continuer à investir toujours plus dans les réseaux.</field>
+    </object>
+    <object pk="9" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Google numérise des milliards de mots pour décrypter l'histoire humaine</field>
+        <field type="DateTimeField" name="date">2010-12-17T09:50:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/sciences/2010/12/16/01008-20101216ARTFIG00752-google-numerise-des-milliards-de-mots.php</field>
+        <field type="TextField" name="summary">Le site ouvert ce vendredi fait la liste de tous les termes employés dans 5 millions de livres publiés depuis 1800.</field>
+    </object>
+    <object pk="10" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Les nouvelles stars du net</field>
+        <field type="DateTimeField" name="date">2010-10-29T17:23:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/29/01022-20101029ARTFIG00492-les-nouvelles-stars-du-net.php</field>
+        <field type="TextField" name="summary">Vous ignorez leurs noms et leurs visages. Pourtant, ils règnent sur internet et influent sur votre quotidien. Les voici.</field>
+    </object>
+    <object pk="11" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Google et Twitter aident à prédire l'avenir</field>
+        <field type="DateTimeField" name="date">2010-10-22T15:32:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/21/01022-20101021ARTFIG00634-google-et-twitter-utilises-pour-predire-l-avenir.php</field>
+        <field type="TextField" name="summary">Des universitaires américains ont découvert que Twitter pouvait prédire avec quelques jours d'avance l'évolution de la Bourse. D'autres études ont montré que l'on pouvait aussi, grâce à Google, anticiper la hausse des prix de l'immobilier.</field>
+    </object>
+    <object pk="13" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Free menacé d'une amende s'il ne participe pas à l'Hadopi</field>
+        <field type="DateTimeField" name="date">2010-10-13T18:19:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/13/01022-20101013ARTFIG00525-free-menace-d-une-amende-s-il-ne-participe-pas-a-l-hadopi.php</field>
+        <field type="TextField" name="summary">Les fournisseurs ont désormais obligation de transmettre les messages d'avertissement à leurs abonnés, sous peine d'amende.</field>
+    </object>
+    <object pk="14" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Facebook, grand absent de la charte sur le «droit à l'oubli»</field>
+        <field type="DateTimeField" name="date">2010-10-13T17:31:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/13/01022-20101013ARTFIG00485-facebook-grand-absent-de-la-charte-sur-le-droit-a-l-oubli.php</field>
+        <field type="TextField" name="summary">Le texte, signé mercredi, engage les sites communautaires et les moteurs de recherche à mieux défendre la vie privée des internautes. Google a également fait faux bond.</field>
+    </object>
+    <object pk="15" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Les bébés ont déjà une vie sur Internet</field>
+        <field type="DateTimeField" name="date">2010-10-10T18:55:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/08/01022-20101008ARTFIG00574-la-plupart-des-bebes-ont-deja-une-vie-sur-internet.php</field>
+        <field type="TextField" name="summary">Très tôt, leurs mamans postent des photos, créent pour eux des profils sur Facebook et les dotent d'une adresse email. Parfois même avant leur naissance.     VOTRE AVIS- Exposez-vous la vie de vos enfants sur Internet ?</field>
+    </object>
+    <object pk="16" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Vers plus de liberté dans le choix  des noms de domaine</field>
+        <field type="DateTimeField" name="date">2010-10-06T18:10:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/06/01022-20101006ARTFIG00610-vers-plus-de-liberte-dans-le-choix-des-noms-de-domaine.php</field>
+        <field type="TextField" name="summary">Le Conseil constitutionnel a censuré un article du code des postes et communications électroniques sur les noms de domaine, estimant qu'il ne protégeait pas assez la liberté de communication et d'entreprendre.</field>
+    </object>
+    <object pk="17" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Piratage : une application BitTorrent s'invite sur iPhone</field>
+        <field type="DateTimeField" name="date">2010-10-11T17:36:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/10/04/01022-20101004ARTFIG00602-piratage-une-application-bittorrent-s-invite-sur-iphone.php</field>
+        <field type="TextField" name="summary">Apple a autorisé la vente de ce logiciel, qui permet de lancer des téléchargements de films et de séries télévisées, souvent illégaux, mais difficilement détectables par Hadopi.</field>
+    </object>
+    <object pk="18" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">L'Hadopi a envoyé les premiers mails d'avertissement</field>
+        <field type="DateTimeField" name="date">2010-10-11T17:36:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/flash-actu/2010/10/04/97001-20101004FILWWW00508-hadopi-premiers-avertissements-envoyes.php</field>
+        <field type="TextField" name="summary">Numericable et Bouygues Telecom ont été les premiers opérateurs à adresser ces courriels d'avertissement à leurs clients.  
+ » Hadopi : voilà l'email d'avertissement</field>
+    </object>
+    <object pk="19" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Voilà l'email d'avertissement qu'enverra l'Hadopi</field>
+        <field type="DateTimeField" name="date">2010-10-11T17:38:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/09/28/01022-20100928ARTFIG00515-l-hadopi-publie-un-exemple-de-son-email-d-avertissement.php</field>
+        <field type="TextField" name="summary">La Haute autorité y invite les internautes repérés sur les réseaux de piratage à prendre «dans les meilleurs délais» des mesures pour sécuriser leur accès à Internet, sous peine de sanction.</field>
+    </object>
+    <object pk="20" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Hadopi est un «fléau», dit l'inventeur du Web</field>
+        <field type="DateTimeField" name="date">2010-09-29T14:53:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/09/29/01022-20100929ARTFIG00486-l-inventeur-du-web-critique-les-lois-antipiratage.php</field>
+        <field type="TextField" name="summary">Pour Tim Berners-Lee, les législations qui suspendent l'abonnement sont un «fléau». Aux Etats-Unis, des pionniers d'Internet ont écrit une lettre ouverte aux sénateurs où ils dénoncent les projets de filtrage.</field>
+    </object>
+    <object pk="21" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">La géolocalisation des «amis» sur Facebook arrive en France</field>
+        <field type="DateTimeField" name="date">2010-10-01T11:21:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/09/30/01022-20100930ARTFIG00614-la-geolocalisation-des-amis-sur-facebook-arrive-en-france.php</field>
+        <field type="TextField" name="summary">Depuis leurs smartphones, les membres de Facebook peuvent désormais indiquer où ils se trouvent. Et révéler la position de leurs amis, si ces derniers n'y prennent pas garde.   » La géolocalisation transforme votre mobile en espion</field>
+    </object>
+    <object pk="22" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Les Français perdent la fibre créatrice sur Internet</field>
+        <field type="DateTimeField" name="date">2010-09-28T18:27:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/web/2010/09/28/01022-20100928ARTFIG00639-les-francais-perdent-la-fibre-creatrice-sur-internet.php</field>
+        <field type="TextField" name="summary">En 2010, ils sont moins nombreux à tenir un blog, publier des articles ou charger des vidéos sur YouTube, révèle une étude. Mais ils se ruent sur les réseaux sociaux.</field>
+    </object>
+    <object pk="23" model="opennews.feedentry">
+        <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>
+        <field type="CharField" name="title">Un virus ravive la crainte de cyberguerre</field>
+        <field type="DateTimeField" name="date">2010-09-24T18:56:00</field>
+        <field type="CharField" name="link">http://www.lefigaro.fr/sciences-technologies/2010/09/24/01030-20100924ARTFIG00498-un-ver-ultrasophistique-ravive-la-crainte-du-cyberterrorisme.php</field>
+        <field type="TextField" name="summary">Le virus Stuxnet s'immisce dans les systèmes de contrôle des centrales et d'usines. Il aurait pu être développé avec le soutien d'un État, jugent les chercheurs, et pourrait cibler l'Iran.</field>
     </object>
     <object pk="1" model="opennews.tag">
         <field type="CharField" name="tag">justice</field>
@@ -276,267 +430,6 @@ b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
-    <object pk="29" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-25T18:17:16.083683</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">19</field>
-        <field type="CharField" name="object_repr">test</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="28" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-25T18:17:10.173920</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">19</field>
-        <field type="CharField" name="object_repr">test</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="27" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.352495</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="26" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.349086</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">efzefefvff</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="25" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.345459</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">3</field>
-        <field type="CharField" name="object_repr">zefevdsgs</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="24" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.340587</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">4</field>
-        <field type="CharField" name="object_repr">dsvdfbfgbgb</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="23" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.337129</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">5</field>
-        <field type="CharField" name="object_repr">dfbfgntyn</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="22" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T19:00:35.332596</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">6</field>
-        <field type="CharField" name="object_repr">efkzneferg</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">3</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="21" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T18:51:17.855024</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">mrhaves</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="20" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T16:24:42.636615</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">alex</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
-        <field type="TextField" name="change_message">Modifié password.</field>
-    </object>
-    <object pk="19" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T16:24:12.321287</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">alex</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
-        <field type="TextField" name="change_message">Modifié password et is_staff.</field>
-    </object>
-    <object pk="18" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:57:13.133692</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
-        <field type="TextField" name="change_message">Modifié articleId.</field>
-    </object>
-    <object pk="17" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:50:12.235601</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">2</field>
-        <field type="TextField" name="change_message">Modifié text.</field>
-    </object>
-    <object pk="16" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:49:34.822806</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">11</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">Pfff encore une aug...</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="15" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:32:22.378201</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">7</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">alex</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="14" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:36.457625</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">9</field>
-        <field type="CharField" name="object_repr">supermarché</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="13" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:27.889676</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">8</field>
-        <field type="CharField" name="object_repr">allocation</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="12" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:19.457367</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">7</field>
-        <field type="CharField" name="object_repr">nba</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="11" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:17.318558</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">6</field>
-        <field type="CharField" name="object_repr">handball</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="10" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:13.087800</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">5</field>
-        <field type="CharField" name="object_repr">basketball</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="9" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:09.840481</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">4</field>
-        <field type="CharField" name="object_repr">football</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="8" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:29:00.097432</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">3</field>
-        <field type="CharField" name="object_repr">écologie</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="7" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:55.644037</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">fraude</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="6" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:50.277863</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">9</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">justice</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="5" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:37.177060</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">4</field>
-        <field type="CharField" name="object_repr">santé</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="4" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:32.073023</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">3</field>
-        <field type="CharField" name="object_repr">sport</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="3" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:23.681644</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">sciences</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="2" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:28:18.225598</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">8</field>
-        <field type="TextField" name="object_id">1</field>
-        <field type="CharField" name="object_repr">économie</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
-    <object pk="1" model="admin.logentry">
-        <field type="DateTimeField" name="action_time">2013-02-23T15:27:53.609788</field>
-        <field to="auth.user" name="user" rel="ManyToOneRel">1</field>
-        <field to="contenttypes.contenttype" name="content_type" rel="ManyToOneRel">3</field>
-        <field type="TextField" name="object_id">2</field>
-        <field type="CharField" name="object_repr">alex</field>
-        <field type="PositiveSmallIntegerField" name="action_flag">1</field>
-        <field type="TextField" name="change_message"></field>
-    </object>
     <object pk="1" model="opennews.member">
         <field type="CharField" name="twitter"></field>
         <field type="CharField" name="facebook"></field>
@@ -563,12 +456,12 @@ b2RlbEJhY2tlbmRxBFUNX2F1dGhfdXNlcl9pZHEFSwJ1Lg==
     </object>
     <object pk="1" model="tastypie.apikey">
         <field to="auth.user" name="user" rel="OneToOneRel">1</field>
-        <field type="CharField" name="key">16a6a7bb2f281acf4705597b278d281fc27f978c</field>
-        <field type="DateTimeField" name="created">2013-02-23T15:25:50.279171</field>
+        <field type="CharField" name="key">b05c5ee653eeb7e8e4e50b9aaa90ad27c7826324</field>
+        <field type="DateTimeField" name="created">2013-03-06T15:41:51.587508</field>
     </object>
     <object pk="2" model="tastypie.apikey">
         <field to="auth.user" name="user" rel="OneToOneRel">2</field>
-        <field type="CharField" name="key">6f87d628a0ff50a10e7b78011c8292619a1a7483</field>
-        <field type="DateTimeField" name="created">2013-02-23T15:27:53.607877</field>
+        <field type="CharField" name="key">48b46761c800fbd2a71e928c3be01af3f3e73e02</field>
+        <field type="DateTimeField" name="created">2013-03-06T15:41:51.598711</field>
     </object>
 </django-objects>
