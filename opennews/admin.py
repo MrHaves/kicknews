@@ -13,7 +13,6 @@ class ArticleAdmin(ImperaviAdmin):
 
 admin.site.register(Category)
 admin.site.register(RssFeed)
-admin.site.register(FeedEntry)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)
@@ -29,6 +28,12 @@ class MemberInline(admin.StackedInline):
     model = Member
     verbose_name_plural = 'profile'
    
+
+class FeedEntryAdmin(admin.ModelAdmin):
+    list_display   = ('title','rssfeed','date')
+    list_filter    = ('rssfeed',)
+    ordering       = ('date','title')
+    search_fields  = ('title', 'rssfeed')
 
 # Define a new User admin
 class UserAdmin(UserAdmin):
@@ -49,6 +54,7 @@ class UserAdmin(UserAdmin):
 
 # Re-register UserAdmin
 admin.site.register(Session, SessionAdmin)
+admin.site.register(FeedEntry, FeedEntryAdmin)
 admin.site.unregister(User)
 admin.site.unregister(Group)
 admin.site.register(User, UserAdmin)
