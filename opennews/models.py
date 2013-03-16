@@ -37,10 +37,15 @@ class RssFeed(models.Model):
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255) # urlized name
     updatedDate = models.DateTimeField(auto_now_add=False)
-    accepted = models.IntegerField(default=0)
+    mark = models.IntegerField(default=0)
     
     def __unicode__(self):
         return self.name
+
+class AdminVote(models.Model):
+    userId = models.IntegerField()
+    feedId = models.IntegerField()
+    
 
 class FeedEntry(models.Model):
     rssfeed = models.ForeignKey("RssFeed")

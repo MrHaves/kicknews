@@ -42,7 +42,7 @@ def view_rss_feed(request, rssID):
 	# Get the rss by its ID
 	qs = RssFeed.objects.filter(id=rssID)
 	# If doesn't exist, or if too bad, return empty entries for error
-	if not qs or qs[0].accepted < 5:
+	if not qs or qs[0].mark < 5:
 		return render(request, "viewrss.html", {'entries': None})
 	# if exist and accepted, get entries
 	else:
@@ -71,13 +71,80 @@ def view_rss_feed(request, rssID):
 		return render(request, "viewrss.html", {'rss':rss, 'entries':entries})
 
 
+@login_required(login_url='/login/') # You need to be logged for this page
 def add_rss_feed(request):
-	feed = feedparser.parse('feed://www.lequipe.fr/rss/actu_rss.xml')
-	qs = RssFeed.objects.filter(url=feed['href'])
-	if not qs:
-		rss = RssFeed(name=feed['feed']['title'], url=feed['href'], updatedDate=parser.parse(feed['feed']['updated']).replace(tzinfo=None), accepted=0)
-		rss.save()
-	return HttpResponseRedirect("/home")
+	"""View to add a rss feed"""
+	# Check if POST datas had been sent
+	if len(request.POST):
+		# make a add rss form with the POST values
+		form = add_rss_feed_form(request.POST)
+
+		if form.is_valid():
+			# If form is valid, get the url of the rss feed
+			rss_feed = form.cleaned_data['rss_feed']
+			# Try to find an existing rss feed
+			qs = RssFeed.objects.filter(url=rss_feed)
+			if not qs:
+				# If doesn't exist, add it
+				feed = feedparser.parse(rss_feed)
+				rss = RssFeed(name=feed['feed']['title'], url=feed['href'], updatedDate=parser.parse(feed['feed']['updated']).replace(tzinfo=None), mark=0)
+				rss.save()
+				# Clean the form and send it again
+				form = add_rss_feed_form()
+				return render_to_response("add_rss.html", {'success': "Félicitation, votre flux rss est soumis. Veuillez attendre que les admins le modère.", 'form': form}, context_instance=RequestContext(request))
+			else:
+				return render_to_response("add_rss.html", {'error': "Ce flux a déjà été soumis. Veuillez attendre son acceptation", 'form': form}, context_instance=RequestContext(request))
+		else:
+			return render_to_response("add_rss.html", {'form': form}, context_instance=RequestContext(request))
+	else:
+		# Create an empty form and send it
+		form = add_rss_feed_form()
+		return render_to_response("add_rss.html", {'error': "Ce flux a déjà été soumis. Veuillez attendre son acceptation", 'form': form}, context_instance=RequestContext(request))
+
+
+
+#### TODO ###
+@login_required(login_url='/login/') # You need to be logged for this page
+def rss_validator(request, id):
+	if not request.user.is_staff:
+		error = "Désolé, vous ne faites pas partie du staff, vous ne pouvez pas accéder à cette page. Un mail contenant votre identifiant a été envoyé aux modérateurs pour vérifier vos accès."
+		return render_to_response("rss_validator.html", {'error': error}, context_instance=RequestContext(request))
+	
+	if not id:
+		# Get all the rss
+		qsFeed = RssFeed.objects.filter(mark__lt=5).order_by('name')
+		qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
+		# Only take those whose logged user already vote
+		rss_feeds = [rss for rss in qsFeed if rss.id not in qsVote]
+
+		# Return them
+		return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds}, context_instance=RequestContext(request))
+	else:
+		qs = RssFeed.objects.filter(id=id)
+		if qs:
+			rssfeed = qs[0]
+			if request.GET.get('choice') == 'ok':
+				rssfeed.mark += 1
+				rssfeed.save()
+				vote = AdminVote()
+				vote.userId = request.user.id
+				vote.feedId = id
+				vote.save()
+				return HttpResponseRedirect("/rss_validator")
+			elif request.GET.get('choice') == 'trash':
+				vote = AdminVote()
+				vote.userId = request.user.id
+				vote.feedId = id
+				vote.save()
+				return HttpResponseRedirect("/rss_validator")
+			elif request.GET.get('choice') not in ['trash', 'ok']:
+				error = "Désolé, ce choix n'existe pas. Veuillez vous contenter des boutons de vote."
+				return HttpResponseRedirect("/rss_validator")
+		else:
+			error = "Désolé, ce flux n'existe pas. Veuillez vous contenter des boutons de vote du tableau."
+			return HttpResponseRedirect("/rss_validator")
+
+
 
 def comment(request):
 	article = Article.objects.get(id=request.POST.get('articleId'))

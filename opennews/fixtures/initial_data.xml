@@ -104,7 +104,7 @@
         <field type="CharField" name="name">LE FIGARO - Le Figaro – Web : l'actualité des réseaux</field>
         <field type="CharField" name="url">http://www.lefigaro.fr/rss/figaro_web.xml</field>
         <field type="DateTimeField" name="updatedDate">2011-02-17T09:48:00</field>
-        <field type="IntegerField" name="accepted">0</field>
+        <field type="IntegerField" name="mark">0</field>
     </object>
     <object pk="12" model="opennews.feedentry">
         <field to="opennews.rssfeed" name="rssfeed" rel="ManyToOneRel">1</field>

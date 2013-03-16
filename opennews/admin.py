@@ -17,6 +17,7 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Member)
+admin.site.register(AdminVote)
 
 
 class SessionAdmin(admin.ModelAdmin): 

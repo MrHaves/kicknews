@@ -6,4 +6,3 @@ def cleanString(s):
 		s = unicode(s,"utf8","replace")
 	s=unicodedata.normalize('NFD',s)
 	return s.encode('ascii','ignore')
-
