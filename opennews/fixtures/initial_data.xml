@@ -1,84 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <django-objects version="1.0">
-    <object pk="14" model="contenttypes.contenttype">
-        <field type="CharField" name="name">api access</field>
-        <field type="CharField" name="app_label">tastypie</field>
-        <field type="CharField" name="model">apiaccess</field>
+    <object pk="1" model="auth.user">
+        <field type="CharField" name="username">mrhaves</field>
+        <field type="CharField" name="first_name"></field>
+        <field type="CharField" name="last_name"></field>
+        <field type="CharField" name="email">mrhaves@mhraves.com</field>
+        <field type="CharField" name="password">pbkdf2_sha256$10000$mC1zgvwWDikw$gq+Bnu8cVb58laALJbTO0pkrExbuc2JVX4UppTN3Tvc=</field>
+        <field type="BooleanField" name="is_staff">True</field>
+        <field type="BooleanField" name="is_active">True</field>
+        <field type="BooleanField" name="is_superuser">True</field>
+        <field type="DateTimeField" name="last_login">2013-02-25T18:16:56.631288</field>
+        <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
+        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
+        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
-    <object pk="15" model="contenttypes.contenttype">
-        <field type="CharField" name="name">api key</field>
-        <field type="CharField" name="app_label">tastypie</field>
-        <field type="CharField" name="model">apikey</field>
-    </object>
-    <object pk="12" model="contenttypes.contenttype">
-        <field type="CharField" name="name">article</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">article</field>
-    </object>
-    <object pk="8" model="contenttypes.contenttype">
-        <field type="CharField" name="name">category</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">category</field>
-    </object>
-    <object pk="13" model="contenttypes.contenttype">
-        <field type="CharField" name="name">comment</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">comment</field>
-    </object>
-    <object pk="4" model="contenttypes.contenttype">
-        <field type="CharField" name="name">content type</field>
-        <field type="CharField" name="app_label">contenttypes</field>
-        <field type="CharField" name="model">contenttype</field>
-    </object>
-    <object pk="10" model="contenttypes.contenttype">
-        <field type="CharField" name="name">feed entry</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">feedentry</field>
-    </object>
-    <object pk="2" model="contenttypes.contenttype">
-        <field type="CharField" name="name">group</field>
-        <field type="CharField" name="app_label">auth</field>
-        <field type="CharField" name="model">group</field>
-    </object>
-    <object pk="6" model="contenttypes.contenttype">
-        <field type="CharField" name="name">log entry</field>
-        <field type="CharField" name="app_label">admin</field>
-        <field type="CharField" name="model">logentry</field>
-    </object>
-    <object pk="7" model="contenttypes.contenttype">
-        <field type="CharField" name="name">member</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">member</field>
-    </object>
-    <object pk="1" model="contenttypes.contenttype">
-        <field type="CharField" name="name">permission</field>
-        <field type="CharField" name="app_label">auth</field>
-        <field type="CharField" name="model">permission</field>
-    </object>
-    <object pk="9" model="contenttypes.contenttype">
-        <field type="CharField" name="name">rss feed</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">rssfeed</field>
-    </object>
-    <object pk="5" model="contenttypes.contenttype">
-        <field type="CharField" name="name">session</field>
-        <field type="CharField" name="app_label">sessions</field>
-        <field type="CharField" name="model">session</field>
-    </object>
-    <object pk="11" model="contenttypes.contenttype">
-        <field type="CharField" name="name">tag</field>
-        <field type="CharField" name="app_label">opennews</field>
-        <field type="CharField" name="model">tag</field>
-    </object>
-    <object pk="3" model="contenttypes.contenttype">
-        <field type="CharField" name="name">user</field>
-        <field type="CharField" name="app_label">auth</field>
-        <field type="CharField" name="model">user</field>
+    <object pk="2" model="auth.user">
+        <field type="CharField" name="username">alex</field>
+        <field type="CharField" name="first_name"></field>
+        <field type="CharField" name="last_name"></field>
+        <field type="CharField" name="email"></field>
+        <field type="CharField" name="password">pbkdf2_sha256$10000$Zj8AfFzHH26B$ngUMadiXp/YmoGZppJNYWBYwohu3M6dwydG3HQO/3ek=</field>
+        <field type="BooleanField" name="is_staff">True</field>
+        <field type="BooleanField" name="is_active">True</field>
+        <field type="BooleanField" name="is_superuser">False</field>
+        <field type="DateTimeField" name="last_login">2013-02-27T09:34:46.346365</field>
+        <field type="DateTimeField" name="date_joined">2013-02-23T15:27:53.441664</field>
+        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
+        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
     <object pk="e07ad66de56ce650b535b1dd82b808b8" model="sessions.session">
-        <field type="TextField" name="session_data">Njg3MDA3ZjMwOWYwMGNmMzhkMTRmODdjNDRlYjEyM2I3MmZhODQxYjqAAn1xAS4=
-</field>
+        <field type="TextField" name="session_data">Njg3MDA3ZjMwOWYwMGNmMzhkMTRmODdjNDRlYjEyM2I3MmZhODQxYjqAAn1xAS4=</field>
         <field type="DateTimeField" name="expire_date">2013-03-20T15:41:53.960263</field>
+    </object>
+    <object pk="1" model="opennews.member">
+        <field type="CharField" name="twitter"></field>
+        <field type="CharField" name="facebook"></field>
+        <field type="CharField" name="gplus"></field>
+        <field type="BooleanField" name="autoShare">False</field>
+        <field type="BooleanField" name="geoloc">False</field>
+        <field type="CharField" name="pays"></field>
+        <field type="CharField" name="ville"></field>
+        <field type="IntegerField" name="maxArticle">10</field>
+        <field to="auth.user" name="user" rel="OneToOneRel">2</field>
+        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
+    </object>
+    <object pk="2" model="opennews.member">
+        <field type="CharField" name="twitter"></field>
+        <field type="CharField" name="facebook"></field>
+        <field type="CharField" name="gplus"></field>
+        <field type="BooleanField" name="autoShare">False</field>
+        <field type="BooleanField" name="geoloc">False</field>
+        <field type="CharField" name="pays"></field>
+        <field type="CharField" name="ville"></field>
+        <field type="IntegerField" name="maxArticle">10</field>
+        <field to="auth.user" name="user" rel="OneToOneRel">1</field>
+        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
     </object>
     <object pk="1" model="opennews.category">
         <field type="CharField" name="name">économie</field>
@@ -401,58 +377,6 @@
         <field to="opennews.article" name="articleId" rel="ManyToOneRel">1</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
         <field type="DateTimeField" name="date">2013-02-27T09:46:00.745082</field>
-    </object>
-    <object pk="1" model="auth.user">
-        <field type="CharField" name="username">mrhaves</field>
-        <field type="CharField" name="first_name"></field>
-        <field type="CharField" name="last_name"></field>
-        <field type="CharField" name="email">mrhaves@mhraves.com</field>
-        <field type="CharField" name="password">pbkdf2_sha256$10000$mC1zgvwWDikw$gq+Bnu8cVb58laALJbTO0pkrExbuc2JVX4UppTN3Tvc=</field>
-        <field type="BooleanField" name="is_staff">True</field>
-        <field type="BooleanField" name="is_active">True</field>
-        <field type="BooleanField" name="is_superuser">True</field>
-        <field type="DateTimeField" name="last_login">2013-02-25T18:16:56.631288</field>
-        <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
-        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
-        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="2" model="auth.user">
-        <field type="CharField" name="username">alex</field>
-        <field type="CharField" name="first_name"></field>
-        <field type="CharField" name="last_name"></field>
-        <field type="CharField" name="email"></field>
-        <field type="CharField" name="password">pbkdf2_sha256$10000$Zj8AfFzHH26B$ngUMadiXp/YmoGZppJNYWBYwohu3M6dwydG3HQO/3ek=</field>
-        <field type="BooleanField" name="is_staff">True</field>
-        <field type="BooleanField" name="is_active">True</field>
-        <field type="BooleanField" name="is_superuser">False</field>
-        <field type="DateTimeField" name="last_login">2013-02-27T09:34:46.346365</field>
-        <field type="DateTimeField" name="date_joined">2013-02-23T15:27:53.441664</field>
-        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
-        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="1" model="opennews.member">
-        <field type="CharField" name="twitter"></field>
-        <field type="CharField" name="facebook"></field>
-        <field type="CharField" name="gplus"></field>
-        <field type="BooleanField" name="autoShare">False</field>
-        <field type="BooleanField" name="geoloc">False</field>
-        <field type="CharField" name="pays"></field>
-        <field type="CharField" name="ville"></field>
-        <field type="IntegerField" name="maxArticle">10</field>
-        <field to="auth.user" name="user" rel="OneToOneRel">2</field>
-        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
-    </object>
-    <object pk="2" model="opennews.member">
-        <field type="CharField" name="twitter"></field>
-        <field type="CharField" name="facebook"></field>
-        <field type="CharField" name="gplus"></field>
-        <field type="BooleanField" name="autoShare">False</field>
-        <field type="BooleanField" name="geoloc">False</field>
-        <field type="CharField" name="pays"></field>
-        <field type="CharField" name="ville"></field>
-        <field type="IntegerField" name="maxArticle">10</field>
-        <field to="auth.user" name="user" rel="OneToOneRel">1</field>
-        <field to="opennews.category" name="preferedCategoryIDs" rel="ManyToManyRel"></field>
     </object>
     <object pk="1" model="tastypie.apikey">
         <field to="auth.user" name="user" rel="OneToOneRel">1</field>
