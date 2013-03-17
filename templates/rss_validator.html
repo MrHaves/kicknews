@@ -19,7 +19,7 @@
 	{% if error %}
 		<h2>Erreur !</h2>
 		{{error}}
-	{% else %}
+	{% endif %}
 		<h2>Check Rss</h2>
 		<table id="rssTable" class="table table-hover">
 			<thead>
@@ -47,5 +47,4 @@
 				{% endfor %}
 			</tbody>
 		</table>
-	{% endif %}
 {% endblock content %} 

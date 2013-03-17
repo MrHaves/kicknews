@@ -110,18 +110,17 @@ def rss_validator(request, id):
 		error = "Désolé, vous ne faites pas partie du staff, vous ne pouvez pas accéder à cette page. Un mail contenant votre identifiant a été envoyé aux modérateurs pour vérifier vos accès."
 		return render_to_response("rss_validator.html", {'error': error}, context_instance=RequestContext(request))
 	
-	if not id:
-		# Get all the rss
-		qsFeed = RssFeed.objects.filter(mark__lt=5).order_by('name')
-		qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
-		# Only take those whose logged user already vote
-		rss_feeds = [rss for rss in qsFeed if rss.id not in qsVote]
+	# Get all the rss
+	qsFeed = RssFeed.objects.filter(mark__lt=5).order_by('name')
+	qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
+	# Only take those whose logged user already vote
+	rss_feeds = [rss for rss in qsFeed if rss.id not in qsVote]
 
-		# Return them
-		return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds}, context_instance=RequestContext(request))
-	else:
+	
+	if id:
 		qs = RssFeed.objects.filter(id=id)
-		if qs:
+		qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
+		if qs and (int(id) not in qsVote):
 			rssfeed = qs[0]
 			if request.GET.get('choice') == 'ok':
 				rssfeed.mark += 1
@@ -139,11 +138,12 @@ def rss_validator(request, id):
 				return HttpResponseRedirect("/rss_validator")
 			elif request.GET.get('choice') not in ['trash', 'ok']:
 				error = "Désolé, ce choix n'existe pas. Veuillez vous contenter des boutons de vote."
-				return HttpResponseRedirect("/rss_validator")
+				return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds, 'error': error}, context_instance=RequestContext(request))
 		else:
-			error = "Désolé, ce flux n'existe pas. Veuillez vous contenter des boutons de vote du tableau."
-			return HttpResponseRedirect("/rss_validator")
+			error = "Désolé, vous ne pouvez pas voter pour ce flux. Veuillez utiliser le tableau."
+			return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds, 'error': error}, context_instance=RequestContext(request))
 
+	return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds}, context_instance=RequestContext(request))
 
 
 def comment(request):
