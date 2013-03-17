@@ -33,11 +33,36 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+class RssFeed(models.Model):
+    name = models.CharField(max_length=255)
+    url = models.CharField(max_length=255) # urlized name
+    updatedDate = models.DateTimeField(auto_now_add=False)
+    mark = models.IntegerField(default=0)
+    
+    def __unicode__(self):
+        return self.name
+
+class AdminVote(models.Model):
+    userId = models.IntegerField()
+    feedId = models.IntegerField()
+    
+
+class FeedEntry(models.Model):
+    rssfeed = models.ForeignKey("RssFeed")
+    title = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=False)
+    link = models.CharField(max_length=255)
+    summary = models.TextField()
+
+    def __unicode__(self):
+        return self.title
+
 class Tag(models.Model):
     tag = models.CharField(max_length=30)
 
     def __unicode__(self):
         return self.tag
+
 
 class Article(models.Model):
     title = models.CharField(max_length=255)

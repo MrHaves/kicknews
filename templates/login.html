@@ -25,7 +25,6 @@
 			</ul>
 		</div>
 		<div class="span6">
-		{{get}}
 			{% if next != None %}
 				<form class="form-signin" action="/login/?next={{next}}" method="POST">{% csrf_token %}
 			{% else %}

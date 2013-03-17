@@ -13,6 +13,11 @@
 
 {% block content %}
 	<br>	
-	Date : {{request.get_full_path}} =====><br>
+	{% for d in entries %}
+		<a href="{{d.link}}" target="blank"><h4>{{d.title}}</h4>
+		<p>{{d.published.date}} à {{d.published.time|time:"H:i"}}</p>
+		<p>{{d.summary}}</p></a>
+	{% endfor %}
+	Path : {{request.get_full_path}} =====><br>
 	current user : {{user}}<br>
 {% endblock content %} 

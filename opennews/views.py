@@ -13,13 +13,17 @@ from django.contrib.sessions.models import Session
 # Import tools
 from itertools import chain
 from haystack.query import SearchQuerySet
-import datetime
+from datetime import datetime
 import mimetypes
 from unicodedata import normalize
+import feedparser
+from dateutil import parser
 
 # Import openNews datas
 from forms import *
 from models import *
+from tools import *
+
 
 
 # Define your views here
@@ -30,10 +34,116 @@ def home(request):
 	categoriesQuerySet = Category.objects.all()
 	categories = []
 	user = request.user
-	for cat in categoriesQuerySet:
-		categories.append(cat)
 
 	return render(request, "index.html", locals())
+
+
+def view_rss_feed(request, rssID):
+	# Get the rss by its ID
+	qs = RssFeed.objects.filter(id=rssID)
+	# If doesn't exist, or if too bad, return empty entries for error
+	if not qs or qs[0].mark < 5:
+		return render(request, "viewrss.html", {'entries': None})
+	# if exist and accepted, get entries
+	else:
+		rss = qs[0]
+		entries = FeedEntry.objects.filter(rssfeed=rss)
+		# if entries doesn't exist, add all the entries
+		if not entries:
+			feed = feedparser.parse(rss.url)
+			entries = feed['entries']
+			for x in entries:
+				x['published'] = parser.parse(x['published']).replace(tzinfo=None)
+				entry = FeedEntry(rssfeed=rss, title=x['title'], date=x['published'], link=x['link'], summary=x['summary'])
+				entry.save()
+		# if entries already exist, check updated date of rss feed and add only news entries
+		else:
+			feed = feedparser.parse(rss.url)
+			entries = feed['entries']
+			for x in entries:
+				x['published'] = parser.parse(x['published']).replace(tzinfo=None)
+				if x['published'] > rss.updatedDate:
+					entry = FeedEntry(rssfeed=rss, title=x['title'], date=x['published'], link=x['link'], summary=x['summary'])
+					entry.save()
+			# Update the rss update date
+			rss.updatedDate = parser.parse(feed['feed']['updated']).replace(tzinfo=None)
+			rss.save()
+		return render(request, "viewrss.html", {'rss':rss, 'entries':entries})
+
+
+@login_required(login_url='/login/') # You need to be logged for this page
+def add_rss_feed(request):
+	"""View to add a rss feed"""
+	# Check if POST datas had been sent
+	if len(request.POST):
+		# make a add rss form with the POST values
+		form = add_rss_feed_form(request.POST)
+
+		if form.is_valid():
+			# If form is valid, get the url of the rss feed
+			rss_feed = form.cleaned_data['rss_feed']
+			# Try to find an existing rss feed
+			qs = RssFeed.objects.filter(url=rss_feed)
+			if not qs:
+				# If doesn't exist, add it
+				feed = feedparser.parse(rss_feed)
+				rss = RssFeed(name=feed['feed']['title'], url=feed['href'], updatedDate=parser.parse(feed['feed']['updated']).replace(tzinfo=None), mark=0)
+				rss.save()
+				# Clean the form and send it again
+				form = add_rss_feed_form()
+				return render_to_response("add_rss.html", {'success': "Félicitation, votre flux rss est soumis. Veuillez attendre que les admins le modère.", 'form': form}, context_instance=RequestContext(request))
+			else:
+				return render_to_response("add_rss.html", {'error': "Ce flux a déjà été soumis. Veuillez attendre son acceptation", 'form': form}, context_instance=RequestContext(request))
+		else:
+			return render_to_response("add_rss.html", {'form': form}, context_instance=RequestContext(request))
+	else:
+		# Create an empty form and send it
+		form = add_rss_feed_form()
+		return render_to_response("add_rss.html", {'error': "Ce flux a déjà été soumis. Veuillez attendre son acceptation", 'form': form}, context_instance=RequestContext(request))
+
+
+
+#### TODO ###
+@login_required(login_url='/login/') # You need to be logged for this page
+def rss_validator(request, id):
+	if not request.user.is_staff:
+		error = "Désolé, vous ne faites pas partie du staff, vous ne pouvez pas accéder à cette page. Un mail contenant votre identifiant a été envoyé aux modérateurs pour vérifier vos accès."
+		return render_to_response("rss_validator.html", {'error': error}, context_instance=RequestContext(request))
+	
+	# Get all the rss
+	qsFeed = RssFeed.objects.filter(mark__lt=5).order_by('name')
+	qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
+	# Only take those whose logged user already vote
+	rss_feeds = [rss for rss in qsFeed if rss.id not in qsVote]
+
+	
+	if id:
+		qs = RssFeed.objects.filter(id=id)
+		qsVote = AdminVote.objects.filter(userId=request.user.id).values_list('feedId', flat=True)
+		if qs and (int(id) not in qsVote):
+			rssfeed = qs[0]
+			if request.GET.get('choice') == 'ok':
+				rssfeed.mark += 1
+				rssfeed.save()
+				vote = AdminVote()
+				vote.userId = request.user.id
+				vote.feedId = id
+				vote.save()
+				return HttpResponseRedirect("/rss_validator")
+			elif request.GET.get('choice') == 'trash':
+				vote = AdminVote()
+				vote.userId = request.user.id
+				vote.feedId = id
+				vote.save()
+				return HttpResponseRedirect("/rss_validator")
+			elif request.GET.get('choice') not in ['trash', 'ok']:
+				error = "Désolé, ce choix n'existe pas. Veuillez vous contenter des boutons de vote."
+				return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds, 'error': error}, context_instance=RequestContext(request))
+		else:
+			error = "Désolé, vous ne pouvez pas voter pour ce flux. Veuillez utiliser le tableau."
+			return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds, 'error': error}, context_instance=RequestContext(request))
+
+	return render_to_response("rss_validator.html", {'rss_feeds': rss_feeds}, context_instance=RequestContext(request))
 
 
 def comment(request):

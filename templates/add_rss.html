@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<form class="form-signin" action="/addfeed" method="POST">{% csrf_token %}
+		{% if error %}
+			<p>{{error}}</p>
+		{% elif success %}
+			<p>{{success}}</p>
+		{% endif %}
+		{{form.as_p}}
+		<p>
+			<input type="submit" value="Soummetre le RSS">
+		</p>
+	</form>
+{% endblock content %} 

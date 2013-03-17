@@ -14,6 +14,26 @@ class login_form(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}), required=True, label="")
 
 
+
+class add_rss_feed_form(forms.Form):
+    rss_feed = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Rss feed url'}), label="")
+
+    def clean(self):
+        cleaned_data = super(add_rss_feed_form, self).clean()
+        cc_rss_feed = cleaned_data.get("rss_feed")
+
+        if cc_rss_feed:
+            # Only do something if both fields are valid so far.
+            cc_rss_feed = cc_rss_feed.split("://")
+            if cc_rss_feed[0] not in ["http", "https", "feed"]:
+                raise forms.ValidationError("Veuillez entrez une URL valide.")
+
+        # Always return the full collection of cleaned data.
+        return cleaned_data
+
+
+
+
 class user_create_form(UserCreationForm):
     # Make the email field required
     email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}), label="")
