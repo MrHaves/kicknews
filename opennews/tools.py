@@ -1,4 +1,4 @@
-# To create fixture ./manage.py dumpdata --format=xml --indent=4 -e contenttypes -e auth.Permission > opennews/fixtures/initial_data.xml
+# To create fixture ./manage.py dumpdata --format=xml --indent=4 -e contenttypes -e sessions -e auth.Permission -e tastypie.ApiKey > opennews/fixtures/initial_data.xml
 
 import unicodedata
 

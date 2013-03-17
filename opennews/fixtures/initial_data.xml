@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <django-objects version="1.0">
-    <object pk="1" model="auth.user">
-        <field type="CharField" name="username">mrhaves</field>
-        <field type="CharField" name="first_name"></field>
-        <field type="CharField" name="last_name"></field>
-        <field type="CharField" name="email">mrhaves@mhraves.com</field>
-        <field type="CharField" name="password">pbkdf2_sha256$10000$mC1zgvwWDikw$gq+Bnu8cVb58laALJbTO0pkrExbuc2JVX4UppTN3Tvc=</field>
-        <field type="BooleanField" name="is_staff">True</field>
-        <field type="BooleanField" name="is_active">True</field>
-        <field type="BooleanField" name="is_superuser">True</field>
-        <field type="DateTimeField" name="last_login">2013-02-25T18:16:56.631288</field>
-        <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
-        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
-        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
-    </object>
     <object pk="2" model="auth.user">
         <field type="CharField" name="username">alex</field>
         <field type="CharField" name="first_name"></field>
@@ -28,9 +14,19 @@
         <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
         <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
-    <object pk="e07ad66de56ce650b535b1dd82b808b8" model="sessions.session">
-        <field type="TextField" name="session_data">Njg3MDA3ZjMwOWYwMGNmMzhkMTRmODdjNDRlYjEyM2I3MmZhODQxYjqAAn1xAS4=</field>
-        <field type="DateTimeField" name="expire_date">2013-03-20T15:41:53.960263</field>
+    <object pk="1" model="auth.user">
+        <field type="CharField" name="username">mrhaves</field>
+        <field type="CharField" name="first_name"></field>
+        <field type="CharField" name="last_name"></field>
+        <field type="CharField" name="email">mrhaves@mhraves.com</field>
+        <field type="CharField" name="password">pbkdf2_sha256$10000$mC1zgvwWDikw$gq+Bnu8cVb58laALJbTO0pkrExbuc2JVX4UppTN3Tvc=</field>
+        <field type="BooleanField" name="is_staff">True</field>
+        <field type="BooleanField" name="is_active">True</field>
+        <field type="BooleanField" name="is_superuser">True</field>
+        <field type="DateTimeField" name="last_login">2013-03-17T17:49:38.568367</field>
+        <field type="DateTimeField" name="date_joined">2013-02-23T15:25:50.129487</field>
+        <field to="auth.group" name="groups" rel="ManyToManyRel"></field>
+        <field to="auth.permission" name="user_permissions" rel="ManyToManyRel"></field>
     </object>
     <object pk="1" model="opennews.member">
         <field type="CharField" name="twitter"></field>
@@ -377,15 +373,5 @@
         <field to="opennews.article" name="articleId" rel="ManyToOneRel">1</field>
         <field to="opennews.member" name="memberId" rel="ManyToOneRel">1</field>
         <field type="DateTimeField" name="date">2013-02-27T09:46:00.745082</field>
-    </object>
-    <object pk="1" model="tastypie.apikey">
-        <field to="auth.user" name="user" rel="OneToOneRel">1</field>
-        <field type="CharField" name="key">b05c5ee653eeb7e8e4e50b9aaa90ad27c7826324</field>
-        <field type="DateTimeField" name="created">2013-03-06T15:41:51.587508</field>
-    </object>
-    <object pk="2" model="tastypie.apikey">
-        <field to="auth.user" name="user" rel="OneToOneRel">2</field>
-        <field type="CharField" name="key">48b46761c800fbd2a71e928c3be01af3f3e73e02</field>
-        <field type="DateTimeField" name="created">2013-03-06T15:41:51.598711</field>
     </object>
 </django-objects>

@@ -5,16 +5,6 @@
 	
 {% endblock style %}
 
-
-{% block menu %}
-	<li>
-    	<a href="/categories/">All</a>
-  	</li>
-	{% for cat in categories %}
-		<li><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
-	{% endfor %}
-{% endblock menu %}
-
 {% block content %}
 	{% if error %}
 		<h2>Erreur !</h2>
