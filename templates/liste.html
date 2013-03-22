@@ -158,9 +158,13 @@
 	*/
 	function setMosaicBackground(){
 	      {% for cat in categories %}
-	      		  console.log('{{cat}}');
-	        var backgroundColor = get_random_color();
-	        $('.{{cat.url}}').css("background-color", backgroundColor);
+	      	var categoryBackground = {'economie' : "#3399CC", "sciences" : "#33CCCC", "sport" : "#C24747","sante" : "#996699"};
+	        var randomBackgroundColor = get_random_color();
+	        var catName = '{{cat.url}}';
+	        if (categoryBackground[catName])
+	        	$('.{{cat.url}}').css("background-color", categoryBackground[catName]);
+	        else
+	        	$('.{{cat.url}}').css("background-color", randomBackgroundColor);
 	      {% endfor %}
 	}
 
