@@ -281,6 +281,11 @@ class CommentResource(ModelResource):
 		include_resource_uri = False 		# Remove the uri
 		authorization = Authorization()
 
+	def dehydrate(self, bundle):
+		"""Adding user in comment ressource"""
+		bundle.data['username'] = Member.objects.get(id=bundle.obj.memberId.id).user.username
+		return bundle
+
 	# Redefine url for login and logout
 	def prepend_urls(self):
 		return [
