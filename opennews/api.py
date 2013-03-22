@@ -259,6 +259,48 @@ class CommentResource(ModelResource):
 		queryset = Comment.objects.all() 	# Get all the categories
 		resource_name = 'comment'
 		include_resource_uri = False 		# Remove the uri
+		authorization = Authorization()
+
+	# Redefine url for login and logout
+	def prepend_urls(self):
+		return [
+			url(r"^(?P<resource_name>%s)/post_comment%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('post_comment'), name="api_post_comment"),
+		]
+
+	# Create a method to post a comment
+	def post_comment():
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		articleId = data.get('articleId', '')
+		memberId = data.get('memberId', '')
+		text = data.get('text', '')
+		
+		# If user exist and is active
+		if not memberId:
+			new_comment = Comment(text = text, articleId = articleId, memberId = memberId)
+			if new_comment:
+				return self.create_response(request, {
+					'success': True,
+					'comment': new_comment,
+				}, Created)
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': 'Error while posting comment',
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'Logged out',
+			}, HttpForbidden )
+
 
 	# def dehydrate(self, bundle):
 	# 	"""Adding categorie articles and tags of these articles"""
