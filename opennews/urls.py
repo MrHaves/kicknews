@@ -17,6 +17,7 @@ v1_api.register(ArticleResource())
 v1_api.register(CategoryResource())
 v1_api.register(UserResource())
 v1_api.register(TagResource())
+v1_api.register(CommentResource())
 
 sqs = SearchQuerySet().order_by('-date') 
 
@@ -24,6 +25,10 @@ urlpatterns = patterns('',
     # opennews urls
     url(r'^$', list_article, {'categorie':"all"}),
     url(r'^home$', home),
+    url(r'^addfeed$', add_rss_feed),
+    url(r'^rss_validator$', rss_validator, {'id':False}),
+    url(r'^rss_validator/(\d+)$', rss_validator),
+    url(r'^viewsrss/(\d+)$', view_rss_feed),
     url(r'^comment$', comment),
    	url(r'^register$', register),
     url(r'^login/$', login_user),

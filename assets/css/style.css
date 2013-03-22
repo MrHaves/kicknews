@@ -230,6 +230,7 @@ body { 	background-color: #eee !important;}
 /*----------- Register ----------*/
 .form-inline input[type=text],input[type=password] {
 	height: 30px;
+	display:block;
 }
 
 .form-inline input[type="submit"] {
@@ -250,6 +251,14 @@ body { 	background-color: #eee !important;}
 
 .form-inline input[type="submit"]:hover {
 	box-shadow: 0 2px 0 rgba(120, 200, 230, 0.5) inset;
+}
+
+.form-inline label {
+	display:block;
+}
+
+.form-inline label#labelPassword2 {
+	margin-top:35px;
 }
 
 label {

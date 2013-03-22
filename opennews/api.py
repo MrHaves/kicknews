@@ -200,7 +200,7 @@ class ArticleResource(ModelResource):
 	class Meta:
 		queryset = Article.objects.all() # Get all the articles
 		resource_name = 'articles'
-		fields = ["date", "title", "text"] # Keep only date, title and text
+		fields = ["date", "title", "text", "id"] # Keep only date, title and text
 		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		include_resource_uri = False		# Remove uri datas
 		authorization = Authorization()
@@ -270,4 +270,63 @@ class CategoryResource(ModelResource):
 				x['tags'].append(t)
 			bundle.data['articles'].append(x)
 		return bundle
+
+
+class CommentResource(ModelResource):
+	memberId = fields.ForeignKey(MemberResource, 'memberId', full=True) #Member is linked to only one user according to the model
+	articleId = fields.ForeignKey(ArticleResource, 'articleId', full=True) #Member is linked to only one user according to the model
+	class Meta:
+		queryset = Comment.objects.all() 	# Get all the categories
+		resource_name = 'comment'
+		include_resource_uri = False 		# Remove the uri
+		authorization = Authorization()
+
+	# Redefine url for login and logout
+	def prepend_urls(self):
+		return [
+			url(r"^(?P<resource_name>%s)/post_comment%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('post_comment'), name="api_post_comment"),
+		]
+
+	# Create a method to post a comment
+	def post_comment(self, request, **kwargs):
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		articleId = Article.objects.filter(id=data.get('articleId', ''))
+		memberId = Member.objects.filter(id=data.get('memberId', ''))
+		text = data.get('text', '')
+		
+		# If user exist and is active
+		if memberId:
+			if articleId:
+				new_comment = Comment(text = text, articleId = articleId[0], memberId = memberId[0])
+				new_comment.save()
+				if new_comment:
+					return self.create_response(request, {
+						'success': True,
+						'comment': new_comment,
+					})
+				else:
+					# If user not active, return success = False and disabled
+					return self.create_response(request, {
+						'success': False,
+						'reason': 'Error while posting comment',
+					}, BadRequest )
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': "You can't comment an non-existant article",
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'Logged out',
+			}, HttpForbidden )
+
 
