@@ -224,7 +224,7 @@ class ArticleResource(ModelResource):
 		text = Member.objects.filter(id=data.get('text', ''))
 		memberId = Member.objects.filter(id=data.get('memberId', ''))
 		category = Category.objects.filter(name=data.get('category', ''))
-		coord = Category.objects.filter(name=data.get('coord', ''))
+		# coord = TODO
 		upload_file_64 = data.get('media', '')
 		fh = open("/tmp/img_tmp.jpg", "wb")
 		fh.write(upload_file_64.decode('base64'))
