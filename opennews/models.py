@@ -69,7 +69,7 @@ class Article(models.Model):
     text = models.TextField();
     date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=True)
-    validate = models.BooleanField()
+    validate = models.BooleanField(default=False)
     quality = models.IntegerField(null=True, blank=True)
     tags = models.ManyToManyField("Tag", null=True, blank=True)
     memberId = models.ForeignKey(Member)

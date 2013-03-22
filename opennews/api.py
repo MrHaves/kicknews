@@ -13,6 +13,7 @@ from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
 from tastypie.utils import trailing_slash
 from tastypie.models import ApiKey
+import base64
 # Import opennews models
 from opennews.models import *
 
@@ -204,7 +205,62 @@ class ArticleResource(ModelResource):
 		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		include_resource_uri = False		# Remove uri datas
 		authorization = Authorization()
+	
+	# Redefine url for post_article
+	def prepend_urls(self):
+		return [
+			url(r"^(?P<resource_name>%s)/post_article%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('post_article'), name="api_post_article"),
+		]
+
+	def post_article(self, request, **kwargs):
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		title = Article.objects.filter(id=data.get('title', ''))
+		text = Member.objects.filter(id=data.get('text', ''))
+		memberId = Member.objects.filter(id=data.get('memberId', ''))
+		category = Category.objects.filter(name=data.get('category', ''))
+		coord = Category.objects.filter(name=data.get('coord', ''))
+		upload_file_64 = data.get('media', '')
+		fh = open("/tmp/img_tmp.jpg", "wb")
+		fh.write(upload_file_64.decode('base64'))
+		fh.close()
+		media = fh
+
 		
+		# If user exist and is active
+		if memberId:
+			if articleId:
+				new_article = Article(title=title, text=text, memberId=memberId, category=category, media=media)
+				new_article.save()
+				if new_article:
+					return self.create_response(request, {
+						'success': True,
+						'article': new_article,
+					})
+				else:
+					# If user not active, return success = False and disabled
+					return self.create_response(request, {
+						'success': False,
+						'reason': 'Error while posting article',
+					}, BadRequest )
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': "You can't this article",
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'Logged out',
+			}, HttpForbidden )
+
 	def dehydrate(self, bundle):
 		"""adding articles tags and category"""
 		# Get the author of the article
