@@ -200,7 +200,7 @@ class ArticleResource(ModelResource):
 	class Meta:
 		queryset = Article.objects.all() # Get all the articles
 		resource_name = 'articles'
-		fields = ["date", "title", "text"] # Keep only date, title and text
+		fields = ["date", "title", "text", "id"] # Keep only date, title and text
 		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		include_resource_uri = False		# Remove uri datas
 		authorization = Authorization()
@@ -273,6 +273,8 @@ class CategoryResource(ModelResource):
 
 
 class CommentResource(ModelResource):
+	memberId = fields.ForeignKey(MemberResource, 'memberId', full=True) #Member is linked to only one user according to the model
+	articleId = fields.ForeignKey(ArticleResource, 'articleId', full=True) #Member is linked to only one user according to the model
 	class Meta:
 		queryset = Comment.objects.all() 	# Get all the categories
 		resource_name = 'comment'
@@ -302,11 +304,12 @@ class CommentResource(ModelResource):
 		if memberId:
 			if articleId:
 				new_comment = Comment(text = text, articleId = articleId[0], memberId = memberId[0])
+				new_comment.save()
 				if new_comment:
 					return self.create_response(request, {
 						'success': True,
 						'comment': new_comment,
-					}, Created)
+					})
 				else:
 					# If user not active, return success = False and disabled
 					return self.create_response(request, {
