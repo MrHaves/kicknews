@@ -286,7 +286,7 @@ class CommentResource(ModelResource):
 		]
 
 	# Create a method to post a comment
-	def post_comment():
+	def post_comment(self, request, **kwargs):
 		# Allows POST request
 		self.method_check(request, allowed=['post'])
 
