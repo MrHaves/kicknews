@@ -23,23 +23,34 @@
         /*padding-bottom: 50px;*/
         background-color: #f5f5f5;
       }
+
+      .form-signin input[type="text"], .form-signin input[type="password"] {
+        	width: 100%;
+        }
     {% endblock style %}
     </style>
 </head>
 <body>
-	
+	<div id="loginForm" style="display:none">
+		<form id="popLog" class="form-signin" action="/login/" method="POST">			
+			<p> <input type="text" placeholder="Nom d'utilisateur" name="username" id="id_username"></p>
+			<p> <input type="password" placeholder="Mot de passe" name="password" id="id_password"></p>
+			<p><input type="submit" value="Se connecter"></p>
+		</form><br><br><br><br>
+		<p><a href="/register">Pas de compte ?</a></p>
+	</div>
 	<div id="connect">
 		<div class="container">
 			<ul>
 				{% block logMenu %}
-					<li><a href="/login">Se connecter</a></li>
+					<li id="logButton"><a href="#">Se connecter</a></li>
 				{% endblock logMenu %}
 			</ul>
 			<div class="clear"></div>
 		</div>
 	</div>
 
-	<div class="container" id="content">
+	<div class="container">
 		<div class="row" id="header">
 			<div>
 				<div class="left">
@@ -130,6 +141,17 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/mosaic.js' %}"></script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
+  <SCRIPT TYPE="text/javascript">
+    	$(document).ready(function() {
+    		$('#logButton').popover({
+    			'placement': 'bottom',
+    			'trigger': 'click',
+    			'content': $('#loginForm').html(),
+    			'title': 'Se Connecter',
+    			'html': 'true'
+    		});
+    	});
+    </SCRIPT>
     {% block script %}
 	{% endblock script %}
 </body>
