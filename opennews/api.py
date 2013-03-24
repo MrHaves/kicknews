@@ -142,10 +142,13 @@ class UserResource(ModelResource):
 		if user:
 			if user.is_active:
 				# Get the associated member
-				member = Member.objects.get(user_id=user.id).__dict__
-				del member["_state"]
-				del member["user_id"]
-				
+				member = Member.objects.get(user_id=user.id)
+				memberDict = member.__dict__
+				preferedCategoryIDs = member.preferedCategoryIDs.all()
+				memberDict['preferedCategories'] = [cat.name for cat in preferedCategoryIDs]
+				del memberDict["_state"]
+				del memberDict["user_id"]
+
 				# Log the user
 				login(request, user)
 				api_key = ApiKey.objects.filter(user=user)
@@ -156,12 +159,12 @@ class UserResource(ModelResource):
 					api_key = api_key[0]
 
 				# Add the ApiKey
-				member["api_key"] = api_key.key
+				memberDict["api_key"] = api_key.key
 
 				# Return success=True and the member object
 				return self.create_response(request, {
 					'success': True,
-					'member': member,
+					'member': memberDict,
 				})
 			else:
 				# If user not active, return success = False and disabled
