@@ -57,6 +57,7 @@ class UserResource(ModelResource):
 			url(r"^(?P<resource_name>%s)/login%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('login'), name="api_login"),
 			url(r'^(?P<resource_name>%s)/logout%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('logout'), name='api_logout'),
 			url(r'^(?P<resource_name>%s)/register%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('register'), name='api_register'),
+			url(r'^(?P<resource_name>%s)/save_settings%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('save_settings'), name='api_save_settings'),
 		]
 
 	# register method for mobile registration
@@ -192,6 +193,64 @@ class UserResource(ModelResource):
 			# Else, return Unauthorized
 			return self.create_response(request, { 'success': False }, HttpUnauthorized)
 
+	def save_settings(self, request, **kwargs):
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		userId = User.objects.filter(id=data.get('userId', ''))
+		twitter = data.get('twitter', '')
+		facebook = data.get('facebook', '')
+		gplus = data.get('gplus', '')
+		autoshare = data.get('autoshare', '')
+		geoloc = data.get('geoloc', '')
+		pays = data.get('pays', '')
+		ville = data.get('ville', '')
+		maxArticle = data.get('maxArticle', '')
+		preferedCategoryIDs = data.get('preferedCategoryIDs', '')
+		
+		# If user exist and is active
+		if userId:
+			member_qs = Member.objects.filter(user=userId[0])
+			if member_qs:
+				member = member_qs[0]
+				member.twitter = twitter
+				member.facebook = facebook
+				member.gplus = gplus
+				member.autoshare = autoshare
+				member.geoloc = geoloc
+				member.pays = pays
+				member.ville = ville
+				member.maxArticle = maxArticle
+				member.preferedCategoryIDs = preferedCategoryIDs
+				member.save()
+
+				if member:
+					return self.create_response(request, {
+						'success': True,
+						'member': member,
+					})
+				else:
+					# If user not active, return success = False and disabled
+					return self.create_response(request, {
+						'success': False,
+						'reason': 'Error while saving member',
+					}, BadRequest )
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': "You can't edit you preferences",
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'You can\'t edit this user',
+			}, HttpForbidden )
 
 
 
