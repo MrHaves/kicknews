@@ -33,7 +33,7 @@ def home(request):
 	# Get the category and put the name in a list
 	categoriesQuerySet = Category.objects.all()
 	categories = []
-	user = request.user
+	# user = request.user
 
 	return render(request, "index.html", locals())
 
@@ -302,9 +302,9 @@ def read_article(request, IDarticle):
 	categories = []
 	for cat in categoriesQuerySet:
 		categories.append(cat)
-
 	# Get the article from the IDarticle params
 	article = Article.objects.get(id=IDarticle)
+	catActive = article.category.name
 	# Get the tags of the article
 	tags = article.tags.all()
 	if article.media:
@@ -315,7 +315,7 @@ def read_article(request, IDarticle):
 		# If there is not, set False to mime et mediaType
 		mime = False
 		mediaType = False
-	return render_to_response("article.html", {'categories': categories,'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags})
+	return render_to_response("article.html", {'catActive':catActive, 'categories': categories,'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags}, context_instance=RequestContext(request))	
 
 
 @login_required(login_url='/login/') # You need to be logged for this page

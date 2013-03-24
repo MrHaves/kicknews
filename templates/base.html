@@ -33,7 +33,7 @@
 <body>
 	<div id="loginForm" style="display:none">
 		{% if not user.username %}
-			<form id="popLog" class="form-signin" action="/login/" method="POST">			
+			<form id="popLog" class="form-signin" action="/login/?next={{ request.get_full_path }}" method="POST">			
 				<p> <input type="text" placeholder="Nom d'utilisateur" name="username" id="id_username"></p>
 				<p> <input type="password" placeholder="Mot de passe" name="password" id="id_password"></p>
 				<p><input type="submit" value="Se connecter"></p>
@@ -104,7 +104,12 @@
 				<div class="navbar-inner">
 					<ul class="nav-pills">
 						{% block menu %}
-							
+							<li {% if catActive == 'all' %}class="active"{% endif %}>
+							<a href="/categories/">All</a>
+							</li>
+							{% for cat in categories %}
+								<li {% if cat.url == catActive %}class="active"{% endif %}><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+							{% endfor %}
 						{% endblock menu %}
 					</ul>
 				</div>

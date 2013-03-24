@@ -70,7 +70,8 @@ class Article(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=True)
     validate = models.BooleanField(default=False)
-    quality = models.IntegerField(null=True, blank=True)
+    quality = models.IntegerField(default=0)
+    fiability = models.IntegerField(default=0)
     tags = models.ManyToManyField("Tag", null=True, blank=True)
     memberId = models.ForeignKey(Member)
     category = models.ForeignKey(Category)
@@ -83,6 +84,19 @@ class Article(models.Model):
     def get_absolute_url(self):
         """ @todo : get real absolute url using url() or os.path or CONSTANT """
         return "/articles/" + str(self.id)
+
+
+class FiabilityVote(models.Model):
+    articleId = models.IntegerField()
+    userId = models.IntegerField()
+    vote = models.IntegerField()
+
+
+class QualityVote(models.Model):
+    articleId = models.IntegerField()
+    userId = models.IntegerField()
+    vote = models.IntegerField()
+
 
 class Comment(models.Model):
     text = models.TextField()
