@@ -389,5 +389,3 @@ class CommentResource(ModelResource):
 				'success': False,
 				'reason': 'Logged out',
 			}, HttpForbidden )
-
-
