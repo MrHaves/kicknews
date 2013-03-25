@@ -263,7 +263,7 @@ class ArticleResource(ModelResource):
 	class Meta:
 		queryset = Article.objects.all() # Get all the articles
 		resource_name = 'articles'
-		fields = ["date", "title", "text", "id"] # Keep only date, title and text
+		fields = ["date", "title", "text", "id", "media"] # Keep only date, title and text
 		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		include_resource_uri = False		# Remove uri datas
 		authorization = Authorization()
@@ -375,7 +375,7 @@ class CategoryResource(ModelResource):
 		"""Adding categorie articles and tags of these articles"""
 		bundle.data['articles'] = []
 		# Here we get all the value for each object we need
-		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
+		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId', 'media'):
 			# Get the member
 			x['author'] = Member.objects.get(id=x['memberId'])
 			# Remove the memberId field
