@@ -1,6 +1,5 @@
-{% for tag in object.tags.all %}
-	{{ tag.tag }}
-{% endfor %}
 {{ object.title }}
 {{ object.text }}
 {{ object.date }}
+{{ object.rssfeed }}
+{{ object.summary }}

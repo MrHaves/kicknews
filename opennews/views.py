@@ -313,11 +313,11 @@ def read_article(request, IDarticle):
 	# Set the article category as active category
 	catActive = article.category.name
 	# Get the current user votes to know if he has already voted
-	user_f_vote_qs = FiabilityVote.objects.filter(userId=request.user.id)
+	user_f_vote_qs = FiabilityVote.objects.filter(userId=request.user.id, articleId=IDarticle)
 	if user_f_vote_qs: user_f_vote = user_f_vote_qs[0]
 	else: user_f_vote = None
 
-	user_q_vote_qs = QualityVote.objects.filter(userId=request.user.id)
+	user_q_vote_qs = QualityVote.objects.filter(userId=request.user.id, articleId=IDarticle)
 	if user_q_vote_qs: user_q_vote = user_q_vote_qs[0]
 	else: user_q_vote = None
 	# Get the currents articles marks
