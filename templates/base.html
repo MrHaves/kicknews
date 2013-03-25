@@ -23,23 +23,55 @@
         /*padding-bottom: 50px;*/
         background-color: #f5f5f5;
       }
+
+      .form-signin input[type="text"], .form-signin input[type="password"] {
+        	width: 100%;
+        }
     {% endblock style %}
     </style>
 </head>
 <body>
-	
+	<div id="loginForm" style="display:none">
+		{% if not user.username %}
+			<form id="popLog" class="form-signin" action="/login/?next={{ request.get_full_path }}" method="POST">			
+				<p> <input type="text" placeholder="Nom d'utilisateur" name="username" id="id_username"></p>
+				<p> <input type="password" placeholder="Mot de passe" name="password" id="id_password"></p>
+				<p><input type="submit" value="Se connecter"></p>
+			</form><br/><br/><br/>
+			<p class="no_account"><a href="/register">Pas de compte ?</a></p>
+		{% else %}
+			<ul class="menu_user">
+				<li class="item"><a href="/write">Ecrire un article</a></li>
+				<li class="divider"></li>
+				<li class="item"><a href="#">Mes catégories</a></li>
+				<li class="divider"></li>
+				<li class="item"><a href="#">Ma localité</a></li>
+				<li class="divider"></li>
+				<li class="item"><a href="/preferences">Mes préférences</a></li>
+				<li class="divider"></li>
+				<li class="item"><a href="/logout/?next={{ request.get_full_path }}">Se déconnecter</a></li>
+			</ul>
+		{% endif %}
+
+	</div>
 	<div id="connect">
 		<div class="container">
 			<ul>
 				{% block logMenu %}
-					<li><a href="/login">Se connecter</a></li>
+					<li id="logButton"><a href="#">
+						{% if not user.username %}
+							Se connecter
+						{% else %}
+							{{user.username}}
+						{% endif %}
+					</a></li>
 				{% endblock logMenu %}
 			</ul>
 			<div class="clear"></div>
 		</div>
 	</div>
 
-	<div class="container" id="content">
+	<div class="container">
 		<div class="row" id="header">
 			<div>
 				<div class="left">
@@ -72,7 +104,12 @@
 				<div class="navbar-inner">
 					<ul class="nav-pills">
 						{% block menu %}
-							
+							<li {% if catActive == 'all' %}class="active"{% endif %}>
+							<a href="/categories/">All</a>
+							</li>
+							{% for cat in categories %}
+								<li {% if cat.url == catActive %}class="active"{% endif %}><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+							{% endfor %}
 						{% endblock menu %}
 					</ul>
 				</div>
@@ -130,6 +167,17 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/mosaic.js' %}"></script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
+  <SCRIPT TYPE="text/javascript">
+    	$(document).ready(function() {
+    		$('#logButton').popover({
+    			'placement': 'bottom',
+    			'trigger': 'click',
+    			'content': $('#loginForm').html(),
+    			'title': $('#logButton a').text(),
+    			'html': 'true'
+    		});
+    	});
+    </SCRIPT>
     {% block script %}
 	{% endblock script %}
 </body>

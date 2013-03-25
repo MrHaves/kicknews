@@ -1,0 +1,23 @@
+{% if article_q_note %}
+	Quality Vote : <span class="inline-rating">
+		<ul class="star-rating-fix small-star">
+			<li class="current-rating" style="width:{% widthratio article_q_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+			<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+			<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+			<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+			<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+			<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+		</ul>
+	</span>
+{% elif article_f_note %}
+	Fiability Vote : <span class="inline-rating">
+		<ul class="star-rating-fix small-star">
+			<li class="current-rating" style="width:{% widthratio article_f_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+			<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+			<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+			<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+			<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+			<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+		</ul>
+	</span>
+{% endif %}

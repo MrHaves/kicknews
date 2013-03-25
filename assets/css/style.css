@@ -41,6 +41,41 @@ body { 	background-color: #eee !important;}
 	text-decoration: none;
 }
 
+#connect ul.menu_user {
+	float:none;
+}
+
+#connect ul.menu_user li.item {
+	border:none;
+}
+
+#connect ul.menu_user li.item a:hover {
+	color:#fff;
+}
+
+#connect ul.menu_user li.divider {
+	border-left:none;
+	border-right:none;
+	padding:0 !important;
+	margin:0;
+}
+
+#connect ul.menu_user li.divider:hover {
+	background:none;
+}
+
+#connect ul.menu_user li a {
+	color: #333;
+}
+
+#connect ul .popover-content {
+	padding:0;
+}
+
+.popover-content form, .popover-content p.no_account{
+	padding:9px 14px;
+}
+
 /*-------------------------------*/
 /*----------- HEADER ------------*/
 /*-------------------------------*/
@@ -387,4 +422,92 @@ label {
 
 .footer img.social-network {
 	margin-right:7px;
+}
+
+
+
+/*------------------------------------*/
+/*----------- VOTE SYSTEM ------------*/
+/*------------------------------------*/
+
+.star-rating, .star-rating-fix,
+.star-rating a:hover, .star-rating-fix a:hover,
+.star-rating a:active, .star-rating-fix a:active,
+.star-rating a:focus, .star-rating-fix a:focus,
+.star-rating .current-rating,.star-rating-fix .current-rating{
+	background: url("../img/star.gif") left -1000px repeat-x;
+}
+
+.star-rating-fix, .star-rating{
+	position:relative;
+	width:125px;
+	height:25px;
+	overflow:hidden;
+	list-style:none;
+	margin:0;
+	padding:0;
+	background-position: left top;
+}
+
+.star-rating li, .star-rating-fix li{
+	display: inline;
+}
+
+.star-rating a, .star-rating-fix a,
+.star-rating .current-rating, .star-rating-fix .current-rating{
+	position:absolute;
+	top:0;
+	left:0;
+	text-indent:-1000em;
+	height:25px;
+	line-height:25px;
+	outline:none;
+	overflow:hidden;
+	border: none;
+}
+
+.star-rating-fix a:hover,
+.star-rating-fix a:active,
+.star-rating-fix a:focus, 
+.star-rating a:hover,
+.star-rating a:active,
+.star-rating a:focus{
+	background-position: left bottom;
+}
+
+.star-rating a.one-star{
+	width:20%;
+	z-index:6;
+}
+
+.star-rating a.two-stars{
+	width:40%;
+	z-index:5;
+}
+
+.star-rating a.three-stars{
+	width:60%;
+	z-index:4;
+}
+
+.star-rating a.four-stars{
+	width:80%;
+	z-index:3;
+}
+
+.star-rating a.five-stars{
+	width:100%;
+	z-index:2;
+}
+
+.star-rating .current-rating, .star-rating-fix .current-rating{
+	z-index:1;
+	background-position: left center;
+}
+
+.inline-rating{
+	display:-moz-inline-block;
+	display:-moz-inline-box;
+	display:inline-block;
+	vertical-align: middle;
 }

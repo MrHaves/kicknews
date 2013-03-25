@@ -13,6 +13,7 @@ from tastypie.authentication import BasicAuthentication,ApiKeyAuthentication
 from tastypie import fields
 from tastypie.utils import trailing_slash
 from tastypie.models import ApiKey
+import base64
 # Import opennews models
 from opennews.models import *
 
@@ -56,6 +57,7 @@ class UserResource(ModelResource):
 			url(r"^(?P<resource_name>%s)/login%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('login'), name="api_login"),
 			url(r'^(?P<resource_name>%s)/logout%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('logout'), name='api_logout'),
 			url(r'^(?P<resource_name>%s)/register%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('register'), name='api_register'),
+			url(r'^(?P<resource_name>%s)/save_settings%s$' %(self._meta.resource_name, trailing_slash()),self.wrap_view('save_settings'), name='api_save_settings'),
 		]
 
 	# register method for mobile registration
@@ -140,10 +142,13 @@ class UserResource(ModelResource):
 		if user:
 			if user.is_active:
 				# Get the associated member
-				member = Member.objects.get(user_id=user.id).__dict__
-				del member["_state"]
-				del member["user_id"]
-				
+				member = Member.objects.get(user_id=user.id)
+				memberDict = member.__dict__
+				preferedCategoryIDs = member.preferedCategoryIDs.all()
+				memberDict['preferedCategories'] = [cat.name for cat in preferedCategoryIDs]
+				del memberDict["_state"]
+				del memberDict["user_id"]
+
 				# Log the user
 				login(request, user)
 				api_key = ApiKey.objects.filter(user=user)
@@ -154,12 +159,12 @@ class UserResource(ModelResource):
 					api_key = api_key[0]
 
 				# Add the ApiKey
-				member["api_key"] = api_key.key
+				memberDict["api_key"] = api_key.key
 
 				# Return success=True and the member object
 				return self.create_response(request, {
 					'success': True,
-					'member': member,
+					'member': memberDict,
 				})
 			else:
 				# If user not active, return success = False and disabled
@@ -191,6 +196,64 @@ class UserResource(ModelResource):
 			# Else, return Unauthorized
 			return self.create_response(request, { 'success': False }, HttpUnauthorized)
 
+	def save_settings(self, request, **kwargs):
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		userId = User.objects.filter(id=data.get('userId', ''))
+		twitter = data.get('twitter', '')
+		facebook = data.get('facebook', '')
+		gplus = data.get('gplus', '')
+		autoshare = data.get('autoshare', '')
+		geoloc = data.get('geoloc', '')
+		pays = data.get('pays', '')
+		ville = data.get('ville', '')
+		maxArticle = data.get('maxArticle', '')
+		preferedCategoryIDs = data.get('preferedCategoryIDs', '')
+		
+		# If user exist and is active
+		if userId:
+			member_qs = Member.objects.filter(user=userId[0])
+			if member_qs:
+				member = member_qs[0]
+				member.twitter = twitter
+				member.facebook = facebook
+				member.gplus = gplus
+				member.autoshare = autoshare
+				member.geoloc = geoloc
+				member.pays = pays
+				member.ville = ville
+				member.maxArticle = maxArticle
+				member.preferedCategoryIDs = preferedCategoryIDs
+				member.save()
+
+				if member:
+					return self.create_response(request, {
+						'success': True,
+						'member': member,
+					})
+				else:
+					# If user not active, return success = False and disabled
+					return self.create_response(request, {
+						'success': False,
+						'reason': 'Error while saving member',
+					}, BadRequest )
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': "You can't edit you preferences",
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'You can\'t edit this user',
+			}, HttpForbidden )
 
 
 
@@ -200,11 +263,66 @@ class ArticleResource(ModelResource):
 	class Meta:
 		queryset = Article.objects.all() # Get all the articles
 		resource_name = 'articles'
-		fields = ["date", "title", "text", "id"] # Keep only date, title and text
+		fields = ["date", "title", "text", "id", "media"] # Keep only date, title and text
 		excludes = ['published', 'validated', 'coord', 'category', 'quality']
 		include_resource_uri = False		# Remove uri datas
 		authorization = Authorization()
+	
+	# Redefine url for post_article
+	def prepend_urls(self):
+		return [
+			url(r"^(?P<resource_name>%s)/post_article%s$" %(self._meta.resource_name, trailing_slash()),self.wrap_view('post_article'), name="api_post_article"),
+		]
+
+	def post_article(self, request, **kwargs):
+		# Allows POST request
+		self.method_check(request, allowed=['post'])
+
+		# Deserialize the JSon response
+		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+		# Get the needed datas
+		title = Article.objects.filter(id=data.get('title', ''))
+		text = Member.objects.filter(id=data.get('text', ''))
+		memberId = Member.objects.filter(id=data.get('memberId', ''))
+		category = Category.objects.filter(name=data.get('category', ''))
+		# coord = TODO
+		upload_file_64 = data.get('media', '')
+		fh = open("/tmp/img_tmp.jpg", "wb")
+		fh.write(upload_file_64.decode('base64'))
+		fh.close()
+		media = fh
+
 		
+		# If user exist and is active
+		if memberId:
+			if articleId:
+				new_article = Article(title=title, text=text, memberId=memberId, category=category, media=media)
+				new_article.save()
+				if new_article:
+					return self.create_response(request, {
+						'success': True,
+						'article': new_article,
+					})
+				else:
+					# If user not active, return success = False and disabled
+					return self.create_response(request, {
+						'success': False,
+						'reason': 'Error while posting article',
+					}, BadRequest )
+			else:
+				# If user not active, return success = False and disabled
+				return self.create_response(request, {
+					'success': False,
+					'reason': "You can't this article",
+				}, BadRequest )
+		else:
+			# If user does not exist, return success=False and incorrect
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'Logged out',
+			}, HttpForbidden )
+
 	def dehydrate(self, bundle):
 		"""adding articles tags and category"""
 		# Get the author of the article
@@ -257,7 +375,7 @@ class CategoryResource(ModelResource):
 		"""Adding categorie articles and tags of these articles"""
 		bundle.data['articles'] = []
 		# Here we get all the value for each object we need
-		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId'):
+		for x in Article.objects.filter(category=bundle.obj, published=True).values('id','title', 'date', 'validate', 'quality', 'text', 'memberId', 'media'):
 			# Get the member
 			x['author'] = Member.objects.get(id=x['memberId'])
 			# Remove the memberId field
@@ -280,6 +398,11 @@ class CommentResource(ModelResource):
 		resource_name = 'comment'
 		include_resource_uri = False 		# Remove the uri
 		authorization = Authorization()
+
+	def dehydrate(self, bundle):
+		"""Adding user in comment ressource"""
+		bundle.data['username'] = Member.objects.get(id=bundle.obj.memberId.id).user.username
+		return bundle
 
 	# Redefine url for login and logout
 	def prepend_urls(self):
@@ -328,5 +451,3 @@ class CommentResource(ModelResource):
 				'success': False,
 				'reason': 'Logged out',
 			}, HttpForbidden )
-
-

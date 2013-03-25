@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for kicknews project.
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 ROOT_PATH = os.path.dirname(__file__)
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 # Django settings for kicknews project.
@@ -125,6 +126,7 @@ INSTALLED_APPS = (
     'imperavi',
    # 'sorl',
     'haystack',
+    'feedparser',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -149,6 +151,10 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
 
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',

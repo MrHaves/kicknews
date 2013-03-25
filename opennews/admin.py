@@ -18,6 +18,8 @@ admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Member)
 admin.site.register(AdminVote)
+admin.site.register(FiabilityVote)
+admin.site.register(QualityVote)
 
 
 class SessionAdmin(admin.ModelAdmin): 

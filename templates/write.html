@@ -34,7 +34,13 @@
 {% endblock style %}
 
 {% block logMenu %}
-	<li><a href="/login">Se connecter</a></li>
+	<li id="logButton"><a href="#">
+		{% if not user.username %}
+			Se connecter
+		{% else %}
+			{{user.username}}
+		{% endif %}
+	</a></li>
 {% endblock logMenu %}
 
 {% block menu %}
