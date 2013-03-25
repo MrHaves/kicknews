@@ -203,7 +203,13 @@ def login_user(request):
 def logout_user(request):
 	"""The view for logout user"""
 	logout(request)
-	return HttpResponseRedirect('/')
+	next = request.GET.get('next')
+	if next is not None:
+		# If you come from a login required page, redirect to it
+		return HttpResponseRedirect(next)
+	else:
+		# Else go Home
+		return HttpResponseRedirect("/")
 
 
 def register(request):
@@ -304,7 +310,28 @@ def read_article(request, IDarticle):
 		categories.append(cat)
 	# Get the article from the IDarticle params
 	article = Article.objects.get(id=IDarticle)
+	# Set the article category as active category
 	catActive = article.category.name
+	# Get the current user votes to know if he has already voted
+	user_f_vote_qs = FiabilityVote.objects.filter(userId=request.user.id)
+	if user_f_vote_qs: user_f_vote = user_f_vote_qs[0]
+	else: user_f_vote = None
+
+	user_q_vote_qs = QualityVote.objects.filter(userId=request.user.id)
+	if user_q_vote_qs: user_q_vote = user_q_vote_qs[0]
+	else: user_q_vote = None
+	# Get the currents articles marks
+	article_f_vote_qs = FiabilityVote.objects.filter(articleId=IDarticle).values_list('vote', flat=True)
+	if article_f_vote_qs:
+		article_f_note = round(float(sum(article_f_vote_qs))/float(len(article_f_vote_qs)),2)
+	else:
+		article_f_note = 0
+
+	article_q_vote_qs = QualityVote.objects.filter(articleId=IDarticle).values_list('vote', flat=True)
+	if article_q_vote_qs:
+		article_q_note = round(float(sum(article_q_vote_qs))/float(len(article_q_vote_qs)),2)
+	else:
+		article_q_note = 0
 	# Get the tags of the article
 	tags = article.tags.all()
 	if article.media:
@@ -315,7 +342,34 @@ def read_article(request, IDarticle):
 		# If there is not, set False to mime et mediaType
 		mime = False
 		mediaType = False
-	return render_to_response("article.html", {'catActive':catActive, 'categories': categories,'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags}, context_instance=RequestContext(request))	
+	return render_to_response("article.html", {'article_f_note':article_f_note, 'article_q_note':article_q_note, 'user_f_vote':user_f_vote,'user_q_vote':user_q_vote, 'catActive':catActive, 'categories': categories,'article': article, 'mediaType': mediaType, 'mime': mime, 'tags': tags}, context_instance=RequestContext(request))	
+
+
+@login_required(login_url='/login/') # You need to be logged for this page
+def article_quality_vote_ajax(request):
+	if len(request.POST) > 0:
+		user_q_vote = QualityVote(articleId=request.POST.get('articleId'), userId=request.user.id, vote=request.POST.get('vote')).save()
+	# Get the currents articles marks
+	article_q_vote_qs = QualityVote.objects.filter(articleId=request.POST.get('articleId')).values_list('vote', flat=True)
+	if article_q_vote_qs:
+		article_q_note = round(float(sum(article_q_vote_qs))/float(len(article_q_vote_qs)),2)
+	else:
+		article_q_note = 0
+
+	return render(request, "q_or_f_vote.html", locals())
+
+@login_required(login_url='/login/') # You need to be logged for this page
+def article_fiability_vote_ajax(request):
+	if len(request.POST) > 0:
+		user_f_vote = FiabilityVote(articleId=request.POST.get('articleId'), userId=request.user.id, vote=request.POST.get('vote')).save()
+	# Get the currents articles marks
+	article_f_vote_qs = FiabilityVote.objects.filter(articleId=request.POST.get('articleId')).values_list('vote', flat=True)
+	if article_f_vote_qs:
+		article_f_note = round(float(sum(article_f_vote_qs))/float(len(article_f_vote_qs)),2)
+	else:
+		article_f_note = 0
+
+	return render(request, "q_or_f_vote.html", locals())
 
 
 @login_required(login_url='/login/') # You need to be logged for this page

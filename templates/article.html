@@ -42,23 +42,102 @@
 					<p><input type="submit" class="commentArticleButton btn" id="commentButton-{{article.id}}" value="commenter"></p>
 				</form>
 				<div id="votes" style="float:left">
-					<div id="qualityVote" style="width:30px; height: 10px; background:red"></div>
-					<div id="fiabilityVote" style="width:30px; height: 10px; background:gray"></div>
+					{% if user_q_vote %}
+						<div id="qualityVote">
+							Quality Vote : <span class="inline-rating">
+								<ul class="star-rating-fix small-star">
+									<li class="current-rating" style="width:{% widthratio article_q_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+									<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+									<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+									<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+									<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+									<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+								</ul>
+							</span>
+						</div>
+					{% else %}
+							<div id="qualityVote">
+								Quality Vote : <span class="inline-rating">
+									<ul class="star-rating small-star">
+										<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+										<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+										<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+										<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+										<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+									</ul>
+								</span>
+							</div>
+					{% endif %}
+
+					{% if user_f_vote %}
+						<div id="fiabilityVote">
+							Fiability Vote : <span class="inline-rating">
+								<ul class="star-rating-fix small-star">
+									<li class="current-rating" style="width:{% widthratio article_f_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+									<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+									<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+									<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+									<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+									<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+								</ul>
+							</span>
+						</div>
+					{% else %}
+							<div id="fiabilityVote">
+								Fiability Vote : <span class="inline-rating">
+									<ul class="star-rating small-star">
+										<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+										<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+										<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+										<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+										<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+									</ul>
+								</span>
+							</div>
+					{% endif %}
 				</div>
 				<div class="clear"></div>
 			{% else %}
 			<br>
-				<p><a href="/login">Connectez vous pour commenter</a></p>
+				<p style="float:left"><a href="/login/?next=/articles/{{article.id}}">Connectez vous pour commenter</a></p>
+				<div id="votes" style="float:left">
+					<div id="qualityVote">
+						Quality Vote : <span class="inline-rating">
+							<ul class="star-rating-fix small-star">
+								<li class="current-rating" style="width:{% widthratio article_q_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+								<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+								<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+								<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+								<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+								<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+							</ul>
+						</span>
+					</div>
+					<div id="fiabilityVote">
+						Fiability Vote : <span class="inline-rating">
+							<ul class="star-rating-fix small-star">
+								<li class="current-rating" style="width:{% widthratio article_f_note 1 20 %}%;">Currently 1.5/5 Stars.</li>
+								<li><a href="#" title="1 star out of 5" class="one-star">1</a></li>
+								<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+								<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+								<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+								<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+							</ul>
+						</span>
+					</div>
+			</div>
+			<div class="clear"></div>
 			{% endif %}
 			<br>
 			<h3>Commentaires :</h3>
-			<div id="comments-{{article.id}}"></div>
-			{% for comment in article.comments %}
-				<a href="/profile/{{comment.memberId.id}}">{{comment.memberId}}</a>
-				<p>{{comment.text}}</p>
-				{% empty %}
-					<p>Il n'y a pas de commentaires pour le moment</p>
-			{% endfor %}
+			<div id="comments-{{article.id}}" style="float:left">
+				{% for comment in article.comments %}
+					<a href="/profile/{{comment.memberId.id}}">{{comment.memberId}}</a>
+					<p>{{comment.text}}</p>
+					{% empty %}
+						<p>Il n'y a pas de commentaires pour le moment</p>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 {% endblock content %} 
@@ -66,12 +145,57 @@
 {% block script %}
 	<SCRIPT TYPE="text/javascript">
 		$(document).ready(function() {
-			$('#qualityVote').click(function(){
-				// Ajax call to the qualityVote views
+			$('#qualityVote .star-rating a').click(function(e){
+				e.preventDefault();
+				$.ajax({
+		           type: "POST",
+		           url: '/quality_vote', 
+		           data: {'articleId':{{article.id}}, 'vote':$(this).html()}, // serializes the form's elements.
+		           success: function(data)
+		           {
+		           	$("#qualityVote").html(data)
+		           },
+		           error: function() {
+		        	}
+	         	});
 			});
 
-			$('#fiabilityVote').click(function(){
-				// Ajax call to the fiabilityVote views
+			$('#fiabilityVote .star-rating a').click(function(e){
+				e.preventDefault();
+				$.ajax({
+		           type: "POST",
+		           url: '/fiability_vote', 
+		           data: {'articleId':{{article.id}}, 'vote':$(this).html()}, // serializes the form's elements.
+		           success: function(data)
+		           {
+		           	$("#fiabilityVote").html(data)
+		           },
+		           error: function() {
+		        	}
+	         	});
+			});
+
+			$('.commentArticleButton').bind('click',function(e) {
+				e.preventDefault();
+				id = this.id;
+				id = id.split("-")[1];
+				formId = "commentForm-" + id;
+
+				console.log($("#formId"));
+
+
+				$.ajax({
+		           type: "POST",
+		           url: '/comment', 
+		           data: $("#" + formId).serialize(), // serializes the form's elements.
+		           success: function(data)
+		           {
+		               $("#" + formId).stop().fadeOut(500);
+		               $("#comments-"+id).prepend(data);
+		           },
+		           error: function() {
+		        	}
+	         	});
 			});
 		})
 	</SCRIPT>
