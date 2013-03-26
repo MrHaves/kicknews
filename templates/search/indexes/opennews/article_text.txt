@@ -2,5 +2,8 @@
 	{{ tag.tag }}
 {% endfor %}
 {{ object.title }}
+{{ object.category.name }}
+{{ object.category.url }}
 {{ object.text }}
 {{ object.date }}
+{{ object.quality }}

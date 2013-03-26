@@ -9,7 +9,10 @@ from imperavi.admin import ImperaviAdmin
 
 
 class ArticleAdmin(ImperaviAdmin):
-    pass
+    list_display   = ('title','quality','fiability')
+    list_filter    = ('category',)
+    ordering       = ('date','title')
+    search_fields  = ('title',)
 
 admin.site.register(Category)
 admin.site.register(RssFeed)
@@ -30,7 +33,7 @@ class SessionAdmin(admin.ModelAdmin):
 class MemberInline(admin.StackedInline):
     model = Member
     verbose_name_plural = 'profile'
-   
+    
 
 class FeedEntryAdmin(admin.ModelAdmin):
     list_display   = ('title','rssfeed','date')

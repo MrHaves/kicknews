@@ -6,6 +6,7 @@ from tastypie.api import Api
 # import opennews datas
 from api import *
 from views import *
+import datetime
 
 from haystack.views import SearchView  
 from haystack.query import SearchQuerySet 
@@ -19,7 +20,7 @@ v1_api.register(UserResource())
 v1_api.register(TagResource())
 v1_api.register(CommentResource())
 
-sqs = SearchQuerySet().order_by('-date') 
+sqs = SearchQuerySet().filter(date__gte=(datetime.datetime.now() - datetime.timedelta(days=7))).order_by('quality', '-date')
 
 urlpatterns = patterns('',
     # opennews urls

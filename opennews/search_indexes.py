@@ -11,6 +11,7 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     title = indexes.CharField(model_attr='title')
     tags = indexes.CharField()
     date   = indexes.DateTimeField(model_attr='date')
+    quality   = indexes.IntegerField(model_attr='quality')
 
     def get_model(self):
         return Article
@@ -24,12 +25,15 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
         self.prepared_data = super(ArticleIndex, self).prepare(object)
         self.prepared_data['tags'] = [tag.tag for tag in object.tags.all()]
         self.prepared_data['text'] += '\n' + cleanString(self.prepared_data['text'])
+        self.prepared_data['quality'] = -self.prepared_data['quality']
         return self.prepared_data
 
 class FeedEntryIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
+    summary = indexes.CharField(model_attr='summary')
     title = indexes.CharField(model_attr='title')
     date   = indexes.DateTimeField(model_attr='date')
+    quality   = indexes.IntegerField()
 
     def get_model(self):
         return FeedEntry
@@ -42,4 +46,5 @@ class FeedEntryIndex(indexes.SearchIndex, indexes.Indexable):
         """  """
         self.prepared_data = super(FeedEntryIndex, self).prepare(object)
         self.prepared_data['text'] += '\n' + cleanString(self.prepared_data['text'])
+        self.prepared_data['quality'] = 0
         return self.prepared_data
