@@ -75,26 +75,42 @@ class UserResource(ModelResource):
 		password2 = data.get('password2', '')
 
 		
-		if email_re.match(email) == False : # If email data is not a good email, return error
+		
+		if len(username) == 0:	# If password1 and password2 don't match, return error
 			return self.create_response(request, {
 				'success': False,
-				'reason': 'email not valid',
-			})
-		elif password1 != password2:	# If password1 and password2 don't match, return error
-			return self.create_response(request, {
-				'success': False,
-				'reason': "passwords don't match",
+				'reason': 'username is empty',
 			})
 		elif len(User.objects.filter(username=username)) != 0 : # the username is already taken, return error
 			return self.create_response(request, {
 				'success': False,
 				'reason': 'user already exist',
 			})
+		elif len(email) == 0:	# If email is empty, return error
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'email is empty',
+			})
+		elif not email_re.match(email): # If email data is not a good email, return error
+			return self.create_response(request, {
+				'success': False,
+				'reason': 'email not valid',
+			})
 		elif len(User.objects.filter(email=email)) != 0 : # If email already exist, return error
 			return self.create_response(request, {
 				'success': False,
 				'reason': 'email already in use',
 			})
+		elif len(password1) == 0:	# If password is empty, return error
+			return self.create_response(request, {
+				'success': False,
+				'reason': "passwords don't exist",
+		})
+		elif password1 != password2:	# If password1 and password2 don't match, return error
+			return self.create_response(request, {
+				'success': False,
+				'reason': "passwords don't match",
+			})		
 		else:	# If already is ok, let's go for regisrtation
 			# create a user and authenticate him (needed for login)
 			user = User.objects.create_user(username, email, password1)
