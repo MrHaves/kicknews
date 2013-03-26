@@ -20,7 +20,7 @@ v1_api.register(UserResource())
 v1_api.register(TagResource())
 v1_api.register(CommentResource())
 
-sqs = SearchQuerySet().filter(date__gte=(datetime.datetime.now() - datetime.timedelta(days=7))).order_by('quality', '-date')
+sqs = SearchQuerySet().filter(date__gte=(datetime.datetime.now() - datetime.timedelta(days=7*100))).order_by('quality', '-date')
 
 urlpatterns = patterns('',
     # opennews urls

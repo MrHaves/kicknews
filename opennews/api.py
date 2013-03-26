@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 # Import django tools
+import os
 from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.validators import email_re
-from django.core.files.images import ImageFile
+from django.core.files import File
+from django.core.files.base import ContentFile
 from django.utils.dateformat import format
 # Import tastypie tools
 from tastypie.http import HttpUnauthorized, HttpForbidden
@@ -315,22 +317,37 @@ class ArticleResource(ModelResource):
 				fh = open("media/articles_media/img_article_tmp.jpg", "wb")
 				fh.write(upload_file_64.decode('base64'))
 				fh.close()
-				new_article.media.save("img_article_tmp.jpg", open("media/articles_media/img_article_tmp.jpg", "r"))
-				new_article.save()
-				return self.create_response(request, {
-					'success': True,
-					'article': new_article.__dict__,
-				})
+				if fh.closed:
+					fh = open("media/articles_media/img_article_tmp.jpg", "r")
+					content_file = ContentFile(fh.read())
+					new_article.media.save("img_article_"+str(new_article.id)+".jpg", content_file)
+					new_article.save()
+					fh.close()
+					if fh.closed:
+						os.remove(unicode(fh.name))
+						del fh
+					return self.create_response(request, {
+						'success': True,
+						'article': new_article.__dict__,
+					})
+				else:
+					return self.create_response(request, {
+						'success': False,
+						'status': -1,
+						'reason': 'Error while creating image',
+					}, BadRequest )	
 			else:
 				# If user not active, return success = False and disabled
 				return self.create_response(request, {
 					'success': False,
+					'status': -2,
 					'reason': 'Error while posting article',
 				}, BadRequest )
 		else:
 			# If user does not exist, return success=False and incorrect
 			return self.create_response(request, {
 				'success': False,
+				'status': -3,
 				'reason': 'Logged out',
 			}, HttpForbidden )
 
