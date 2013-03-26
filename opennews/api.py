@@ -4,6 +4,7 @@ from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.validators import email_re
+from django.core.files.images import ImageFile
 from django.utils.dateformat import format
 # Import tastypie tools
 from tastypie.http import HttpUnauthorized, HttpForbidden
@@ -282,39 +283,33 @@ class ArticleResource(ModelResource):
 		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
 
 		# Get the needed datas
-		title = Article.objects.filter(id=data.get('title', ''))
-		text = Member.objects.filter(id=data.get('text', ''))
+		title = data.get('title', '')
+		text = data.get('text', '')
 		memberId = Member.objects.filter(id=data.get('memberId', ''))
-		category = Category.objects.filter(name=data.get('category', ''))
+		category = Category.objects.filter(url=data.get('category', ''))
 		# coord = TODO
-		upload_file_64 = data.get('media', '')
-		fh = open("/tmp/img_tmp.jpg", "wb")
-		fh.write(upload_file_64.decode('base64'))
-		fh.close()
-		media = fh
 
 		
 		# If user exist and is active
 		if memberId:
-			if articleId:
-				new_article = Article(title=title, text=text, memberId=memberId, category=category, media=media)
+			new_article = Article(title=title, text=text, memberId=memberId[0], category=category[0])
+			new_article.save()
+			if new_article:
+				upload_file_64 = data.get('media', '')
+				fh = open("media/articles_media/img_article_tmp.jpg", "wb")
+				fh.write(upload_file_64.decode('base64'))
+				fh.close()
+				new_article.media.save("img_article_tmp.jpg", open("media/articles_media/img_article_tmp.jpg", "r"))
 				new_article.save()
-				if new_article:
-					return self.create_response(request, {
-						'success': True,
-						'article': new_article,
-					})
-				else:
-					# If user not active, return success = False and disabled
-					return self.create_response(request, {
-						'success': False,
-						'reason': 'Error while posting article',
-					}, BadRequest )
+				return self.create_response(request, {
+					'success': True,
+					'article': new_article.__dict__,
+				})
 			else:
 				# If user not active, return success = False and disabled
 				return self.create_response(request, {
 					'success': False,
-					'reason': "You can't this article",
+					'reason': 'Error while posting article',
 				}, BadRequest )
 		else:
 			# If user does not exist, return success=False and incorrect
