@@ -163,16 +163,21 @@ ul{
   transition:all 0.3s ease-out;
 }
 .big:hover, .small:hover{
-  background:white !important;
+  color:white!important;
 }
 .big{
   width:100%;
 }
 .small{
-  width:48%;
-  margin-right:2%;
+  width:49%;
 }
-.big p {
+.col1 .small:nth-child(even) {
+  margin-right: 2%;
+}
+.col2 .small:nth-child(odd), .col3 .small:nth-child(even) {
+  margin-right: 2%;
+}
+.big p, .small p {
   line-height:1.5;
   margin-top:.6em;
   padding:0 .3em;
