@@ -9,7 +9,7 @@ from imperavi.admin import ImperaviAdmin
 
 
 class ArticleAdmin(ImperaviAdmin):
-    list_display   = ('title','quality','fiability')
+    list_display   = ('title','quality','fiability', 'id')
     list_filter    = ('category',)
     ordering       = ('date','title')
     search_fields  = ('title',)

@@ -58,7 +58,9 @@
 		<div class="container">
 			<ul>
 				{% block logMenu %}
-					<li id="logButton"><a href="#">
+					<li id="logButton">
+						<a href="#">
+						<i class="icon-user icon-white" style="margin-top: 3px"></i>&nbsp;&nbsp;
 						{% if not user.username %}
 							Se connecter
 						{% else %}
@@ -173,7 +175,7 @@
     			'placement': 'bottom',
     			'trigger': 'click',
     			'content': $('#loginForm').html(),
-    			'title': $('#logButton a').text(),
+    			'title': '<i class="icon-user" style="margin-top: 3px"></i>'+$('#logButton a').text(),
     			'html': 'true'
     		});
     	});

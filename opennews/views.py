@@ -311,7 +311,7 @@ def read_article(request, IDarticle):
 	# Get the article from the IDarticle params
 	article = Article.objects.get(id=IDarticle)
 	# Set the article category as active category
-	catActive = article.category.name
+	catActive = article.category.url
 	# Get the current user votes to know if he has already voted
 	user_f_vote_qs = FiabilityVote.objects.filter(userId=request.user.id, articleId=IDarticle)
 	if user_f_vote_qs: user_f_vote = user_f_vote_qs[0]

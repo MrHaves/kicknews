@@ -17,6 +17,11 @@ body { 	background-color: #eee !important;}
 	float: right;
 	margin: 0;
 	padding: 0;
+	padding-right: 20px;
+}
+
+#connect ul.menu_user {
+	padding: 0;
 }
 
 #connect ul li {
@@ -80,7 +85,8 @@ body { 	background-color: #eee !important;}
 /*----------- HEADER ------------*/
 /*-------------------------------*/
 #header {
-	margin: 35px 5px 0 60px;
+	margin-top: 35px;
+	padding: 0 20px 0 60px;
 }
 
 #header h1 {
@@ -131,6 +137,7 @@ body { 	background-color: #eee !important;}
 	border-top: 4px solid #2fb1be;
 	width: 100%;
 	margin-top: 10px;
+	margin-left: 0;
 }
 
 #main-nav .navbar .navbar-inner ul.nav-pills li {
@@ -164,7 +171,8 @@ body { 	background-color: #eee !important;}
 /*----------- CONTENT -----------*/
 /*-------------------------------*/
 #content {
-	padding-left: 45px;
+	padding-left: 28px;
+	padding-right: 28px;
 }
 
 #content .text-article {

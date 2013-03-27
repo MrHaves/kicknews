@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 # Import django tools
+import os
 from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.validators import email_re
+from django.core.files import File
+from django.core.files.base import ContentFile
 from django.utils.dateformat import format
 # Import tastypie tools
 from tastypie.http import HttpUnauthorized, HttpForbidden
@@ -298,44 +301,53 @@ class ArticleResource(ModelResource):
 		data = self.deserialize(request, request.raw_post_data, format=request.META.get('CONTENT_TYPE', 'application/json'))
 
 		# Get the needed datas
-		title = Article.objects.filter(id=data.get('title', ''))
-		text = Member.objects.filter(id=data.get('text', ''))
+		title = data.get('title', '')
+		text = data.get('text', '')
 		memberId = Member.objects.filter(id=data.get('memberId', ''))
-		category = Category.objects.filter(name=data.get('category', ''))
+		category = Category.objects.filter(url=data.get('category', ''))
 		# coord = TODO
-		upload_file_64 = data.get('media', '')
-		fh = open("/tmp/img_tmp.jpg", "wb")
-		fh.write(upload_file_64.decode('base64'))
-		fh.close()
-		media = fh
 
 		
 		# If user exist and is active
 		if memberId:
-			if articleId:
-				new_article = Article(title=title, text=text, memberId=memberId, category=category, media=media)
-				new_article.save()
-				if new_article:
+			new_article = Article(title=title, text=text, memberId=memberId[0], category=category[0])
+			new_article.save()
+			if new_article:
+				upload_file_64 = data.get('media', '')
+				fh = open("media/articles_media/img_article_tmp.jpg", "wb")
+				fh.write(upload_file_64.decode('base64'))
+				fh.close()
+				if fh.closed:
+					fh = open("media/articles_media/img_article_tmp.jpg", "r")
+					content_file = ContentFile(fh.read())
+					new_article.media.save("img_article_"+str(new_article.id)+".jpg", content_file)
+					new_article.save()
+					fh.close()
+					if fh.closed:
+						os.remove(unicode(fh.name))
+						del fh
 					return self.create_response(request, {
 						'success': True,
-						'article': new_article,
+						'article': new_article.__dict__,
 					})
 				else:
-					# If user not active, return success = False and disabled
 					return self.create_response(request, {
 						'success': False,
-						'reason': 'Error while posting article',
-					}, BadRequest )
+						'status': -1,
+						'reason': 'Error while creating image',
+					}, BadRequest )	
 			else:
 				# If user not active, return success = False and disabled
 				return self.create_response(request, {
 					'success': False,
-					'reason': "You can't this article",
+					'status': -2,
+					'reason': 'Error while posting article',
 				}, BadRequest )
 		else:
 			# If user does not exist, return success=False and incorrect
 			return self.create_response(request, {
 				'success': False,
+				'status': -3,
 				'reason': 'Logged out',
 			}, HttpForbidden )
 
@@ -345,7 +357,7 @@ class ArticleResource(ModelResource):
 		bundle.data['author'] = bundle.data["author"].obj
 		# get the timestamp of the date
 		bundle.data['date'] = format(bundle.data['date'], 'U')
-
+		bundle.data['tags'] = [tag for tag in bundle.obj.tags.all()]
 		# bundle.data['category'] = bundle.obj.category.name
 		# bundle.data['tags'] = []
 		# for x in bundle.obj.tags.all():
