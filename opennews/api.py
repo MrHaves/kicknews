@@ -303,14 +303,14 @@ class ArticleResource(ModelResource):
 		# Get the needed datas
 		title = data.get('title', '')
 		text = data.get('text', '')
-		memberId = Member.objects.filter(id=data.get('memberId', ''))
+		member = Member.objects.filter(id=data.get('memberId', ''))
 		category = Category.objects.filter(url=data.get('category', ''))
 		# coord = TODO
 
-		
 		# If user exist and is active
-		if memberId:
-			new_article = Article(title=title, text=text, memberId=memberId[0], category=category[0])
+		if member and member[0].user.is_authenticated():
+			memberId = member[0]
+			new_article = Article(title=title, text=text, memberId=memberId, category=category[0])
 			new_article.save()
 			if new_article:
 				upload_file_64 = data.get('media', '')

@@ -10,9 +10,9 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/mosaic.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'css/mosaic.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet prefetch' type='text/css'>
   {% block head %}
 
   {% endblock head %}
@@ -167,7 +167,6 @@
 
 	<script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/mosaic.js' %}"></script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
   <SCRIPT TYPE="text/javascript">
     	$(document).ready(function() {
@@ -178,7 +177,37 @@
     			'title': '<i class="icon-user" style="margin-top: 3px"></i>'+$('#logButton a').text(),
     			'html': 'true'
     		});
+
+    		//	Set background for each div/each category //
+    		var categoryBackground = [
+	      		"#3399CC",
+	      		"#33CCCC", 
+	      		"#C24747", 
+	      		"#996699", 
+	      		"#e2674a", 
+	      		"#FFCC66",
+	      		"#99CC99",
+	      		"#669999",
+	      		"#CC6699",
+	      		"#339966",
+	      		"#666699",
+	      		"#e2674a"
+	      	];
+	        var defaultBackgroundColor = "#C24747";
+					{% for cat in categories %}
+					  var catName = '{{cat.url}}';
+					  var catId = '{{cat.id}}';
+
+					  if (catId <= categoryBackground.length) {
+					  	$('li.active a#tab_' + catId).css("background-color", categoryBackground[catId]);
+					  	$('div.'+ catName).css("background-color", categoryBackground[catId]);
+					  }
+					  else {
+					  	$('div.' + catName).css("background-color", defaultBackgroundColor);
+					  }
+					{% endfor %}
     	});
+
     </SCRIPT>
     {% block script %}
 	{% endblock script %}

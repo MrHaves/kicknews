@@ -167,6 +167,46 @@ body { 	background-color: #eee !important;}
 	text-decoration: none;
 } 
 
+/** Menu items **/
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_1:hover  {
+  background-color: #33CCCC;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_2:hover {
+  background-color: #C24747;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_3:hover {
+  background-color: #996699;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_4:hover {
+  background-color: #e2674a;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_5:hover {
+  background-color: #FFCC66;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_6:hover {
+  background-color: #99CC99;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_7:hover {
+  background-color: #669999;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_8:hover {
+  background-color: #CC6699;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_9:hover {
+  background-color: #339966;
+}
+
+#main-nav .navbar .navbar-inner ul.nav-pills li #tab_10:hover {
+  background-color: #666699;
+}
 /*-------------------------------*/
 /*----------- CONTENT -----------*/
 /*-------------------------------*/
@@ -519,6 +559,7 @@ label {
 	display:inline-block;
 	vertical-align: middle;
 }
+
 
 
 /*----Preferences-----*/
