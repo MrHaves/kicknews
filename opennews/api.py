@@ -357,7 +357,7 @@ class ArticleResource(ModelResource):
 		bundle.data['author'] = bundle.data["author"].obj
 		# get the timestamp of the date
 		bundle.data['date'] = format(bundle.data['date'], 'U')
-
+		bundle.data['tags'] = [tag for tag in bundle.obj.tags.all()]
 		# bundle.data['category'] = bundle.obj.category.name
 		# bundle.data['tags'] = []
 		# for x in bundle.obj.tags.all():

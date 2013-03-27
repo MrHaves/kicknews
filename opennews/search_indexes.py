@@ -25,7 +25,7 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
         self.prepared_data = super(ArticleIndex, self).prepare(object)
         self.prepared_data['tags'] = [tag.tag for tag in object.tags.all()]
         self.prepared_data['text'] += '\n' + cleanString(self.prepared_data['text'])
-        self.prepared_data['quality'] = -self.prepared_data['quality']
+        self.prepared_data['quality'] = -self.prepared_data['quality']*object.fiability
         return self.prepared_data
 
 class FeedEntryIndex(indexes.SearchIndex, indexes.Indexable):
