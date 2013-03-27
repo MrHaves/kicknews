@@ -519,3 +519,28 @@ label {
 	display:inline-block;
 	vertical-align: middle;
 }
+
+
+/*----Preferences-----*/
+
+select#id_preferedCategoryIDs {
+	margin : 0 0 10px 10px;
+}
+
+.well input {
+	margin: 0 0 15px 10px;
+}
+
+input#id_geoloc, input#id_autoShare {
+	margin: -19px 980px 0 0 ;
+	float:right;
+	height: 10px;
+}
+
+label[for=id_pays]{
+	margin-top: 20px;
+}
+
+.well{
+	height: 700px;
+}
