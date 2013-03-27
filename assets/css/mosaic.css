@@ -169,8 +169,13 @@ ul{
   width:100%;
 }
 .small{
-  width:48%;
-  margin-right:2%;
+  width:49%;
+}
+.col1 .small:nth-child(even) {
+  margin-right: 2%;
+}
+.col2 .small:nth-child(odd), .col3 .small:nth-child(even) {
+  margin-right: 2%;
 }
 .big p {
   line-height:1.5;
