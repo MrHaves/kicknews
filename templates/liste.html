@@ -24,7 +24,7 @@
 	<a href="/categories/">All</a>
 	</li>
 	{% for cat in categories %}
-		<li {% if cat.url == catActive %}class="active"{% endif %}><a href="/categories/{{cat.url}}">{{cat|title}}</a></li>
+		<li {% if cat.url == catActive %}class="active"{% endif %}><a id="tab_{{cat.id}}" href="/categories/{{cat.url}}">{{cat|title}}</a></li>
 	{% endfor %}
 {% endblock menu %}
 
@@ -137,35 +137,6 @@
 
 {% block script %}
 <script type="text/javascript">
-
-	$(document).ready(
-	  setMosaicBackground()
-	);
-	/**
-	  Generating smooth color for background
-	**/
-	function get_random_color() {
-	    var letters = 'ABCDE'.split('');
-	    var color = '#';
-	    for (var i=0; i<3; i++ ) {
-	        color += letters[Math.floor(Math.random() * letters.length)];
-	    }
-	    return color;
-	}
-	/**
-		Set background for each div/each category
-	*/
-	function setMosaicBackground(){
-	      {% for cat in categories %}
-	      	var categoryBackground = {'economie' : "#3399CC", "sciences" : "#33CCCC", "sport" : "#C24747","sante" : "#996699"};
-	        var randomBackgroundColor = get_random_color();
-	        var catName = '{{cat.url}}';
-	        if (categoryBackground[catName])
-	        	$('.{{cat.url}}').css("background-color", categoryBackground[catName]);
-	        else
-	        	$('.{{cat.url}}').css("background-color", randomBackgroundColor);
-	      {% endfor %}
-	}
 
 	$('.commentArticleButton').bind('click',function(e) {
 		e.preventDefault();
