@@ -578,10 +578,64 @@ input#id_geoloc, input#id_autoShare {
 	height: 10px;
 }
 
-label[for=id_pays]{
+label[for=id_pays] {
 	margin-top: 20px;
 }
 
-.well{
+#preferences_form .well{
 	height: 700px;
+}
+
+
+/*-----write-------*/
+
+
+#well_title {
+	height : 310px;
+}
+
+#well_publish {
+	height : 110px;
+}
+
+label[for="id_category"] {
+    margin: 0 !important;
+}
+
+select#id_category {
+	margin : 5px 0 0 10px;
+}
+
+ul.select2-choices {
+	margin: 0 0 15px 10px !important;
+}
+
+.wysihtml5-sandbox {
+	margin : 0;
+}
+
+input#publish_article {
+	margin-bottom: 10px;
+	float: left;
+}
+
+button#discard {
+	float: right;
+	margin: -38px 850px 0 25px;
+}
+
+p#publish_now {
+	clear: both;
+	margin-left: 10px;
+}
+
+label[for="id_published"] {
+	float: left;
+}
+
+input#id_published {
+	margin: 0;
+	height: 10px;
+	float: right;
+	margin: -20px 945px 0 0;
 }

@@ -58,33 +58,13 @@
 			<li><a href="/register">register</a></li>
 		</ul>
 	</li>
-	<li>
-	<div id="wysihtml5-toolbar" style="display: none;">
-	  <ul class="commands">
-		  <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="createLink" title="Insert a link" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" href="javascript:;" unselectable="on"></li>
-		  <li data-wysihtml5-action="change_view" title="Show HTML" class="action" href="javascript:;" unselectable="on"></li>
-		</ul>
-		<div data-wysihtml5-dialog="createLink" style="display: none;">
-	        <label>
-	          Link:
-	          <input data-wysihtml5-dialog-field="href" value="http://">
-	        </label>
-	        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-	      </div>
-	</div>
-	</li>
+	
 
 {% endblock menu %}
 
 {% block content %}
 	<form enctype="multipart/form-data" action="/write" method="POST" id="write_form" class="form-inline">{% csrf_token %}
-		<div class="well">
+		<div class="well" id="well_title">
 			<p>
 				<label for="id_title">{{form.title.label}} : </label>
 				{{form.title}}
@@ -99,24 +79,50 @@
 			</p>
 		</div>
 
+		<!--<label for="id_text" style="margin-bottom:20px; margin-left:20px">Article content : </label>-->
 
-		<label for="id_text">Article content : </label> 
+		<li style="list-style-type:none;">
+			<div id="wysihtml5-toolbar" style="display: none;">
+	  			<ul class="commands">
+				  <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="createLink" title="Insert a link" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" href="javascript:;" unselectable="on"></li>
+				  <li data-wysihtml5-action="change_view" title="Show HTML" class="action" href="javascript:;" unselectable="on"></li>
+				</ul>
+				<div data-wysihtml5-dialog="createLink" style="display: none;">
+			        <label>
+				        Link:
+				        <input data-wysihtml5-dialog-field="href" value="http://">
+				    </label>
+			        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+		      	</div>
+			</div>
+		</li>
+ 
 		{{form.text}}<br><br>
 		{% if member.geoloc %}
 			<input id="id_coord" type="hidden" value="0,0" name="coordonnee">
 		{% endif %}
+
+
 		
-		<div class="well">
-			<p style="float: left; margin-right: 25px; margin-left: 25px;"><label for="id_published">Publish Now ?</label> 
-				{{form.published}}</p>
-		
-			<p style="float: left; margin-top: -4px">
-				<input class="btn btn-primary" type="submit" value="Poster un article">
+		<div class="well" id="well_publish">
+
+			<p>
+			<input id="publish_article" class="btn btn-primary" type="submit" value="Publish an article">
 			</p>
 
-			<p style="float: left; margin-top: -4px; margin-left: 25px">
-				<button id="discard" class="btn">Annulé</button>
+			<p>
+				<button id="discard" class="btn">Cancel</button>
 			</p>
+
+			<p id="publish_now"><label for="id_published">Publish now ?</label> 
+				{{form.published}}</p>
+
 		</div>
 	</form>
 {% endblock content %} 
